@@ -81,11 +81,13 @@ export function ScrollyCanvas() {
     const isMobile = canvasWidth < canvasHeight;
 
     if (isMobile) {
-      // Cinematic letterbox on mobile so it isn't wildly zoomed in
-      drawWidth = canvasWidth;
-      drawHeight = canvasWidth / imgRatio;
-      offsetX = 0;
-      // Center vertically but push it slightly up for better framing
+      // Scale it up significantly so it covers 65% of the screen height
+      drawHeight = canvasHeight * 0.65;
+      drawWidth = drawHeight * imgRatio;
+      
+      // Center the image horizontally so it smoothly bleeds off the left/right edges
+      offsetX = (canvasWidth - drawWidth) / 2;
+      // Vertically center but slightly higher
       offsetY = (canvasHeight - drawHeight) * 0.4;
     } else {
       if (imgRatio > canvasRatio) {
