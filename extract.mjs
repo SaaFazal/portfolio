@@ -2,12 +2,14 @@ import ffmpegPath from 'ffmpeg-static';
 import { execSync } from 'child_process';
 import fs from 'fs';
 
-const videoPath = 'A_smooth_cinematic_202603190312.mp4';
+const videoPath = 'Flow_202603190521.mp4';
 const outDir = 'public/sequence';
 
-if (!fs.existsSync(outDir)) {
-  fs.mkdirSync(outDir, { recursive: true });
+// Clear old frames to prevent lingering frames if the new video is shorter
+if (fs.existsSync(outDir)) {
+  fs.rmSync(outDir, { recursive: true, force: true });
 }
+fs.mkdirSync(outDir, { recursive: true });
 
 // Follow ezgif guide recommendations: 15fps, quality 85, WebP format
 console.log('Automating Phase 2: Extracting frames for Scrollytelling...');
