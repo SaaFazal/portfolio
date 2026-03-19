@@ -2,7 +2,7 @@ import ffmpegPath from 'ffmpeg-static';
 import { execSync } from 'child_process';
 import fs from 'fs';
 
-const videoPath = 'Flow_202603190521.mp4';
+const videoPath = 'HomeWeb.mp4';
 const outDir = 'public/sequence';
 
 // Clear old frames to prevent lingering frames if the new video is shorter

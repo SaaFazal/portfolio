@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 import { useScroll, useMotionValueEvent } from 'framer-motion';
 import { Overlay } from './Overlay';
 
-const FRAME_COUNT = 120; // Number of frames extracted by ffmpeg
+const FRAME_COUNT = 121; // Number of frames extracted by ffmpeg
 
 export function ScrollyCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
