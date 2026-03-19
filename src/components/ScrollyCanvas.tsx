@@ -69,7 +69,7 @@ export function ScrollyCanvas() {
     const sourceX = 0;
     const sourceY = 0;
 
-    // object-fit: cover logic using the cropped dimensions
+    // object-fit logic
     const imgRatio = sourceWidth / sourceHeight;
     const canvasRatio = canvasWidth / canvasHeight;
 
@@ -78,28 +78,55 @@ export function ScrollyCanvas() {
     let offsetX = 0;
     let offsetY = 0;
 
-    if (imgRatio > canvasRatio) {
-      drawWidth = canvasHeight * imgRatio;
-      offsetX = (canvasWidth - drawWidth) / 2;
-    } else {
+    const isMobile = canvasWidth < canvasHeight;
+
+    if (isMobile) {
+      // Cinematic letterbox on mobile so it isn't wildly zoomed in
+      drawWidth = canvasWidth;
       drawHeight = canvasWidth / imgRatio;
-      offsetY = (canvasHeight - drawHeight) / 2;
+      offsetX = 0;
+      // Center vertically but push it slightly up for better framing
+      offsetY = (canvasHeight - drawHeight) * 0.4;
+    } else {
+      if (imgRatio > canvasRatio) {
+        drawWidth = canvasHeight * imgRatio;
+        offsetX = (canvasWidth - drawWidth) / 2;
+      } else {
+        drawHeight = canvasWidth / imgRatio;
+        offsetY = (canvasHeight - drawHeight) / 2;
+      }
     }
 
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     
-    // Optional: dark gradient overlay backing if images have bright areas
+    // Background base
     ctx.fillStyle = '#050505'; 
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
     
-    // Draw the Cropped Image
+    // Draw the image
     ctx.drawImage(
       img, 
       sourceX, sourceY, sourceWidth, sourceHeight,
       offsetX, offsetY, drawWidth, drawHeight
     );
     
-    // Add a dark semi-transparent overlay directly on canvas to ensure text is ALWAYS readable
+    if (isMobile) {
+      // Seamlessly fade the top edge of the letterboxed video
+      const topGrad = ctx.createLinearGradient(0, offsetY, 0, offsetY + 60);
+      topGrad.addColorStop(0, '#050505');
+      topGrad.addColorStop(1, 'transparent');
+      ctx.fillStyle = topGrad;
+      ctx.fillRect(0, offsetY, canvasWidth, 60);
+
+      // Seamlessly fade the bottom edge
+      const botGrad = ctx.createLinearGradient(0, offsetY + drawHeight - 60, 0, offsetY + drawHeight);
+      botGrad.addColorStop(0, 'transparent');
+      botGrad.addColorStop(1, '#050505');
+      ctx.fillStyle = botGrad;
+      ctx.fillRect(0, offsetY + drawHeight - 60, canvasWidth, 60);
+    }
+
+    // Overlay to ensure text readability
     ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
   };
