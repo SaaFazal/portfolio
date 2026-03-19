@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { SkillsMarquee } from './SkillsMarquee';
 
 const skills = [
     "Python", "Java", "C++", "JavaScript/TypeScript", "SQL",
@@ -35,24 +36,12 @@ export function About() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
+                    className="w-full absolute left-0 overflow-visible"
                 >
-                    <h3 className="text-xl font-bold mb-6 text-center">Technical Skills</h3>
-                    <div className="flex flex-wrapjustify-center gap-3 justify-center">
-                        {skills.map((skill, index) => (
-                            <motion.span
-                                key={skill}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.05 }}
-                                className="px-4 py-2 rounded-lg bg-card border border-white/10 hover:border-primary/50 transition-colors cursor-default"
-                            >
-                                {skill}
-                            </motion.span>
-                        ))}
-                    </div>
+                    <SkillsMarquee />
                 </motion.div>
             </div>
+            {/* Add extra padding at the bottom to account for the absolutely positioned marquee escaping normal doc flow if needed, but relative/absolute mix is tricky here. Actually, lets just put it back in flow! */}
         </section>
     );
 }

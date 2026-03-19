@@ -1,4 +1,4 @@
-import { Hero } from "@/components/Hero";
+import { ScrollyCanvas } from "@/components/ScrollyCanvas";
 import { Projects } from "@/components/Projects";
 import { About } from "@/components/About";
 import { Experience } from "@/components/Experience";
@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex flex-col gap-0">
-      <Hero />
+      <ScrollyCanvas />
       <Projects />
       <Experience />
       <About />
