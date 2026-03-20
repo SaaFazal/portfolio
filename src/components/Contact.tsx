@@ -11,10 +11,27 @@ export function Contact() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simulate network request
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setIsSubmitting(false);
-        setIsSubmitted(true);
+        
+        try {
+            const form = e.target as HTMLFormElement;
+            const formData = new FormData(form);
+            // Replace with your Web3Forms access key from web3forms.com
+            formData.append("access_key", "YOUR_ACCESS_KEY_HERE"); 
+            
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+
+            if (response.ok) {
+                setIsSubmitted(true);
+                form.reset();
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -52,6 +69,7 @@ export function Contact() {
                                             required
                                             type="text" 
                                             id="name" 
+                                            name="name"
                                             className="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-sans"
                                             placeholder="John Doe"
                                         />
@@ -62,6 +80,7 @@ export function Contact() {
                                             required
                                             type="email" 
                                             id="email" 
+                                            name="email"
                                             className="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-sans"
                                             placeholder="john@example.com"
                                         />
@@ -73,6 +92,7 @@ export function Contact() {
                                     <textarea 
                                         required
                                         id="message" 
+                                        name="message"
                                         rows={4}
                                         className="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none font-sans"
                                         placeholder="Tell me about your project..."

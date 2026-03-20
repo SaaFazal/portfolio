@@ -33,9 +33,9 @@ export function Overlay({ progress }: OverlayProps) {
         <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight text-white drop-shadow-xl shadow-black">
           Sahadh Fazal Mohamed
         </h1>
-        <p className="text-xl md:text-2xl text-white/90 font-medium tracking-wide shadow-black drop-shadow-md">
-          Software Engineer | Cloud | AI
-        </p>
+          <p className="text-sm md:text-xl font-medium text-white/70 tracking-widest uppercase">
+            Full Stack Developer | Mobile & Web | EPOS Systems
+          </p>
       </motion.div>
 
       {/* Section 2 */}
