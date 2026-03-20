@@ -12,9 +12,9 @@ export const projects: Project[] = [
   {
     id: 'arasan-travels',
     title: 'Arasan Travels',
-    description: 'A high-end travel management platform featuring automated booking workflows and real-time flight/hotel synchronization. This system transformed traditional operations into a cloud-first experience with verified Arasan branding.',
+    description: 'A professional travel management platform featuring automated booking workflows and real-time flight/hotel synchronization. Fully branded for Arasan Travels with a cloud-first infrastructure.',
     tags: ['React', 'Next.js', 'API Integration', 'Cloud Systems'],
-    link: 'https://www.londonsundaratravels.co.uk',
+    link: 'http://www.arasantravels.co.uk',
     image: '/projects/arasan-travels.png',
   },
   {
@@ -44,9 +44,9 @@ export const projects: Project[] = [
   {
     id: 'trukbk-web',
     title: 'TRUKBK Transformation',
-    description: 'Digital architectural modification of a premium industrial e-commerce site. Implemented a high-contrast design system, custom vehicle parts configurator, and corporate-standard typography for a high-end feel.',
+    description: 'Lead digital architectural modification for TRUKBK. "Engineered for Dominance" - Implemented a high-contrast industrial design system, custom vehicle parts configurator, and corporate typography.',
     tags: ['Vite', 'Industrial Design', 'Tailwind CSS', 'Supabase'],
-    link: '#',
+    link: 'https://truckbk.vercel.app/',
     image: '/projects/trukbk-web.webp',
   },
   {
