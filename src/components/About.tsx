@@ -23,11 +23,10 @@ export function About() {
                 >
                     <h2 className="text-3xl md:text-5xl font-bold mb-6">About <span className="text-gradient-primary">Me</span></h2>
                     <p className="text-lg text-muted-foreground leading-relaxed text-justify md:text-center">
-                        Final-year BSc Computer Science student at Nottingham Trent University, on track for a 2:1.
-                        I have hands-on experience in software engineering, AI/ML, and cloud computing.
-                        Skilled in Python, Java, and full-stack development using React and Django.
-                        I am passionate about applying data analytics, automation, and scalable cloud architectures to solve real-world problems.
-                        Currently leading a team developing a mobile application for FF Smart Fridge.
+                        I am a Full Stack Developer and Final-year BSc Computer Science student at Nottingham NTU. 
+                        I specialize in building high-performance **Mobile Applications**, **Scalable Web Systems**, and **Custom EPOS Solutions** for businesses.
+                        With expertise in Python, Java, and JavaScript/TypeScript, I bridge the gap between complex backend logic and intuitive user experiences.
+                        From automating travel booking flows to designing demand-forecasting AI for supply chains, I am passionate about creating software that delivers measurable real-world impact.
                     </p>
                 </motion.div>
 

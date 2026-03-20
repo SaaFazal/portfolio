@@ -10,6 +10,12 @@ const experience = [
         desc: "Managed stock inventory and ensured product availability. Implemented data analysis techniques to optimize stock management processes. Collaborated with cross-functional teams to improve supply chain efficiency and developed data-driven strategies to enhance product distribution."
     },
     {
+        role: "Full Stack Developer (Freelance)",
+        company: "Self-Employed / Independent Projects",
+        period: "2023 - Present",
+        desc: "Designed and deployed custom EPOS (Electronic Point of Sale) systems and management dashboards for local businesses. Engineered high-performance mobile ordering apps using Firebase for real-time synchronization and React/Next.js for administrative control panels."
+    },
+    {
         role: "Website Designer (Part-Time)",
         company: "London Sundara Travels, London",
         period: "07/2025 – Present",
