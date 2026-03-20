@@ -34,7 +34,7 @@ export function Overlay({ progress }: OverlayProps) {
           Sahadh Fazal Mohamed
         </h1>
           <p className="text-sm md:text-xl font-medium text-white/70 tracking-widest uppercase">
-            Full Stack Developer | Mobile & Web | EPOS Systems
+            Software Engineer | AI | Full Stack Developer
           </p>
       </motion.div>
 
