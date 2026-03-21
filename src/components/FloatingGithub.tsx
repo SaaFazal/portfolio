@@ -13,7 +13,7 @@ export function FloatingGithub() {
             animate={{ opacity: 1, scale: 1, x: 0 }}
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.9 }}
-            className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-white text-black shadow-2xl hover:bg-primary hover:text-white transition-colors group"
+            className="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-[120] p-4 rounded-full bg-white text-black shadow-2xl hover:bg-primary hover:text-white transition-colors group"
             title="View my GitHub"
         >
             <Github size={24} />
