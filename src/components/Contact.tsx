@@ -15,8 +15,7 @@ export function Contact() {
         try {
             const form = e.target as HTMLFormElement;
             const formData = new FormData(form);
-            // Replace with your Web3Forms access key from web3forms.com
-            formData.append("access_key", "YOUR_ACCESS_KEY_HERE"); 
+            formData.append("access_key", "290deb64-2f69-46d0-a5d7-ae99b6f1ce7a"); 
             
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
