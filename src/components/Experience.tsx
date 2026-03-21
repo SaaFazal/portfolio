@@ -6,7 +6,7 @@ const experience = [
     {
         role: "Data Analyst and Admin Manager",
         company: "U-shop international store",
-        period: "Sep 2023 - Present",
+        period: "Sep 2023 - July 2025",
         desc: "Managed stock inventory and ensured product availability. Implemented data analysis techniques to optimize stock management processes. Collaborated with cross-functional teams to improve supply chain efficiency and developed data-driven strategies to enhance product distribution."
     },
     {
@@ -16,10 +16,10 @@ const experience = [
         desc: "Designed and deployed custom EPOS (Electronic Point of Sale) systems and management dashboards for local businesses. Engineered high-performance mobile ordering apps using Firebase for real-time synchronization and React/Next.js for administrative control panels."
     },
     {
-        role: "Website Designer (Part-Time)",
-        company: "London Sundara Travels, London",
-        period: "07/2025 – Present",
-        desc: "Launched a travel-booking site using Squarespace and AppScript. Automated booking approvals and Stripe payment reconciliation for 50+ monthly transactions. Built an end-to-end booking system integrating Google Forms and Sheets."
+        role: "Website Designer (Remote)",
+        company: "Arasan Travels, London",
+        period: "July 2025 – Present",
+        desc: "Built and launched a travel-booking website using Squarespace with custom HTML/CSS/JavaScript and Google Apps Script integrations. Automated booking approvals and Stripe payment reconciliation for 50+ monthly transactions via Apps Script + Google Sheets workflows."
     }
 ];
 
@@ -27,8 +27,8 @@ const education = [
     {
         degree: "BSc: Computer Science (Hons)",
         school: "Nottingham Trent University",
-        period: "09/2023 – 06/2027",
-        details: "On track for 2:1. Modules include Advanced Analysis & Design, Mobile Application Development, AI, and Cloud Computing. Team Leader for FF Smart Fridge project."
+        period: "Sep 2023 – June 2026",
+        details: "On track for Exceptional First. Modules include Advanced Analysis & Design, Final Year Project, Mobile Application Development, Artificial Intelligence, and Service-Centric & Cloud Computing."
     },
     {
         degree: "AISSCE: Information Technology and Science",
@@ -91,6 +91,7 @@ export function Experience() {
                                 <li>Google Machine Learning Crash Course</li>
                                 <li>AWS Educate Cloud Foundations</li>
                                 <li>Microsoft PyTorch Fundamentals</li>
+                                <li>Data Analysis with Python (freeCodeCamp)</li>
                                 <li>Docker Essentials (IBM SkillsBuild)</li>
                             </ul>
                         </div>

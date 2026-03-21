@@ -3,6 +3,7 @@ import { Caveat } from "next/font/google";
 import "./globals.css";
 import { Cursor } from "@/components/Cursor";
 import { Navigation } from "@/components/Navigation";
+import { FloatingGithub } from "@/components/FloatingGithub";
 
 const caveat = Caveat({ subsets: ["latin"], weight: ["400", "700"], variable: '--font-caveat' });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         <div className="fixed inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
         <Cursor />
         <Navigation />
+        <FloatingGithub />
         <main className="relative z-10 w-full">
           {children}
         </main>

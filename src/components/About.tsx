@@ -24,7 +24,7 @@ export function About() {
                     <h2 className="text-3xl md:text-5xl font-bold mb-6">About <span className="text-gradient-primary">Me</span></h2>
                     <p className="text-lg text-muted-foreground leading-relaxed text-justify md:text-center">
                         I am a Full Stack Developer and Final-year BSc Computer Science student at Nottingham NTU. 
-                        I specialize in building high-performance **Mobile Applications**, **Scalable Web Systems**, and **Custom EPOS Solutions** for businesses.
+                        I specialize in building high-performance <strong className="text-white">Mobile Applications</strong>, <strong className="text-white">Scalable Web Systems</strong>, and <strong className="text-white">Custom EPOS Solutions</strong> for businesses.
                         With expertise in Python, Java, and JavaScript/TypeScript, I bridge the gap between complex backend logic and intuitive user experiences.
                         From automating travel booking flows to designing demand-forecasting AI for supply chains, I am passionate about creating software that delivers measurable real-world impact.
                     </p>

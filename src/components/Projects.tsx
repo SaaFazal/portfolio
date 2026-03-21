@@ -71,7 +71,7 @@ export function Projects() {
 
                                     <div className="p-6 flex-1 flex flex-col" style={{ transform: "translateZ(30px)" }}>
                                         <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
-                                        <p className="text-sm text-muted-foreground mb-6 line-clamp-3 flex-1">
+                                        <p className="text-sm text-muted-foreground mb-6 flex-1">
                                             {project.description}
                                         </p>
                                         <div className="flex flex-wrap gap-2 mt-auto">
