@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - Phat Bot',
-  description: 'Privacy Policy for Phat Bot, developed by Sahadh Fazal.',
+  title: 'Privacy Policy - PhatOps',
+  description: 'Privacy Policy for PhatOps, developed by Sahadh Fazal.',
 };
 
 export default function PrivacyPolicy() {
@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
           <article className="prose prose-invert max-w-none space-y-8 text-foreground/80 leading-relaxed">
             <section>
               <p>
-                This Privacy Policy explains how <strong>Phat Bot</strong> (the "App"), developed by Sahadh Fazal, collects, uses, and discloses information about you when you use our mobile application designed for restaurant operations and staff management.
+                This Privacy Policy explains how <strong>PhatOps</strong> (the "App"), developed by Sahadh Fazal, collects, uses, and discloses information about you when you use our mobile application designed for restaurant operations and staff management.
               </p>
             </section>
 
