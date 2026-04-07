@@ -44,7 +44,7 @@ export function Contact() {
                 >
                     <h2 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Let&apos;s Work <span className="text-gradient-primary">Together</span></h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                        Have a project in mind or just want to say hi? Send me a message!
+                        Whether you have a new project in mind, found an issue with my work, or just want to collaborate—get in touch!
                     </p>
                 </motion.div>
 
@@ -94,7 +94,7 @@ export function Contact() {
                                         name="message"
                                         rows={4}
                                         className="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none font-sans"
-                                        placeholder="Tell me about your project..."
+                                        placeholder="How can I help you?"
                                     />
                                 </div>
 
