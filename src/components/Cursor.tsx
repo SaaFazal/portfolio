@@ -29,13 +29,30 @@ export function Cursor() {
   }
 
   return (
-    <motion.div
-      className="fixed top-0 left-0 w-8 h-8 rounded-full bg-white mix-blend-difference pointer-events-none z-[9999] md:block hidden"
-      style={{
-        x: cursorXSpring,
-        y: cursorYSpring,
-        opacity: isVisible ? 1 : 0
-      }}
-    />
+    <>
+      {/* Target Dot */}
+      <motion.div
+        className="fixed top-0 left-0 w-4 h-4 rounded-full bg-white pointer-events-none z-[9999] md:block hidden"
+        style={{
+          x: cursorXSpring,
+          y: cursorYSpring,
+          opacity: isVisible ? 1 : 0,
+          translateX: '50%',
+          translateY: '50%',
+        }}
+      />
+      
+      {/* Outer Glow */}
+      <motion.div
+        className="fixed top-0 left-0 w-32 h-32 rounded-full bg-primary/20 blur-2xl pointer-events-none z-[9998] md:block hidden"
+        style={{
+          x: cursorXSpring,
+          y: cursorYSpring,
+          opacity: isVisible ? 0.3 : 0,
+          translateX: '-40%',
+          translateY: '-40%',
+        }}
+      />
+    </>
   );
 }

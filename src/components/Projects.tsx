@@ -51,8 +51,8 @@ export function Projects() {
                             className="h-full"
                         >
                             <TiltCard className="h-full">
-                                <div className="group relative bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 h-full flex flex-col shadow-2xl">
-                                    <div className="aspect-video bg-black/60 relative overflow-hidden" style={{ transform: "translateZ(40px)" }}>
+                                <div className="group relative bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl hover:border-primary/50 transition-all duration-500 h-full flex flex-col shadow-2xl overflow-visible">
+                                    <div className="aspect-video bg-black/60 relative overflow-hidden rounded-t-[22px]" style={{ transform: "translateZ(40px)" }}>
                                         {project.image ? (
                                             <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
                                         ) : (
