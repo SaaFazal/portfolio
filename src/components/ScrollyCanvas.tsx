@@ -1,6 +1,6 @@
 'use client';
 import { useRef, useEffect, useState } from 'react';
-import { useScroll, useMotionValueEvent } from 'framer-motion';
+import { useScroll, useMotionValueEvent, useSpring } from 'framer-motion';
 import { Overlay } from './Overlay';
 
 const FRAME_COUNT = 121; // Number of frames extracted by ffmpeg
@@ -14,6 +14,13 @@ export function ScrollyCanvas() {
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
+  });
+
+  // Add smoothing to the scroll progress
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 70,
+    damping: 30,
+    restDelta: 0.001
   });
 
   // Preload sequence
@@ -31,29 +38,25 @@ export function ScrollyCanvas() {
            if (loadedCount === FRAME_COUNT) {
              setImages(loadedImages);
              setIsLoaded(true);
-             drawFrame(loadedImages[0]);
+             requestAnimationFrame(() => drawFrame(loadedImages[0]));
            }
         };
         img.onerror = () => {
-           // Fallback in case a frame is missing
            loadedCount++;
            if (loadedCount === FRAME_COUNT) {
              setImages(loadedImages);
              setIsLoaded(true);
-             drawFrame(loadedImages[0]);
+             requestAnimationFrame(() => drawFrame(loadedImages[0]));
            }
         };
         loadedImages.push(img);
     }
   }, []);
 
-  const drawFrame = (img: HTMLImageElement | undefined) => {
-    if (!canvasRef.current || !img) return;
+  // Update canvas size only on resize to prevent expensive layout thrashing
+  const updateCanvasSize = () => {
+    if (!canvasRef.current) return;
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    // Handle high-DPI displays for crisp rendering
     const dpr = window.devicePixelRatio || 1;
     const canvasWidth = window.innerWidth;
     const canvasHeight = window.innerHeight;
@@ -61,7 +64,33 @@ export function ScrollyCanvas() {
     canvas.width = canvasWidth * dpr;
     canvas.height = canvasHeight * dpr;
     
-    ctx.scale(dpr, dpr);
+    // Redraw current frame if images are loaded
+    if (images.length > 0) {
+      const frameIndex = Math.min(
+          FRAME_COUNT - 1,
+          Math.floor(smoothProgress.get() * FRAME_COUNT)
+      );
+      drawFrame(images[frameIndex]);
+    }
+  };
+
+  useEffect(() => {
+    updateCanvasSize();
+    window.addEventListener('resize', updateCanvasSize);
+    return () => window.removeEventListener('resize', updateCanvasSize);
+  }, [images]);
+
+  const drawFrame = (img: HTMLImageElement | undefined) => {
+    if (!canvasRef.current || !img) return;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const dpr = window.devicePixelRatio || 1;
+    const canvasWidth = canvas.width / dpr;
+    const canvasHeight = canvas.height / dpr;
+    
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     
     // Crop bottom 10% to remove 'veo' watermark
     const sourceWidth = img.width;
@@ -81,13 +110,9 @@ export function ScrollyCanvas() {
     const isMobile = canvasWidth < canvasHeight;
 
     if (isMobile) {
-      // Scale it up significantly so it covers 65% of the screen height
       drawHeight = canvasHeight * 0.65;
       drawWidth = drawHeight * imgRatio;
-      
-      // Center the image horizontally so it smoothly bleeds off the left/right edges
       offsetX = (canvasWidth - drawWidth) / 2;
-      // Vertically center but slightly higher
       offsetY = (canvasHeight - drawHeight) * 0.4;
     } else {
       if (imgRatio > canvasRatio) {
@@ -113,14 +138,12 @@ export function ScrollyCanvas() {
     );
     
     if (isMobile) {
-      // Seamlessly fade the top edge of the letterboxed video
       const topGrad = ctx.createLinearGradient(0, offsetY, 0, offsetY + 60);
       topGrad.addColorStop(0, '#050505');
       topGrad.addColorStop(1, 'transparent');
       ctx.fillStyle = topGrad;
       ctx.fillRect(0, offsetY, canvasWidth, 60);
 
-      // Seamlessly fade the bottom edge
       const botGrad = ctx.createLinearGradient(0, offsetY + drawHeight - 60, 0, offsetY + drawHeight);
       botGrad.addColorStop(0, 'transparent');
       botGrad.addColorStop(1, '#050505');
@@ -128,34 +151,19 @@ export function ScrollyCanvas() {
       ctx.fillRect(0, offsetY + drawHeight - 60, canvasWidth, 60);
     }
 
-    // Overlay to ensure text readability
+    // Overlay
     ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
   };
 
-  // Update canvas on window resize to maintain cover fit
-  useEffect(() => {
-    const handleResize = () => {
-      if (images.length > 0) {
-        const frameIndex = Math.min(
-            FRAME_COUNT - 1,
-            Math.floor(scrollYProgress.get() * FRAME_COUNT)
-        );
-        drawFrame(images[frameIndex]);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [images, scrollYProgress]);
-
-  // Core animation loop linked to scroll
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  // Core smooth animation loop
+  useMotionValueEvent(smoothProgress, "change", (latest: number) => {
     if (images.length === 0) return;
     const frameIndex = Math.min(
-        FRAME_COUNT - 1,   // max index is 119
+        FRAME_COUNT - 1,
         Math.floor(latest * FRAME_COUNT)
     );
-    drawFrame(images[frameIndex]);
+    requestAnimationFrame(() => drawFrame(images[frameIndex]));
   });
 
   return (
