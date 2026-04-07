@@ -71,9 +71,20 @@ export function Projects() {
 
                                     <div className="p-6 flex-1 flex flex-col" style={{ transform: "translateZ(30px)" }}>
                                         <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
-                                        <p className="text-sm text-muted-foreground mb-6 flex-1">
+                                        <p className="text-sm text-muted-foreground mb-4">
                                             {project.description}
                                         </p>
+                                        
+                                        {project.linkLabel && (
+                                            <Link 
+                                                href={project.link || '#'} 
+                                                className="text-xs font-semibold text-primary hover:text-primary/80 transition-colors mb-6 inline-flex items-center gap-1 group/link"
+                                            >
+                                                {project.linkLabel}
+                                                <ArrowUpRight size={14} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                                            </Link>
+                                        )}
+
                                         <div className="flex flex-wrap gap-2 mt-auto">
                                             {project.tags.map(tag => (
                                                 <span key={tag} className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 uppercase tracking-wider">

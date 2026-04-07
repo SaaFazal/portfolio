@@ -4,6 +4,7 @@ export interface Project {
   description: string;
   tags: string[];
   link?: string;
+  linkLabel?: string;
   github?: string;
   image?: string;
 }
@@ -21,8 +22,9 @@ export const projects: Project[] = [
     id: 'phat-bot',
     title: 'Phat Bot',
     description: 'Phat Bot is a comprehensive management solution for high-volume restaurants. Centralizes staff scheduling, multi-unit task management, and digital shift logs to streamline daily operations and labor efficiency. Implemented auth and database integration with Supabase for real-time tracking.',
-    tags: ['Next.js', 'Redux', 'Node.js', 'Operations'],
+    tags: ['Next.js', 'Node.js', 'Operations'],
     link: '/privacy-policy',
+    linkLabel: 'Privacy Policy',
     image: '/projects/restaurant-ops.png',
   },
   {
