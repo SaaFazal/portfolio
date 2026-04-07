@@ -18,11 +18,11 @@ export const projects: Project[] = [
     image: '/projects/arasan-travels.png',
   },
   {
-    id: 'restaurant-ops',
-    title: 'Restaurant Operations Suite',
-    description: 'A comprehensive management solution for high-volume restaurants (including PhatBuns). Centralizes staff scheduling, multi-unit task management, and digital shift logs to streamline daily operations and labor efficiency. Implemented auth and database integration with Supabase for real-time tracking. Do you want to see more of this project? Contact me.',
+    id: 'phat-bot',
+    title: 'Phat Bot',
+    description: 'Phat Bot is a comprehensive management solution for high-volume restaurants. Centralizes staff scheduling, multi-unit task management, and digital shift logs to streamline daily operations and labor efficiency. Implemented auth and database integration with Supabase for real-time tracking.',
     tags: ['Next.js', 'Redux', 'Node.js', 'Operations'],
-    link: '#',
+    link: '/privacy-policy',
     image: '/projects/restaurant-ops.png',
   },
   {

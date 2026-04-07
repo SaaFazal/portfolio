@@ -23,7 +23,26 @@ export default function RootLayout({
       <body
         className={`antialiased bg-background text-foreground font-sans ${caveat.variable}`}
       >
-        <div className="fixed inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+        <div className="fixed inset-0 bg-background overflow-hidden pointer-events-none">
+          {/* Main Background Glow */}
+          <div className="absolute inset-0 bg-circle-glow opacity-30" />
+          
+          {/* Subtle Premium Dot Grid */}
+          <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] opacity-[0.4]" 
+               style={{ 
+                 backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0)`,
+                 backgroundSize: '32px 32px'
+               }} 
+          />
+          
+          {/* Secondary Layer for Depth */}
+          <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,transparent_0%,black_80%)] opacity-[0.1]"
+               style={{ 
+                 backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)`,
+                 backgroundSize: '64px 64px'
+               }} 
+          />
+        </div>
         <Cursor />
         <Navigation />
         <FloatingLinkedin />
