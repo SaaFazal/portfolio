@@ -13,7 +13,7 @@ export const projects: Project[] = [
   {
     id: 'arasan-travels',
     title: 'Arasan Travels',
-    description: 'A professional travel management platform featuring automated booking workflows and real-time flight/hotel synchronization. Fully branded for Arasan Travels with a cloud-first infrastructure. Built an end-to-end booking pipeline integrating Google Forms and Apps Script. Do you want to see more of this project? Contact me.',
+    description: 'Architected and deployed a custom travel-booking platform. Software engineered an end-to-end automated booking pipeline with Stripe payment reconciliations, reducing manual administration time by 15%. Fully cloud-first infrastructure. Do you want to see more of this project? Contact me.',
     tags: ['React', 'Next.js', 'API Integration', 'Cloud Systems'],
     link: 'http://www.arasantravels.co.uk',
     image: '/projects/arasan-travels.png',
@@ -46,10 +46,18 @@ export const projects: Project[] = [
   {
     id: 'trukbk-web',
     title: 'TRUKBK Transformation',
-    description: 'Lead digital architectural modification for TRUKBK. "Engineered for Dominance" - Implemented a high-contrast industrial design system, custom vehicle parts configurator, and corporate typography. Focused on performance and industrial-grade aesthetics. Do you want to see more of this project? Contact me.',
-    tags: ['Vite', 'Industrial Design', 'Tailwind CSS', 'Supabase'],
+    description: 'Engineered a high-performance vehicle configurator and an autonomous AI Sales Concierge using the Coze platform. Integrated RAG workflows for dynamic pricing retrieval and multi-modal plugins. Focused on performance and industrial-grade aesthetics. Do you want to see more of this project? Contact me.',
+    tags: ['AI Agent', 'RAG', 'React', 'Supabase'],
     link: 'https://truckbk.vercel.app/',
     image: '/projects/trukbk-web.webp',
+  },
+  {
+    id: 'uni-chatbot',
+    title: 'Vision-Language AI Chatbot',
+    description: 'Engineered an intelligent conversational agent combining NLP and Computer Vision. Utilized a VGG19 deep learning model for image classification and AIML for logical reasoning. Implemented RAG (Retrieval-Augmented Generation) workflows for contextual conversation handling. Do you want to see more of this project? Contact me.',
+    tags: ['Python', 'VGG19', 'NLP', 'RAG'],
+    link: '#',
+    image: '/projects/chatbot.png',
   },
   {
     id: 'ai-supplychain',
