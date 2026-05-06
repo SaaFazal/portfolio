@@ -25,7 +25,7 @@ export function Hero() {
                 </h1>
 
                 <p className="text-primary font-bold tracking-[0.2em] uppercase text-sm md:text-base mb-12">
-                    Software Engineer | AI Developer
+                    Software Engineer | AI Engineer
                 </p>
 
                 {/* Navigation Pills */}
