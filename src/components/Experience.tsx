@@ -4,37 +4,31 @@ import { motion } from 'framer-motion';
 
 const experience = [
     {
-        role: "Data Analyst and Admin Manager",
-        company: "U-shop international store",
-        period: "Sep 2023 - July 2025",
-        desc: "Managed stock inventory and ensured product availability. Implemented data analysis techniques to optimize stock management processes. Collaborated with cross-functional teams to improve supply chain efficiency and developed data-driven strategies to enhance product distribution."
+        role: "Software Engineer (Freelance)",
+        company: "TRUKBK",
+        period: "March 2026 - Present",
+        desc: "Engineered a high-performance vehicle configurator and client platform from scratch. Developed an autonomous AI Sales Concierge on the Coze platform using RAG workflows to handle customer lead generation and dynamic pricing estimations."
     },
     {
-        role: "Full Stack Developer (Freelance)",
-        company: "Self-Employed / Independent Projects",
-        period: "2023 - Present",
-        desc: "Designed and deployed custom EPOS (Electronic Point of Sale) systems and management dashboards for local businesses. Engineered high-performance mobile ordering apps using Firebase for real-time synchronization and React/Next.js for administrative control panels."
+        role: "Software Engineer (Remote)",
+        company: "Arasan Travels London",
+        period: "August 2025 – Jan 2026",
+        desc: "Architected and deployed a custom travel-booking platform using HTML/CSS/JS and Google Apps Script integrations. Automated 50+ monthly booking approvals and Stripe payment reconciliations, reducing manual administration time by 15%."
     },
     {
-        role: "Website Designer (Remote)",
-        company: "Arasan Travels, London",
-        period: "July 2025 – Present",
-        desc: "Built and launched a travel-booking website using Squarespace with custom HTML/CSS/JavaScript and Google Apps Script integrations. Automated booking approvals and Stripe payment reconciliation for 50+ monthly transactions via Apps Script + Google Sheets workflows."
+        role: "Application Developer & Store Assistant",
+        company: "PHAT Buns UK",
+        period: "Dec 2024 - Dec 2025",
+        desc: "Engineered 'PhatOps', a cross-platform mobile application for restaurant operations featuring real-time order tracking and secure authentication. Reduced frontend rendering latency by 20% through optimised reusable components and Supabase queries."
     }
 ];
 
 const education = [
     {
-        degree: "BSc: Computer Science (Hons)",
+        degree: "BSc Computing Science (Hons)",
         school: "Nottingham Trent University",
         period: "Sep 2023 – June 2026",
-        details: "On track for Exceptional First. Modules include Advanced Analysis & Design, Final Year Project, Mobile Application Development, Artificial Intelligence, and Service-Centric & Cloud Computing."
-    },
-    {
-        degree: "AISSCE: Information Technology and Science",
-        school: "KV International School (CBSE)",
-        period: "06/2011 – 05/2023",
-        details: "CBSE 12th"
+        details: "On track for Exceptional First. Modules include Artificial Intelligence, Cloud Computing, Mobile Application Development, and Advanced Analysis & Design."
     }
 ];
 
