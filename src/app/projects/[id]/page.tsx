@@ -103,13 +103,18 @@ export default function ProjectDetail() {
                 {/* Main Video or Feature Image */}
                 <div className="md:col-span-2 aspect-video relative overflow-hidden rounded-3xl border border-white/10 group">
                   {project.youtubeId ? (
-                    <iframe
-                      src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${project.youtubeId}&controls=1&rel=0&modestbranding=1`}
-                      className="w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      title={`${project.title} demo`}
-                    />
+                    <div className="relative w-full h-full overflow-hidden">
+                      <iframe
+                        src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${project.youtubeId}&controls=0&rel=0&modestbranding=1&iv_load_policy=3&showinfo=0`}
+                        className="w-full h-full scale-[1.03]"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        title={`${project.title} demo`}
+                      />
+                      {/* Overlay to hide YouTube logo in corners */}
+                      <div className="absolute bottom-0 right-0 w-24 h-10 bg-black/80 pointer-events-none" />
+                      <div className="absolute top-0 left-0 w-24 h-10 bg-black/80 pointer-events-none" />
+                    </div>
                   ) : project.video ? (
                     <video 
                       src={project.video} 
@@ -130,7 +135,7 @@ export default function ProjectDetail() {
                 </div>
 
                 {/* Sub-Images */}
-                {project.images && project.images.slice(project.video ? 0 : 1).map((img, i) => (
+                {project.images && project.images.slice(project.video && !project.youtubeId ? 1 : 0).map((img, i) => (
                   <div 
                     key={i} 
                     className="relative overflow-hidden rounded-3xl border border-white/10 group aspect-video"

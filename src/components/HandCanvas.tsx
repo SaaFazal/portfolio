@@ -93,11 +93,11 @@ export function HandCanvas({ scrollYProgress }: HandCanvasProps) {
         let targetWidth: number, targetHeight: number, offsetX: number, offsetY: number;
 
         if (isMobile) {
-            // Mobile: hand fills width, positioned in upper-center so finger tip hits the CTA below
+            // Mobile: finger needs to point left+down toward Contact button
             targetWidth = canvasWidth * 1.2;
             targetHeight = targetWidth / imgRatio;
-            offsetX = (canvasWidth - targetWidth) / 2; // centered horizontally
-            offsetY = canvasHeight * 0.15; // upper portion — finger naturally points to lower area
+            offsetX = (canvasWidth - targetWidth) / 2 - 140; // shift left to meet Contact
+            offsetY = canvasHeight * 0.28; // move down to match Contact button height
         } else {
             // Desktop: calibrated pixel offsets for 1280px screen
             targetHeight = canvasHeight * 0.75;
