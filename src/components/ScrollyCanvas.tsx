@@ -182,7 +182,7 @@ export function ScrollyCanvas() {
             <div className="flex flex-col items-center">
               <div className="w-8 h-8 rounded-full border-4 border-primary border-t-transparent animate-spin mb-4" />
               <p className="text-sm font-medium text-white/60 tracking-widest uppercase">
-                Loading Cinematic Experience
+                LOADING...
               </p>
             </div>
           </div>
