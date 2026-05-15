@@ -25,8 +25,8 @@ export function Projects() {
     }, []);
 
     const x = useTransform(scrollYProgress, (v: number) => {
-        // Mobile: -88% stops right at the CTA. Desktop: -80%
-        const end = isMobileRef.current ? -88 : -80;
+        // Mobile: -93% brings the CTA fully into view. Desktop: -80%
+        const end = isMobileRef.current ? -93 : -80;
         return `${v * end}%`;
     });
 
