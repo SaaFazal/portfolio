@@ -34,7 +34,7 @@ export function Contact() {
     };
 
     return (
-        <section id="contact" className="py-24 px-4 relative bg-background">
+        <section id="contact" className="py-24 px-4 relative bg-[#080808]">
             <div className="max-w-4xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -42,14 +42,16 @@ export function Contact() {
                     viewport={{ once: true }}
                     className="mb-12 text-center"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Let&apos;s Work <span className="text-gradient-primary">Together</span></h2>
-                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                        Whether you have a new project in mind, found an issue with my work, or just want to collaborate—get in touch!
-                    </p>
+                    <div className="inline-flex items-center gap-4 mb-4">
+                        <div className="h-[1px] w-8 bg-white/20" />
+                        <span className="text-white/40 font-bold tracking-[0.4em] uppercase text-[10px]">INQUIRY</span>
+                        <div className="h-[1px] w-8 bg-white/20" />
+                    </div>
+                    <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter text-white uppercase leading-none italic">Let&apos;s Build</h2>
                 </motion.div>
 
-                <div className="bg-card/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-2xl">
-                    <div className="absolute inset-0 bg-gradient-radial from-primary/10 to-transparent opacity-30 pointer-events-none" />
+                <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-2xl">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-50 pointer-events-none" />
 
                     <AnimatePresence mode="wait">
                         {!isSubmitted ? (
@@ -57,61 +59,65 @@ export function Contact() {
                                 key="form"
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, scale: 0.95 }}
+                                exit={{ opacity: 0, x: 20 }}
                                 onSubmit={handleSubmit}
-                                className="relative z-10 flex flex-col gap-6 max-w-2xl mx-auto"
+                                className="relative z-10 flex flex-col gap-8 max-w-2xl mx-auto"
                             >
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div className="flex flex-col gap-2">
-                                        <label htmlFor="name" className="text-sm font-medium text-white/70 ml-1">Name</label>
-                                        <input 
-                                            required
-                                            type="text" 
-                                            id="name" 
-                                            name="name"
-                                            className="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-sans"
-                                            placeholder="John Doe"
-                                        />
-                                    </div>
-                                    <div className="flex flex-col gap-2">
-                                        <label htmlFor="email" className="text-sm font-medium text-white/70 ml-1">Email</label>
-                                        <input 
-                                            required
-                                            type="email" 
-                                            id="email" 
-                                            name="email"
-                                            className="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-sans"
-                                            placeholder="john@example.com"
-                                        />
-                                    </div>
-                                </div>
-                                
-                                <div className="flex flex-col gap-2">
-                                    <label htmlFor="message" className="text-sm font-medium text-white/70 ml-1">Message</label>
-                                    <textarea 
-                                        required
-                                        id="message" 
-                                        name="message"
-                                        rows={4}
-                                        className="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none font-sans"
-                                        placeholder="How can I help you?"
-                                    />
-                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                     <div className="flex flex-col gap-3">
+                                         <label htmlFor="name" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] ml-1">Identity</label>
+                                         <input 
+                                             required
+                                             suppressHydrationWarning
+                                             type="text" 
+                                             id="name" 
+                                             name="name"
+                                             className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-all font-sans"
+                                             placeholder="Your Name"
+                                         />
+                                     </div>
+                                     <div className="flex flex-col gap-3">
+                                         <label htmlFor="email" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] ml-1">Channel</label>
+                                         <input 
+                                             required
+                                             suppressHydrationWarning
+                                             type="email" 
+                                             id="email" 
+                                             name="email"
+                                             className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-all font-sans"
+                                             placeholder="Your Email"
+                                         />
+                                     </div>
+                                 </div>
+                                 
+                                 <div className="flex flex-col gap-3">
+                                     <label htmlFor="message" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] ml-1">Directive</label>
+                                     <textarea 
+                                         required
+                                         suppressHydrationWarning
+                                         id="message" 
+                                         name="message"
+                                         rows={4}
+                                         className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-all resize-none font-sans"
+                                         placeholder="What are we building?"
+                                     />
+                                 </div>
 
-                                <button 
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="mt-4 flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-primary text-white font-bold hover:bg-primary/90 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:pointer-events-none shadow-lg shadow-primary/20"
-                                >
-                                    {isSubmitting ? (
-                                        <div className="w-6 h-6 rounded-full border-2 border-white/30 border-t-white animate-spin" />
-                                    ) : (
-                                        <>
-                                            <Send size={18} />
-                                            Send Message
-                                        </>
-                                    )}
-                                </button>
+                                 <button 
+                                     type="submit"
+                                     disabled={isSubmitting}
+                                     suppressHydrationWarning
+                                     className="flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white text-black font-bold text-xs tracking-widest uppercase hover:bg-white/90 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 shadow-xl"
+                                 >
+                                     {isSubmitting ? (
+                                         <div className="w-5 h-5 rounded-full border-2 border-black/30 border-t-black animate-spin" />
+                                     ) : (
+                                         <>
+                                             Transmit
+                                             <Send size={16} />
+                                         </>
+                                     )}
+                                 </button>
                             </motion.form>
                         ) : (
                             <motion.div

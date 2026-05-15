@@ -8,29 +8,14 @@
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%; /* White primary for dark mode */
+    --primary-foreground: 240 10% 3.9%;
 
-    --primary: 267 83% 60%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 267 83% 60%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --accent: 45 64% 52%; /* Subtle gold hint */
+    --accent-foreground: 240 10% 3.9%;
 
     --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-
-    --radius: 0.75rem;
+    --radius: 0.5rem;
   }
 }
 
@@ -40,7 +25,12 @@
   }
 
   body {
-    background-color: hsl(var(--background));
+    background-color: #080808;
+    /* Topographical Contour Pattern */
+    background-image: 
+      radial-gradient(circle at 50% -20%, #1a1a1a, transparent 70%),
+      url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 C 150 150, 300 50, 450 150 C 600 250, 750 150, 800 200' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Cpath d='M0 300 C 100 250, 250 350, 400 300 C 550 250, 700 350, 800 300' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Cpath d='M0 500 C 200 450, 400 550, 600 500 C 700 450, 750 550, 800 500' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Cpath d='M0 700 C 150 750, 350 650, 500 750 C 650 850, 750 750, 800 700' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Cpath d='M100 0 C 150 150, 50 300, 150 450 C 250 600, 150 750, 200 800' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Cpath d='M300 0 C 250 100, 350 250, 300 400 C 250 550, 350 700, 300 800' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Cpath d='M500 0 C 450 200, 550 400, 500 600 C 450 700, 550 750, 500 800' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Cpath d='M700 0 C 750 150, 650 350, 750 500 C 850 650, 750 750, 700 800' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+    background-attachment: fixed;
     color: hsl(var(--foreground));
     @apply antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -71,6 +61,6 @@
 
   .text-gradient-primary {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(to right, hsl(var(--primary)), #c084fc);
+    background-image: linear-gradient(to right, #1a1a1a, #4a4a4a);
   }
 }

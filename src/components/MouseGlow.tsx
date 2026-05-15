@@ -31,7 +31,7 @@ export function MouseGlow() {
       <motion.div
         className="absolute inset-0 z-0"
         style={{
-          background: `radial-gradient(circle at center, rgba(138, 58, 255, 0.15), transparent 80%)`,
+          background: `radial-gradient(circle at center, rgba(212, 175, 55, 0.12), transparent 70%)`,
           width: '1000px',
           height: '1000px',
           x: springX,

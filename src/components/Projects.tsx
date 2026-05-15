@@ -1,104 +1,134 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowUpRight, Zap, Send } from 'lucide-react';
 import { projects } from '@/data/projects';
 import Link from 'next/link';
+import { useRef } from 'react';
 import { TiltCard } from './TiltCard';
-
-const container = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1
-        }
-    }
-};
-
-const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 300, damping: 24 } }
-};
+import { HandCanvas } from './HandCanvas';
 
 export function Projects() {
+    const targetRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: targetRef,
+    });
+
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
+
     return (
-        <section id="projects" className="py-24 px-4 relative z-20 bg-background">
-            <div className="max-w-7xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mb-16 text-center"
-                >
-                    <h2 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Featured <span className="text-gradient-primary">Projects</span></h2>
-                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                        A selection of my recent work in web and mobile development.
-                    </p>
-                </motion.div>
+        <section ref={targetRef} className="relative h-[600vh] bg-black">
+            <div className="sticky top-0 h-screen flex items-center overflow-hidden z-10">
 
-                <motion.div
-                    variants={container}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: "-100px" }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {projects.map((project) => (
-                        <motion.div
-                            key={project.id}
-                            variants={item}
-                            className="h-full"
-                        >
-                            <TiltCard className="h-full">
-                                <div className="group relative bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl hover:border-primary/50 transition-all duration-500 h-full flex flex-col shadow-2xl overflow-visible">
-                                    <div className="aspect-video bg-black/60 relative overflow-hidden rounded-t-[22px]" style={{ transform: "translateZ(40px)" }}>
-                                        {project.image ? (
-                                            <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-                                        ) : (
-                                            <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-gradient-to-br from-white/5 to-transparent group-hover:scale-105 transition-transform duration-700">
-                                                <span className="text-sm font-mono tracking-widest uppercase">{project.title}</span>
-                                            </div>
-                                        )}
+                {/* Frame-by-frame Hand Canvas - Buttery smooth, Veo cropped */}
+                <HandCanvas scrollYProgress={scrollYProgress} />
 
-                                        {/* Overlay CTA */}
-                                        <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 backdrop-blur-[2px]">
-                                            <Link href={project.link || '#'} className="p-4 rounded-full bg-white text-black hover:scale-110 shadow-xl transition-transform duration-300">
-                                                <ArrowUpRight size={24} />
-                                            </Link>
-                                        </div>
-                                    </div>
+                <motion.div style={{ x }} className="flex items-center px-12 md:px-24 z-10 relative">
+                    {/* Header Module */}
+                    <div className="flex-shrink-0 w-[350px] pr-16">
+                        <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-none text-white uppercase italic">
+                            PROJECTS
+                        </h2>
+                    </div>
 
-                                    <div className="p-6 flex-1 flex flex-col" style={{ transform: "translateZ(30px)" }}>
-                                        <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
-                                        <p className="text-sm text-muted-foreground mb-4">
-                                            {project.description}
-                                        </p>
-                                        
-                                        {project.linkLabel && (
-                                            <Link 
-                                                href={project.link || '#'} 
-                                                className="text-xs font-semibold text-primary hover:text-primary/80 transition-colors mb-6 inline-flex items-center gap-1 group/link"
-                                            >
-                                                {project.linkLabel}
-                                                <ArrowUpRight size={14} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                                            </Link>
-                                        )}
+                    {/* Spacing for initial entry */}
+                    <div className="flex-shrink-0 w-[200px]" />
 
-                                        <div className="flex flex-wrap gap-2 mt-auto">
-                                            {project.tags.map(tag => (
-                                                <span key={tag} className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 uppercase tracking-wider">
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </TiltCard>
-                        </motion.div>
-                    ))}
+                    {/* Projects Track */}
+                    <div className="flex gap-16">
+                        {projects.map((project, index) => (
+                            <ProjectModule
+                                key={project.id}
+                                project={project}
+                                index={index}
+                                scrollYProgress={scrollYProgress}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Final CTA - Aligned with the pointing finger */}
+                    <div className="flex-shrink-0 w-[800px] flex flex-col justify-center items-center text-center px-24 translate-y-[-60px] translate-x-[120px]">
+                        <h3 className="text-4xl md:text-6xl font-black mb-8 text-white uppercase tracking-tighter leading-tight italic">Ready to<br/>scale?</h3>
+                        <Link href="#contact" className="group flex items-center gap-4 px-12 py-6 bg-white text-black rounded-full transition-all hover:scale-105 shadow-[0_0_50px_rgba(255,255,255,0.15)]">
+                            <span className="text-[12px] font-black uppercase tracking-[0.4em]">Contact</span>
+                            <Send size={20} />
+                        </Link>
+                    </div>
                 </motion.div>
             </div>
         </section>
+    );
+}
+
+function ProjectModule({ project, index, scrollYProgress }: { project: any, index: number, scrollYProgress: any }) {
+    // Sync animation start to when card becomes visible horizontally
+    const start = index * 0.07;
+    const end = start + 0.10;
+
+    const y = useTransform(
+        scrollYProgress,
+        [start, end],
+        [index % 2 === 0 ? -100 : 100, 0],
+        { clamp: true }
+    );
+
+    const opacity = useTransform(
+        scrollYProgress,
+        [start, start + 0.06],
+        [0, 1]
+    );
+
+    return (
+        <motion.div
+            style={{ y, opacity }}
+            className="flex-shrink-0 w-[85vw] md:w-[420px] relative group"
+        >
+            <div className="absolute -top-12 -left-6 text-9xl font-black opacity-[0.03] text-white leading-none select-none pointer-events-none">
+                {index + 1}
+            </div>
+
+            <TiltCard className="h-[50vh] md:h-[60vh]">
+                <div className="group relative bg-[#121212] border border-white/10 rounded-2xl hover:border-white/30 transition-all duration-700 h-full flex flex-col shadow-2xl overflow-hidden">
+                    <div className="flex-1 relative overflow-hidden bg-black">
+                        {project.image ? (
+                            <>
+                                <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-90" />
+                            </>
+                        ) : (
+                            <div className="absolute inset-0 flex items-center justify-center bg-white/5">
+                                <span className="text-[8px] font-bold tracking-[0.4em] uppercase opacity-20">{project.title}</span>
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="p-8 flex flex-col relative bg-[#121212]">
+                        {/* Clean number label */}
+                        <div className="flex items-center gap-2 mb-3">
+                            <span className="text-[11px] font-black text-primary/80 tracking-[0.3em]">{String(index + 1).padStart(2, '0')}</span>
+                            <div className="h-[1px] w-4 bg-white/10" />
+                        </div>
+                        
+                        {/* Original title - no uppercase */}
+                        <h3 className="text-xl md:text-2xl font-black mb-2 tracking-tight text-white leading-snug">{project.title}</h3>
+                        
+                        {/* Short description */}
+                        <p className="text-white/40 text-[11px] leading-relaxed mb-6 line-clamp-2">{project.description}</p>
+                        
+                        <div className="flex items-center justify-between mt-auto">
+                            <Link
+                                href={project.details ? `/projects/${project.id}` : (project.link || '#')}
+                                className="group/link flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/10 rounded-full hover:bg-white hover:text-black transition-all duration-500"
+                            >
+                                <span className="text-[9px] font-black uppercase tracking-[0.2em]">View</span>
+                                <ArrowUpRight size={16} />
+                            </Link>
+
+                            <Zap size={16} className="text-white/10" />
+                        </div>
+                    </div>
+                </div>
+            </TiltCard>
+        </motion.div>
     );
 }
