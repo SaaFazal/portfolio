@@ -31,7 +31,7 @@ export function Projects() {
     });
 
     return (
-        <section ref={targetRef} className="relative h-[900vh] bg-black">
+        <section id="projects" ref={targetRef} className="relative h-[900vh] bg-black">
             <div className="sticky top-0 h-screen flex items-center overflow-hidden z-10">
 
                 {/* Frame-by-frame Hand Canvas - Buttery smooth, Veo cropped */}
