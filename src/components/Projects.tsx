@@ -24,7 +24,7 @@ export function Projects() {
         return () => window.removeEventListener('resize', check);
     }, []);
 
-    const x = useTransform(scrollYProgress, (v) => {
+    const x = useTransform(scrollYProgress, (v: number) => {
         const end = isMobileRef.current ? -115 : -80;
         return `${v * end}%`;
     });
@@ -82,7 +82,7 @@ function ProjectModule({ project, index, scrollYProgress, isMobileRef }: { proje
 
     const y = useTransform(
         scrollYProgress,
-        (v) => {
+        (v: number) => {
             // Interpolate: before start = offset, after end = 0
             const offset = index % 2 === 0 ? -100 : 100;
             const progress = Math.min(1, Math.max(0, (v - start) / (end - start)));
@@ -92,8 +92,8 @@ function ProjectModule({ project, index, scrollYProgress, isMobileRef }: { proje
 
     const opacity = useTransform(
         scrollYProgress,
-        (v) => {
-            const progress = Math.min(1, Math.max(0, (v - start) / (start + 0.06 - start)));
+        (v: number) => {
+            const progress = Math.min(1, Math.max(0, (v - start) / 0.06));
             return progress;
         }
     );
