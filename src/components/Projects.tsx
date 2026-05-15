@@ -25,12 +25,13 @@ export function Projects() {
     }, []);
 
     const x = useTransform(scrollYProgress, (v: number) => {
-        const end = isMobileRef.current ? -115 : -80;
+        // Mobile: -88% stops right at the CTA. Desktop: -80%
+        const end = isMobileRef.current ? -88 : -80;
         return `${v * end}%`;
     });
 
     return (
-        <section ref={targetRef} className="relative h-[600vh] bg-black">
+        <section ref={targetRef} className="relative h-[900vh] bg-black">
             <div className="sticky top-0 h-screen flex items-center overflow-hidden z-10">
 
                 {/* Frame-by-frame Hand Canvas - Buttery smooth, Veo cropped */}

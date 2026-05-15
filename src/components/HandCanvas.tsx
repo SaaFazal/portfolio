@@ -93,11 +93,11 @@ export function HandCanvas({ scrollYProgress }: HandCanvasProps) {
         let targetWidth: number, targetHeight: number, offsetX: number, offsetY: number;
 
         if (isMobile) {
-            // Mobile: scale hand to fit width, position in center-right so finger points at CTA
-            targetWidth = canvasWidth * 1.1;
+            // Mobile: hand fills width, positioned in upper-center so finger tip hits the CTA below
+            targetWidth = canvasWidth * 1.2;
             targetHeight = targetWidth / imgRatio;
-            offsetX = (canvasWidth - targetWidth) / 2 + canvasWidth * 0.05; // slightly right
-            offsetY = canvasHeight * 0.25; // upper-middle vertically
+            offsetX = (canvasWidth - targetWidth) / 2; // centered horizontally
+            offsetY = canvasHeight * 0.15; // upper portion — finger naturally points to lower area
         } else {
             // Desktop: calibrated pixel offsets for 1280px screen
             targetHeight = canvasHeight * 0.75;
