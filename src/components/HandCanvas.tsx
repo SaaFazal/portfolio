@@ -86,12 +86,25 @@ export function HandCanvas({ scrollYProgress }: HandCanvasProps) {
         const sourceX = 0;
         const sourceY = 0;
 
-        // Scale to fit nicely - not full cover, more like 70% height centered
+        // Detect mobile (portrait) vs desktop
+        const isMobile = canvasWidth < canvasHeight;
         const imgRatio = sourceWidth / sourceHeight;
-        const targetHeight = canvasHeight * 0.75;
-        const targetWidth = targetHeight * imgRatio;
-        const offsetX = (canvasWidth - targetWidth) / 2 - 150; // fingertip aligned to Contact button
-        const offsetY = (canvasHeight - targetHeight) / 2 + 80; // shifted down to match Contact button height
+
+        let targetWidth: number, targetHeight: number, offsetX: number, offsetY: number;
+
+        if (isMobile) {
+            // Mobile: scale hand to fit width, position in center-right so finger points at CTA
+            targetWidth = canvasWidth * 1.1;
+            targetHeight = targetWidth / imgRatio;
+            offsetX = (canvasWidth - targetWidth) / 2 + canvasWidth * 0.05; // slightly right
+            offsetY = canvasHeight * 0.25; // upper-middle vertically
+        } else {
+            // Desktop: calibrated pixel offsets for 1280px screen
+            targetHeight = canvasHeight * 0.75;
+            targetWidth = targetHeight * imgRatio;
+            offsetX = (canvasWidth - targetWidth) / 2 - 150;
+            offsetY = (canvasHeight - targetHeight) / 2 + 80;
+        }
 
         // Clear with pure black
         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
