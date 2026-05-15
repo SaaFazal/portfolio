@@ -62,7 +62,7 @@ export function Projects() {
                     </div>
 
                     {/* Final CTA - desktop: shifted right to meet finger, mobile: centered */}
-                    <div className="flex-shrink-0 w-[300px] md:w-[800px] flex flex-col justify-center items-center text-center px-8 md:px-24 translate-y-[-60px] md:translate-x-[120px]">
+                    <div className="flex-shrink-0 w-[300px] md:w-[800px] flex flex-col justify-center items-center text-center px-8 md:px-24 translate-y-[-60px] translate-x-[40px] md:translate-x-[120px]">
                         <h3 className="text-2xl md:text-6xl font-black mb-6 md:mb-8 text-white uppercase tracking-tighter leading-tight italic">Ready to<br/>scale?</h3>
                         <Link href="#contact" className="group flex items-center gap-3 px-8 md:px-12 py-4 md:py-6 bg-white text-black rounded-full transition-all hover:scale-105 shadow-[0_0_50px_rgba(255,255,255,0.15)]">
                             <span className="text-[11px] md:text-[12px] font-black uppercase tracking-[0.4em]">Contact</span>
