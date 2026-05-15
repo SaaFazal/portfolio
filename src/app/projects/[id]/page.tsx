@@ -118,6 +118,8 @@ export default function ProjectDetail() {
                   ) : project.video ? (
                     <video 
                       src={project.video} 
+                      poster={project.image}
+                      preload="auto"
                       autoPlay 
                       loop 
                       muted 
@@ -135,7 +137,7 @@ export default function ProjectDetail() {
                 </div>
 
                 {/* Sub-Images */}
-                {project.images && project.images.slice(project.video && !project.youtubeId ? 1 : 0).map((img, i) => (
+                {project.images && project.images.slice(project.youtubeId || project.video ? 0 : 1).map((img, i) => (
                   <div 
                     key={i} 
                     className="relative overflow-hidden rounded-3xl border border-white/10 group aspect-video"

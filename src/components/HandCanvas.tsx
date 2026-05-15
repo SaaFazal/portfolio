@@ -97,7 +97,7 @@ export function HandCanvas({ scrollYProgress }: HandCanvasProps) {
             targetWidth = canvasWidth * 1.2;
             targetHeight = targetWidth / imgRatio;
             offsetX = (canvasWidth - targetWidth) / 2 - 250; // shift further left
-            offsetY = canvasHeight * 0.42; // move further down to match Contact button
+            offsetY = canvasHeight * 0.38; // move slightly up for perfect match
         } else {
             // Desktop: calibrated pixel offsets for 1280px screen
             targetHeight = canvasHeight * 0.75;
