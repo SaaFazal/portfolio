@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large video files excluded from git
+public/projects/**/Main Video.mp4
+public/projects/**/*.mp4
+public/hand.mp4
+public/hand_pointing.mp4

@@ -213,7 +213,6 @@ export const projects: Project[] = [
     tags: ['Python', 'Flask', 'Google Gemini', 'RAG', 'Time-Series'],
     link: '/projects/ceptflow',
     image: '/projects/supply-chain/supply-chain.png',
-    video: '/projects/supply-chain/Main Video.mp4',
     theme: {
       background: '#0f0f0f',
       accent: '#d4af37',
