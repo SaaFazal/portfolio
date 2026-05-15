@@ -101,8 +101,16 @@ export default function ProjectDetail() {
         >
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Main Video or Feature Image */}
-                <div className="md:col-span-2 aspect-[21/9] relative overflow-hidden rounded-3xl border border-white/10 group">
-                  {project.video ? (
+                <div className="md:col-span-2 aspect-video relative overflow-hidden rounded-3xl border border-white/10 group">
+                  {project.youtubeId ? (
+                    <iframe
+                      src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${project.youtubeId}&controls=1&rel=0&modestbranding=1`}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title={`${project.title} demo`}
+                    />
+                  ) : project.video ? (
                     <video 
                       src={project.video} 
                       autoPlay 
@@ -118,7 +126,7 @@ export default function ProjectDetail() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                     />
                   ) : null}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </div>
 
                 {/* Sub-Images */}

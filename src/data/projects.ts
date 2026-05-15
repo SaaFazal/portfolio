@@ -8,6 +8,7 @@ export interface Project {
   github?: string;
   image?: string;
   video?: string; // Main video for the case study
+  youtubeId?: string; // YouTube video ID for embed
   theme?: {
     background: string;
     text: string;
@@ -213,6 +214,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Flask', 'Google Gemini', 'RAG', 'Time-Series'],
     link: '/projects/ceptflow',
     image: '/projects/supply-chain/supply-chain.png',
+    youtubeId: 'v0Q-gTb0rsI',
     theme: {
       background: '#0f0f0f',
       accent: '#d4af37',
