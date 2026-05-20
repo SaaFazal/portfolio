@@ -4,7 +4,6 @@ import { useParams, useRouter } from 'next/navigation';
 import { projects } from '@/data/projects';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Zap, Target, Code, Cpu, Database, Globe } from 'lucide-react';
-import { RagPipelineDiagram } from '@/components/RagPipelineDiagram';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -189,11 +188,6 @@ export default function ProjectDetail() {
             </div>
           </aside>
         </section>
-
-        {/* RAG Pipeline Diagram — only for TRUKBK */}
-        {project.id === 'trukbk-web' && (
-          <RagPipelineDiagram accent={colors.accent} />
-        )}
 
         {/* Technical Deep Dive */}
         <section className="mb-32">
