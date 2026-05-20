@@ -152,29 +152,29 @@ export const projects: Project[] = [
   {
     id: 'trukbk-web',
     title: 'TRUKBK Transformation',
-    description: 'High-performance vehicle configurator and an autonomous AI Sales Concierge with RAG workflows.',
-    tags: ['AI Agent', 'RAG', 'React', 'Supabase'],
+    description: 'High-performance vehicle configurator and a zero-hallucination AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini.',
+    tags: ['RAG', 'Supabase pgvector', 'Google Gemini', 'React'],
     link: 'https://truckbk.vercel.app/',
     image: '/projects/trukbk-web/trukbk-web.webp',
     details: {
-      vision: 'Engineered a high-performance vehicle configurator and an autonomous AI Sales Concierge using the Coze platform. Integrated RAG workflows for dynamic pricing retrieval and multi-modal plugins. Focused on performance and industrial-grade aesthetics.',
+      vision: 'Engineered a high-performance vehicle configurator and a zero-hallucination AI Sales Concierge. Built a custom RAG pipeline using Supabase pgvector for semantic product retrieval and Google Gemini for intelligent response generation. Implemented a 2-layer fallback architecture ensuring zero customer-facing errors.',
       features: [
-        'Vehicle Configurator: High-fidelity 3D-like configuration of truck builds.',
-        'AI Sales Concierge: Autonomous agent that handles customer inquiries.',
-        'RAG Workflows: Dynamic retrieval of pricing and specs from an external DB.',
-        'Multi-modal Plugins: Support for image and document analysis within the chat.'
+        'Vehicle Configurator: High-fidelity configuration of truck tray and canopy builds.',
+        'AI Sales Concierge: Zero-hallucination chatbot that quotes exact prices and specs.',
+        'RAG Pipeline: Cosine similarity search against vectorised product data in pgvector.',
+        '2-Layer Fallback: Rule-based engine silently kicks in if Gemini hits quota limits.'
       ],
       deepDive: [
         {
-          title: 'AI Agent Orchestration',
-          content: 'Configured a complex RAG pipeline that allows the AI to fetch real-time stock availability and pricing data, reducing sales lead response time by 80%.'
+          title: 'RAG Architecture with pgvector',
+          content: 'All product specs, dimensions, pricing tiers, and vehicle compatibility tables are chunked and converted into high-dimensional vector embeddings stored in Supabase pgvector. Customer queries are vectorised in real-time and matched via cosine similarity search, with the retrieved facts injected directly into Gemini\'s prompt for accurate, grounded responses.'
         }
       ],
-      recruiterWin: '"Engineered an autonomous AI Sales Concierge that resolved 80% of customer pricing inquiries without human intervention."',
+      recruiterWin: '"Engineered a zero-hallucination AI Sales Concierge using a custom RAG pipeline with Supabase pgvector and Google Gemini, featuring a 2-layer fallback for 99.9% uptime."',
       techStack: [
-        { category: 'AI', items: 'Coze, RAG Workflows' },
-        { category: 'Frontend', items: 'React, Next.js' },
-        { category: 'Data', items: 'Supabase, PostgreSQL' }
+        { category: 'AI', items: 'Google Gemini 1.5 Flash, RAG, pgvector' },
+        { category: 'Frontend', items: 'React, Vite, Tailwind CSS' },
+        { category: 'Data', items: 'Supabase, PostgreSQL, Web3Forms' }
       ]
     }
   },
