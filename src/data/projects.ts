@@ -154,29 +154,38 @@ export const projects: Project[] = [
     title: 'TRUKBK Transformation',
     description: 'High-performance vehicle configurator and a zero-hallucination AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini.',
     tags: ['RAG', 'Supabase pgvector', 'Google Gemini', 'React'],
-    link: 'https://truckbk.vercel.app/',
-    image: '/projects/trukbk-web/trukbk-web.webp',
+    link: 'https://www.trukbk.co.uk/',
+    image: '/projects/trukbk-web/main.png',
     details: {
-      vision: 'Engineered a high-performance vehicle configurator and a zero-hallucination AI Sales Concierge. Built a custom RAG pipeline using Supabase pgvector for semantic product retrieval and Google Gemini for intelligent response generation. Implemented a 2-layer fallback architecture ensuring zero customer-facing errors.',
+      vision: 'I engineered and launched the digital storefront for TRUKBK, a premium UK-based manufacturer of modular aluminium service bodies and truck trays. The goal was to create a high-end web experience that matched the rugged, premium nature of their physical products, while automating their sales pipeline using advanced AI.\n\nSelling custom, £10k+ physical truck builds is a high-touch process. Relying on a generic AI chatbot was dangerous—if an AI hallucinates a physical specification or price, it could lead to costly returns and broken trust. TRUKBK needed an automated way to answer customer queries with 100% factual accuracy and capture hot leads 24/7.',
       features: [
-        'Vehicle Configurator: High-fidelity configuration of truck tray and canopy builds.',
-        'AI Sales Concierge: Zero-hallucination chatbot that quotes exact prices and specs.',
-        'RAG Pipeline: Cosine similarity search against vectorised product data in pgvector.',
-        '2-Layer Fallback: Rule-based engine silently kicks in if Gemini hits quota limits.'
+        'Industrial Noir Aesthetic: Implemented a dark, premium UI utilizing deep blacks, stark whites, and industrial orange accents with glassmorphism and micro-animations.',
+        'Interactive Configurator: Developed a dynamic, 6-stage product builder that allows users to select their vehicle, cab type, body style, finish, and accessories.',
+        'Zero-Hallucination AI: Custom Retrieval-Augmented Generation (RAG) pipeline using Google Gemini 1.5 Flash and Supabase (pgvector).',
+        'Lead Generation: Integrated Web3Forms for seamless, serverless contact form submissions.'
       ],
       deepDive: [
         {
-          title: 'RAG Architecture with pgvector',
-          content: 'All product specs, dimensions, pricing tiers, and vehicle compatibility tables are chunked and converted into high-dimensional vector embeddings stored in Supabase pgvector. Customer queries are vectorised in real-time and matched via cosine similarity search, with the retrieved facts injected directly into Gemini\'s prompt for accurate, grounded responses.'
+          title: 'Retrieval-Augmented Generation (RAG) Architecture',
+          content: 'Knowledge Base Ingestion: All proprietary product specs, pricing tiers, and vehicle compatibility charts were chunked into precise logical segments and converted into high-dimensional vector embeddings stored in a Supabase PostgreSQL database using pgvector. During live semantic search, queries are embedded in real-time and matched via cosine similarity. The verified facts are then injected into the Gemini prompt to completely eliminate hallucinations.'
+        },
+        {
+          title: 'The 2-Layer Bulletproof Fallback System',
+          content: 'APIs fail, and quotas run out. To ensure the business never looks broken to a customer, I engineered a robust 2-layer fallback system. Layer 1 is the full Gemini AI RAG pipeline. Layer 2 is a custom Rule-Based Engine that silently takes over if the API times out. It uses keyword matching against a hardcoded knowledge base to return accurate prices and contact info without the user ever seeing an error message.'
         }
       ],
-      recruiterWin: '"Engineered a zero-hallucination AI Sales Concierge using a custom RAG pipeline with Supabase pgvector and Google Gemini, featuring a 2-layer fallback for 99.9% uptime."',
+      recruiterWin: '"Guaranteed 100% uptime for the chat experience via a custom fallback architecture, ensuring no leads are lost to technical errors while reducing the manual sales support load."',
       techStack: [
-        { category: 'AI', items: 'Google Gemini 1.5 Flash, RAG, pgvector' },
-        { category: 'Frontend', items: 'React, Vite, Tailwind CSS' },
-        { category: 'Data', items: 'Supabase, PostgreSQL, Web3Forms' }
+        { category: 'Frontend', items: 'React, TypeScript, Vite, Tailwind CSS' },
+        { category: 'AI & Machine Learning', items: 'Google Gemini 1.5 Flash, Gemini Embeddings' },
+        { category: 'Database & Vector Search', items: 'Supabase, PostgreSQL, pgvector' },
+        { category: 'Backend & Lead Capture', items: 'Vercel Serverless Functions, Web3Forms' }
       ]
-    }
+    },
+    images: [
+      '/projects/trukbk-web/Screenshot 2026-05-21 011942.png',
+      '/projects/trukbk-web/Screenshot 2026-05-21 012045.png'
+    ]
   },
   {
     id: 'uni-chatbot',
