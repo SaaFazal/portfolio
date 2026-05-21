@@ -33,35 +33,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'arasan-travels',
-    title: 'Arasan Travels',
-    description: 'Architected and deployed a custom travel-booking platform with an automated booking pipeline and Stripe integration.',
-    tags: ['React', 'Next.js', 'API Integration', 'Cloud Systems'],
-    link: 'http://www.arasantravels.co.uk',
-    image: '/projects/arasan-travels/arasan-travels.png',
-    details: {
-      vision: 'Architected and deployed a custom travel-booking platform. Software engineered an end-to-end automated booking pipeline with Stripe payment reconciliations, reducing manual administration time by 15%. Fully cloud-first infrastructure.',
-      features: [
-        'Automated Booking Pipeline: End-to-end booking flow from selection to confirmation.',
-        'Stripe Reconciliation: Automated payment processing and financial reconciliation.',
-        'Cloud Infrastructure: Deployed on high-availability cloud systems for 99.9% uptime.',
-        'Admin Dashboard: Custom management interface for booking oversight.'
-      ],
-      deepDive: [
-        {
-          title: 'Payment Integration Architecture',
-          content: 'Implemented a secure Stripe integration using webhooks to ensure real-time booking confirmation and avoid overbooking during peak seasons.'
-        }
-      ],
-      recruiterWin: '"Reduced manual administration time by 15% through a custom automated booking pipeline with integrated Stripe payment reconciliations."',
-      techStack: [
-        { category: 'Frontend', items: 'React, Next.js, Tailwind CSS' },
-        { category: 'Backend', items: 'Node.js, Stripe API' },
-        { category: 'Infrastructure', items: 'Vercel, AWS' }
-      ]
-    }
-  },
-  {
     id: 'phat-ops',
     title: 'PhatOps',
     description: 'Comprehensive management solution for high-volume restaurants focusing on staff scheduling and task management.',
@@ -88,64 +59,6 @@ export const projects: Project[] = [
         { category: 'Framework', items: 'Next.js, Node.js' },
         { category: 'Database', items: 'Supabase, PostgreSQL' },
         { category: 'UI', items: 'Framer Motion, Tailwind' }
-      ]
-    }
-  },
-  {
-    id: 'ushop-inventory',
-    title: 'U-Shop Inventory Hub',
-    description: 'Advanced inventory management system with real-time stock sync and barcode scanning integration.',
-    tags: ['Next.js', 'Prisma', 'PostgreSQL', 'Inventory'],
-    link: '#',
-    image: '/projects/ushop-inventory/ushop-inventory.png',
-    details: {
-      vision: 'Advanced inventory management system with real-time stock sync via custom webhooks. Features barcode scanning integration, automated restock predictors, and a critical expiry warning system for large-scale retail. Developed during my tenure as Data Analyst and Admin Manager.',
-      features: [
-        'Barcode Scanning: Integrated mobile scanning for rapid stock counts and sales.',
-        'Restock Predictors: ML-based algorithms to forecast when stock will run out.',
-        'Expiry Alerts: Automated warnings for products nearing their expiration date.',
-        'Webhook Integration: Real-time sync with third-party retail platforms.'
-      ],
-      deepDive: [
-        {
-          title: 'Stock Sync Algorithm',
-          content: 'Engineered a custom webhook handler that processes stock updates in under 200ms, ensuring zero data conflicts during high-volume scanning.'
-        }
-      ],
-      recruiterWin: '"Architected a critical expiry warning system that reduced stock waste in a large-scale retail environment."',
-      techStack: [
-        { category: 'Core', items: 'Next.js, Prisma' },
-        { category: 'Data', items: 'PostgreSQL, Redis' },
-        { category: 'Tools', items: 'Barcode API, Custom Webhooks' }
-      ]
-    }
-  },
-  {
-    id: 'ucafe-till',
-    title: 'U-Café Till System',
-    description: 'Multi-channel EPOS solution designed for counter sales, phone orders, and app orders with offline persistence.',
-    tags: ['React', 'EPOS', 'Local Persistence', 'UI/UX'],
-    link: '#',
-    image: '/projects/ucafe-till/ucafe-till.png',
-    details: {
-      vision: 'Multi-channel EPOS solution designed for a premium "Green Grounds" aesthetic. Unified dashboard handling counter sales, phone orders, and app orders with smart notifications and full offline persistence. Engineered for custom cafe requirements in mobile environments.',
-      features: [
-        'Unified Dashboard: Manage counter, phone, and app orders in one place.',
-        'Offline Persistence: Continue sales even when the internet connection is lost.',
-        'Smart Notifications: Instant alerts for new app orders and low stock.',
-        'Premium UI/UX: Custom "Green Grounds" aesthetic designed for high-end cafes.'
-      ],
-      deepDive: [
-        {
-          title: 'Offline-First Architecture',
-          content: 'Implemented IndexedDB for local storage with a synchronization layer that pushes data to the cloud as soon as the connection is restored.'
-        }
-      ],
-      recruiterWin: '"Designed and implemented a multi-channel EPOS solution that maintained 100% uptime through offline-first architecture."',
-      techStack: [
-        { category: 'Frontend', items: 'React, Redux' },
-        { category: 'Persistence', items: 'IndexedDB, LocalStorage' },
-        { category: 'Styling', items: 'CSS Modules, Framer Motion' }
       ]
     }
   },
@@ -187,35 +100,6 @@ export const projects: Project[] = [
       '/projects/trukbk-web/Screenshot 2026-05-21 012045.png',
       '/projects/trukbk-web/Screenshot 2026-05-21 013140.png'
     ]
-  },
-  {
-    id: 'uni-chatbot',
-    title: 'Vision-Language AI Chatbot',
-    description: 'Intelligent conversational agent combining NLP and Computer Vision with VGG19 deep learning.',
-    tags: ['Python', 'VGG19', 'NLP', 'RAG'],
-    link: '#',
-    image: '/projects/chatbot/chatbot.png',
-    details: {
-      vision: 'Engineered an intelligent conversational agent combining NLP and Computer Vision. Utilized a VGG19 deep learning model for image classification and AIML for logical reasoning. Implemented RAG (Retrieval-Augmented Generation) workflows for contextual conversation handling.',
-      features: [
-        'VGG19 Image Classification: High-accuracy visual recognition for logo and product identification.',
-        'AIML Reasoning: Rule-based logical flow for structured conversations.',
-        'Contextual RAG: Dynamic data retrieval to provide factually accurate answers.',
-        'Multi-modal Interface: Seamless interaction between text and image inputs.'
-      ],
-      deepDive: [
-        {
-          title: 'Hybrid Reasoning Engine',
-          content: 'Created a bridge between the VGG19 visual output and the AIML reasoning engine to allow the chatbot to "discuss" what it "sees".'
-        }
-      ],
-      recruiterWin: '"Developed a vision-language AI system that successfully integrated deep learning vision models with logical reasoning frameworks."',
-      techStack: [
-        { category: 'ML/DL', items: 'Python, VGG19, TensorFlow' },
-        { category: 'NLP', items: 'AIML, NLTK' },
-        { category: 'RAG', items: 'Retrieval-Augmented Generation' }
-      ]
-    }
   },
   {
     id: 'ceptflow',
@@ -266,6 +150,122 @@ export const projects: Project[] = [
       '/projects/supply-chain/main 2.png',
       '/projects/supply-chain/main 3.png'
     ]
+  },
+  {
+    id: 'arasan-travels',
+    title: 'Arasan Travels',
+    description: 'Architected and deployed a custom travel-booking platform with an automated booking pipeline and Stripe integration.',
+    tags: ['React', 'Next.js', 'API Integration', 'Cloud Systems'],
+    link: 'http://www.arasantravels.co.uk',
+    image: '/projects/arasan-travels/arasan-travels.png',
+    details: {
+      vision: 'Architected and deployed a custom travel-booking platform. Software engineered an end-to-end automated booking pipeline with Stripe payment reconciliations, reducing manual administration time by 15%. Fully cloud-first infrastructure.',
+      features: [
+        'Automated Booking Pipeline: End-to-end booking flow from selection to confirmation.',
+        'Stripe Reconciliation: Automated payment processing and financial reconciliation.',
+        'Cloud Infrastructure: Deployed on high-availability cloud systems for 99.9% uptime.',
+        'Admin Dashboard: Custom management interface for booking oversight.'
+      ],
+      deepDive: [
+        {
+          title: 'Payment Integration Architecture',
+          content: 'Implemented a secure Stripe integration using webhooks to ensure real-time booking confirmation and avoid overbooking during peak seasons.'
+        }
+      ],
+      recruiterWin: '"Reduced manual administration time by 15% through a custom automated booking pipeline with integrated Stripe payment reconciliations."',
+      techStack: [
+        { category: 'Frontend', items: 'React, Next.js, Tailwind CSS' },
+        { category: 'Backend', items: 'Node.js, Stripe API' },
+        { category: 'Infrastructure', items: 'Vercel, AWS' }
+      ]
+    }
+  },
+  {
+    id: 'uni-chatbot',
+    title: 'Vision-Language AI Chatbot',
+    description: 'Intelligent conversational agent combining NLP and Computer Vision with VGG19 deep learning.',
+    tags: ['Python', 'VGG19', 'NLP', 'RAG'],
+    link: '#',
+    image: '/projects/chatbot/chatbot.png',
+    details: {
+      vision: 'Engineered an intelligent conversational agent combining NLP and Computer Vision. Utilized a VGG19 deep learning model for image classification and AIML for logical reasoning. Implemented RAG (Retrieval-Augmented Generation) workflows for contextual conversation handling.',
+      features: [
+        'VGG19 Image Classification: High-accuracy visual recognition for logo and product identification.',
+        'AIML Reasoning: Rule-based logical flow for structured conversations.',
+        'Contextual RAG: Dynamic data retrieval to provide factually accurate answers.',
+        'Multi-modal Interface: Seamless interaction between text and image inputs.'
+      ],
+      deepDive: [
+        {
+          title: 'Hybrid Reasoning Engine',
+          content: 'Created a bridge between the VGG19 visual output and the AIML reasoning engine to allow the chatbot to "discuss" what it "sees".'
+        }
+      ],
+      recruiterWin: '"Developed a vision-language AI system that successfully integrated deep learning vision models with logical reasoning frameworks."',
+      techStack: [
+        { category: 'ML/DL', items: 'Python, VGG19, TensorFlow' },
+        { category: 'NLP', items: 'AIML, NLTK' },
+        { category: 'RAG', items: 'Retrieval-Augmented Generation' }
+      ]
+    }
+  },
+  {
+    id: 'load-balancer',
+    title: 'Network Load Balancer',
+    description: 'Low-level simulation of high-traffic server distribution with Round Robin and Least Connections algorithms.',
+    tags: ['Golang', 'Networking', 'Simulation', 'System Design'],
+    link: '#',
+    image: '/projects/load-balancer/load-balancer.png',
+    details: {
+      vision: 'A low-level simulation of high-traffic server distribution. Implements Round Robin and Least Connections algorithms to demonstrate robust architecture and fault-tolerant delivery using JavaFX for visualization.',
+      features: [
+        'Round Robin Algorithm: Evenly distributes traffic across all active nodes.',
+        'Least Connections: Intelligently routes traffic to the server with the lowest load.',
+        'Fault Tolerance: Automatic detection and removal of "down" nodes from the pool.',
+        'Live Visualization: Real-time dashboard showing traffic flow and node health.'
+      ],
+      deepDive: [
+        {
+          title: 'Network Concurrency in Go',
+          content: 'Utilized Go routines and channels to simulate thousands of concurrent requests being handled by the load balancer in real-time.'
+        }
+      ],
+      recruiterWin: '"Successfully simulated high-traffic server distribution patterns using Golang concurrency primitives, demonstrating deep networking knowledge."',
+      techStack: [
+        { category: 'Engine', items: 'Golang, Channels, Routines' },
+        { category: 'Visuals', items: 'JavaFX' },
+        { category: 'Concepts', items: 'TCP/UDP, HTTP Load Balancing' }
+      ]
+    }
+  },
+  {
+    id: 'cyclenest-api',
+    title: 'CycleNest API',
+    description: 'High-performance backend for a bike-sharing logistics network with low-latency route calculations.',
+    tags: ['Java', 'Spring Boot', 'Docker', 'GIS'],
+    link: '#',
+    image: '/projects/cyclenest/cyclenest.png',
+    details: {
+      vision: 'High-performance backend for a bike-sharing logistics network. Built with a focus on low-latency route calculations, real-time fleet tracking, and automated deployment pipelines using JAX-RS and Cosmos DB.',
+      features: [
+        'Low-latency Routes: GIS-based route calculations for bike delivery and pickup.',
+        'Fleet Tracking: Real-time monitoring of bike locations and battery levels.',
+        'Automated CI/CD: Robust Docker-based deployment pipeline for high reliability.',
+        'Scalable Storage: Globally distributed data storage using Azure Cosmos DB.'
+      ],
+      deepDive: [
+        {
+          title: 'GIS Integration',
+          content: 'Implemented spatial queries in Cosmos DB to find the nearest available bike or hub to a user in under 50ms.'
+        }
+      ],
+      recruiterWin: '"Achieved sub-50ms query response times for spatial bike availability searches using optimized GIS indexing in Cosmos DB."',
+      techStack: [
+        { category: 'Backend', items: 'Java, Spring Boot, JAX-RS' },
+        { category: 'Data', items: 'Cosmos DB, Redis' },
+        { category: 'DevOps', items: 'Docker, GitHub Actions' }
+      ]
+    }
   },
   {
     id: 'slipstack',
@@ -326,6 +326,64 @@ export const projects: Project[] = [
     }
   },
   {
+    id: 'ucafe-till',
+    title: 'U-Café Till System',
+    description: 'Multi-channel EPOS solution designed for counter sales, phone orders, and app orders with offline persistence.',
+    tags: ['React', 'EPOS', 'Local Persistence', 'UI/UX'],
+    link: '#',
+    image: '/projects/ucafe-till/ucafe-till.png',
+    details: {
+      vision: 'Multi-channel EPOS solution designed for a premium "Green Grounds" aesthetic. Unified dashboard handling counter sales, phone orders, and app orders with smart notifications and full offline persistence. Engineered for custom cafe requirements in mobile environments.',
+      features: [
+        'Unified Dashboard: Manage counter, phone, and app orders in one place.',
+        'Offline Persistence: Continue sales even when the internet connection is lost.',
+        'Smart Notifications: Instant alerts for new app orders and low stock.',
+        'Premium UI/UX: Custom "Green Grounds" aesthetic designed for high-end cafes.'
+      ],
+      deepDive: [
+        {
+          title: 'Offline-First Architecture',
+          content: 'Implemented IndexedDB for local storage with a synchronization layer that pushes data to the cloud as soon as the connection is restored.'
+        }
+      ],
+      recruiterWin: '"Designed and implemented a multi-channel EPOS solution that maintained 100% uptime through offline-first architecture."',
+      techStack: [
+        { category: 'Frontend', items: 'React, Redux' },
+        { category: 'Persistence', items: 'IndexedDB, LocalStorage' },
+        { category: 'Styling', items: 'CSS Modules, Framer Motion' }
+      ]
+    }
+  },
+  {
+    id: 'ushop-inventory',
+    title: 'U-Shop Inventory Hub',
+    description: 'Advanced inventory management system with real-time stock sync and barcode scanning integration.',
+    tags: ['Next.js', 'Prisma', 'PostgreSQL', 'Inventory'],
+    link: '#',
+    image: '/projects/ushop-inventory/ushop-inventory.png',
+    details: {
+      vision: 'Advanced inventory management system with real-time stock sync via custom webhooks. Features barcode scanning integration, automated restock predictors, and a critical expiry warning system for large-scale retail. Developed during my tenure as Data Analyst and Admin Manager.',
+      features: [
+        'Barcode Scanning: Integrated mobile scanning for rapid stock counts and sales.',
+        'Restock Predictors: ML-based algorithms to forecast when stock will run out.',
+        'Expiry Alerts: Automated warnings for products nearing their expiration date.',
+        'Webhook Integration: Real-time sync with third-party retail platforms.'
+      ],
+      deepDive: [
+        {
+          title: 'Stock Sync Algorithm',
+          content: 'Engineered a custom webhook handler that processes stock updates in under 200ms, ensuring zero data conflicts during high-volume scanning.'
+        }
+      ],
+      recruiterWin: '"Architected a critical expiry warning system that reduced stock waste in a large-scale retail environment."',
+      techStack: [
+        { category: 'Core', items: 'Next.js, Prisma' },
+        { category: 'Data', items: 'PostgreSQL, Redis' },
+        { category: 'Tools', items: 'Barcode API, Custom Webhooks' }
+      ]
+    }
+  },
+  {
     id: 'ntu-timetable',
     title: 'NTU Timetabling System',
     description: 'Sophisticated scheduling algorithm for university environments optimizing room allocation.',
@@ -353,64 +411,5 @@ export const projects: Project[] = [
         { category: 'Data', items: 'SQL Server, Entity Framework' }
       ]
     }
-  },
-  {
-    id: 'cyclenest-api',
-    title: 'CycleNest API',
-    description: 'High-performance backend for a bike-sharing logistics network with low-latency route calculations.',
-    tags: ['Java', 'Spring Boot', 'Docker', 'GIS'],
-    link: '#',
-    image: '/projects/cyclenest/cyclenest.png',
-    details: {
-      vision: 'High-performance backend for a bike-sharing logistics network. Built with a focus on low-latency route calculations, real-time fleet tracking, and automated deployment pipelines using JAX-RS and Cosmos DB.',
-      features: [
-        'Low-latency Routes: GIS-based route calculations for bike delivery and pickup.',
-        'Fleet Tracking: Real-time monitoring of bike locations and battery levels.',
-        'Automated CI/CD: Robust Docker-based deployment pipeline for high reliability.',
-        'Scalable Storage: Globally distributed data storage using Azure Cosmos DB.'
-      ],
-      deepDive: [
-        {
-          title: 'GIS Integration',
-          content: 'Implemented spatial queries in Cosmos DB to find the nearest available bike or hub to a user in under 50ms.'
-        }
-      ],
-      recruiterWin: '"Achieved sub-50ms query response times for spatial bike availability searches using optimized GIS indexing in Cosmos DB."',
-      techStack: [
-        { category: 'Backend', items: 'Java, Spring Boot, JAX-RS' },
-        { category: 'Data', items: 'Cosmos DB, Redis' },
-        { category: 'DevOps', items: 'Docker, GitHub Actions' }
-      ]
-    }
-  },
-  {
-    id: 'load-balancer',
-    title: 'Network Load Balancer',
-    description: 'Low-level simulation of high-traffic server distribution with Round Robin and Least Connections algorithms.',
-    tags: ['Golang', 'Networking', 'Simulation', 'System Design'],
-    link: '#',
-    image: '/projects/load-balancer/load-balancer.png',
-    details: {
-      vision: 'A low-level simulation of high-traffic server distribution. Implements Round Robin and Least Connections algorithms to demonstrate robust architecture and fault-tolerant delivery using JavaFX for visualization.',
-      features: [
-        'Round Robin Algorithm: Evenly distributes traffic across all active nodes.',
-        'Least Connections: Intelligently routes traffic to the server with the lowest load.',
-        'Fault Tolerance: Automatic detection and removal of "down" nodes from the pool.',
-        'Live Visualization: Real-time dashboard showing traffic flow and node health.'
-      ],
-      deepDive: [
-        {
-          title: 'Network Concurrency in Go',
-          content: 'Utilized Go routines and channels to simulate thousands of concurrent requests being handled by the load balancer in real-time.'
-        }
-      ],
-      recruiterWin: '"Successfully simulated high-traffic server distribution patterns using Golang concurrency primitives, demonstrating deep networking knowledge."',
-      techStack: [
-        { category: 'Engine', items: 'Golang, Channels, Routines' },
-        { category: 'Visuals', items: 'JavaFX' },
-        { category: 'Concepts', items: 'TCP/UDP, HTTP Load Balancing' }
-      ]
-    }
-  },
+  }
 ];
-
