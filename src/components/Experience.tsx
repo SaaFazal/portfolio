@@ -7,7 +7,7 @@ const experience = [
         role: "AI Engineer (Freelance)",
         company: "TRUKBK",
         period: "March 2026 - Present",
-        desc: "Engineered a high-performance vehicle configurator and client platform from scratch. Developed a zero-hallucination AI Sales Concierge using a custom RAG pipeline with Supabase pgvector and Google Gemini to handle lead generation and pricing."
+        desc: "Architected and deployed an autonomous AI Sales Concierge powered by a custom RAG pipeline (Supabase pgvector, Google Gemini) to automate vehicle quoting. Engineered a high-performance interactive configurator, seamlessly integrating the AI reasoning layer with the frontend client platform."
     },
     {
         role: "Software Engineer (Remote)",
