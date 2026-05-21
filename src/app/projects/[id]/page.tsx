@@ -87,9 +87,20 @@ export default function ProjectDetail() {
           <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
             {project.title}
           </h1>
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl font-light">
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl font-light mb-8">
             {details.vision}
           </p>
+          {project.link && project.link !== '#' && (
+            <a 
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all hover:scale-105 hover:opacity-90"
+              style={{ backgroundColor: colors.accent, color: '#000' }}
+            >
+              {project.linkLabel || 'View Live Site'} <ExternalLink size={20} />
+            </a>
+          )}
         </motion.div>
 
         {/* Media Gallery (Video + Photos) */}
