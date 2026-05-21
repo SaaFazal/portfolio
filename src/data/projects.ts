@@ -151,7 +151,7 @@ export const projects: Project[] = [
   },
   {
     id: 'trukbk-web',
-    title: 'TRUKBK Transformation',
+    title: 'TRUKBK',
     description: 'High-performance vehicle configurator and a zero-hallucination AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini.',
     tags: ['RAG', 'Supabase pgvector', 'Google Gemini', 'React'],
     link: 'https://www.trukbk.co.uk/',
@@ -184,7 +184,8 @@ export const projects: Project[] = [
     },
     images: [
       '/projects/trukbk-web/Screenshot 2026-05-21 011942.png',
-      '/projects/trukbk-web/Screenshot 2026-05-21 012045.png'
+      '/projects/trukbk-web/Screenshot 2026-05-21 012045.png',
+      '/projects/trukbk-web/Screenshot 2026-05-21 013140.png'
     ]
   },
   {
