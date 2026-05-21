@@ -35,32 +35,55 @@ export const projects: Project[] = [
   {
     id: 'phat-ops',
     title: 'PhatOps',
-    description: 'Comprehensive management solution for high-volume restaurants focusing on staff scheduling and task management.',
-    tags: ['Next.js', 'Node.js', 'Operations'],
+    description: 'Comprehensive multi-tenant mobile application designed to digitize and streamline enterprise restaurant operations.',
+    tags: ['React Native', 'Expo', 'Supabase', 'PostgreSQL RLS', 'TypeScript'],
     link: '/privacy-policy',
     linkLabel: 'Privacy Policy',
     image: '/projects/restaurant-ops/restaurant-ops.png',
     details: {
-      vision: 'PhatOps is a comprehensive management solution for high-volume restaurants. Centralizes staff scheduling, multi-unit task management, and digital shift logs to streamline daily operations and labor efficiency. Implemented auth and database integration with Supabase for real-time tracking.',
+      vision: 'PhatOps is a comprehensive, multi-tenant mobile application designed to digitize and streamline enterprise restaurant operations. Built for franchises and multi-location hospitality businesses, the platform unifies workforce management, inventory tracking, compliance logging, and internal communications into a single, high-performance cross-platform app.\n\nIt replaces fragmented systems (WhatsApp for shifts, paper for compliance, spreadsheets for inventory) with a centralized "Global Command Center" and localized store dashboards.',
       features: [
-        'Staff Scheduling: Intuitive drag-and-drop scheduling for complex shift rotations.',
-        'Multi-Unit Tasks: Manage multiple restaurant locations from a single dashboard.',
-        'Digital Shift Logs: Replace paper logs with real-time digital entries and alerts.',
-        'Real-time Tracking: Instant visibility into operational performance via Supabase.'
+        'Advanced Workforce Management: Smart drag-and-drop scheduling, shift lifecycles with cover requests, and geofenced real-time clock-in/out tracking.',
+        'Digital Compliance & Logits: Opening/closing procedure logs, temperature logs, standardized accident reports, and secure document tracking with expiration alerts.',
+        'Inventory & Cost Management: Real-time stock levels, waste and par level tracking, cost management (labor vs. sales), and OCR receipt scanning/document parsing.',
+        'Enterprise Communication: Secure internal messaging with dedicated chat rooms for leadership and stores, live broadcast feeds, and a centralized SOP knowledge base.'
       ],
       deepDive: [
         {
-          title: 'Real-time State Management',
-          content: 'Utilized Supabase real-time subscriptions to ensure all managers see live updates across multiple units without refreshing.'
+          title: 'Strict Multi-Tenancy & Data Isolation',
+          content: 'Implemented a robust multi-tenant architecture where Global Admins can seamlessly switch store contexts via a viewingStoreId state, while strictly enforcing Supabase Row Level Security (RLS) policies on the backend so standard staff members mathematically cannot access or query data outside their assigned store.'
+        },
+        {
+          title: 'Transactional Shift Swap Engine',
+          content: 'Engineered a highly robust transactional shift swap workflow. When User A requests a swap with User B, the system manages state transitions, alerts the manager, and upon approval, atomically swaps the foreign keys in the database using raw SQL transactions, preventing race conditions or double-booking.'
+        },
+        {
+          title: 'Atomic Database Transactions via RPC',
+          content: 'To handle complex staff onboarding workflows, multi-table transactions (creating users, assigning stores, generating profiles) are offloaded to custom PostgreSQL Remote Procedure Calls (rpc_create_staff, rpc_update_staff), ensuring complete atomicity and minimal database latency.'
+        },
+        {
+          title: 'Secure Document Expiry Engine',
+          content: 'Implemented a secure storage pipeline for highly sensitive Right-to-Work, visas, and contracts. Files are uploaded to private Supabase Storage buckets, and the frontend retrieves them via temporary signed URLs expiring in 60 seconds, preventing link interception risks.'
         }
       ],
-      recruiterWin: '"Successfully streamlined multi-unit operations by centralizing logs and scheduling, leading to a measurable increase in labor efficiency."',
+      recruiterWin: '"Engineered a secure multi-tenant platform with transactional shift swaps, custom Postgres RPCs, and strict Row Level Security (RLS), streamlining operations for high-volume franchises with 100% data isolation."',
       techStack: [
-        { category: 'Framework', items: 'Next.js, Node.js' },
-        { category: 'Database', items: 'Supabase, PostgreSQL' },
-        { category: 'UI', items: 'Framer Motion, Tailwind' }
+        { category: 'Frontend & Mobile', items: 'React Native, Expo, TypeScript, React Native Paper' },
+        { category: 'Backend & Database', items: 'Supabase, PostgreSQL, Row Level Security (RLS), SQL RPCs' },
+        { category: 'Storage & Security', items: 'Supabase Storage, Expiring Signed URLs (AES-256)' },
+        { category: 'Integration & Lead Capture', items: 'OCR Document Ingestion, Web3Forms, Expo OTA Updates' }
       ]
-    }
+    },
+    images: [
+      '/projects/restaurant-ops/Image 1.png',
+      '/projects/restaurant-ops/Image 2.png',
+      '/projects/restaurant-ops/Image 3.png',
+      '/projects/restaurant-ops/Image 4.png',
+      '/projects/restaurant-ops/Image 5.png',
+      '/projects/restaurant-ops/Image 6.png',
+      '/projects/restaurant-ops/Image 7.png',
+      '/projects/restaurant-ops/Image 8.png'
+    ]
   },
   {
     id: 'trukbk-web',
