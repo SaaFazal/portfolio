@@ -205,30 +205,46 @@ export const projects: Project[] = [
   },
   {
     id: 'uni-chatbot',
-    title: 'Vision-Language AI Chatbot',
-    description: 'Intelligent conversational agent combining NLP and Computer Vision with VGG19 deep learning.',
-    tags: ['Python', 'VGG19', 'NLP', 'RAG'],
+    title: 'Car Logo Classifier & Intelligent Assistant',
+    description: 'Intelligent multi-modal AI chatbot uniting deep learning computer vision (VGG19), symbolic logical reasoning (First-Order Logic), and statistical semantic search (TF-IDF & Cosine Similarity).',
+    tags: ['Python', 'TensorFlow', 'VGG19 CNN', 'NLTK', 'First-Order Logic', 'TF-IDF Similarity'],
     link: '#',
     image: '/projects/chatbot/chatbot.png',
+    theme: {
+      background: '#060f0e',
+      accent: '#00f2fe',
+      secondary: '#112220',
+      text: '#ffffff'
+    },
     details: {
-      vision: 'Engineered an intelligent conversational agent combining NLP and Computer Vision. Utilized a VGG19 deep learning model for image classification and AIML for logical reasoning. Implemented RAG (Retrieval-Augmented Generation) workflows for contextual conversation handling.',
+      vision: 'Developed as an intelligent, multi-modal automotive assistant, this advanced system unifies three distinct paradigms of artificial intelligence: Deep Learning computer vision, Symbolic First-Order Logic reasoning, and statistical Natural Language Processing (NLP). The chatbot allows users to interact seamlessly via conversational Q&A, query and expand an active First-Order Logic knowledge base with automatic consistency enforcement, and upload car logo images for instant brand identification with high neural network confidence scoring.',
       features: [
-        'VGG19 Image Classification: High-accuracy visual recognition for logo and product identification.',
-        'AIML Reasoning: Rule-based logical flow for structured conversations.',
-        'Contextual RAG: Dynamic data retrieval to provide factually accurate answers.',
-        'Multi-modal Interface: Seamless interaction between text and image inputs.'
+        'Multi-Paradigm Conversational Interface: Integrates an AIML rule-based engine for structured dialogue routing, seamlessly falling back to statistical TF-IDF vectorization and Cosine Similarity search when phrasing variations are detected.',
+        'Deep Learning Logo Classification: Features a fine-tuned CNN based on the VGG19 architecture using transfer learning, trained to identify 8 popular automotive brands (Hyundai, Lexus, Mazda, Mercedes, Opel, Skoda, Toyota, Volkswagen) with high-confidence predictions.',
+        'Symbolic Logical Reasoning: Built a First-Order Logic (FOL) knowledge base utilizing the NLTK ResolutionProver. Users can dynamically "teach" the chatbot facts (e.g., "I know that Tesla is electric") and verify details using natural language queries.',
+        'Automated Contradiction Resolution: Automatically evaluates new logical facts before saving them to the CSV knowledge base. The system uses resolution refutation to check for consistency and flatly rejects entries that contradict existing facts.',
+        'Background Preprocessing Pipeline: Leverages NLTK\'s tokenization and WordNet lemmatization to clean user inputs, improving semantic search and logic mapping accuracy across varied phrasings.'
       ],
       deepDive: [
         {
-          title: 'Hybrid Reasoning Engine',
-          content: 'Created a bridge between the VGG19 visual output and the AIML reasoning engine to allow the chatbot to "discuss" what it "sees".'
+          title: 'Convolutional Neural Network Transfer Learning (VGG19)',
+          content: 'To achieve highly accurate brand logo classification, I leveraged transfer learning by fine-tuning a pre-trained VGG19 neural network on a curated dataset of automotive emblems. Input images are dynamically loaded, converted to RGB, resized to 128x128 pixels, normalized, and propagated through the convolutional layers. The final dense layer outputs a multi-class probability distribution across the 8 target brands, returning the identified brand along with a precise confidence percentage.'
+        },
+        {
+          title: 'Symbolic Knowledge Consistency Checking',
+          content: 'The logical reasoning engine represents automotive properties as first-order predicates (e.g., "electric(Tesla)", "-petrol(Tesla)"). When a user attempts to add new knowledge via "I know that [subject] is [relation]", the system performs a resolution proof against the negation of the new statement using NLTK\'s ResolutionProver. If the prover successfully derives a contradiction from the existing knowledge base, the system prevents logical corruption, logs an alert, and rejects the input, ensuring 100% database integrity.'
+        },
+        {
+          title: 'Statistical Semantic Alignment & Fallback',
+          content: 'To bridge the gap between fixed-rule AIML matching and arbitrary user inputs, the NLTK pipeline preprocesses, tokenizes, and lemmatizes queries into canonical word roots. By generating high-dimensional TF-IDF vectors for both the user input and the pre-defined Q&A dataset, the engine computes a Cosine Similarity matrix in real-time. If the similarity score of the best-matching Q&A pair exceeds a threshold of 0.7, it returns the factually correct answer, completely preventing common conversational failures.'
         }
       ],
-      recruiterWin: '"Developed a vision-language AI system that successfully integrated deep learning vision models with logical reasoning frameworks."',
+      recruiterWin: '"Engineered a multi-modal intelligent assistant that successfully bridges deep learning computer vision, symbolic logical reasoning (FOL) with automated consistency checking, and statistical NLP, maintaining 100% database integrity under conflicting inputs."',
       techStack: [
-        { category: 'ML/DL', items: 'Python, VGG19, TensorFlow' },
-        { category: 'NLP', items: 'AIML, NLTK' },
-        { category: 'RAG', items: 'Retrieval-Augmented Generation' }
+        { category: 'AI & Deep Learning', items: 'TensorFlow, Keras, VGG19 Transfer Learning, Convolutional Neural Networks (CNN)' },
+        { category: 'Symbolic Logic & Reasoning', items: 'NLTK ResolutionProver, First-Order Logic (FOL), Cosine Similarity' },
+        { category: 'Natural Language Processing', items: 'NLTK (Tokenization, WordNet Lemmatization), TF-IDF Vectorization, AIML Engine' },
+        { category: 'System & UI', items: 'Tkinter, PIL (Pillow), Pandas, Python 3.10+' }
       ]
     }
   },
