@@ -10,6 +10,7 @@ export function ScrollyCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const rafRef = useRef<number | null>(null);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -163,7 +164,13 @@ export function ScrollyCanvas() {
         FRAME_COUNT - 1,
         Math.floor(latest * FRAME_COUNT)
     );
-    requestAnimationFrame(() => drawFrame(images[frameIndex]));
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+    }
+    rafRef.current = requestAnimationFrame(() => {
+      drawFrame(images[frameIndex]);
+      rafRef.current = null;
+    });
   });
 
   return (

@@ -38,7 +38,7 @@ export function MouseGlow() {
           y: springY,
           translateX: '-50%',
           translateY: '-50%',
-          filter: 'blur(100px)',
+          willChange: 'transform',
         }}
       />
       
@@ -53,7 +53,7 @@ export function MouseGlow() {
           y: springY,
           translateX: '-50%',
           translateY: '-50%',
-          filter: 'blur(120px)',
+          willChange: 'transform',
         }}
       />
 

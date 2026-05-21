@@ -13,6 +13,18 @@ export default function ProjectDetail() {
   const id = params.id as string;
   const project = projects.find((p) => p.id === id);
 
+  const [selectedImg, setSelectedImg] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedImg(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   if (!project || !project.details) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#0a0a0a] text-white">
@@ -36,6 +48,10 @@ export default function ProjectDetail() {
     accent: '#ffffff',
     secondary: '#1a1a1a'
   };
+
+  const isMobileApp = project.tags.some(tag => 
+    ['React Native', 'Expo', 'Mobile Development', 'iOS', 'Mobile'].includes(tag)
+  );
 
   return (
     <div 
@@ -110,9 +126,45 @@ export default function ProjectDetail() {
           viewport={{ once: true }}
           className="mb-32 space-y-8"
         >
+          {isMobileApp ? (
+            <div className="space-y-6">
+              <h3 className="text-lg font-medium text-white/60 tracking-wider uppercase mb-2">Interface Gallery (Scroll & Click to Expand)</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                {project.images && project.images.map((img, i) => (
+                  <div 
+                    key={i} 
+                    onClick={() => setSelectedImg(img)}
+                    className="relative aspect-[9/16] rounded-[2.5rem] p-2.5 border-[3px] border-neutral-800 bg-[#0c0c0c] shadow-2xl overflow-hidden group cursor-pointer hover:border-neutral-700 transition-colors duration-300"
+                  >
+                    {/* Speaker / Notch Simulation */}
+                    <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-3.5 bg-black rounded-full z-20 opacity-90 flex items-center justify-center">
+                      <div className="w-1 h-1 rounded-full bg-neutral-800 ml-auto mr-2" />
+                    </div>
+                    
+                    {/* Screenshot Container */}
+                    <div className="w-full h-full rounded-[2rem] overflow-hidden relative">
+                      <img 
+                        src={img} 
+                        alt={`${project.title} screenshot ${i + 1}`} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Main Video or Feature Image */}
-                <div className="md:col-span-2 aspect-video relative overflow-hidden rounded-3xl border border-white/10 group">
+                <div 
+                  className={`md:col-span-2 aspect-video relative overflow-hidden rounded-3xl border border-white/10 group ${!(project.youtubeId || project.video) && project.images && project.images[0] ? 'cursor-pointer' : ''}`}
+                  onClick={() => {
+                    if (!(project.youtubeId || project.video) && project.images && project.images[0]) {
+                      setSelectedImg(project.images[0]);
+                    }
+                  }}
+                >
                   {project.youtubeId ? (
                     <div className="relative w-full h-full overflow-hidden">
                       <iframe
@@ -151,7 +203,8 @@ export default function ProjectDetail() {
                 {project.images && project.images.slice(project.youtubeId || project.video ? 0 : 1).map((img, i) => (
                   <div 
                     key={i} 
-                    className="relative overflow-hidden rounded-3xl border border-white/10 group aspect-video"
+                    onClick={() => setSelectedImg(img)}
+                    className="relative overflow-hidden rounded-3xl border border-white/10 group aspect-video cursor-pointer"
                   >
                     <img 
                       src={img} 
@@ -162,6 +215,7 @@ export default function ProjectDetail() {
                   </div>
                 ))}
              </div>
+          )}
         </motion.div>
 
         {/* Features & Core Stats */}
@@ -269,6 +323,31 @@ export default function ProjectDetail() {
           </div>
         </div>
       </main>
+
+      {/* Interactive Lightbox Overlay */}
+      {selectedImg && (
+        <div 
+          className="fixed inset-0 bg-black/90 backdrop-blur-md flex flex-col items-center justify-center z-50 p-4 sm:p-6 cursor-zoom-out"
+          onClick={() => setSelectedImg(null)}
+        >
+          <div 
+            className="relative max-h-[90vh] max-w-[95vw] sm:max-w-[90vw] flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()} // Prevent clicking the image from closing
+          >
+            <img 
+              src={selectedImg} 
+              alt="Enlarged screenshot" 
+              className="max-h-[80vh] sm:max-h-[85vh] w-auto max-w-full object-contain rounded-2xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.8)]" 
+            />
+            <button 
+              className="absolute -top-12 right-0 text-white/50 hover:text-white transition-colors text-xs uppercase tracking-widest font-bold flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur"
+              onClick={() => setSelectedImg(null)}
+            >
+              Close [esc]
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

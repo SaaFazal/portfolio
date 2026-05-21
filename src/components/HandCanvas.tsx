@@ -12,6 +12,7 @@ export function HandCanvas({ scrollYProgress }: HandCanvasProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [images, setImages] = useState<HTMLImageElement[]>([]);
     const [isLoaded, setIsLoaded] = useState(false);
+    const rafRef = useRef<number | null>(null);
 
     // Smooth scroll spring - same settings as ScrollyCanvas
     const smoothProgress = useSpring(scrollYProgress, {
@@ -111,18 +112,12 @@ export function HandCanvas({ scrollYProgress }: HandCanvasProps) {
         ctx.fillStyle = '#000000';
         ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-        // Apply grayscale filter
-        ctx.filter = 'grayscale(100%) brightness(0.75) contrast(1.2)';
-
-        // Draw the frame
+        // Draw the frame (CPU filters removed - offloaded to GPU CSS filters for 60fps scrolling)
         ctx.drawImage(
             img,
             sourceX, sourceY, sourceWidth, sourceHeight,
             offsetX, offsetY, targetWidth, targetHeight
         );
-
-        // Reset filter
-        ctx.filter = 'none';
 
         // Left-right vignette to blend edges
         const leftGrad = ctx.createLinearGradient(0, 0, 120, 0);
@@ -146,14 +141,21 @@ export function HandCanvas({ scrollYProgress }: HandCanvasProps) {
     useMotionValueEvent(smoothProgress, 'change', (latest: number) => {
         if (images.length === 0) return;
         const frameIndex = Math.min(FRAME_COUNT - 1, Math.floor(latest * FRAME_COUNT));
-        requestAnimationFrame(() => drawFrame(images[frameIndex]));
+        if (rafRef.current) {
+            cancelAnimationFrame(rafRef.current);
+        }
+        rafRef.current = requestAnimationFrame(() => {
+            drawFrame(images[frameIndex]);
+            rafRef.current = null;
+        });
     });
 
     return (
         <div className="absolute inset-0 z-0 pointer-events-none">
             <canvas
                 ref={canvasRef}
-                className="absolute inset-0 w-full h-full"
+                className="absolute inset-0 w-full h-full transition-opacity duration-500"
+                style={{ filter: 'grayscale(100%) brightness(75%) contrast(120%)' }}
             />
             {!isLoaded && (
                 <div className="absolute inset-0 bg-black flex items-center justify-center">
