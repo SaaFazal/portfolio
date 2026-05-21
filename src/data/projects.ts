@@ -209,7 +209,7 @@ export const projects: Project[] = [
     description: 'Intelligent multi-modal AI chatbot uniting deep learning computer vision (VGG19), symbolic logical reasoning (First-Order Logic), and statistical semantic search (TF-IDF & Cosine Similarity).',
     tags: ['Python', 'TensorFlow', 'VGG19 CNN', 'NLTK', 'First-Order Logic', 'TF-IDF Similarity'],
     link: '#',
-    image: '/projects/chatbot/chatbot.png',
+    image: '/projects/chatbot/chat.png',
     theme: {
       background: '#060f0e',
       accent: '#00f2fe',
@@ -244,9 +244,14 @@ export const projects: Project[] = [
         { category: 'AI & Deep Learning', items: 'TensorFlow, Keras, VGG19 Transfer Learning, Convolutional Neural Networks (CNN)' },
         { category: 'Symbolic Logic & Reasoning', items: 'NLTK ResolutionProver, First-Order Logic (FOL), Cosine Similarity' },
         { category: 'Natural Language Processing', items: 'NLTK (Tokenization, WordNet Lemmatization), TF-IDF Vectorization, AIML Engine' },
-        { category: 'System & UI', items: 'Tkinter, PIL (Pillow), Pandas, Python 3.10+' }
+        { category: 'System & UI', items: 'Streamlit Web UI, Tkinter, PIL (Pillow), Pandas, Python 3.10+' }
       ]
-    }
+    },
+    images: [
+      '/projects/chatbot/chat.png',
+      '/projects/chatbot/vision.png',
+      '/projects/chatbot/logic.png'
+    ]
   },
   {
     id: 'load-balancer',
