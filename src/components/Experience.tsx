@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const experience = [
     {
-        role: "Software Engineer (Freelance)",
+        role: "AI Engineer (Freelance)",
         company: "TRUKBK",
         period: "March 2026 - Present",
         desc: "Engineered a high-performance vehicle configurator and client platform from scratch. Developed an autonomous AI Sales Concierge on the Coze platform using RAG workflows to handle customer lead generation and dynamic pricing estimations."
