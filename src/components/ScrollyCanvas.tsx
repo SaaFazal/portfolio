@@ -34,7 +34,13 @@ export function ScrollyCanvas() {
         const frameNumber = i.toString().padStart(3, '0');
         img.src = `/sequence/frame_${frameNumber}.webp`;
         
-        img.onload = () => {
+        img.onload = async () => {
+           try {
+             // Force asynchronous decoding in the background before setting loaded status
+             await img.decode();
+           } catch (e) {
+             // Fallback for older browsers
+           }
            loadedCount++;
            if (loadedCount === FRAME_COUNT) {
              setImages(loadedImages);
@@ -58,7 +64,8 @@ export function ScrollyCanvas() {
   const updateCanvasSize = () => {
     if (!canvasRef.current) return;
     const canvas = canvasRef.current;
-    const dpr = window.devicePixelRatio || 1;
+    // Cap DPR to 1.5 to dramatically reduce fill-rate rendering overhead on 4K/Retina displays
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     const canvasWidth = window.innerWidth;
     const canvasHeight = window.innerHeight;
     
@@ -87,7 +94,8 @@ export function ScrollyCanvas() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const dpr = window.devicePixelRatio || 1;
+    // Cap DPR to 1.5 to dramatically reduce fill-rate rendering overhead on 4K/Retina displays
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     const canvasWidth = canvas.width / dpr;
     const canvasHeight = canvas.height / dpr;
     

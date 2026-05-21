@@ -31,7 +31,13 @@ export function HandCanvas({ scrollYProgress }: HandCanvasProps) {
             const frameNumber = i.toString().padStart(3, '0');
             img.src = `/hand_sequence/frame_${frameNumber}.jpg`;
 
-            img.onload = () => {
+            img.onload = async () => {
+                try {
+                    // Pre-decode texture in background thread to prevent scroll freeze
+                    await img.decode();
+                } catch (e) {
+                    // Fallback for older browsers
+                }
                 loadedCount++;
                 if (loadedCount === FRAME_COUNT) {
                     setImages(loadedImages);
@@ -53,7 +59,8 @@ export function HandCanvas({ scrollYProgress }: HandCanvasProps) {
     const updateCanvasSize = () => {
         if (!canvasRef.current) return;
         const canvas = canvasRef.current;
-        const dpr = window.devicePixelRatio || 1;
+        // Cap DPR to 1.5 to dramatically reduce fill-rate rendering overhead on 4K/Retina displays
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
         canvas.width = window.innerWidth * dpr;
         canvas.height = window.innerHeight * dpr;
 
@@ -75,7 +82,8 @@ export function HandCanvas({ scrollYProgress }: HandCanvasProps) {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        const dpr = window.devicePixelRatio || 1;
+        // Cap DPR to 1.5 to dramatically reduce fill-rate rendering overhead on 4K/Retina displays
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
         const canvasWidth = canvas.width / dpr;
         const canvasHeight = canvas.height / dpr;
 
