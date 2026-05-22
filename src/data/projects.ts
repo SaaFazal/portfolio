@@ -302,7 +302,6 @@ export const projects: Project[] = [
       ]
     },
     images: [
-      '/projects/load-balancer/load-balancer.png',
       '/projects/load-balancer/login.png',
       '/projects/load-balancer/Main Dash.png',
       '/projects/load-balancer/User Management.png',
