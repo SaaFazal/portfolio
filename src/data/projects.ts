@@ -255,32 +255,60 @@ export const projects: Project[] = [
   },
   {
     id: 'load-balancer',
-    title: 'Network Load Balancer',
-    description: 'Low-level simulation of high-traffic server distribution with Round Robin and Least Connections algorithms.',
-    tags: ['Golang', 'Networking', 'Simulation', 'System Design'],
+    title: 'Distributed Cluster Administration Hub',
+    description: 'Secure multi-tenant administration dashboard designed for containerized cluster management, orchestrating multiple decoupled SSH file servers, database servers, and a high-availability network load balancer.',
+    tags: ['Java', 'JavaFX', 'Docker', 'SQLite (PBKDF2)', 'SSH Networking', 'System Design'],
     link: '#',
     image: '/projects/load-balancer/load-balancer.png',
+    theme: {
+      background: '#0a0c10',
+      accent: '#00e676',
+      secondary: '#151922',
+      text: '#ffffff'
+    },
     details: {
-      vision: 'A low-level simulation of high-traffic server distribution. Implements Round Robin and Least Connections algorithms to demonstrate robust architecture and fault-tolerant delivery using JavaFX for visualization.',
+      vision: 'The Distributed Cluster Administration Hub is a premium multi-tenant desktop management system designed to orchestrate containerized cloud environments. Built using JavaFX and integrated with a highly decoupled Docker network cluster, the dashboard enables system administrators to manage and monitor a distributed host cluster composed of load balancers, database storage instances, and multi-tenant SSH-enabled file servers.\n\nBy leveraging advanced cryptographic standard verification and custom OS subprocess spawning, the solution models enterprise-grade security and role-based file access on low-footprint systems.',
       features: [
-        'Round Robin Algorithm: Evenly distributes traffic across all active nodes.',
-        'Least Connections: Intelligently routes traffic to the server with the lowest load.',
-        'Fault Tolerance: Automatic detection and removal of "down" nodes from the pool.',
-        'Live Visualization: Real-time dashboard showing traffic flow and node health.'
+        'Containerized Cluster Orchestration: Multi-container Docker environment clustering a desktop client instance, an SSH-based load balancer, a SQL database node, and four separate secure file server hosts.',
+        'Interactive Cluster Command Center: Modern, state-of-the-art administrative HUD featuring real-time cluster health tracking, SQL connection diagnostics, and high-performance layout styling designed for enterprise recruiters.',
+        'Cryptographic Multi-Tenancy: Secure SQLite user accounts with PBKDF2-based password hashing using dynamic salt loading from an external secure file.',
+        'Role-Based File Access Control (RBAC): Fine-grained permissions allowing standard users to manage their own isolated files prefixed by their username, while granting administrators absolute file reading, writing, and directory scanning authority.',
+        'Integrated Administration Terminal: Interactive bash terminal interface using ProcessBuilder to run shell actions and nano editor sessions within gnome-terminal wrappers.'
       ],
       deepDive: [
         {
-          title: 'Network Concurrency in Go',
-          content: 'Utilized Go routines and channels to simulate thousands of concurrent requests being handled by the load balancer in real-time.'
+          title: 'Docker Network Isolation',
+          content: 'Orchestrated a highly decoupled multi-node infrastructure using custom Docker bridge networks (comp20081_network). This isolates the data-tier nodes (MySQL/SQLite) and SSH file server instances (file-servers 1-4) from the central admin console host. Network boundaries prevent direct client access to data assets, forcing all operational traffic through a high-availability load balancer facade.'
+        },
+        {
+          title: 'Secure Hashing & Local Persistence',
+          content: 'Engineered a SQLite-based authentication layer securing user records with high-performance cryptographic hashing via PBKDF2WithHmacSHA1. To mitigate dictionary and rainbow-table compromises, the system automatically binds passwords to a dynamic 30-character cryptographic salt generated dynamically and persisted within a secure external .salt keyfile at the system\'s root directory.'
+        },
+        {
+          title: 'Multi-Tenant Directory Isolation',
+          content: 'Enforced strict multi-tenant sandboxing at the application controller level (FileManagementController). To prevent directory traversal and cross-tenant data leaks across the shared cluster, the system validates all file operations against user profiles. Standard accounts are rigidly constrained to reading/writing files prefixed with their own "username_", whereas administrative accounts are granted unrestricted root-level directory traversal and batch system pruning privileges.'
+        },
+        {
+          title: 'Premium HUD Dashboard & Session Control',
+          content: 'Designed and implemented an interactive administrative command HUD with real-time status telemetry (SQL gateway connection, security clearance metrics, and container node replication health). To secure multi-tenant data structures, I refactored the login session sequence to atomically bind user sessions globally upon authentication, preventing cross-tenant privilege escalation and null references during database table queries.'
         }
       ],
-      recruiterWin: '"Successfully simulated high-traffic server distribution patterns using Golang concurrency primitives, demonstrating deep networking knowledge."',
+      recruiterWin: '"Architected a secure containerized administration system running a JavaFX dashboard in Lubuntu, managing a cluster of 4 SSH file servers and SQLite storage with PBKDF2 security."',
       techStack: [
-        { category: 'Engine', items: 'Golang, Channels, Routines' },
-        { category: 'Visuals', items: 'JavaFX' },
-        { category: 'Concepts', items: 'TCP/UDP, HTTP Load Balancing' }
+        { category: 'Frontend & UI', items: 'JavaFX, FXML layouts, Scene Builder styles' },
+        { category: 'Cluster & Infrastructure', items: 'Docker, Docker Compose, Lubuntu desktop container, SSH file-servers, custom bridge networks' },
+        { category: 'Database & Security', items: 'SQLite, PBKDF2 with HMAC-SHA1 salting, Secure Salt files' },
+        { category: 'System & Terminal', items: 'Java ProcessBuilder API, shell wrappers, multi-tenant file prefixes' }
       ]
-    }
+    },
+    images: [
+      '/projects/load-balancer/load-balancer.png',
+      '/projects/load-balancer/login.png',
+      '/projects/load-balancer/Main Dash.png',
+      '/projects/load-balancer/User Management.png',
+      '/projects/load-balancer/File Management.png',
+      '/projects/load-balancer/Terminal.png'
+    ]
   },
   {
     id: 'cyclenest-api',
