@@ -302,8 +302,8 @@ export const projects: Project[] = [
       ]
     },
     images: [
-      '/projects/load-balancer/login.png',
       '/projects/load-balancer/Main Dash.png',
+      '/projects/load-balancer/login.png',
       '/projects/load-balancer/User Management.png',
       '/projects/load-balancer/File Management.png',
       '/projects/load-balancer/Terminal.png'
