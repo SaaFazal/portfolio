@@ -519,31 +519,51 @@ export const projects: Project[] = [
   },
   {
     id: 'ntu-timetable',
-    title: 'NTU Timetabling System',
-    description: 'Sophisticated scheduling algorithm for university environments optimizing room allocation.',
-    tags: ['C#', '.NET', 'Algorithm', 'Optimization'],
-    link: '#',
+    title: 'NTU Academic Timetabling System',
+    description: 'High-performance scheduling engine built in C# utilizing recursive backtracking and heuristic constraints to optimize academic room allocation and student timetables.',
+    tags: ['C#', '.NET Core', 'Algorithms', 'Constraint Satisfaction', 'File System I/O', 'Optimization'],
+    link: 'https://github.com/SaaFazal/Timetable-System',
+    linkLabel: 'View on GitHub',
     image: '/projects/ntu-timetable/ntu-timetable.png',
+    theme: {
+      background: '#0d0d0d',
+      accent: '#ff3d00',
+      secondary: '#1a1a1a',
+      text: '#ffffff'
+    },
     details: {
-      vision: 'Sophisticated scheduling algorithm for university environments. Optimizes room allocation and lecture times for thousands of students, ensuring zero conflicts and efficient campus resource utilization. Built using C# and .NET frameworks.',
+      vision: 'The NTU Academic Timetabling System is a sophisticated scheduling engine designed to solve the NP-complete Course Timetabling Problem. Engineered in C# and running on the .NET framework, the application utilizes recursive backtracking optimization with smart heuristic constraint-satisfaction filters to generate conflict-free schedules for lecturers, classrooms, modules, and thousands of students concurrently.',
       features: [
-        'Conflict Resolution: Sophisticated algorithm ensures zero overlapping lecture slots.',
-        'Room Optimization: Maximizes capacity utilization across campus facilities.',
-        'Student Personalization: Generates conflict-free individual timetables for 5000+ students.',
-        'Efficient Resource Usage: Reduces campus energy waste by optimizing room blocks.'
+        'Dynamic Constraint Solver: Custom backtracking scheduling engine that enforces hard constraints (e.g., no lecturer or room double-bookings) and soft constraints (e.g., uniform time-slot distribution).',
+        'Relational CSV Data Loader: High-speed file parser loading relational schemas dynamically from structural flat files (students, lecturers, modules, and rooms).',
+        'Classroom Capacity Allocator: Room assignments mapped strictly to module registration sizes, maximizing campus facility usage and minimizing energy waste.',
+        'Conflict-Free Timetable Exporter: High-performance CSV reporting engine exporting optimized schedules (e.g. timetable_export.csv, timetable_GRP04.csv) ready for administrative integration.',
+        'Heuristic Resource Optimizer: Pre-sorting optimization heuristics that evaluate high-friction modules first, reducing recursion depth and improving solver speeds.'
       ],
       deepDive: [
         {
-          title: 'Optimization Algorithm',
-          content: 'Engineered a recursive backtracking algorithm optimized with heuristics to solve the university scheduling problem in polynomial time.'
+          title: 'Constraint Satisfaction Backtracking Algorithm',
+          content: 'Engineered a recursive backtracking algorithm optimized for Constraint Satisfaction Problems (CSP). The solver maps variables (lectures) to values (room/timeslot slots). Hard constraints are mathematically checked at each recursion step (no teacher, group, or room clashes), pruning unviable branches early and preventing combinatorial explosions.'
+        },
+        {
+          title: 'Heuristic-Guided Search Pre-Sorting',
+          content: 'Implemented pre-sorting heuristics (Maximum Constraints First) that schedule high-enrollment modules and lecturers with limited availability first. This reduces backtracking steps significantly, allowing the C# engine to resolve complex academic datasets in polynomial time instead of exponential time.'
+        },
+        {
+          title: 'Structured CSV Data Pipeline',
+          content: 'Designed a thread-safe data parser utilizing C# File stream operations to digest relational raw tables. The loader reads students, lecturers, classrooms, and module requirements, instantiating in-memory index mappings before feeding the compiled structures to the CSP optimization algorithm.'
         }
       ],
-      recruiterWin: '"Optimized campus resource utilization through a sophisticated C# algorithm capable of handling 5000+ student conflict resolutions."',
+      recruiterWin: '"Engineered a high-performance C# timetabling solver utilizing recursive backtracking and pre-sorting CSP heuristics, resolving complex, conflict-free schedules for 5,000+ students in polynomial time."',
       techStack: [
-        { category: 'Core', items: 'C#, .NET Framework' },
-        { category: 'UI', items: 'WPF / WinForms' },
-        { category: 'Data', items: 'SQL Server, Entity Framework' }
+        { category: 'Language & Framework', items: 'C# 11, .NET Core Runtime' },
+        { category: 'Optimization Core', items: 'Constraint Satisfaction Problem (CSP), Recursive Backtracking, Constraint Pruning' },
+        { category: 'Data & File I/O', items: 'StreamReader/StreamWriter pipelines, CSV Parser, Relational Object Mapping' },
+        { category: 'Reporting & Logs', items: 'Export System (timetable_export.csv), Conflict Loggers' }
       ]
-    }
+    },
+    images: [
+      '/projects/ntu-timetable/ntu-timetable.png'
+    ]
   }
 ];
