@@ -406,11 +406,11 @@ export const projects: Project[] = [
       ]
     },
     images: [
-      '/projects/slipstack/slipstack.png',
-      '/projects/slipstack/Camera Scan.png',
-      '/projects/slipstack/OCR Result.png',
-      '/projects/slipstack/Expense List.png',
-      '/projects/slipstack/Login Auth.png'
+      '/projects/slipstack/Home.jpg',
+      '/projects/slipstack/Scan & Add.jpg',
+      '/projects/slipstack/Split.jpg',
+      '/projects/slipstack/Trends.jpg',
+      '/projects/slipstack/CSV Import.jpg'
     ]
   },
   {
