@@ -312,31 +312,54 @@ export const projects: Project[] = [
   {
     id: 'cyclenest-api',
     title: 'CycleNest API',
-    description: 'High-performance backend for a bike-sharing logistics network with low-latency route calculations.',
-    tags: ['Java', 'Spring Boot', 'Docker', 'GIS'],
+    description: 'High-performance cloud-integrated REST API built for bike-sharing logistics, with low-latency route calculations, self-healing fallbacks, and Azure Cosmos DB storage.',
+    tags: ['Java', 'JAX-RS (Jersey)', 'Apache Tomcat', 'Azure Cosmos DB', 'OSRM Routing', 'System Design'],
     link: '#',
     image: '/projects/cyclenest/cyclenest.png',
+    theme: {
+      background: '#040d1a',
+      accent: '#00b0ff',
+      secondary: '#0a192f',
+      text: '#ffffff'
+    },
     details: {
-      vision: 'High-performance backend for a bike-sharing logistics network. Built with a focus on low-latency route calculations, real-time fleet tracking, and automated deployment pipelines using JAX-RS and Cosmos DB.',
+      vision: 'CycleNest API is a high-performance, cloud-integrated RESTful backend engineered for bike-sharing and logistics tracking networks. Built using the JAX-RS (Jersey) framework and deployed inside high-concurrency Apache Tomcat servlet containers, the API orchestrates real-time asset discovery, location-based distance calculations, and transaction records across global cloud boundaries.',
       features: [
-        'Low-latency Routes: GIS-based route calculations for bike delivery and pickup.',
-        'Fleet Tracking: Real-time monitoring of bike locations and battery levels.',
-        'Automated CI/CD: Robust Docker-based deployment pipeline for high reliability.',
-        'Scalable Storage: Globally distributed data storage using Azure Cosmos DB.'
+        'JAX-RS REST API Architecture: High-performance endpoint structures mapped under servlet containers handling concurrent HTTP methods (GET, POST, DELETE).',
+        'Self-Healing Storage Fallback: Automated active failover pattern redirecting traffic to local thread-safe ConcurrentHashMap stores in the event of database timeouts, ensuring 100% API uptime.',
+        'Asynchronous OSRM Router: Non-blocking coordinate driving evaluation using modern Java HttpClient and CompletableFuture pipelines.',
+        'Azure Cosmos DB Storage: Globally-distributed database persistence utilizing Azure\'s Java SDK with Session consistency levels for strong read-your-own-writes guarantees.',
+        'Operational Health Probes: Custom diagnostic debug endpoints checking latency, ping states, and network connectivity parameters in real-time.'
       ],
       deepDive: [
         {
-          title: 'GIS Integration',
-          content: 'Implemented spatial queries in Cosmos DB to find the nearest available bike or hub to a user in under 50ms.'
+          title: 'Asynchronous Spatial Routing',
+          content: 'Engineered a highly optimized routing client using Java\'s modern HttpClient API and CompletableFutures. Upon query activation, the backend dispatches non-blocking asynchronous calls to the Open Source Routing Machine (OSRM) service, resolving real road distances and durations on the fly. Calculated metrics are parsed efficiently using Jackson ObjectMapper and returned without locking primary execution threads.'
+        },
+        {
+          title: 'Active Data-Store Failover Wrapper',
+          content: 'To prevent API cold-starts or external database down-times from breaking the application lifecycle, I architected a robust Repository facade with automatic self-healing properties. If the Azure Cosmos DB connection fails during container initialization, the factory gracefully traps the error and binds the controller routes to an in-memory data store, keeping services live.'
+        },
+        {
+          title: 'Cosmos Client & TCP Tuning',
+          content: 'Configured CosmosRepository initialization blocks with performance tuning overrides, forcing Gateway connectivity modes and tuning reactor-netty thread-worker pools. Added low-level system properties like IPv4 stack prioritization and HTTP client timeout settings to prevent thread leaks and ensure fast API roundtrips.'
         }
       ],
-      recruiterWin: '"Achieved sub-50ms query response times for spatial bike availability searches using optimized GIS indexing in Cosmos DB."',
+      recruiterWin: '"Architected a resilient JAX-RS backend with an automated Cosmos DB to in-memory self-healing failover mechanism, maintaining 100% application availability during database timeouts."',
       techStack: [
-        { category: 'Backend', items: 'Java, Spring Boot, JAX-RS' },
-        { category: 'Data', items: 'Cosmos DB, Redis' },
-        { category: 'DevOps', items: 'Docker, GitHub Actions' }
+        { category: 'Frontend & APIs', items: 'JAX-RS (Jersey), Jackson JSON Parser, HTTP Client API' },
+        { category: 'Container & Server', items: 'Apache Tomcat Web Server, Ant Build Automation, NetBeans IDE' },
+        { category: 'Database & Cloud', items: 'Azure Cosmos DB SQL API, Cosmos Java SDK' },
+        { category: 'Systems & Integrations', items: 'OSRM Routing Engine, CompletableFuture, System Telemetry Probes' }
       ]
-    }
+    },
+    images: [
+      '/projects/cyclenest/items-endpoint.png',
+      '/projects/cyclenest/Item Detail.png',
+      '/projects/cyclenest/Distance Router.png',
+      '/projects/cyclenest/Filtered Search.png',
+      '/projects/cyclenest/System Health Check.png'
+    ]
   },
   {
     id: 'slipstack',
