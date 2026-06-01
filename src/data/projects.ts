@@ -520,11 +520,11 @@ export const projects: Project[] = [
   {
     id: 'ntu-timetable',
     title: 'NTU Academic Timetabling System',
-    description: 'High-performance scheduling engine built in C# utilizing recursive backtracking and heuristic constraints to optimize academic room allocation and student timetables.',
-    tags: ['C#', '.NET Core', 'Algorithms', 'Constraint Satisfaction', 'File System I/O', 'Optimization'],
+    description: 'High-performance scheduling engine built in C++ utilizing recursive backtracking and heuristic constraints to optimize academic room allocation and student timetables.',
+    tags: ['C++', 'Algorithms', 'Constraint Satisfaction', 'File System I/O', 'Optimization'],
     link: 'https://github.com/SaaFazal/Timetable-System',
     linkLabel: 'View on GitHub',
-    image: '/projects/ntu-timetable/ntu-timetable.png',
+    image: '/projects/ntu-timetable/calendar.png',
     theme: {
       background: '#0d0d0d',
       accent: '#ff3d00',
@@ -532,7 +532,7 @@ export const projects: Project[] = [
       text: '#ffffff'
     },
     details: {
-      vision: 'The NTU Academic Timetabling System is a sophisticated scheduling engine designed to solve the NP-complete Course Timetabling Problem. Engineered in C# and running on the .NET framework, the application utilizes recursive backtracking optimization with smart heuristic constraint-satisfaction filters to generate conflict-free schedules for lecturers, classrooms, modules, and thousands of students concurrently.',
+      vision: 'The NTU Academic Timetabling System is a sophisticated scheduling engine designed to solve the NP-complete Course Timetabling Problem. Engineered in high-performance C++, the application utilizes recursive backtracking optimization with smart heuristic constraint-satisfaction filters to generate conflict-free schedules for lecturers, classrooms, modules, and thousands of students concurrently.',
       features: [
         'Dynamic Constraint Solver: Custom backtracking scheduling engine that enforces hard constraints (e.g., no lecturer or room double-bookings) and soft constraints (e.g., uniform time-slot distribution).',
         'Relational CSV Data Loader: High-speed file parser loading relational schemas dynamically from structural flat files (students, lecturers, modules, and rooms).',
@@ -547,23 +547,25 @@ export const projects: Project[] = [
         },
         {
           title: 'Heuristic-Guided Search Pre-Sorting',
-          content: 'Implemented pre-sorting heuristics (Maximum Constraints First) that schedule high-enrollment modules and lecturers with limited availability first. This reduces backtracking steps significantly, allowing the C# engine to resolve complex academic datasets in polynomial time instead of exponential time.'
+          content: 'Implemented pre-sorting heuristics (Maximum Constraints First) that schedule high-enrollment modules and lecturers with limited availability first. This reduces backtracking steps significantly, allowing the C++ engine to resolve complex academic datasets in polynomial time instead of exponential time.'
         },
         {
           title: 'Structured CSV Data Pipeline',
-          content: 'Designed a thread-safe data parser utilizing C# File stream operations to digest relational raw tables. The loader reads students, lecturers, classrooms, and module requirements, instantiating in-memory index mappings before feeding the compiled structures to the CSP optimization algorithm.'
+          content: 'Designed a thread-safe data parser utilizing standard C++ file stream operations to digest relational raw tables. The loader reads students, lecturers, classrooms, and module requirements, instantiating in-memory index mappings before feeding the compiled structures to the CSP optimization algorithm.'
         }
       ],
-      recruiterWin: '"Engineered a high-performance C# timetabling solver utilizing recursive backtracking and pre-sorting CSP heuristics, resolving complex, conflict-free schedules for 5,000+ students in polynomial time."',
+      recruiterWin: '"Engineered a high-performance C++ timetabling solver utilizing recursive backtracking and pre-sorting CSP heuristics, resolving complex, conflict-free schedules for 5,000+ students in polynomial time."',
       techStack: [
-        { category: 'Language & Framework', items: 'C# 11, .NET Core Runtime' },
+        { category: 'Language & Framework', items: 'C++17, Native Execution' },
         { category: 'Optimization Core', items: 'Constraint Satisfaction Problem (CSP), Recursive Backtracking, Constraint Pruning' },
-        { category: 'Data & File I/O', items: 'StreamReader/StreamWriter pipelines, CSV Parser, Relational Object Mapping' },
+        { category: 'Data & File I/O', items: 'std::ifstream / std::stringstream pipelines, CSV Parser, Relational Object Mapping' },
         { category: 'Reporting & Logs', items: 'Export System (timetable_export.csv), Conflict Loggers' }
       ]
     },
     images: [
-      '/projects/ntu-timetable/ntu-timetable.png'
+      '/projects/ntu-timetable/dashboard.png',
+      '/projects/ntu-timetable/calendar.png',
+      '/projects/ntu-timetable/solver.png'
     ]
   }
 ];

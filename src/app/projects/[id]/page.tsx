@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Zap, Target, Code, Cpu, Database, Globe } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import TimetableSimulator from '@/components/TimetableSimulator';
 
 export default function ProjectDetail() {
   const params = useParams();
@@ -217,6 +218,24 @@ export default function ProjectDetail() {
              </div>
           )}
         </motion.div>
+
+        {/* Interactive Desktop GUI Simulator (NTU Timetabling System only) */}
+        {project.id === 'ntu-timetable' && (
+          <motion.section
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-32"
+          >
+            <h2 className="text-3xl font-bold mb-6 flex items-center gap-3" style={{ color: colors.accent }}>
+              <Cpu size={24} /> Live Interactive Desktop GUI
+            </h2>
+            <p className="text-white/60 mb-8 max-w-3xl leading-relaxed">
+              Experience the power of the high-performance C++ timetabling solver. Switch between tabs to see the Engine analytics, the dynamic weekly calendar grid, the relational databases parsed from CSVs, and trigger simulated scheduling conflicts to see the backtracking CSP solver in action!
+            </p>
+            <TimetableSimulator />
+          </motion.section>
+        )}
 
         {/* Features & Core Stats */}
         <section className="mb-32 grid grid-cols-1 md:grid-cols-3 gap-12">
