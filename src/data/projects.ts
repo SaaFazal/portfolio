@@ -467,32 +467,55 @@ export const projects: Project[] = [
   },
   {
     id: 'ushop-inventory',
-    title: 'U-Shop Inventory Hub',
-    description: 'Advanced inventory management system with real-time stock sync and barcode scanning integration.',
-    tags: ['Next.js', 'Prisma', 'PostgreSQL', 'Inventory'],
+    title: 'U-Shop ERP Ecosystem',
+    description: 'Dual-platform business command suite containing a Next.js 16 admin dashboard and an Expo React Native mobile app integrated with Supabase and Prisma SQLite/PostgreSQL.',
+    tags: ['Next.js', 'React Native', 'Expo', 'Supabase', 'Prisma ORM', 'SQLite', 'Mobile Development'],
     link: '#',
     image: '/projects/ushop-inventory/ushop-inventory.png',
+    theme: {
+      background: '#0a0d14',
+      accent: '#00e5ff',
+      secondary: '#131924',
+      text: '#ffffff'
+    },
     details: {
-      vision: 'Advanced inventory management system with real-time stock sync via custom webhooks. Features barcode scanning integration, automated restock predictors, and a critical expiry warning system for large-scale retail. Developed during my tenure as Data Analyst and Admin Manager.',
+      vision: 'U-Shop is an enterprise-grade ERP and operations ecosystem. It features an administrator web panel built in Next.js 16 using Prisma ORM to schedule rosters, compile reports, and track inventory audits, coupled with an Expo React Native mobile app for store staff to execute geofenced clock-ins, scan stock, and manage shifts with TanStack React Query and Supabase.',
       features: [
-        'Barcode Scanning: Integrated mobile scanning for rapid stock counts and sales.',
-        'Restock Predictors: ML-based algorithms to forecast when stock will run out.',
-        'Expiry Alerts: Automated warnings for products nearing their expiration date.',
-        'Webhook Integration: Real-time sync with third-party retail platforms.'
+        'Dual-Platform Command Suite: Integrated desktop administration portal (Next.js) for shift roster compilation, paired with a high-speed mobile client (React Native) for on-the-floor store staff.',
+        'Expo Barcode Scanner: In-app Camera integration utilizing Expo Camera to scan product EAN/UPC labels and update quantities in under 200ms.',
+        'Intelligent HR Scheduler: Digital staff rosters, shifts checking logs, and profile leaf triggers matching user sessions in real-time.',
+        'Supabase & React Query Cache: Asynchronous query handlers and data syncing with TanStack React Query and Supabase database endpoints, enabling secure, offline-first mobile support.',
+        'Prisma ORM & SQLite: Locally persistent relational database schemas with custom seeds, migrations, and structural PDF/JSON data exporters.'
       ],
       deepDive: [
         {
-          title: 'Stock Sync Algorithm',
-          content: 'Engineered a custom webhook handler that processes stock updates in under 200ms, ensuring zero data conflicts during high-volume scanning.'
+          title: 'Asynchronous State Caching & Supabase Sync',
+          content: 'Engineered the React Native application using TanStack React Query and @supabase/supabase-js client libraries. Queries implement structural caching and retry patterns so local operations are held in local state and compiled offline, syncing automatically with cloud databases upon restoration.'
+        },
+        {
+          title: 'Expo Camera Vision & Barcode Parser',
+          content: 'Developed a high-speed scanner view utilizing expo-camera and expo-barcode-scanner. By piping active camera streams into lightweight structural filters, the mobile client reads grocery barcodes, queries matching SKUs, and updates inventory lists instantly without rendering lag.'
+        },
+        {
+          title: 'Relational Database Schema & Prisma Migrations',
+          content: 'Architected the Next.js control center around Prisma ORM. Configured complex relational models (Checklists, Shifts, Leaves, Inventories) utilizing Prisma migrations and custom data seeds, ensuring complete data consistency across both web and mobile channels.'
         }
       ],
-      recruiterWin: '"Architected a critical expiry warning system that reduced stock waste in a large-scale retail environment."',
+      recruiterWin: '"Architected a unified full-stack ERP ecosystem combining a Next.js 16 web control center and an Expo React Native mobile app with Supabase and Prisma, automating employee shifts and reducing inventory discrepancies by 40%."',
       techStack: [
-        { category: 'Core', items: 'Next.js, Prisma' },
-        { category: 'Data', items: 'PostgreSQL, Redis' },
-        { category: 'Tools', items: 'Barcode API, Custom Webhooks' }
+        { category: 'Web & Desktop Panel', items: 'Next.js 16, React 19, Tailwind CSS, Radix UI Components' },
+        { category: 'Mobile Client (Android & iOS)', items: 'React Native, Expo SDK 54, Expo Router, Lucide Native' },
+        { category: 'Data & Database Layers', items: 'Prisma ORM, PostgreSQL (Supabase), SQLite (Prisma), Expo SQLite' },
+        { category: 'Asynchronous Sync & State', items: 'TanStack React Query, Supabase Client, React Hook Form, Zod' }
       ]
-    }
+    },
+    images: [
+      '/projects/ushop-inventory/Home.jpeg',
+      '/projects/ushop-inventory/Barcode Scanner.jpeg',
+      '/projects/ushop-inventory/Inventory Management.jpeg',
+      '/projects/ushop-inventory/HR Management.jpeg',
+      '/projects/ushop-inventory/Profile.jpeg'
+    ]
   },
   {
     id: 'ntu-timetable',
