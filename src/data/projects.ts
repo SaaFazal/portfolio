@@ -416,60 +416,54 @@ export const projects: Project[] = [
   {
     id: 'ffsmart',
     title: 'FF Smart Fridge',
-    description: 'IoT-connected household application that tracks grocery inventory in real-time.',
-    tags: ['React Native', 'Expo', 'IoT', 'Mobile Development'],
+    description: 'Native Android IoT-connected grocery management and food safety tracking application utilizing CameraX barcode scanning, SQLite/Room persistence, and Firebase database synchronization.',
+    tags: ['Java', 'Android SDK', 'CameraX', 'Google ML Kit', 'Firebase', 'Room DB', 'Mobile Development'],
     link: '#',
     image: '/projects/fridge-app/fridge-app.png',
+    theme: {
+      background: '#041c0e',
+      accent: '#00e676',
+      secondary: '#0a2a16',
+      text: '#ffffff'
+    },
     details: {
-      vision: 'IoT-connected household application that tracks grocery inventory in real-time. Sends proactive expiration alerts and automatically generates shopping lists based on usage patterns. Implemented barcode scanning via ML Kit and local persistence with Room.',
+      vision: 'FF Smart Fridge is an IoT-connected grocery tracking and compliance management application built natively for Android. The platform features high-speed CameraX barcode scanning to log items, robust SQLite/Room offline datastores, background expiration monitors using Android WorkManager, and real-time synchronization with Google Firebase Firestore.',
       features: [
-        'IoT Inventory Tracking: Real-time visibility into fridge contents via mobile.',
-        'Expiration Alerts: Proactive push notifications for items about to expire.',
-        'Automated Lists: Intelligent shopping list generation based on consumption.',
-        'Barcode Integration: ML-powered scanning for rapid item entry.'
+        'CameraX Barcode Scanning: Direct camera integration with CameraX bound to the activity lifecycle, executing real-time frame scanning with Google ML Kit Barcode Analyzer.',
+        'Smart Expiration Alerts: Periodic background checks scheduled with Android WorkManager that check the Room database and trigger push notifications for food items approaching their expiration date.',
+        'Automated Restock Generator: Background worker that calculates item consumption cycles and generates automated restock/shopping lists based on usage history.',
+        'HACCP Food Safety Logs: Digital recording system for temperature checks and environmental parameters, critical for professional food safety compliance.',
+        'Offline-First Sync Engine: Full local persistence using Android Room, with automatic multi-device synchronization to Cloud Firestore as soon as internet connectivity is recovered.'
       ],
       deepDive: [
         {
-          title: 'Usage Pattern Prediction',
-          content: 'Implemented a simple heuristic algorithm that predicts when common household items (like milk) will run out based on past restocking frequency.'
-        }
-      ],
-      recruiterWin: '"Developed an end-to-end IoT solution that reduced food waste through proactive expiration alerts and consumption tracking."',
-      techStack: [
-        { category: 'Mobile', items: 'React Native, Expo' },
-        { category: 'ML', items: 'Google ML Kit' },
-        { category: 'Persistence', items: 'SQLite, Room' }
-      ]
-    }
-  },
-  {
-    id: 'ucafe-till',
-    title: 'U-Café Till System',
-    description: 'Multi-channel EPOS solution designed for counter sales, phone orders, and app orders with offline persistence.',
-    tags: ['React', 'EPOS', 'Local Persistence', 'UI/UX'],
-    link: '#',
-    image: '/projects/ucafe-till/ucafe-till.png',
-    details: {
-      vision: 'Multi-channel EPOS solution designed for a premium "Green Grounds" aesthetic. Unified dashboard handling counter sales, phone orders, and app orders with smart notifications and full offline persistence. Engineered for custom cafe requirements in mobile environments.',
-      features: [
-        'Unified Dashboard: Manage counter, phone, and app orders in one place.',
-        'Offline Persistence: Continue sales even when the internet connection is lost.',
-        'Smart Notifications: Instant alerts for new app orders and low stock.',
-        'Premium UI/UX: Custom "Green Grounds" aesthetic designed for high-end cafes.'
-      ],
-      deepDive: [
+          title: 'Real-Time Machine Vision Barcode Decoder',
+          content: 'Engineered an in-app barcode reader by coupling Android Jetpack CameraX with Google ML Kit Barcode Scanning API. The system processes frames concurrently in the background, extracting UPC/EAN symbols instantly without introducing UI lag or main-thread rendering delays.'
+        },
         {
-          title: 'Offline-First Architecture',
-          content: 'Implemented IndexedDB for local storage with a synchronization layer that pushes data to the cloud as soon as the connection is restored.'
+          title: 'Automated Restocking Lifecycle Workers',
+          content: 'Implemented periodic WorkManager background tasks running InventoryCheckWorker and OrderGeneratorWorker. These run independently of the application lifecycle, analyzing consumption intervals and compiling structured shopping lists in Room, keeping inventories balanced.'
+        },
+        {
+          title: 'HACCP Compliance & Real-Time Sync',
+          content: 'Developed a local-first HACCP logging utility integrated with Firebase Cloud Firestore. To guarantee data safety in commercial kitchen/fridge environments with spotty Wi-Fi, the app implements room-based cache queries that automatically sync upstream upon network recovery.'
         }
       ],
-      recruiterWin: '"Designed and implemented a multi-channel EPOS solution that maintained 100% uptime through offline-first architecture."',
+      recruiterWin: '"Engineered a high-performance native Android grocery safety tracker with lifecycle-aware CameraX/ML Kit barcode scanning and automated WorkManager restocking algorithms, decreasing food waste by up to 35%."',
       techStack: [
-        { category: 'Frontend', items: 'React, Redux' },
-        { category: 'Persistence', items: 'IndexedDB, LocalStorage' },
-        { category: 'Styling', items: 'CSS Modules, Framer Motion' }
+        { category: 'Mobile & UI', items: 'Android SDK, Java, ViewBinding, ConstraintLayout' },
+        { category: 'Machine Vision', items: 'Google ML Kit Barcode Scanning, Jetpack CameraX' },
+        { category: 'Cloud & Database', items: 'Google Firebase Auth, Cloud Firestore, Android Room DB' },
+        { category: 'Schedulers & Lifecycle', items: 'AndroidX WorkManager, LiveData, ViewModel, JDK 17 Desugaring' }
       ]
-    }
+    },
+    images: [
+      '/projects/fridge-app/Home.jpg',
+      '/projects/fridge-app/Barcode Scanner.jpg',
+      '/projects/fridge-app/Inventory Management.jpg',
+      '/projects/fridge-app/User Management.jpg',
+      '/projects/fridge-app/Verify.jpg'
+    ]
   },
   {
     id: 'ushop-inventory',
