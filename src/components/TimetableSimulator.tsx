@@ -32,6 +32,16 @@ interface TimetableItem {
 
 export default function TimetableSimulator() {
   const [activeTab, setActiveTab] = useState<'dashboard' | 'calendar' | 'registry' | 'console'>('dashboard');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const tab = params.get('tab');
+      if (tab === 'dashboard' || tab === 'calendar' || tab === 'registry' || tab === 'console') {
+        setActiveTab(tab);
+      }
+    }
+  }, []);
   const [selectedGroup, setSelectedGroup] = useState<string>('ALL');
   const [consoleLogs, setConsoleLogs] = useState<string[]>([]);
   const [isSolving, setIsSolving] = useState(false);

@@ -15,6 +15,14 @@ export default function ProjectDetail() {
   const project = projects.find((p) => p.id === id);
 
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
+  const [isScreenshotMode, setIsScreenshotMode] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const searchParams = new URLSearchParams(window.location.search);
+      setIsScreenshotMode(searchParams.get('screenshot') === 'true');
+    }
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -25,6 +33,16 @@ export default function ProjectDetail() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
+
+  if (isScreenshotMode) {
+    return (
+      <div className="min-h-screen bg-[#0d0d0d] flex items-center justify-center p-8">
+        <div className="w-full max-w-5xl">
+          <TimetableSimulator />
+        </div>
+      </div>
+    );
+  }
 
   if (!project || !project.details) {
     return (
