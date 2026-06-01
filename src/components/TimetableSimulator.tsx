@@ -115,7 +115,10 @@ export default function TimetableSimulator() {
     let currentLine = 0;
     const interval = setInterval(() => {
       if (currentLine < initialLogs.length) {
-        setConsoleLogs(prev => [...prev, initialLogs[currentLine]]);
+        const line = initialLogs[currentLine];
+        if (line) {
+          setConsoleLogs(prev => [...prev, line]);
+        }
         currentLine++;
       } else {
         clearInterval(interval);
@@ -161,7 +164,10 @@ export default function TimetableSimulator() {
     let currentLine = 0;
     const interval = setInterval(() => {
       if (currentLine < lines.length) {
-        setConsoleLogs(prev => [...prev, lines[currentLine]]);
+        const line = lines[currentLine];
+        if (line) {
+          setConsoleLogs(prev => [...prev, line]);
+        }
         currentLine++;
       } else {
         setIsSolving(false);
@@ -644,6 +650,7 @@ export default function TimetableSimulator() {
                 
                 <div className="font-mono text-[11px] leading-relaxed space-y-1.5 max-h-[380px] overflow-y-auto">
                   {consoleLogs.map((log, idx) => {
+                    if (!log || typeof log !== 'string') return null;
                     let colorClass = 'text-white/60';
                     if (log.startsWith('[SYS]')) colorClass = 'text-[#ff3d00] font-bold';
                     else if (log.startsWith('[WARN]')) colorClass = 'text-yellow-400 font-extrabold';
