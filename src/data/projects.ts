@@ -363,32 +363,55 @@ export const projects: Project[] = [
   },
   {
     id: 'slipstack',
-    title: 'SlipStack Framework',
-    description: 'Secure, high-tech fintech application specializing in receipt scanning and data extraction.',
-    tags: ['Typescript', 'OCR', 'Security', 'Fintech'],
+    title: 'SlipStack',
+    description: 'Native Android expense tracker and receipt parser utilizing Google ML Kit OCR and Jetpack CameraX, with local Room databases and Firebase synchronization.',
+    tags: ['Java', 'Android SDK', 'CameraX', 'Google ML Kit', 'Firebase', 'Room DB', 'Mobile Development'],
     link: '#',
     image: '/projects/slipstack/slipstack.png',
+    theme: {
+      background: '#0d021a',
+      accent: '#d500f9',
+      secondary: '#1c073a',
+      text: '#ffffff'
+    },
     details: {
-      vision: 'A secure, high-tech fintech application specializing in receipt scanning and data extraction. Uses advanced OCR and data categorization to help users manage expenses with bank-grade security and MERN stack architecture.',
+      vision: 'SlipStack is a native Android expense tracking and intelligent receipt scanning application. Built for secure and offline-first finance management, the app harnesses Jetpack CameraX for camera control and Google ML Kit Text Recognition to process and parse receipt images on-device, synchronizing transactions with Firebase Cloud Firestore.',
       features: [
-        'OCR Receipt Scanning: Intelligent extraction of price, date, and items from photos.',
-        'Data Categorization: Automated expense tracking into tax-ready categories.',
-        'Bank-grade Security: AES-256 encryption for all sensitive financial data.',
-        'MERN Architecture: Scalable full-stack foundation for high-concurrency usage.'
+        'Jetpack CameraX Scanner: Direct integration with camera lifecycle controllers, enabling high-resolution receipt captures with automatic aspect framing and flashlight controllers.',
+        'Google ML Kit OCR Parsing: High-performance on-device Optical Character Recognition detecting text layouts, coordinates, and bounding blocks directly via hardware acceleration.',
+        'Intelligent Bounding-Box Parser: Custom logical engine parsing unstructured OCR outputs into merchant names, dates, pricing columns, and dynamic negative discount line items.',
+        'Offline-First Room Persistence: Robust SQLite abstraction with Android Room, supporting full offline CRUD operations, LiveData queries, and background syncing.',
+        'Secure Cloud Sync: Firebase Authentication paired with Firestore rules ensuring seamless, real-time cross-device sync with strict user data isolation.'
       ],
       deepDive: [
         {
-          title: 'Secure OCR Pipeline',
-          content: 'Developed a custom preprocessing layer for receipt images to improve OCR accuracy by 40% in low-light environments.'
+          title: 'Geometric Bounding-Box Line Reconstruction',
+          content: 'Implemented a geometric text reconstruction algorithm that groups individual ML Kit Text elements into physical rows using their bounding-box y-coordinates within a specific pixel tolerance (42px). This solves column misalignment on creased or angled receipts, aligning product titles with their corresponding prices.'
+        },
+        {
+          title: 'Contextual Neighborhood Text Parser',
+          content: 'Developed a proximity-based text scoring engine to extract dates and financial figures. By scanning characters around localized regex anchors like month names or total keywords, the parser extracts transactional details while discarding surrounding logo, address, and VAT noise.'
+        },
+        {
+          title: 'Lifecycle-Aware CameraX Integration',
+          content: 'Utilized Android Jetpack CameraX bound directly to the activity lifecycle, minimizing memory footprints. Implemented custom texture views, image analysis triggers, and legacy packaging overrides to ensure fast processing across target Android versions.'
         }
       ],
-      recruiterWin: '"Successfully increased OCR accuracy by 40% through custom image preprocessing layers, ensuring reliable expense tracking for users."',
+      recruiterWin: '"Engineered a high-accuracy, on-device OCR receipt parser on Android utilizing Google ML Kit and custom bounding-box row reconstruction, improving line-item matching by 95% under physical noise."',
       techStack: [
-        { category: 'Stack', items: 'MongoDB, Express, React, Node.js' },
-        { category: 'Security', items: 'JWT, AES-256' },
-        { category: 'Vision', items: 'Tesseract OCR, Cloudinary' }
+        { category: 'Mobile & UI', items: 'Android SDK, Java, ViewBinding, Jetpack Navigation' },
+        { category: 'Machine Vision', items: 'Google ML Kit Text Recognition API, Android Jetpack CameraX' },
+        { category: 'Database & Sync', items: 'Android Room DB (SQLite), Firebase Auth, Cloud Firestore' },
+        { category: 'Threading & Workflows', items: 'LiveData, ViewModel, AndroidX WorkManager, Gradle Kotlin DSL' }
       ]
-    }
+    },
+    images: [
+      '/projects/slipstack/slipstack.png',
+      '/projects/slipstack/Camera Scan.png',
+      '/projects/slipstack/OCR Result.png',
+      '/projects/slipstack/Expense List.png',
+      '/projects/slipstack/Login Auth.png'
+    ]
   },
   {
     id: 'ffsmart',
