@@ -6,7 +6,7 @@ const experience = [
     {
         role: "AI Engineer (Freelance)",
         company: "TRUKBK",
-        period: "March 2026 - Present",
+        period: "January 2026 – June 2026",
         desc: "Architected and deployed an autonomous AI Sales Concierge powered by a custom RAG pipeline (Supabase pgvector, Google Gemini) to automate vehicle quoting. Engineered a high-performance interactive configurator, seamlessly integrating the AI reasoning layer with the frontend client platform."
     },
     {
@@ -25,10 +25,10 @@ const experience = [
 
 const education = [
     {
-        degree: "BSc Computing Science (Hons)",
+        degree: "BSc (Hons) Computer Science",
         school: "Nottingham Trent University",
         period: "Sep 2023 – June 2026",
-        details: "On track for Exceptional First. Modules include Artificial Intelligence, Cloud Computing, Mobile Application Development, and Advanced Analysis & Design."
+        details: "Grade: Upper Second Class (2:1). Selected modules: Artificial Intelligence, Cloud Computing, Mobile Application Development, and Advanced Software Analysis & Design."
     }
 ];
 
