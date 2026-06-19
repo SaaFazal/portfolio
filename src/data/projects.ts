@@ -35,18 +35,19 @@ export const projects: Project[] = [
   {
     id: 'phat-ops',
     title: 'PhatOps',
-    description: 'Comprehensive multi-tenant mobile application designed to digitize and streamline enterprise restaurant operations.',
+    description: 'Comprehensive multi-tenant mobile application launched on the App Store, digitizing operations across 4 PHAT Buns branches with rollout to 16 additional locations.',
     tags: ['React Native', 'Expo', 'Supabase', 'PostgreSQL RLS', 'TypeScript'],
     link: '/privacy-policy',
     linkLabel: 'Privacy Policy',
     image: '/projects/restaurant-ops/restaurant-ops.png',
     details: {
-      vision: 'PhatOps is a comprehensive, multi-tenant mobile application designed to digitize and streamline enterprise restaurant operations. Built for franchises and multi-location hospitality businesses, the platform unifies workforce management, inventory tracking, compliance logging, and internal communications into a single, high-performance cross-platform app.\n\nIt replaces fragmented systems (WhatsApp for shifts, paper for compliance, spreadsheets for inventory) with a centralized "Global Command Center" and localized store dashboards.',
+      vision: 'PhatOps is a comprehensive, multi-tenant mobile application designed to digitize and streamline enterprise restaurant operations. Officially published on the App Store, the system currently orchestrates daily workforce and supply operations across 4 active PHAT Buns franchise branches, with rolling deployments scheduled for 16 additional locations nationwide. The platform unifies workforce management, inventory tracking, compliance logging, and internal communications into a single, high-performance cross-platform app.\n\nIt replaces fragmented systems (WhatsApp for shifts, paper for compliance, spreadsheets for inventory) with a centralized "Global Command Center" and localized store dashboards.',
       features: [
+        'Production Deployment: Live on the iOS App Store, successfully powering operations for 4 franchise locations with rolling rollout to 16 future branches.',
         'Advanced Workforce Management: Smart drag-and-drop scheduling, shift lifecycles with cover requests, and geofenced real-time clock-in/out tracking.',
-        'Digital Compliance & Logits: Opening/closing procedure logs, temperature logs, standardized accident reports, and secure document tracking with expiration alerts.',
+        'Digital Compliance & Logs: Opening/closing procedure logs, temperature logs, standardized accident reports, and secure document tracking with expiration alerts.',
         'Inventory & Cost Management: Real-time stock levels, waste and par level tracking, cost management (labor vs. sales), and OCR receipt scanning/document parsing.',
-        'Enterprise Communication: Secure internal messaging with dedicated chat rooms for leadership and stores, live broadcast feeds, and a centralized SOP knowledge base.'
+        'Enterprise Communication: Secure internal messaging with dedicated chat rooms for leadership and stores, live broadcast feeds, and SOP knowledge bases.'
       ],
       deepDive: [
         {
