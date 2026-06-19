@@ -165,6 +165,8 @@ export default function ProjectDetail() {
                       <img 
                         src={img} 
                         alt={`${project.title} screenshot ${i + 1}`} 
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -212,6 +214,7 @@ export default function ProjectDetail() {
                     <img 
                       src={project.images[0]} 
                       alt={`${project.title} feature`} 
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                     />
                   ) : null}
@@ -228,6 +231,8 @@ export default function ProjectDetail() {
                     <img 
                       src={img} 
                       alt={`${project.title} screenshot ${i + 1}`} 
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -374,6 +379,7 @@ export default function ProjectDetail() {
             <img 
               src={selectedImg} 
               alt="Enlarged screenshot" 
+              decoding="async"
               className="max-h-[80vh] sm:max-h-[85vh] w-auto max-w-full object-contain rounded-2xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.8)]" 
             />
             <button 

@@ -1,5 +1,6 @@
 import { ScrollyCanvas } from "@/components/ScrollyCanvas";
 import { Projects } from "@/components/Projects";
+import { Certifications } from "@/components/Certifications";
 import { About } from "@/components/About";
 import { Experience } from "@/components/Experience";
 import { Contact } from "@/components/Contact";
@@ -10,6 +11,7 @@ export default function Home() {
     <div className="flex flex-col gap-0">
       <ScrollyCanvas />
       <Projects />
+      <Certifications />
       <Experience />
       <About />
       <Contact />
