@@ -1,9 +1,22 @@
 'use client';
-
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin } from 'lucide-react';
 
 export function FloatingLinkedin() {
+    const [isHidden, setIsHidden] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('screenshot') === 'true') {
+                setIsHidden(true);
+            }
+        }
+    }, []);
+
+    if (isHidden) return null;
+
     return (
         <motion.a
             href="https://www.linkedin.com/in/sahadh-fazal-mohamed-770267337/"

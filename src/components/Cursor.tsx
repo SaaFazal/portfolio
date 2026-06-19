@@ -4,6 +4,18 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export function Cursor() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('screenshot') === 'true') {
+        setIsHidden(true);
+      }
+    }
+  }, []);
+
+  if (isHidden) return null;
   
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);

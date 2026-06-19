@@ -5,12 +5,22 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export function MouseGlow() {
   const [isMounted, setIsMounted] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
   const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('screenshot') === 'true') {
+        setIsHidden(true);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     setIsMounted(true);
@@ -23,6 +33,7 @@ export function MouseGlow() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
+  if (isHidden) return null;
   if (!isMounted) return null;
 
   return (

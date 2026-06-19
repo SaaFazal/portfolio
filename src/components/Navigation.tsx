@@ -1,9 +1,23 @@
 'use client';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Magnetic } from './Magnetic';
 import { User, FolderGit2, FileText, Send, Award } from 'lucide-react';
 
 export function Navigation() {
+  const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('screenshot') === 'true') {
+        setIsHidden(true);
+      }
+    }
+  }, []);
+
+  if (isHidden) return null;
+
   return (
     <>
       <nav className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-[100] flex flex-col gap-4 hidden md:flex">
