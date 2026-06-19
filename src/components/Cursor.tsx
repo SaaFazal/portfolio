@@ -15,8 +15,6 @@ export function Cursor() {
     }
   }, []);
 
-  if (isHidden) return null;
-  
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   
@@ -34,6 +32,8 @@ export function Cursor() {
     window.addEventListener('mousemove', moveCursor);
     return () => window.removeEventListener('mousemove', moveCursor);
   }, [cursorX, cursorY, isVisible]);
+
+  if (isHidden) return null;
 
   // Disable on touch devices
   if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
