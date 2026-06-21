@@ -144,7 +144,7 @@ export const projects: Project[] = [
       features: [
         'Neural Trajectory Engine: Real-time demand forecasting using Holt-Winters Triple Exponential Smoothing to account for trends and seasonality.',
         'Intelligence Vault (RAG): A dedicated knowledge base that grounds the AI in actual sales documents, preventing hallucinations and ensuring factual accuracy.',
-        'Strategy Assistant: A conversational AI agent that analyzes the "Vault" to provide instant answers on stock levels, peak periods, and inventory adjustments.',
+        'Strategy Assistant: A conversational AI agent that analyses the "Vault" to provide instant answers on stock levels, peak periods, and inventory adjustments.',
         'Multi-Modal Ingestion: Support for enterprise-grade CSV uploads, manual sales entry, and vision-based receipt scanning for "on-the-floor" data entry.',
         'Cinematic UX: A premium "Charcoal & Gold" interface designed for high-end store environments, featuring smooth scroll-linked metrics and interactive Plotly visualizations.'
       ],
@@ -357,7 +357,7 @@ export const projects: Project[] = [
       deepDive: [
         {
           title: 'Asynchronous Spatial Routing',
-          content: 'Engineered a highly optimized routing client using Java\'s modern HttpClient API and CompletableFutures. Upon query activation, the backend dispatches non-blocking asynchronous calls to the Open Source Routing Machine (OSRM) service, resolving real road distances and durations on the fly. Calculated metrics are parsed efficiently using Jackson ObjectMapper and returned without locking primary execution threads.'
+          content: 'Engineered a highly optimised routing client using Java\'s modern HttpClient API and CompletableFutures. Upon query activation, the backend dispatches non-blocking asynchronous calls to the Open Source Routing Machine (OSRM) service, resolving real road distances and durations on the fly. Calculated metrics are parsed efficiently using Jackson ObjectMapper and returned without locking primary execution threads.'
         },
         {
           title: 'Active Data-Store Failover Wrapper',
@@ -417,7 +417,7 @@ export const projects: Project[] = [
         },
         {
           title: 'Lifecycle-Aware CameraX Integration',
-          content: 'Utilized Android Jetpack CameraX bound directly to the activity lifecycle, minimizing memory footprints. Implemented custom texture views, image analysis triggers, and legacy packaging overrides to ensure fast processing across target Android versions.'
+          content: 'Utilised Android Jetpack CameraX bound directly to the activity lifecycle, minimizing memory footprints. Implemented custom texture views, image analysis triggers, and legacy packaging overrides to ensure fast processing across target Android versions.'
         }
       ],
       recruiterWin: '"Engineered a high-accuracy, on-device OCR receipt parser on Android utilizing Google ML Kit and custom bounding-box row reconstruction, improving line-item matching by 95% under physical noise."',
@@ -452,7 +452,7 @@ export const projects: Project[] = [
     details: {
       vision: 'FF Smart Fridge is an IoT-connected grocery tracking and compliance management application built natively for Android. The platform features high-speed CameraX barcode scanning to log items, robust SQLite/Room offline datastores, background expiration monitors using Android WorkManager, and real-time synchronization with Google Firebase Firestore.',
       features: [
-        'CameraX Barcode Scanning: Direct camera integration with CameraX bound to the activity lifecycle, executing real-time frame scanning with Google ML Kit Barcode Analyzer.',
+        'CameraX Barcode Scanning: Direct camera integration with CameraX bound to the activity lifecycle, executing real-time frame scanning with Google ML Kit Barcode Analyser.',
         'Smart Expiration Alerts: Periodic background checks scheduled with Android WorkManager that check the Room database and trigger push notifications for food items approaching their expiration date.',
         'Automated Restock Generator: Background worker that calculates item consumption cycles and generates automated restock/shopping lists based on usage history.',
         'HACCP Food Safety Logs: Digital recording system for temperature checks and environmental parameters, critical for professional food safety compliance.',
@@ -543,7 +543,7 @@ export const projects: Project[] = [
   {
     id: 'ntu-timetable',
     title: 'NTU Academic Timetabling System',
-    description: 'High-performance scheduling engine built in C++ utilizing recursive backtracking and heuristic constraints to optimize academic room allocation and student timetables.',
+    description: 'High-performance scheduling engine built in C++ utilising recursive backtracking and heuristic constraints to optimise academic room allocation and student timetables.',
     tags: ['C++', 'Algorithms', 'Constraint Satisfaction', 'File System I/O', 'Optimization'],
     link: 'https://github.com/SaaFazal/Timetable-System',
     linkLabel: 'View on GitHub',
@@ -555,18 +555,18 @@ export const projects: Project[] = [
       text: '#ffffff'
     },
     details: {
-      vision: 'The NTU Academic Timetabling System is a sophisticated scheduling engine designed to solve the NP-complete Course Timetabling Problem. Engineered in high-performance C++, the application utilizes recursive backtracking optimization with smart heuristic constraint-satisfaction filters to generate conflict-free schedules for lecturers, classrooms, modules, and thousands of students concurrently.',
+      vision: 'The NTU Academic Timetabling System is a sophisticated scheduling engine designed to solve the NP-complete Course Timetabling Problem. Engineered in high-performance C++, the application utilises recursive backtracking optimisation with smart heuristic constraint-satisfaction filters to generate conflict-free schedules for lecturers, classrooms, modules, and thousands of students concurrently.',
       features: [
         'Dynamic Constraint Solver: Custom backtracking scheduling engine that enforces hard constraints (e.g., no lecturer or room double-bookings) and soft constraints (e.g., uniform time-slot distribution).',
         'Relational CSV Data Loader: High-speed file parser loading relational schemas dynamically from structural flat files (students, lecturers, modules, and rooms).',
         'Classroom Capacity Allocator: Room assignments mapped strictly to module registration sizes, maximizing campus facility usage and minimizing energy waste.',
-        'Conflict-Free Timetable Exporter: High-performance CSV reporting engine exporting optimized schedules (e.g. timetable_export.csv, timetable_GRP04.csv) ready for administrative integration.',
-        'Heuristic Resource Optimizer: Pre-sorting optimization heuristics that evaluate high-friction modules first, reducing recursion depth and improving solver speeds.'
+        'Conflict-Free Timetable Exporter: High-performance CSV reporting engine exporting optimised schedules (e.g. timetable_export.csv, timetable_GRP04.csv) ready for administrative integration.',
+        'Heuristic Resource Optimiser: Pre-sorting optimisation heuristics that evaluate high-friction modules first, reducing recursion depth and improving solver speeds.'
       ],
       deepDive: [
         {
           title: 'Constraint Satisfaction Backtracking Algorithm',
-          content: 'Engineered a recursive backtracking algorithm optimized for Constraint Satisfaction Problems (CSP). The solver maps variables (lectures) to values (room/timeslot slots). Hard constraints are mathematically checked at each recursion step (no teacher, group, or room clashes), pruning unviable branches early and preventing combinatorial explosions.'
+          content: 'Engineered a recursive backtracking algorithm optimised for Constraint Satisfaction Problems (CSP). The solver maps variables (lectures) to values (room/timeslot slots). Hard constraints are mathematically checked at each recursion step (no teacher, group, or room clashes), pruning unviable branches early and preventing combinatorial explosions.'
         },
         {
           title: 'Heuristic-Guided Search Pre-Sorting',

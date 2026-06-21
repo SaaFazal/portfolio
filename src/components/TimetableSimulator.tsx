@@ -202,7 +202,7 @@ export default function TimetableSimulator() {
       setConsoleLogs(prev => [
         ...prev,
         '',
-        '[SIMULATOR] Resetting to normal optimized state. Dynamic conflicts cleared.',
+        '[SIMULATOR] Resetting to normal optimised state. Dynamic conflicts cleared.',
         ''
       ]);
     }
@@ -358,7 +358,7 @@ export default function TimetableSimulator() {
                     Rather than a naive brute-force loop, the core algorithm uses <strong>Recursive Backtracking with Constraint Propagation</strong>. Hard constraints (no lecturer or classroom over-allocations) act as pruning rules to instantly discard unviable scheduler branches.
                   </p>
                   <p>
-                    To optimize efficiency, a <strong>Maximum Constraint Heuristic</strong> evaluates highly restricted modules first (like large group lectures and lecturers with narrow schedules). This pre-sorting drops recursion depth, solving university schedules in polynomial time!
+                    To optimise efficiency, a <strong>Maximum Constraint Heuristic</strong> evaluates highly restricted modules first (like large group lectures and lecturers with narrow schedules). This pre-sorting drops recursion depth, solving university schedules in polynomial time!
                   </p>
                 </div>
               </div>
@@ -509,7 +509,7 @@ export default function TimetableSimulator() {
                       <CheckCircle className="w-3.5 h-3.5" /> Constraint Satisfied
                     </div>
                     <p className="text-[11px] leading-relaxed opacity-90">
-                      The C++ optimizer successfully verified lecturer availability, room size capacity limit ({selectedCard.room.includes('Clare') ? '150 seats' : '100 seats'}), and student availability slots for this cell. 0 conflicts.
+                      The C++ optimiser successfully verified lecturer availability, room size capacity limit ({selectedCard.room.includes('Clare') ? '150 seats' : '100 seats'}), and student availability slots for this cell. 0 conflicts.
                     </p>
                   </div>
                 </div>
