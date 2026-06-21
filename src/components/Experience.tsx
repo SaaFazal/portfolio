@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const experience = [
     {
-        role: "AI Engineer (Freelance)",
+        role: "Software Engineer (Freelance)",
         company: "TRUKBK",
         period: "January 2026 – June 2026",
         desc: "Architected and deployed an autonomous AI Sales Concierge powered by a custom RAG pipeline (Supabase pgvector, Google Gemini) to automate vehicle quoting. Engineered a high-performance interactive configurator, seamlessly integrating the AI reasoning layer with the frontend client platform.",
