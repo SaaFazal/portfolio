@@ -14,7 +14,7 @@ const experience = [
         role: "Software Engineer (Freelance)",
         company: "Arasan Travels",
         period: "August 2025 – Jan 2026",
-        desc: "Architected and deployed a custom travel-booking platform. Software engineered an end-to-end automated booking pipeline with Stripe payment reconciliations, reducing manual administration time by 15%. Fully cloud-first infrastructure.",
+        desc: "Architected a custom, full-stack travel booking platform utilizing a serverless pnpm monorepo. Engineered a type-safe, end-to-end automated booking pipeline with integrated Stripe payment reconciliations, reducing administrative overhead by 15%.",
         logo: "/Arasan Travels.png"
     },
     {
