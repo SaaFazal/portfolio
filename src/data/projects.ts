@@ -178,31 +178,52 @@ export const projects: Project[] = [
   {
     id: 'arasan-travels',
     title: 'Arasan Travels',
-    description: 'Architected and deployed a custom travel-booking platform with an automated booking pipeline and Stripe integration.',
-    tags: ['React', 'Next.js', 'API Integration', 'Cloud Systems'],
+    description: 'A premium, full-stack travel booking and package showcase platform powered by a serverless monorepo architecture and automated booking pipeline.',
+    tags: ['React 19', 'Vite 7', 'Express v5', 'PostgreSQL', 'Drizzle ORM', 'Tailwind CSS v4', 'Stripe API'],
     link: 'http://www.arasantravels.co.uk',
     image: '/projects/arasan-travels/arasan-travels.png',
+    theme: {
+      background: '#080808',
+      accent: '#ff5a1f',
+      secondary: '#141414',
+      text: '#ffffff'
+    },
     details: {
-      vision: 'Architected and deployed a custom travel-booking platform. Software engineered an end-to-end automated booking pipeline with Stripe payment reconciliations, reducing manual administration time by 15%. Fully cloud-first infrastructure.',
+      vision: 'Arasan Travels is a highly interactive, high-performance web application designed for a luxury touring and coach travel agency. It provides customers with an immersive browsing experience for day trips and multi-day staycations across the UK and Europe. Built as a pnpm monorepo, the platform features a Vite-powered React 19 frontend, an Express API backend, a PostgreSQL database managed via Drizzle ORM, and automated lead capture with secure Stripe integrations.',
       features: [
-        'Automated Booking Pipeline: End-to-end booking flow from selection to confirmation.',
-        'Stripe Reconciliation: Automated payment processing and financial reconciliation.',
-        'Cloud Infrastructure: Deployed on high-availability cloud systems for 99.9% uptime.',
-        'Admin Dashboard: Custom management interface for booking oversight.'
+        'Interactive Trip Discovery: A horizontal scroll carousel showcasing staycation packages and day trips with custom nights/days badges and price points.',
+        'Custom Expedia Search Widget: Fully responsive widget integration that allows booking flights, hotels, and custom travel packages directly through the platform.',
+        'Booking & Enquiry Pipeline: Secure customer booking enquiries validating inputs via Zod schemas, persisting details to PostgreSQL, and sending Nodemailer confirmations.',
+        'ESM Bundling for Serverless: Bundles the entire TypeScript Express backend into a single, standalone ES Module (.mjs) in /api/app.mjs using esbuild.',
+        'Admin Analytics Portal: Protected dashboard showing real-time aggregates for trips, newsletter subscribers, and booking enquiries under ADMIN_TOKEN authentication.'
       ],
       deepDive: [
         {
-          title: 'Payment Integration Architecture',
-          content: 'Implemented a secure Stripe integration using webhooks to ensure real-time booking confirmation and avoid overbooking during peak seasons.'
+          title: 'ESM Bundling for Serverless Environments',
+          content: 'To deploy the Express backend within Vercel\'s serverless environment, I configured a custom build pipeline using esbuild. This compiles the entire TypeScript API into a single, standalone ES Module (/api/app.mjs) with all sub-workspace dependencies inlined. This bypasses Vercel\'s root-dependency compilation restrictions and ensures lightning-fast lambda cold starts.'
+        },
+        {
+          title: 'Lazy Database Proxy Connection Pattern',
+          content: 'Direct database pooling at the file level can crash serverless lambdas on cold starts if environment variables are missing or if the serverless pool is slow to respond. To resolve this, I implemented a lazy Proxy wrapper for the Drizzle database instance. The connection pool is provisioned dynamically only when the first SQL query actually executes.'
+        },
+        {
+          title: 'End-to-End Type-Safe REST API Client',
+          content: 'The entire application runs on a fully connected REST API layer. The React frontend interacts with the Express backend using a generated, type-safe API client package (@workspace/api-client-react). This guarantees that Drizzle database schemas and Zod validation rules propagate directly to React components, eliminating runtime API interface mismatches.'
         }
       ],
-      recruiterWin: '"Reduced manual administration time by 15% through a custom automated booking pipeline with integrated Stripe payment reconciliations."',
+      recruiterWin: '"Engineered a high-performance monorepo with an Express serverless backend, lazy database proxying, and custom ESM bundling, reducing serverless cold starts to near-zero and ensuring 100% type safety from database to UI."',
       techStack: [
-        { category: 'Frontend', items: 'React, Next.js, Tailwind CSS' },
-        { category: 'Backend', items: 'Node.js, Stripe API' },
-        { category: 'Infrastructure', items: 'Vercel, AWS' }
+        { category: 'Frontend', items: 'React 19, Vite 7, Tailwind CSS v4, Framer Motion, Wouter, TanStack Query v5, Lucide React' },
+        { category: 'Backend & API', items: 'Node.js, Express v5, esbuild (ESM Bundler), @workspace/api-client-react' },
+        { category: 'Database & Schemas', items: 'Neon PostgreSQL, Drizzle ORM, Zod Schema Validation' },
+        { category: 'Integrations', items: 'Stripe API (Payments), Nodemailer (SMTP), Expedia Search Widget' }
       ]
-    }
+    },
+    images: [
+      '/projects/arasan-travels/arasan-travels.png',
+      '/projects/arasan-travels/About.png',
+      '/projects/arasan-travels/Travellers shared moments .png'
+    ]
   },
   {
     id: 'uni-chatbot',
