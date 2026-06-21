@@ -11,10 +11,10 @@ const experience = [
         logo: "/TRUKBK.png"
     },
     {
-        role: "Software Engineer (Remote)",
-        company: "Arasan Travels London",
+        role: "Software Engineer (Freelance)",
+        company: "Arasan Travels",
         period: "August 2025 – Jan 2026",
-        desc: "Architected and deployed a custom travel-booking platform using HTML/CSS/JS and Google Apps Script integrations. Automated 50+ monthly booking approvals and Stripe payment reconciliations, reducing manual administration time by 15%.",
+        desc: "Architected and deployed a custom travel-booking platform. Software engineered an end-to-end automated booking pipeline with Stripe payment reconciliations, reducing manual administration time by 15%. Fully cloud-first infrastructure.",
         logo: "/Arasan Travels.png"
     },
     {

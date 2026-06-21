@@ -222,6 +222,7 @@ export const projects: Project[] = [
     images: [
       '/projects/arasan-travels/arasan-travels.png',
       '/projects/arasan-travels/About.png',
+      '/projects/arasan-travels/London attractions.png',
       '/projects/arasan-travels/Travellers shared moments .png'
     ]
   },
