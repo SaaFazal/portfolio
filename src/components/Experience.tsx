@@ -35,10 +35,10 @@ const education = [
         logo: "/NTU.png"
     },
     {
-        degree: "Introduction to UK Financial Regulation & Professional Integrity",
+        degree: "Introduction to UK Financial Regulation & Professional Integrity (In Progress)",
         school: "Certified Institute for Further Accreditation (CIFA)",
-        period: "June 2026",
-        details: "160-hour certification covering UK Capital Markets, FCA & PRA regulatory frameworks, Risk Management, Conduct of Business Sourcebook (COBS), and Financial Crime compliance.",
+        period: "June 2026 – Present",
+        details: "Currently undertaking this 160-hour certification course covering UK Capital Markets, FCA & PRA regulatory frameworks, Risk Management, Conduct of Business Sourcebook (COBS), and Financial Crime compliance.",
         logo: "/CIFA.png"
     },
     {
