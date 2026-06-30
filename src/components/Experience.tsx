@@ -35,6 +35,13 @@ const education = [
         logo: "/NTU.png"
     },
     {
+        degree: "Introduction to UK Financial Regulation & Professional Integrity",
+        school: "Certified Institute for Further Accreditation (CIFA)",
+        period: "June 2026",
+        details: "160-hour certification covering UK Capital Markets, FCA & PRA regulatory frameworks, Risk Management, Conduct of Business Sourcebook (COBS), and Financial Crime compliance.",
+        logo: "/CIFA.png"
+    },
+    {
         degree: "AISSCE - 12 CBSE (Mathematics & Computer Science)",
         school: "KVIS CBSE - Ramanathapuram",
         period: "2021 – 2023",
