@@ -1,16 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.sahadhfazal.com' }],
-        destination: 'https://sahadhfazal.com/:path*',
-        permanent: true, // 308 redirect
-      },
-    ];
-  },
+  /* Redirects are handled natively in Vercel dashboard:
+     Settings → Domains → set sahadhfazal.com as primary → www auto-redirects */
 };
 
 export default nextConfig;
