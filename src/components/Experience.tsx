@@ -20,7 +20,7 @@ const experience = [
     {
         role: "Application Developer & Store Assistant",
         company: "PHAT Buns UK",
-        period: "Dec 2024 - Dec 2025",
+        period: "Apr 2024 – Dec 2025",
         desc: "Engineered 'PhatOps', a cross-platform mobile application launched on the App Store to digitise restaurant operations. Currently powering workforce and order-tracking operations across 4 active PHAT Buns branches, with scheduled rollouts for 16 additional branches. Reduced rendering latency by 20% through optimised Supabase real-time subscriptions.",
         logo: "/Phatbuns.png"
     }

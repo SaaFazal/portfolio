@@ -19,7 +19,7 @@ export function Hero() {
                 </div>
 
                 <p className="text-white/60 font-medium tracking-[0.4em] uppercase text-[10px] md:text-xs mb-10 max-w-xl">
-                    Software Engineer | AI Engineer
+                    Software Engineer | AI Engineer | Data Analyst
                 </p>
 
                 <p className="text-white/40 text-lg md:text-xl max-w-2xl mb-12 font-light leading-relaxed px-4">

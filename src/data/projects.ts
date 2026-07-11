@@ -89,7 +89,7 @@ export const projects: Project[] = [
   {
     id: 'trukbk-web',
     title: 'TRUKBK',
-    description: 'High-performance vehicle configurator and a zero-hallucination AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini.',
+    description: 'High-performance vehicle configurator and a hallucination-resistant AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini.',
     tags: ['RAG', 'Supabase pgvector', 'Google Gemini', 'React'],
     link: 'https://www.trukbk.co.uk/',
     image: '/projects/trukbk-web/main.png',
@@ -128,7 +128,7 @@ export const projects: Project[] = [
   {
     id: 'ceptflow',
     title: 'CePTFlow Intelligence Suite',
-    description: 'Autonomous Inventory Strategist & Neural Forecasting Platform designed to transform retail inventory interaction through predictive analytics and agentic AI.',
+    description: 'Autonomous Inventory Strategist & Neural Forecasting Platform combining Holt-Winters time-series forecasting with interactive Plotly dashboards for real-time stock insight, and Agentic AI to transform retail inventory decisions.',
     tags: ['Python', 'Flask', 'Google Gemini', 'RAG', 'Time-Series'],
     link: '/projects/ceptflow',
     image: '/projects/supply-chain/supply-chain.png',

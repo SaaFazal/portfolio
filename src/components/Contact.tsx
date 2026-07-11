@@ -65,7 +65,7 @@ export function Contact() {
                             >
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                      <div className="flex flex-col gap-3">
-                                         <label htmlFor="name" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] ml-1">Identity</label>
+                                         <label htmlFor="name" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] ml-1">Name</label>
                                          <input 
                                              required
                                              suppressHydrationWarning
@@ -77,7 +77,7 @@ export function Contact() {
                                          />
                                      </div>
                                      <div className="flex flex-col gap-3">
-                                         <label htmlFor="email" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] ml-1">Channel</label>
+                                         <label htmlFor="email" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] ml-1">Email</label>
                                          <input 
                                              required
                                              suppressHydrationWarning
@@ -91,7 +91,7 @@ export function Contact() {
                                  </div>
                                  
                                  <div className="flex flex-col gap-3">
-                                     <label htmlFor="message" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] ml-1">Directive</label>
+                                     <label htmlFor="message" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] ml-1">Message</label>
                                      <textarea 
                                          required
                                          suppressHydrationWarning
@@ -113,7 +113,7 @@ export function Contact() {
                                          <div className="w-5 h-5 rounded-full border-2 border-black/30 border-t-black animate-spin" />
                                      ) : (
                                          <>
-                                             Transmit
+                                             Send
                                              <Send size={16} />
                                          </>
                                      )}

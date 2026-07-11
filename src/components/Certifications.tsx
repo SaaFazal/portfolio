@@ -63,6 +63,14 @@ function renderProviderLogo(issuer: string) {
           <path d="M18.86 11.2c-.44-.66-1-1.26-1.63-1.77a11 11 0 0 0-4.42-2.14 7.6 7.6 0 0 1 1.83 4.29 4.34 4.34 0 0 1-.95 3.09 5.37 5.37 0 0 0-1.79-3.79c-.19.89-.15 2 .33 2.92a4.4 4.4 0 0 0 3.32 2.23 4.8 4.8 0 0 1-2.91-.49 4.49 4.49 0 0 1-2.35-3.32c-.37-.89-.35-2.08.15-3.08a6.32 6.32 0 0 0-2.19 4.67c-.08 1.84.77 3.59 2.25 4.66a6.76 6.76 0 0 0 5.43.91 7.15 7.15 0 0 0 4.93-8.13z"/>
         </svg>
       );
+    case 'CIFA':
+      return (
+        <img
+          src="/CIFA.png"
+          alt="CIFA"
+          className="w-6 h-6 object-contain rounded"
+        />
+      );
     default:
       return <Award className="w-4 h-4" />;
   }
@@ -152,6 +160,30 @@ const certificationsList: Certification[] = [
     logoColor: 'from-purple-600/20 to-pink-500/20 border-purple-500/30 text-purple-400',
     image: '/projects/certificates/Data Analysis with Python Certificate.png',
     verificationUrl: 'https://freecodecamp.org/certification/saadf/data-analysis-with-python-v7'
+  },
+  {
+    id: 'ms-pl300',
+    title: 'PL-300: Power BI Data Analyst Associate (In Progress)',
+    issuer: 'Microsoft',
+    date: 'In Progress — 2026',
+    credentialId: 'MS-PL300-IP',
+    skills: ['Power BI Desktop', 'DAX', 'Data Modelling', 'Report Design', 'Power Query'],
+    description: 'Currently preparing for the Microsoft PL-300 certification, covering data preparation, modelling, DAX measures, and designing interactive Power BI reports and dashboards for business intelligence use cases.',
+    logoColor: 'from-yellow-600/20 to-amber-400/20 border-yellow-500/30 text-yellow-400',
+    image: '/projects/certificates/Microsoft.png',
+    verificationUrl: 'https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/'
+  },
+  {
+    id: 'cifa-finreg',
+    title: 'UK Financial Regulation & Professional Integrity (In Progress)',
+    issuer: 'CIFA',
+    date: 'In Progress — June 2026',
+    credentialId: 'CIFA-UKFR-IP',
+    skills: ['FCA & PRA Frameworks', 'UK Capital Markets', 'Risk Management', 'COBS', 'Financial Crime'],
+    description: 'Currently undertaking this 160-hour professional certification covering UK financial regulation, FCA & PRA regulatory frameworks, conduct standards (COBS), risk management, and financial crime compliance.',
+    logoColor: 'from-amber-700/20 to-yellow-600/20 border-amber-600/30 text-amber-400',
+    image: '/CIFA.png',
+    verificationUrl: 'https://www.cifa.ac.uk'
   }
 ];
 

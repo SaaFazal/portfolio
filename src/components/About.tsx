@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { SkillsMarquee } from './SkillsMarquee';
-import { Brain, Smartphone, Cloud } from 'lucide-react';
+import { Brain, Smartphone, Cloud, BarChart2 } from 'lucide-react';
 
 export function About() {
     return (
@@ -30,14 +30,14 @@ export function About() {
                         
                         <div className="space-y-4 text-white/70 leading-relaxed text-sm md:text-base">
                             <p>
-                                I am a Software Engineer, AI Developer, and BSc (Hons) Computer Science graduate (2:1) from Nottingham Trent University. 
-                                I specialize in building high-performance, responsive <strong className="text-white">Mobile Applications</strong>, autonomous <strong className="text-white">AI Agents</strong>, and scalable <strong className="text-white">Cloud Infrastructure</strong>.
+                                I am a Software Engineer, AI Developer, and Data Analyst — and a BSc (Hons) Computer Science graduate (2:1) from Nottingham Trent University.
+                                I specialise in building high-performance <strong className="text-white">Mobile Applications</strong>, autonomous <strong className="text-white">AI Agents</strong>, scalable <strong className="text-white">Cloud Infrastructure</strong>, and turning raw business data into <strong className="text-white">Decision-Ready Insight</strong>.
                             </p>
                             <p>
                                 With deep expertise across Python, Java, and TypeScript, I focus on turning complex logical architectures into fluid, recruiter-ready interfaces that load fast, feel responsive, and solve concrete business problems.
                             </p>
                             <p>
-                                From designing agentic workflows using Semantic Kernel to implementing real-time vector search pipelines (pgvector) and mobile deployments, I build software that delivers absolute performance.
+                                From designing agentic workflows using Semantic Kernel to implementing real-time vector search pipelines (pgvector), time-series forecasting models, and mobile deployments — I build software and systems that deliver absolute performance.
                             </p>
                         </div>
                     </motion.div>
@@ -83,8 +83,19 @@ export function About() {
                                     <Cloud className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1 space-y-1">
-                                    <h4 className="text-sm font-bold text-white group-hover/item:text-primary transition-colors">Cloud & Infrastructure</h4>
+                                    <h4 className="text-sm font-bold text-white group-hover/item:text-primary transition-colors">Cloud &amp; Infrastructure</h4>
                                     <p className="text-xs text-white/50 leading-relaxed">AWS serverless architecture, Docker containerization, database optimizations, and secure API backends.</p>
+                                </div>
+                            </div>
+
+                            {/* Cap 4 */}
+                            <div className="flex gap-4 items-start group/item">
+                                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-all duration-300">
+                                    <BarChart2 className="w-5 h-5" />
+                                </div>
+                                <div className="flex-1 space-y-1">
+                                    <h4 className="text-sm font-bold text-white group-hover/item:text-primary transition-colors">Data &amp; Analytics</h4>
+                                    <p className="text-xs text-white/50 leading-relaxed">SQL analysis, Power BI dashboards, time-series forecasting, and turning raw business data into decision-ready insight.</p>
                                 </div>
                             </div>
                         </div>

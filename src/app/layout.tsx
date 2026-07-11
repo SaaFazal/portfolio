@@ -11,8 +11,8 @@ import { MouseGlow } from "@/components/MouseGlow";
 const caveat = Caveat({ subsets: ["latin"], weight: ["400", "700"], variable: '--font-caveat' });
 
 export const metadata: Metadata = {
-  title: "Sahadh Portfolio",
-  description: "Portfolio showcasing premium web and mobile applications.",
+  title: "Sahadh Fazal Mohamed — Software Engineer, AI Engineer & Data Analyst",
+  description: "Software & AI Engineer and Data Analyst — full-stack applications, RAG pipelines, and data analytics. UK-based, open to work.",
 };
 
 export default function RootLayout({

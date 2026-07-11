@@ -195,6 +195,51 @@ const skills: Skill[] = [
         <path d="M12 6.09c-2.97 0-4.95 1.48-5.94 4.45 1.48-1.98 3.22-2.72 5.2-2.23.99.25 1.7.98 2.49 1.79 1.28 1.32 2.76 2.84 5.94 2.84 2.97 0 4.95-1.48 5.94-4.45-1.48 1.98-3.22 2.72-5.2 2.23-.99-.25-1.7-.98-2.49-1.79-1.28-1.32-2.76-2.84-5.94-2.84zm-6 5.91c-2.97 0-4.95 1.48-5.94 4.45 1.48-1.98 3.22-2.72 5.2-2.23.99.25 1.7.98 2.49 1.79 1.28 1.32 2.76 2.84 5.94 2.84 2.97 0 4.95-1.48 5.94-4.45-1.48 1.98-3.22 2.72-5.2 2.23-.99-.25-1.7-.98-2.49-1.79-1.28-1.32-2.76-2.84-5.94-2.84z"/>
       </svg>
     )
+  },
+  {
+    name: "Power BI",
+    colorClass: "hover:text-[#F2C811] hover:border-[#F2C811]/40 hover:bg-[#F2C811]/5",
+    logo: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 flex-shrink-0 text-[#F2C811]" fill="currentColor">
+        <rect x="2" y="12" width="4" height="10" rx="1"/>
+        <rect x="8" y="7" width="4" height="15" rx="1"/>
+        <rect x="14" y="3" width="4" height="19" rx="1"/>
+        <rect x="20" y="9" width="2" height="13" rx="1"/>
+      </svg>
+    )
+  },
+  {
+    name: "Pandas",
+    colorClass: "hover:text-[#150458] hover:border-[#150458]/40 hover:bg-[#150458]/10",
+    logo: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 flex-shrink-0" fill="none" stroke="#e040fb" strokeWidth="2" strokeLinecap="round">
+        <line x1="8" y1="3" x2="8" y2="21"/>
+        <line x1="16" y1="3" x2="16" y2="21"/>
+        <line x1="4" y1="8" x2="12" y2="8"/>
+        <line x1="12" y1="16" x2="20" y2="16"/>
+      </svg>
+    )
+  },
+  {
+    name: "PostgreSQL",
+    colorClass: "hover:text-[#4169E1] hover:border-[#4169E1]/40 hover:bg-[#4169E1]/5",
+    logo: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 flex-shrink-0 text-[#4169E1]" fill="none" stroke="currentColor" strokeWidth="2">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/>
+        <path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6"/>
+      </svg>
+    )
+  },
+  {
+    name: "Excel",
+    colorClass: "hover:text-[#217346] hover:border-[#217346]/40 hover:bg-[#217346]/5",
+    logo: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 flex-shrink-0 text-[#217346]" fill="currentColor">
+        <rect x="2" y="2" width="20" height="20" rx="2"/>
+        <path fill="white" d="M7 8l3 4-3 4h2l2-2.5L13 16h2l-3-4 3-4h-2l-2 2.5L9 8z"/>
+      </svg>
+    )
   }
 ];
 
