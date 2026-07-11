@@ -37,7 +37,7 @@ export function Navigation() {
           </Link>
         </Magnetic>
         <Magnetic>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-24 py-3 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full text-white font-bold text-[9px] tracking-[0.2em] hover:bg-primary transition-all duration-300 uppercase flex items-center justify-center text-center shadow-xl">
+          <a href="/SFM_CV.pdf" target="_blank" rel="noopener noreferrer" className="w-24 py-3 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full text-white font-bold text-[9px] tracking-[0.2em] hover:bg-primary transition-all duration-300 uppercase flex items-center justify-center text-center shadow-xl">
             Resume
           </a>
         </Magnetic>
@@ -62,7 +62,7 @@ export function Navigation() {
           <Award size={16} />
           <span className="text-[8px] font-bold tracking-widest uppercase">Certs</span>
         </Link>
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 text-white/70 hover:text-white hover:scale-110 transition-all p-1.5">
+        <a href="/SFM_CV.pdf" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 text-white/70 hover:text-white hover:scale-110 transition-all p-1.5">
           <FileText size={16} />
           <span className="text-[8px] font-bold tracking-widest uppercase">CV</span>
         </a>
