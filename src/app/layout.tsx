@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   },
   title: "Sahadh Fazal Mohamed — Software Engineer, AI Engineer & Data Analyst",
   description: "Software & AI Engineer and Data Analyst — full-stack applications, RAG pipelines, and data analytics. UK-based, open to work.",
+  icons: {
+    icon: '/profile.jpeg',
+    shortcut: '/profile.jpeg',
+    apple: '/profile.jpeg',
+  }
 };
 
 export default function RootLayout({
