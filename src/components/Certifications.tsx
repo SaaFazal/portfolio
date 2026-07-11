@@ -15,6 +15,7 @@ interface Certification {
   logoColor: string;
   image: string;
   verificationUrl?: string;
+  inProgress?: boolean;
 }
 
 function renderProviderLogo(issuer: string) {
@@ -166,11 +167,12 @@ const certificationsList: Certification[] = [
     title: 'PL-300: Power BI Data Analyst Associate (In Progress)',
     issuer: 'Microsoft',
     date: 'In Progress — 2026',
-    credentialId: 'MS-PL300-IP',
+    credentialId: '',
     skills: ['Power BI Desktop', 'DAX', 'Data Modelling', 'Report Design', 'Power Query'],
     description: 'Currently preparing for the Microsoft PL-300 certification, covering data preparation, modelling, DAX measures, and designing interactive Power BI reports and dashboards for business intelligence use cases.',
     logoColor: 'from-yellow-600/20 to-amber-400/20 border-yellow-500/30 text-yellow-400',
-    image: '/projects/certificates/Microsoft.png',
+    image: '',
+    inProgress: true,
     verificationUrl: 'https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/'
   },
   {
@@ -178,11 +180,12 @@ const certificationsList: Certification[] = [
     title: 'UK Financial Regulation & Professional Integrity (In Progress)',
     issuer: 'CIFA',
     date: 'In Progress — June 2026',
-    credentialId: 'CIFA-UKFR-IP',
+    credentialId: '',
     skills: ['FCA & PRA Frameworks', 'UK Capital Markets', 'Risk Management', 'COBS', 'Financial Crime'],
     description: 'Currently undertaking this 160-hour professional certification covering UK financial regulation, FCA & PRA regulatory frameworks, conduct standards (COBS), risk management, and financial crime compliance.',
     logoColor: 'from-amber-700/20 to-yellow-600/20 border-amber-600/30 text-amber-400',
-    image: '/CIFA.png',
+    image: '',
+    inProgress: true,
     verificationUrl: 'https://www.cifa.ac.uk'
   }
 ];
@@ -238,24 +241,33 @@ export function Certifications() {
                   </div>
                 </div>
 
-                {/* Certificate Thumbnail Preview */}
-                <div className="w-full h-24 rounded-lg overflow-hidden border border-white/5 bg-white/5 mb-3 relative group-hover:border-primary/30 transition-all">
-                  <img
-                    src={cert.image}
-                    alt={cert.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                </div>
+                {/* Certificate Thumbnail Preview OR In-Progress Badge */}
+                {cert.inProgress ? (
+                  <div className="w-full h-24 rounded-lg border border-dashed border-primary/30 bg-primary/5 mb-3 flex flex-col items-center justify-center gap-1.5">
+                    <span className="text-[9px] font-black uppercase tracking-[0.3em] text-primary/70">Currently Studying</span>
+                    <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest">In Progress</span>
+                  </div>
+                ) : (
+                  <div className="w-full h-24 rounded-lg overflow-hidden border border-white/5 bg-white/5 mb-3 relative group-hover:border-primary/30 transition-all">
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  </div>
+                )}
 
                 <p className="text-[11px] text-white/60 leading-relaxed line-clamp-2">{cert.description}</p>
               </div>
 
               <div className="flex items-center justify-between text-[10px] text-white/40 font-bold border-t border-white/5 pt-2.5 mt-2.5">
                 <span className="flex items-center gap-1"><Calendar className="w-3 h-3 text-primary/60" /> {cert.date}</span>
-                <span className="group-hover:text-primary transition-colors flex items-center gap-1">Verify <ExternalLink className="w-2.5 h-2.5" /></span>
+                {!cert.inProgress && (
+                  <span className="group-hover:text-primary transition-colors flex items-center gap-1">Verify <ExternalLink className="w-2.5 h-2.5" /></span>
+                )}
               </div>
             </div>
           ))}
@@ -348,13 +360,24 @@ export function Certifications() {
                       </div>
                     </div>
 
-                    <div className="space-y-2">
-                      <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-primary" /> Verification Details
-                      </h4>
-                      <p className="text-[11px] text-white/60">Credential ID: <span className="font-mono text-white/80">{selectedCert.credentialId}</span></p>
-                      <p className="text-[11px] text-white/60 mt-1">Issued Date: <span className="text-white/80">{selectedCert.date}</span></p>
-                    </div>
+                    {!selectedCert.inProgress && (
+                      <div className="space-y-2">
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 flex items-center gap-1.5">
+                          <Calendar className="w-3.5 h-3.5 text-primary" /> Verification Details
+                        </h4>
+                        <p className="text-[11px] text-white/60">Credential ID: <span className="font-mono text-white/80">{selectedCert.credentialId}</span></p>
+                        <p className="text-[11px] text-white/60 mt-1">Issued Date: <span className="text-white/80">{selectedCert.date}</span></p>
+                      </div>
+                    )}
+                    {selectedCert.inProgress && (
+                      <div className="space-y-2">
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 flex items-center gap-1.5">
+                          <Calendar className="w-3.5 h-3.5 text-primary" /> Status
+                        </h4>
+                        <span className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest">In Progress</span>
+                        <p className="text-[11px] text-white/50 mt-1">Credential ID and issue date will be added upon completion.</p>
+                      </div>
+                    )}
                   </div>
 
                   <div className="pt-4 flex flex-col sm:flex-row justify-end gap-2 border-t border-white/5 mt-4">

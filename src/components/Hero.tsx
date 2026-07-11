@@ -18,6 +18,7 @@ export function Hero() {
                     </h1>
                 </div>
 
+                {/* Roles: v2 — includes Data Analyst */}
                 <p className="text-white/60 font-medium tracking-[0.4em] uppercase text-[10px] md:text-xs mb-10 max-w-xl">
                     Software Engineer | AI Engineer | Data Analyst
                 </p>
