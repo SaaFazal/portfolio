@@ -91,37 +91,55 @@ export const projects: Project[] = [
     title: 'Restaurant Analytics',
     description: 'End-to-end Power BI business intelligence solution for a multi-branch restaurant, transforming 10 raw CSV exports into a star-schema model with interactive dashboards.',
     tags: ['Power BI', 'DAX', 'Power Query', 'Data Modeling', 'Business Intelligence'],
-    image: '/projects/power bi - multi restaurant/Home.png',
+    image: '/projects/restaurant-analytics/Home.png',
     details: {
-      vision: 'This project is an end-to-end Power BI business-intelligence solution for a multi-branch restaurant. It takes 10 raw CSV exports from the operational app and turns them into a robust star-schema data model with ~18 DAX measures. The result is a 3-page interactive dashboard covering Sales, Labour & Punctuality, and Procurement.',
+      vision: 'An end-to-end Power BI business-intelligence solution for a multi-branch restaurant. It takes 10 raw CSV exports from the operational app and turns them into a star-schema data model with ~18 DAX measures and a 3-page interactive dashboard covering Sales, Labour & Punctuality, and Procurement.',
       features: [
-        'Data Quality Audit: Profiled 10 raw tables for row counts, nulls, duplicate keys, referential integrity, and logic checks before building.',
-        'Star-Schema Model: Cleaned and transformed data using Power Query, establishing 14 Many-to-One relationships from facts to dimensions.',
-        'Advanced DAX Measures: Engineered 18+ measures including time intelligence (MoM Growth), dynamic labour variance, and a custom Punctuality KPI.',
-        'Interactive Reporting: Delivered a 3-page dashboard (Sales Overview, Labour & Punctuality, Procurement & Inventory) with dynamic slicers and what-if parameters.',
-        'Data Anonymization: Safely anonymized branches, staff, suppliers, and brand identity while preserving the analytical integrity of the data.'
+        'The raw data (10 tables): stores (DimStores), profiles (DimProfiles), suppliers (DimSuppliers), daily_sales (FactDailySales), shifts (FactShifts), attendance (FactAttendance), receipts (FactReceipts), inventory_items (FactInventory).',
+        'Phase 0 — Data Quality Audit: Profiled all 10 files for row counts, nulls, duplicate keys, referential integrity, and logic checks before building.',
+        'Phase 1 — Power Query & Transformation: Removed irrelevant columns, standardized formats, and engineered columns (e.g., derived Late_Flag in attendance, extracted delivery platform name in daily_sales).',
+        'Phase 2 — Data Modeling: Built a strictly directional 1-to-Many Star Schema with a central DimDate and 14 single-direction relationships.',
+        'Phase 4 — Data Privacy & Anonymization: Safely anonymized branches, staff, suppliers, and financial figures using a random scalar factor to protect client commercial sensitivity.',
+        'Phase 5 — Dashboard UX/UI Design: Built a 3-page dark industrial theme dashboard with a custom bookmark-driven side-nav bar for seamless app-like page switching.'
       ],
       deepDive: [
         {
-          title: 'Deriving the Punctuality KPI',
-          content: 'No native punctuality field existed in the raw data. I engineered this by creating calculated columns to match each clock-in to the scheduled start time on the same day. By comparing the clock-in time to the scheduled start plus a 10-minute grace period, I was able to accurately classify attendance as "On Time" or "Late" and build robust measures to track the On-Time Rate %.'
+          title: 'Phase 0 — Data Quality Audit (before building anything)',
+          content: 'Why: never build on data you haven\'t inspected. I profiled all 10 files for: Row counts, nulls, blanks. Duplicate keys (found issues in `attendance`). Referential integrity (did every `store_id` in sales exist in `stores`? Yes). Logic checks (were there shifts ending before they started? Yes, fixed in PQ).'
         },
         {
-          title: 'What-If Wage Cost Modeling',
-          content: 'Implemented a What-If parameter using GENERATESERIES and SELECTEDVALUE. This interactive slider allows users to dynamically test hourly wage rates against actual worked hours, instantly recalculating the total Labour Cost and its percentage against revenue.'
+          title: 'Phase 1 — Power Query & Transformation',
+          content: 'All 10 CSVs imported. Heavy transformations included: Removing irrelevant columns to shrink model size. Promoting headers, standardizing date/time formats. Engineered columns: In `attendance`, derived a `Late_Flag` by comparing actual clock-in vs scheduled start (plus 10m grace period). In `daily_sales`, extracted the delivery platform name (Deliveroo, UberEats, JustEat) from a messy memo string. Appended historical files where needed to create contiguous fact tables.'
+        },
+        {
+          title: 'Phase 2 — Data Modeling (Star Schema)',
+          content: 'Built a strictly directional 1-to-Many Star Schema. Created a central `DimDate` table using DAX `CALENDARAUTO()` for time-intelligence. Connected dimensions (Store, Profile, Date, Supplier) to facts (Sales, Shifts, Attendance, Receipts, Inventory). Total of 14 relationships established, all single-direction filtering down to the facts to ensure performance and avoid ambiguity.'
+        },
+        {
+          title: 'Phase 3 — DAX Engineering (~18 Measures)',
+          content: 'Base measures: `Total Sales`, `Total Labour Cost`, `Total Orders`, `Avg Order Value`. Time Intelligence: `Sales YTD`, `Sales MoM % Growth` using `CALCULATE`, `DATESYTD`, `PREVIOUSMONTH`. The tricky ones: Punctuality Rate: `DIVIDE(CALCULATE(COUNTROWS(FactAttendance), FactAttendance[Late_Flag] = "On Time"), COUNTROWS(FactAttendance))`. Labour % of Sales: `DIVIDE([Total Labour Cost], [Total Sales])` — crucial KPI for restaurants. What-If Parameter: Created a slider for "Target Wage Rate". Used `GENERATESERIES` and `SELECTEDVALUE` to dynamically multiply total hours worked by the slider value, letting managers see how pay-rises affect the bottom line.'
+        },
+        {
+          title: 'Phase 4 — Data Privacy & Anonymization',
+          content: 'I cannot show real client data in a portfolio. Replaced real store names with "Branch Alpha", "Branch Beta", etc. Scrambled staff names and supplier names. Multiplied all financial figures (sales, costs) by a random scalar factor so the visual trend remained identical, but the absolute numbers were fictionalized to protect the client\'s commercial sensitivity.'
+        },
+        {
+          title: 'Phase 5 — Dashboard UX/UI Design',
+          content: 'Built a 3-page canvas. Theme: Dark industrial (Black/Orange) matching the brand. Page 1: Sales Overview — High-level revenue, platform breakdown (pie chart showing heavy 80% reliance on UberEats), and a line chart of daily sales. Page 2: Labour & Punctuality — Matrix of staff performance, scatter plot of hours vs cost, and the dynamic What-If wage slider. Page 3: Procurement & Inventory — Treemap of supplier spend, table of low-stock alerts. Navigation: Custom bookmark-driven side-nav bar for seamless app-like page switching.'
         }
       ],
-      recruiterWin: '"I built an end-to-end Power BI dashboard on real operational data from a multi-branch restaurant: profiled 10 tables, modelled them into a star schema with 14 relationships, wrote 18+ DAX measures — including a punctuality KPI I engineered from scratch and a What-If wage-cost model — and delivered a 3-page interactive report that surfaced 80% delivery-platform dependency and above-benchmark labour costs."',
+      recruiterWin: '"I engineered an end-to-end Power BI solution for a multi-branch restaurant, transforming 10 raw operational CSVs into a robust star-schema data model with 14 relationships and 18+ DAX measures. I developed a 3-page interactive dashboard featuring custom KPIs—like an engineered \'Punctuality Rate\' and a dynamic What-If wage cost model—all while strictly anonymizing the data to protect commercial sensitivity."',
       techStack: [
-        { category: 'Data Visualization & BI', items: 'Power BI Desktop, Interactive Dashboards, What-If Parameters' },
-        { category: 'Data Modeling & Transformation', items: 'Star Schema, Power Query, Data Profiling, Anonymization' },
-        { category: 'Analytics & Calculations', items: 'DAX (CALCULATE, FILTER, SUMX, Time Intelligence)' }
+        { category: 'Data Visualization & UI', items: 'Power BI Desktop, Interactive Bookmarks, What-If Parameters' },
+        { category: 'Data Modeling & Transformation', items: 'Star Schema, Power Query (M), Data Profiling' },
+        { category: 'Analytics & Calculations', items: 'DAX (CALCULATE, FILTER, Time Intelligence, Iterators)' },
+        { category: 'Data Engineering', items: 'CSV parsing, Data Anonymization' }
       ]
     },
     images: [
-      '/projects/power bi - multi restaurant/Home.png',
-      '/projects/power bi - multi restaurant/Pic 1.png',
-      '/projects/power bi - multi restaurant/Pic 2.png'
+      '/projects/restaurant-analytics/Home.png',
+      '/projects/restaurant-analytics/Pic 1.png',
+      '/projects/restaurant-analytics/Pic 2.png'
     ]
   },
   {
