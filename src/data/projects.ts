@@ -56,7 +56,7 @@ export const projects: Project[] = [
         },
         {
           title: 'Transactional Shift Swap Engine',
-          content: 'Engineered a highly robust transactional shift swap workflow. When User A requests a swap with User B, the system manages state transitions, alerts the manager, and upon approval, atomically swaps the foreign keys in the database using raw SQL transactions, preventing race conditions or double-booking.'
+          content: 'Built a highly robust transactional shift swap workflow. When User A requests a swap with User B, the system manages state transitions, alerts the manager, and upon approval, atomically swaps the foreign keys in the database using raw SQL transactions, preventing race conditions or double-booking.'
         },
         {
           title: 'Atomic Database Transactions via RPC',
@@ -67,7 +67,7 @@ export const projects: Project[] = [
           content: 'Implemented a secure storage pipeline for highly sensitive Right-to-Work, visas, and contracts. Files are uploaded to private Supabase Storage buckets, and the frontend retrieves them via temporary signed URLs expiring in 60 seconds, preventing link interception risks.'
         }
       ],
-      recruiterWin: '"Engineered a secure multi-tenant platform with transactional shift swaps, custom Postgres RPCs, and strict Row Level Security (RLS), streamlining operations for high-volume franchises with 100% data isolation."',
+      recruiterWin: '"Built a secure multi-tenant platform with transactional shift swaps, custom Postgres RPCs, and strict Row Level Security (RLS), streamlining operations for high-volume franchises with 100% data isolation."',
       techStack: [
         { category: 'Frontend & Mobile', items: 'React Native, Expo, TypeScript, React Native Paper' },
         { category: 'Backend & Database', items: 'Supabase, PostgreSQL, Row Level Security (RLS), SQL RPCs' },
@@ -96,39 +96,39 @@ export const projects: Project[] = [
       vision: 'An end-to-end Power BI business-intelligence solution for a multi-branch restaurant. It takes 10 raw CSV exports from the operational app and turns them into a star-schema data model with ~18 DAX measures and a 3-page interactive dashboard covering Sales, Labour & Punctuality, and Procurement.',
       features: [
         'The raw data (10 tables): stores (DimStores), profiles (DimProfiles), suppliers (DimSuppliers), daily_sales (FactDailySales), shifts (FactShifts), attendance (FactAttendance), receipts (FactReceipts), inventory_items (FactInventory).',
-        'Phase 0 — Data Quality Audit: Profiled all 10 files for row counts, nulls, duplicate keys, referential integrity, and logic checks before building.',
-        'Phase 1 — Power Query & Transformation: Removed irrelevant columns, standardized formats, and engineered columns (e.g., derived Late_Flag in attendance, extracted delivery platform name in daily_sales).',
-        'Phase 2 — Data Modeling: Built a strictly directional 1-to-Many Star Schema with a central DimDate and 14 single-direction relationships.',
-        'Phase 4 — Data Privacy & Anonymization: Safely anonymized branches, staff, suppliers, and financial figures using a random scalar factor to protect client commercial sensitivity.',
-        'Phase 5 — Dashboard UX/UI Design: Built a 3-page dark industrial theme dashboard with a custom bookmark-driven side-nav bar for seamless app-like page switching.'
+        'Data Quality Audit: Profiled all 10 files for row counts, nulls, duplicate keys, referential integrity, and logic checks before building.',
+        'Power Query & Transformation: Removed irrelevant columns, standardized formats, and built columns (e.g., derived Late_Flag in attendance, extracted delivery platform name in daily_sales).',
+        'Data Modeling: Built a strictly directional 1-to-Many Star Schema with a central DimDate and 14 single-direction relationships.',
+        'Data Privacy & Anonymization: Safely anonymized branches, staff, suppliers, and financial figures using a random scalar factor to protect client commercial sensitivity.',
+        'Dashboard UX/UI Design: Built a 3-page dark industrial theme dashboard with a custom bookmark-driven side-nav bar for seamless app-like page switching.'
       ],
       deepDive: [
         {
-          title: 'Phase 0 — Data Quality Audit (before building anything)',
+          title: 'Data Quality Audit (before building anything)',
           content: 'Why: never build on data you haven\'t inspected. I profiled all 10 files for: Row counts, nulls, blanks. Duplicate keys (found issues in `attendance`). Referential integrity (did every `store_id` in sales exist in `stores`? Yes). Logic checks (were there shifts ending before they started? Yes, fixed in PQ).'
         },
         {
-          title: 'Phase 1 — Power Query & Transformation',
-          content: 'All 10 CSVs imported. Heavy transformations included: Removing irrelevant columns to shrink model size. Promoting headers, standardizing date/time formats. Engineered columns: In `attendance`, derived a `Late_Flag` by comparing actual clock-in vs scheduled start (plus 10m grace period). In `daily_sales`, extracted the delivery platform name (Deliveroo, UberEats, JustEat) from a messy memo string. Appended historical files where needed to create contiguous fact tables.'
+          title: 'Power Query & Transformation',
+          content: 'All 10 CSVs imported. Heavy transformations included: Removing irrelevant columns to shrink model size. Promoting headers, standardizing date/time formats. Built columns: In `attendance`, derived a `Late_Flag` by comparing actual clock-in vs scheduled start (plus 10m grace period). In `daily_sales`, extracted the delivery platform name (Deliveroo, UberEats, JustEat) from a messy memo string. Appended historical files where needed to create contiguous fact tables.'
         },
         {
-          title: 'Phase 2 — Data Modeling (Star Schema)',
+          title: 'Data Modeling (Star Schema)',
           content: 'Built a strictly directional 1-to-Many Star Schema. Created a central `DimDate` table using DAX `CALENDARAUTO()` for time-intelligence. Connected dimensions (Store, Profile, Date, Supplier) to facts (Sales, Shifts, Attendance, Receipts, Inventory). Total of 14 relationships established, all single-direction filtering down to the facts to ensure performance and avoid ambiguity.'
         },
         {
-          title: 'Phase 3 — DAX Engineering (~18 Measures)',
-          content: 'Base measures: `Total Sales`, `Total Labour Cost`, `Total Orders`, `Avg Order Value`. Time Intelligence: `Sales YTD`, `Sales MoM % Growth` using `CALCULATE`, `DATESYTD`, `PREVIOUSMONTH`. The tricky ones: Punctuality Rate: `DIVIDE(CALCULATE(COUNTROWS(FactAttendance), FactAttendance[Late_Flag] = "On Time"), COUNTROWS(FactAttendance))`. Labour % of Sales: `DIVIDE([Total Labour Cost], [Total Sales])` — crucial KPI for restaurants. What-If Parameter: Created a slider for "Target Wage Rate". Used `GENERATESERIES` and `SELECTEDVALUE` to dynamically multiply total hours worked by the slider value, letting managers see how pay-rises affect the bottom line.'
+          title: 'DAX Engineering (~18 Measures)',
+          content: 'Base measures: `Total Sales`, `Total Labour Cost`, `Total Orders`, `Avg Order Value`. Time Intelligence: `Sales YTD`, `Sales MoM % Growth` using `CALCULATE`, `DATESYTD`, `PREVIOUSMONTH`. The tricky ones: Punctuality Rate: `DIVIDE(CALCULATE(COUNTROWS(FactAttendance), FactAttendance[Late_Flag] = "On Time"), COUNTROWS(FactAttendance))`. Labour % of Sales: `DIVIDE([Total Labour Cost], [Total Sales])`: crucial KPI for restaurants. What-If Parameter: Created a slider for "Target Wage Rate". Used `GENERATESERIES` and `SELECTEDVALUE` to dynamically multiply total hours worked by the slider value, letting managers see how pay-rises affect the bottom line.'
         },
         {
-          title: 'Phase 4 — Data Privacy & Anonymization',
+          title: 'Data Privacy & Anonymization',
           content: 'I cannot show real client data in a portfolio. Replaced real store names with "Branch Alpha", "Branch Beta", etc. Scrambled staff names and supplier names. Multiplied all financial figures (sales, costs) by a random scalar factor so the visual trend remained identical, but the absolute numbers were fictionalized to protect the client\'s commercial sensitivity.'
         },
         {
-          title: 'Phase 5 — Dashboard UX/UI Design',
-          content: 'Built a 3-page canvas. Theme: Dark industrial (Black/Orange) matching the brand. Page 1: Sales Overview — High-level revenue, platform breakdown (pie chart showing heavy 80% reliance on UberEats), and a line chart of daily sales. Page 2: Labour & Punctuality — Matrix of staff performance, scatter plot of hours vs cost, and the dynamic What-If wage slider. Page 3: Procurement & Inventory — Treemap of supplier spend, table of low-stock alerts. Navigation: Custom bookmark-driven side-nav bar for seamless app-like page switching.'
+          title: 'Dashboard UX/UI Design',
+          content: 'Built a 3-page canvas. Theme: Dark industrial (Black/Orange) matching the brand. Page 1: Sales Overview: High-level revenue, platform breakdown (pie chart showing heavy 80% reliance on UberEats), and a line chart of daily sales. Page 2: Labour & Punctuality: Matrix of staff performance, scatter plot of hours vs cost, and the dynamic What-If wage slider. Page 3: Procurement & Inventory: Treemap of supplier spend, table of low-stock alerts. Navigation: Custom bookmark-driven side-nav bar for seamless app-like page switching.'
         }
       ],
-      recruiterWin: '"I engineered an end-to-end Power BI solution for a multi-branch restaurant, transforming 10 raw operational CSVs into a robust star-schema data model with 14 relationships and 18+ DAX measures. I developed a 3-page interactive dashboard featuring custom KPIs—like an engineered \'Punctuality Rate\' and a dynamic What-If wage cost model—all while strictly anonymizing the data to protect commercial sensitivity."',
+      recruiterWin: '"I built an end-to-end Power BI solution for a multi-branch restaurant, transforming 10 raw operational CSVs into a robust star-schema data model with 14 relationships and 18+ DAX measures. I developed a 3-page interactive dashboard featuring custom KPIs—like an built \'Punctuality Rate\' and a dynamic What-If wage cost model—all while strictly anonymizing the data to protect commercial sensitivity."',
       techStack: [
         { category: 'Data Visualization & UI', items: 'Power BI Desktop, Interactive Bookmarks, What-If Parameters' },
         { category: 'Data Modeling & Transformation', items: 'Star Schema, Power Query (M), Data Profiling' },
@@ -145,12 +145,12 @@ export const projects: Project[] = [
   {
     id: 'trukbk-web',
     title: 'TRUKBK',
-    description: 'High-performance vehicle configurator and a hallucination-resistant AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini. It automates high-touch B2B sales queries with 100% factual accuracy, capturing hot leads 24/7 without the risk of AI hallucinations.',
+    description: 'High-performance vehicle configurator and a highly accurate AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini. It automates high-touch B2B sales queries with 100% factual accuracy, capturing hot leads 24/7 without the risk of AI hallucinations.',
     tags: ['RAG', 'Supabase pgvector', 'Google Gemini', 'React'],
     link: 'https://www.trukbk.co.uk/',
     image: '/projects/trukbk-web/main.png',
     details: {
-      vision: 'I engineered and launched the digital storefront for TRUKBK, a premium UK-based manufacturer of modular aluminium service bodies and truck trays. The goal was to create a high-end web experience that matched the rugged, premium nature of their physical products, while automating their sales pipeline using advanced AI.\n\nSelling custom, £10k+ physical truck builds is a high-touch process. Relying on a generic AI chatbot was dangerous—if an AI hallucinates a physical specification or price, it could lead to costly returns and broken trust. TRUKBK needed an automated way to answer customer queries with 100% factual accuracy and capture hot leads 24/7.',
+      vision: 'I built and launched the digital storefront for TRUKBK, a premium UK-based manufacturer of modular aluminium service bodies and truck trays. The goal was to create a high-end web experience that matched the rugged, premium nature of their physical products, while automating their sales pipeline using advanced AI.\n\nSelling custom, £10k+ physical truck builds is a high-touch process. Relying on a generic AI chatbot was dangerous—if an AI hallucinates a physical specification or price, it could lead to costly returns and broken trust. TRUKBK needed an automated way to answer customer queries with 100% factual accuracy and capture hot leads 24/7.',
       features: [
         'Industrial Noir Aesthetic: Implemented a dark, premium UI utilizing deep blacks, stark whites, and industrial orange accents with glassmorphism and micro-animations.',
         'Interactive Configurator: Developed a dynamic, 6-stage product builder that allows users to select their vehicle, cab type, body style, finish, and accessories.',
@@ -164,7 +164,7 @@ export const projects: Project[] = [
         },
         {
           title: 'The 2-Layer Bulletproof Fallback System',
-          content: 'APIs fail, and quotas run out. To ensure the business never looks broken to a customer, I engineered a robust 2-layer fallback system. Layer 1 is the full Gemini AI RAG pipeline. Layer 2 is a custom Rule-Based Engine that silently takes over if the API times out. It uses keyword matching against a hardcoded knowledge base to return accurate prices and contact info without the user ever seeing an error message.'
+          content: 'APIs fail, and quotas run out. To ensure the business never looks broken to a customer, I built a robust 2-layer fallback system. Layer 1 is the full Gemini AI RAG pipeline. Layer 2 is a custom Rule-Based Engine that silently takes over if the API times out. It uses keyword matching against a hardcoded knowledge base to return accurate prices and contact info without the user ever seeing an error message.'
         }
       ],
       recruiterWin: '"Guaranteed 100% uptime for the chat experience via a custom fallback architecture, ensuring no leads are lost to technical errors while reducing the manual sales support load."',
@@ -184,19 +184,14 @@ export const projects: Project[] = [
   {
     id: 'ceptflow',
     title: 'CePTFlow Intelligence Suite',
-    description: 'Autonomous Inventory Strategist & Neural Forecasting Platform combining Holt-Winters time-series forecasting with interactive Plotly dashboards for real-time stock insight, and Agentic AI to transform retail inventory decisions. It eliminates waste and maximizes volume by turning historical sales records into strategic foresight.',
+    description: 'Inventory Forecasting Platform combining Holt-Winters time-series forecasting with interactive Plotly dashboards for real-time stock insight, and AI Assistant to transform retail inventory decisions. It eliminates waste and maximizes volume by turning historical sales records into strategic foresight.',
     tags: ['Python', 'Flask', 'Google Gemini', 'RAG', 'Time-Series'],
     link: '/projects/ceptflow',
     image: '/projects/supply-chain/supply-chain.png',
     video: 'https://github.com/SaaFazal/portfolio/releases/download/v1.0-assets/Main.Video.mp4',
-    theme: {
-      background: '#0f0f0f',
-      accent: '#d4af37',
-      secondary: '#1a1a1a',
-      text: '#ffffff'
-    },
+    
     details: {
-      vision: 'CePTFlow was engineered to transform how retailers interact with their inventory data. Most management tools are passive—they show you what happened in the past. CePTFlow is active—it uses a Neural Trajectory Engine to predict the future and an Agentic AI Strategist to help you plan for it.\n\nThe goal was simple: Eliminate waste and maximize volume by turning every sales record into a strategic advantage.',
+      vision: 'CePTFlow was built to transform how retailers interact with their inventory data. Most management tools are passive—they show you what happened in the past. CePTFlow is active—it uses a Neural Trajectory Engine to predict the future and an AI Assistant Strategist to help you plan for it.\n\nThe goal was simple: Eliminate waste and maximize volume by turning every sales record into a strategic advantage.',
       features: [
         'Neural Trajectory Engine: Real-time demand forecasting using Holt-Winters Triple Exponential Smoothing to account for trends and seasonality.',
         'Intelligence Vault (RAG): A dedicated knowledge base that grounds the AI in actual sales documents, preventing hallucinations and ensuring factual accuracy.',
@@ -238,12 +233,7 @@ export const projects: Project[] = [
     tags: ['React 19', 'Vite 7', 'Express v5', 'PostgreSQL', 'Drizzle ORM', 'Tailwind CSS v4', 'Stripe API'],
     link: 'http://www.arasantravels.co.uk',
     image: '/projects/arasan-travels/arasan-travels.png',
-    theme: {
-      background: '#080808',
-      accent: '#ff5a1f',
-      secondary: '#141414',
-      text: '#ffffff'
-    },
+    
     details: {
       vision: 'Arasan Travels is a highly interactive, high-performance web application designed for a luxury touring and coach travel agency. It provides customers with an immersive browsing experience for day trips and multi-day staycations across the UK and Europe. Built as a pnpm monorepo, the platform features a Vite-powered React 19 frontend, an Express API backend, a PostgreSQL database managed via Drizzle ORM, and automated lead capture with secure Stripe integrations.',
       features: [
@@ -267,7 +257,7 @@ export const projects: Project[] = [
           content: 'The entire application runs on a fully connected REST API layer. The React frontend interacts with the Express backend using a generated, type-safe API client package (@workspace/api-client-react). This guarantees that Drizzle database schemas and Zod validation rules propagate directly to React components, eliminating runtime API interface mismatches.'
         }
       ],
-      recruiterWin: '"Engineered a high-performance monorepo with an Express serverless backend, lazy database proxying, and custom ESM bundling, reducing serverless cold starts to near-zero and ensuring 100% type safety from database to UI."',
+      recruiterWin: '"Built a high-performance monorepo with an Express serverless backend, lazy database proxying, and custom ESM bundling, reducing serverless cold starts to near-zero and ensuring 100% type safety from database to UI."',
       techStack: [
         { category: 'Frontend', items: 'React 19, Vite 7, Tailwind CSS v4, Framer Motion, Wouter, TanStack Query v5, Lucide React' },
         { category: 'Backend & API', items: 'Node.js, Express v5, esbuild (ESM Bundler), @workspace/api-client-react' },
@@ -285,16 +275,11 @@ export const projects: Project[] = [
   {
     id: 'uni-chatbot',
     title: 'Car Logo Classifier & Intelligent Assistant',
-    description: 'Intelligent multi-modal AI chatbot uniting deep learning computer vision (VGG19), symbolic logical reasoning (First-Order Logic), and statistical semantic search (TF-IDF & Cosine Similarity). It seamlessly handles conversational Q&A while maintaining strict logical consistency and providing high-confidence logo classifications.',
+    description: 'AI assistant combining computer vision (VGG19) for image recognition with logical reasoning and semantic search for accurate answers. It seamlessly handles conversational Q&A while maintaining strict logical consistency and providing high-confidence logo classifications.',
     tags: ['Python', 'TensorFlow', 'VGG19 CNN', 'NLTK', 'First-Order Logic', 'TF-IDF Similarity'],
     link: '#',
     image: '/projects/chatbot/chat.png',
-    theme: {
-      background: '#060f0e',
-      accent: '#00f2fe',
-      secondary: '#112220',
-      text: '#ffffff'
-    },
+    
     details: {
       vision: 'Developed as an intelligent, multi-modal automotive assistant, this advanced system unifies three distinct paradigms of artificial intelligence: Deep Learning computer vision, Symbolic First-Order Logic reasoning, and statistical Natural Language Processing (NLP). The chatbot allows users to interact seamlessly via conversational Q&A, query and expand an active First-Order Logic knowledge base with automatic consistency enforcement, and upload car logo images for instant brand identification with high neural network confidence scoring.',
       features: [
@@ -318,7 +303,7 @@ export const projects: Project[] = [
           content: 'To bridge the gap between fixed-rule AIML matching and arbitrary user inputs, the NLTK pipeline preprocesses, tokenizes, and lemmatizes queries into canonical word roots. By generating high-dimensional TF-IDF vectors for both the user input and the pre-defined Q&A dataset, the engine computes a Cosine Similarity matrix in real-time. If the similarity score of the best-matching Q&A pair exceeds a threshold of 0.7, it returns the factually correct answer, completely preventing common conversational failures.'
         }
       ],
-      recruiterWin: '"Engineered a multi-modal intelligent assistant that successfully bridges deep learning computer vision, symbolic logical reasoning (FOL) with automated consistency checking, and statistical NLP, maintaining 100% database integrity under conflicting inputs."',
+      recruiterWin: '"Built a multi-modal intelligent assistant that successfully bridges deep learning computer vision, symbolic logical reasoning (FOL) with automated consistency checking, and statistical NLP, maintaining 100% database integrity under conflicting inputs."',
       techStack: [
         { category: 'AI & Deep Learning', items: 'TensorFlow, Keras, VGG19 Transfer Learning, Convolutional Neural Networks (CNN)' },
         { category: 'Symbolic Logic & Reasoning', items: 'NLTK ResolutionProver, First-Order Logic (FOL), Cosine Similarity' },
@@ -339,12 +324,7 @@ export const projects: Project[] = [
     tags: ['Java', 'JavaFX', 'Docker', 'SQLite (PBKDF2)', 'SSH Networking', 'System Design'],
     link: '#',
     image: '/projects/load-balancer/load-balancer.png',
-    theme: {
-      background: '#0a0c10',
-      accent: '#00e676',
-      secondary: '#151922',
-      text: '#ffffff'
-    },
+    
     details: {
       vision: 'The Distributed Cluster Administration Hub is a premium multi-tenant desktop management system designed to orchestrate containerized cloud environments. Built using JavaFX and integrated with a highly decoupled Docker network cluster, the dashboard enables system administrators to manage and monitor a distributed host cluster composed of load balancers, database storage instances, and multi-tenant SSH-enabled file servers.\n\nBy leveraging advanced cryptographic standard verification and custom OS subprocess spawning, the solution models enterprise-grade security and role-based file access on low-footprint systems.',
       features: [
@@ -361,7 +341,7 @@ export const projects: Project[] = [
         },
         {
           title: 'Secure Hashing & Local Persistence',
-          content: 'Engineered a SQLite-based authentication layer securing user records with high-performance cryptographic hashing via PBKDF2WithHmacSHA1. To mitigate dictionary and rainbow-table compromises, the system automatically binds passwords to a dynamic 30-character cryptographic salt generated dynamically and persisted within a secure external .salt keyfile at the system\'s root directory.'
+          content: 'Built a SQLite-based authentication layer securing user records with high-performance cryptographic hashing via PBKDF2WithHmacSHA1. To mitigate dictionary and rainbow-table compromises, the system automatically binds passwords to a dynamic 30-character cryptographic salt generated dynamically and persisted within a secure external .salt keyfile at the system\'s root directory.'
         },
         {
           title: 'Multi-Tenant Directory Isolation',
@@ -395,14 +375,9 @@ export const projects: Project[] = [
     tags: ['Java', 'JAX-RS (Jersey)', 'Apache Tomcat', 'Azure Cosmos DB', 'OSRM Routing', 'System Design'],
     link: '#',
     image: '/projects/cyclenest/cyclenest.png',
-    theme: {
-      background: '#040d1a',
-      accent: '#00b0ff',
-      secondary: '#0a192f',
-      text: '#ffffff'
-    },
+    
     details: {
-      vision: 'CycleNest API is a high-performance, cloud-integrated RESTful backend engineered for bike-sharing and logistics tracking networks. Built using the JAX-RS (Jersey) framework and deployed inside high-concurrency Apache Tomcat servlet containers, the API orchestrates real-time asset discovery, location-based distance calculations, and transaction records across global cloud boundaries.',
+      vision: 'CycleNest API is a high-performance, cloud-integrated RESTful backend built for bike-sharing and logistics tracking networks. Built using the JAX-RS (Jersey) framework and deployed inside high-concurrency Apache Tomcat servlet containers, the API orchestrates real-time asset discovery, location-based distance calculations, and transaction records across global cloud boundaries.',
       features: [
         'JAX-RS REST API Architecture: High-performance endpoint structures mapped under servlet containers handling concurrent HTTP methods (GET, POST, DELETE).',
         'Self-Healing Storage Fallback: Automated active failover pattern redirecting traffic to local thread-safe ConcurrentHashMap stores in the event of database timeouts, ensuring 100% API uptime.',
@@ -413,7 +388,7 @@ export const projects: Project[] = [
       deepDive: [
         {
           title: 'Asynchronous Spatial Routing',
-          content: 'Engineered a highly optimised routing client using Java\'s modern HttpClient API and CompletableFutures. Upon query activation, the backend dispatches non-blocking asynchronous calls to the Open Source Routing Machine (OSRM) service, resolving real road distances and durations on the fly. Calculated metrics are parsed efficiently using Jackson ObjectMapper and returned without locking primary execution threads.'
+          content: 'Built a highly optimised routing client using Java\'s modern HttpClient API and CompletableFutures. Upon query activation, the backend dispatches non-blocking asynchronous calls to the Open Source Routing Machine (OSRM) service, resolving real road distances and durations on the fly. Calculated metrics are parsed efficiently using Jackson ObjectMapper and returned without locking primary execution threads.'
         },
         {
           title: 'Active Data-Store Failover Wrapper',
@@ -447,12 +422,7 @@ export const projects: Project[] = [
     tags: ['Java', 'Android SDK', 'CameraX', 'Google ML Kit', 'Firebase', 'Room DB', 'Mobile Development'],
     link: '#',
     image: '/projects/slipstack/slipstack.png',
-    theme: {
-      background: '#0d021a',
-      accent: '#d500f9',
-      secondary: '#1c073a',
-      text: '#ffffff'
-    },
+    
     details: {
       vision: 'SlipStack is a native Android expense tracking and intelligent receipt scanning application. Built for secure and offline-first finance management, the app harnesses Jetpack CameraX for camera control and Google ML Kit Text Recognition to process and parse receipt images on-device, synchronizing transactions with Firebase Cloud Firestore.',
       features: [
@@ -476,7 +446,7 @@ export const projects: Project[] = [
           content: 'Utilised Android Jetpack CameraX bound directly to the activity lifecycle, minimizing memory footprints. Implemented custom texture views, image analysis triggers, and legacy packaging overrides to ensure fast processing across target Android versions.'
         }
       ],
-      recruiterWin: '"Engineered a high-accuracy, on-device OCR receipt parser on Android utilizing Google ML Kit and custom bounding-box row reconstruction, improving line-item matching by 95% under physical noise."',
+      recruiterWin: '"Built a high-accuracy, on-device OCR receipt parser on Android utilizing Google ML Kit and custom bounding-box row reconstruction, improving line-item matching by 95% under physical noise."',
       techStack: [
         { category: 'Mobile & UI', items: 'Android SDK, Java, ViewBinding, Jetpack Navigation' },
         { category: 'Machine Vision', items: 'Google ML Kit Text Recognition API, Android Jetpack CameraX' },
@@ -499,12 +469,7 @@ export const projects: Project[] = [
     tags: ['Java', 'Android SDK', 'CameraX', 'Google ML Kit', 'Firebase', 'Room DB', 'Mobile Development'],
     link: '#',
     image: '/projects/fridge-app/fridge-app.png',
-    theme: {
-      background: '#041c0e',
-      accent: '#00e676',
-      secondary: '#0a2a16',
-      text: '#ffffff'
-    },
+    
     details: {
       vision: 'FF Smart Fridge is an IoT-connected grocery tracking and compliance management application built natively for Android. The platform features high-speed CameraX barcode scanning to log items, robust SQLite/Room offline datastores, background expiration monitors using Android WorkManager, and real-time synchronization with Google Firebase Firestore.',
       features: [
@@ -517,7 +482,7 @@ export const projects: Project[] = [
       deepDive: [
         {
           title: 'Real-Time Machine Vision Barcode Decoder',
-          content: 'Engineered an in-app barcode reader by coupling Android Jetpack CameraX with Google ML Kit Barcode Scanning API. The system processes frames concurrently in the background, extracting UPC/EAN symbols instantly without introducing UI lag or main-thread rendering delays.'
+          content: 'Built an in-app barcode reader by coupling Android Jetpack CameraX with Google ML Kit Barcode Scanning API. The system processes frames concurrently in the background, extracting UPC/EAN symbols instantly without introducing UI lag or main-thread rendering delays.'
         },
         {
           title: 'Automated Restocking Lifecycle Workers',
@@ -528,7 +493,7 @@ export const projects: Project[] = [
           content: 'Developed a local-first HACCP logging utility integrated with Firebase Cloud Firestore. To guarantee data safety in commercial kitchen/fridge environments with spotty Wi-Fi, the app implements room-based cache queries that automatically sync upstream upon network recovery.'
         }
       ],
-      recruiterWin: '"Engineered a high-performance native Android grocery safety tracker with lifecycle-aware CameraX/ML Kit barcode scanning and automated WorkManager restocking algorithms, decreasing food waste by up to 35%."',
+      recruiterWin: '"Built a high-performance native Android grocery safety tracker with lifecycle-aware CameraX/ML Kit barcode scanning and automated WorkManager restocking algorithms, decreasing food waste by up to 35%."',
       techStack: [
         { category: 'Mobile & UI', items: 'Android SDK, Java, ViewBinding, ConstraintLayout' },
         { category: 'Machine Vision', items: 'Google ML Kit Barcode Scanning, Jetpack CameraX' },
@@ -551,12 +516,7 @@ export const projects: Project[] = [
     tags: ['Next.js', 'React Native', 'Expo', 'Supabase', 'Prisma ORM', 'SQLite', 'Mobile Development'],
     link: '#',
     image: '/projects/ushop-inventory/ushop-inventory.png',
-    theme: {
-      background: '#0a0d14',
-      accent: '#00e5ff',
-      secondary: '#131924',
-      text: '#ffffff'
-    },
+    
     details: {
       vision: 'U-Shop is an enterprise-grade ERP and operations ecosystem. It features an administrator web panel built in Next.js 16 using Prisma ORM to schedule rosters, compile reports, and track inventory audits, coupled with an Expo React Native mobile app for store staff to execute geofenced clock-ins, scan stock, and manage shifts with TanStack React Query and Supabase.',
       features: [
@@ -569,7 +529,7 @@ export const projects: Project[] = [
       deepDive: [
         {
           title: 'Asynchronous State Caching & Supabase Sync',
-          content: 'Engineered the React Native application using TanStack React Query and @supabase/supabase-js client libraries. Queries implement structural caching and retry patterns so local operations are held in local state and compiled offline, syncing automatically with cloud databases upon restoration.'
+          content: 'Built the React Native application using TanStack React Query and @supabase/supabase-js client libraries. Queries implement structural caching and retry patterns so local operations are held in local state and compiled offline, syncing automatically with cloud databases upon restoration.'
         },
         {
           title: 'Expo Camera Vision & Barcode Parser',
@@ -604,14 +564,9 @@ export const projects: Project[] = [
     link: 'https://github.com/SaaFazal/Timetable-System',
     linkLabel: 'View on GitHub',
     image: '/projects/ntu-timetable/calendar.png',
-    theme: {
-      background: '#0d0d0d',
-      accent: '#ff3d00',
-      secondary: '#1a1a1a',
-      text: '#ffffff'
-    },
+    
     details: {
-      vision: 'The NTU Academic Timetabling System is a sophisticated scheduling engine designed to solve the NP-complete Course Timetabling Problem. Engineered in high-performance C++, the application utilises recursive backtracking optimisation with smart heuristic constraint-satisfaction filters to generate conflict-free schedules for lecturers, classrooms, modules, and thousands of students concurrently.',
+      vision: 'The NTU Academic Timetabling System is a sophisticated scheduling engine designed to solve the NP-complete Course Timetabling Problem. Built in high-performance C++, the application utilises recursive backtracking optimisation with smart heuristic constraint-satisfaction filters to generate conflict-free schedules for lecturers, classrooms, modules, and thousands of students concurrently.',
       features: [
         'Dynamic Constraint Solver: Custom backtracking scheduling engine that enforces hard constraints (e.g., no lecturer or room double-bookings) and soft constraints (e.g., uniform time-slot distribution).',
         'Relational CSV Data Loader: High-speed file parser loading relational schemas dynamically from structural flat files (students, lecturers, modules, and rooms).',
@@ -622,7 +577,7 @@ export const projects: Project[] = [
       deepDive: [
         {
           title: 'Constraint Satisfaction Backtracking Algorithm',
-          content: 'Engineered a recursive backtracking algorithm optimised for Constraint Satisfaction Problems (CSP). The solver maps variables (lectures) to values (room/timeslot slots). Hard constraints are mathematically checked at each recursion step (no teacher, group, or room clashes), pruning unviable branches early and preventing combinatorial explosions.'
+          content: 'Built a recursive backtracking algorithm optimised for Constraint Satisfaction Problems (CSP). The solver maps variables (lectures) to values (room/timeslot slots). Hard constraints are mathematically checked at each recursion step (no teacher, group, or room clashes), pruning unviable branches early and preventing combinatorial explosions.'
         },
         {
           title: 'Heuristic-Guided Search Pre-Sorting',
@@ -633,7 +588,7 @@ export const projects: Project[] = [
           content: 'Designed a thread-safe data parser utilizing standard C++ file stream operations to digest relational raw tables. The loader reads students, lecturers, classrooms, and module requirements, instantiating in-memory index mappings before feeding the compiled structures to the CSP optimization algorithm.'
         }
       ],
-      recruiterWin: '"Engineered a high-performance C++ timetabling solver utilizing recursive backtracking and pre-sorting CSP heuristics, resolving complex, conflict-free schedules for 5,000+ students in polynomial time."',
+      recruiterWin: '"Built a high-performance C++ timetabling solver utilizing recursive backtracking and pre-sorting CSP heuristics, resolving complex, conflict-free schedules for 5,000+ students in polynomial time."',
       techStack: [
         { category: 'Language & Framework', items: 'C++17, Native Execution' },
         { category: 'Optimization Core', items: 'Constraint Satisfaction Problem (CSP), Recursive Backtracking, Constraint Pruning' },
