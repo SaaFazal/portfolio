@@ -35,7 +35,7 @@ export const projects: Project[] = [
   {
     id: 'phat-ops',
     title: 'PhatOps',
-    description: 'Comprehensive multi-tenant mobile application launched on the App Store, digitizing operations across 4 PHAT Buns branches with rollout to 16 additional locations.',
+    description: 'Comprehensive multi-tenant mobile application launched on the App Store, digitizing operations across 4 PHAT Buns branches with rollout to 16 additional locations. It unifies workforce management, inventory tracking, compliance logging, and internal communications into a single, high-performance cross-platform app.',
     tags: ['React Native', 'Expo', 'Supabase', 'PostgreSQL RLS', 'TypeScript'],
     link: '/privacy-policy',
     linkLabel: 'Privacy Policy',
@@ -89,7 +89,7 @@ export const projects: Project[] = [
   {
     id: 'restaurant-analytics',
     title: 'Restaurant Analytics',
-    description: 'End-to-end Power BI business intelligence solution for a multi-branch restaurant, transforming 10 raw CSV exports into a star-schema model with interactive dashboards.',
+    description: 'End-to-end Power BI business intelligence solution for a multi-branch restaurant, transforming 10 raw CSV exports into a star-schema model with interactive dashboards. It provides deep insights into sales, labour costs, and punctuality using advanced DAX measures and What-If parameters.',
     tags: ['Power BI', 'DAX', 'Power Query', 'Data Modeling', 'Business Intelligence'],
     image: '/projects/restaurant-analytics/Home.png',
     details: {
@@ -145,7 +145,7 @@ export const projects: Project[] = [
   {
     id: 'trukbk-web',
     title: 'TRUKBK',
-    description: 'High-performance vehicle configurator and a hallucination-resistant AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini.',
+    description: 'High-performance vehicle configurator and a hallucination-resistant AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini. It automates high-touch B2B sales queries with 100% factual accuracy, capturing hot leads 24/7 without the risk of AI hallucinations.',
     tags: ['RAG', 'Supabase pgvector', 'Google Gemini', 'React'],
     link: 'https://www.trukbk.co.uk/',
     image: '/projects/trukbk-web/main.png',
@@ -184,7 +184,7 @@ export const projects: Project[] = [
   {
     id: 'ceptflow',
     title: 'CePTFlow Intelligence Suite',
-    description: 'Autonomous Inventory Strategist & Neural Forecasting Platform combining Holt-Winters time-series forecasting with interactive Plotly dashboards for real-time stock insight, and Agentic AI to transform retail inventory decisions.',
+    description: 'Autonomous Inventory Strategist & Neural Forecasting Platform combining Holt-Winters time-series forecasting with interactive Plotly dashboards for real-time stock insight, and Agentic AI to transform retail inventory decisions. It eliminates waste and maximizes volume by turning historical sales records into strategic foresight.',
     tags: ['Python', 'Flask', 'Google Gemini', 'RAG', 'Time-Series'],
     link: '/projects/ceptflow',
     image: '/projects/supply-chain/supply-chain.png',
@@ -234,7 +234,7 @@ export const projects: Project[] = [
   {
     id: 'arasan-travels',
     title: 'Arasan Travels',
-    description: 'A premium, full-stack travel booking and package showcase platform powered by a serverless monorepo architecture and automated booking pipeline.',
+    description: 'A premium, full-stack travel booking and package showcase platform powered by a serverless monorepo architecture and automated booking pipeline. It features an interactive trip discovery carousel, custom Expedia search widgets, and secure Stripe integrations for a seamless luxury customer experience.',
     tags: ['React 19', 'Vite 7', 'Express v5', 'PostgreSQL', 'Drizzle ORM', 'Tailwind CSS v4', 'Stripe API'],
     link: 'http://www.arasantravels.co.uk',
     image: '/projects/arasan-travels/arasan-travels.png',
@@ -285,7 +285,7 @@ export const projects: Project[] = [
   {
     id: 'uni-chatbot',
     title: 'Car Logo Classifier & Intelligent Assistant',
-    description: 'Intelligent multi-modal AI chatbot uniting deep learning computer vision (VGG19), symbolic logical reasoning (First-Order Logic), and statistical semantic search (TF-IDF & Cosine Similarity).',
+    description: 'Intelligent multi-modal AI chatbot uniting deep learning computer vision (VGG19), symbolic logical reasoning (First-Order Logic), and statistical semantic search (TF-IDF & Cosine Similarity). It seamlessly handles conversational Q&A while maintaining strict logical consistency and providing high-confidence logo classifications.',
     tags: ['Python', 'TensorFlow', 'VGG19 CNN', 'NLTK', 'First-Order Logic', 'TF-IDF Similarity'],
     link: '#',
     image: '/projects/chatbot/chat.png',
@@ -335,7 +335,7 @@ export const projects: Project[] = [
   {
     id: 'load-balancer',
     title: 'Distributed Cluster Administration Hub',
-    description: 'Secure multi-tenant administration dashboard designed for containerized cluster management, orchestrating multiple decoupled SSH file servers, database servers, and a high-availability network load balancer.',
+    description: 'Secure multi-tenant administration dashboard designed for containerized cluster management, orchestrating multiple decoupled SSH file servers, database servers, and a high-availability network load balancer. It features strict role-based access control and cryptographic PBKDF2 hashing for enterprise-grade security.',
     tags: ['Java', 'JavaFX', 'Docker', 'SQLite (PBKDF2)', 'SSH Networking', 'System Design'],
     link: '#',
     image: '/projects/load-balancer/load-balancer.png',
@@ -391,7 +391,7 @@ export const projects: Project[] = [
   {
     id: 'cyclenest-api',
     title: 'CycleNest API',
-    description: 'High-performance cloud-integrated REST API built for bike-sharing logistics, with low-latency route calculations, self-healing fallbacks, and Azure Cosmos DB storage.',
+    description: 'High-performance cloud-integrated REST API built for bike-sharing logistics, with low-latency route calculations, self-healing fallbacks, and Azure Cosmos DB storage. It guarantees 100% API uptime through an automated active failover pattern to local in-memory stores during cloud database timeouts.',
     tags: ['Java', 'JAX-RS (Jersey)', 'Apache Tomcat', 'Azure Cosmos DB', 'OSRM Routing', 'System Design'],
     link: '#',
     image: '/projects/cyclenest/cyclenest.png',
@@ -443,7 +443,7 @@ export const projects: Project[] = [
   {
     id: 'slipstack',
     title: 'SlipStack',
-    description: 'Native Android expense tracker and receipt parser utilizing Google ML Kit OCR and Jetpack CameraX, with local Room databases and Firebase synchronization.',
+    description: 'Native Android expense tracker and receipt parser utilizing Google ML Kit OCR and Jetpack CameraX, with local Room databases and Firebase synchronization. It features a custom geometric bounding-box algorithm to accurately reconstruct lines and extract financial data from unstructured physical receipts.',
     tags: ['Java', 'Android SDK', 'CameraX', 'Google ML Kit', 'Firebase', 'Room DB', 'Mobile Development'],
     link: '#',
     image: '/projects/slipstack/slipstack.png',
@@ -495,7 +495,7 @@ export const projects: Project[] = [
   {
     id: 'ffsmart',
     title: 'FF Smart Fridge',
-    description: 'Native Android IoT-connected grocery management and food safety tracking application utilizing CameraX barcode scanning, SQLite/Room persistence, and Firebase database synchronization.',
+    description: 'Native Android IoT-connected grocery management and food safety tracking application utilizing CameraX barcode scanning, SQLite/Room persistence, and Firebase database synchronization. It automates HACCP compliance logging and generates predictive restocking lists to drastically reduce commercial food waste.',
     tags: ['Java', 'Android SDK', 'CameraX', 'Google ML Kit', 'Firebase', 'Room DB', 'Mobile Development'],
     link: '#',
     image: '/projects/fridge-app/fridge-app.png',
@@ -547,7 +547,7 @@ export const projects: Project[] = [
   {
     id: 'ushop-inventory',
     title: 'U-Shop ERP Ecosystem',
-    description: 'Dual-platform business command suite containing a Next.js 16 admin dashboard and an Expo React Native mobile app integrated with Supabase and Prisma SQLite/PostgreSQL.',
+    description: 'Dual-platform business command suite containing a Next.js 16 admin dashboard and an Expo React Native mobile app integrated with Supabase and Prisma SQLite/PostgreSQL. It unifies high-speed mobile barcode scanning for store staff with comprehensive ERP oversight for administrators.',
     tags: ['Next.js', 'React Native', 'Expo', 'Supabase', 'Prisma ORM', 'SQLite', 'Mobile Development'],
     link: '#',
     image: '/projects/ushop-inventory/ushop-inventory.png',
@@ -599,7 +599,7 @@ export const projects: Project[] = [
   {
     id: 'ntu-timetable',
     title: 'NTU Academic Timetabling System',
-    description: 'High-performance scheduling engine built in C++ utilising recursive backtracking and heuristic constraints to optimise academic room allocation and student timetables.',
+    description: 'High-performance scheduling engine built in C++ utilising recursive backtracking and heuristic constraints to optimise academic room allocation and student timetables. It parses relational structural files and processes NP-complete schedules in polynomial time by applying Maximum Constraints First heuristics.',
     tags: ['C++', 'Algorithms', 'Constraint Satisfaction', 'File System I/O', 'Optimization'],
     link: 'https://github.com/SaaFazal/Timetable-System',
     linkLabel: 'View on GitHub',
