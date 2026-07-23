@@ -87,6 +87,44 @@ export const projects: Project[] = [
     ]
   },
   {
+    id: 'restaurant-analytics',
+    title: 'Restaurant Analytics',
+    description: 'End-to-end Power BI business intelligence solution for a multi-branch restaurant, transforming 10 raw CSV exports into a star-schema model with interactive dashboards.',
+    tags: ['Power BI', 'DAX', 'Power Query', 'Data Modeling', 'Business Intelligence'],
+    image: '/projects/power bi - multi restaurant/Home.png',
+    details: {
+      vision: 'This project is an end-to-end Power BI business-intelligence solution for a multi-branch restaurant. It takes 10 raw CSV exports from the operational app and turns them into a robust star-schema data model with ~18 DAX measures. The result is a 3-page interactive dashboard covering Sales, Labour & Punctuality, and Procurement.',
+      features: [
+        'Data Quality Audit: Profiled 10 raw tables for row counts, nulls, duplicate keys, referential integrity, and logic checks before building.',
+        'Star-Schema Model: Cleaned and transformed data using Power Query, establishing 14 Many-to-One relationships from facts to dimensions.',
+        'Advanced DAX Measures: Engineered 18+ measures including time intelligence (MoM Growth), dynamic labour variance, and a custom Punctuality KPI.',
+        'Interactive Reporting: Delivered a 3-page dashboard (Sales Overview, Labour & Punctuality, Procurement & Inventory) with dynamic slicers and what-if parameters.',
+        'Data Anonymization: Safely anonymized branches, staff, suppliers, and brand identity while preserving the analytical integrity of the data.'
+      ],
+      deepDive: [
+        {
+          title: 'Deriving the Punctuality KPI',
+          content: 'No native punctuality field existed in the raw data. I engineered this by creating calculated columns to match each clock-in to the scheduled start time on the same day. By comparing the clock-in time to the scheduled start plus a 10-minute grace period, I was able to accurately classify attendance as "On Time" or "Late" and build robust measures to track the On-Time Rate %.'
+        },
+        {
+          title: 'What-If Wage Cost Modeling',
+          content: 'Implemented a What-If parameter using GENERATESERIES and SELECTEDVALUE. This interactive slider allows users to dynamically test hourly wage rates against actual worked hours, instantly recalculating the total Labour Cost and its percentage against revenue.'
+        }
+      ],
+      recruiterWin: '"I built an end-to-end Power BI dashboard on real operational data from a multi-branch restaurant: profiled 10 tables, modelled them into a star schema with 14 relationships, wrote 18+ DAX measures — including a punctuality KPI I engineered from scratch and a What-If wage-cost model — and delivered a 3-page interactive report that surfaced 80% delivery-platform dependency and above-benchmark labour costs."',
+      techStack: [
+        { category: 'Data Visualization & BI', items: 'Power BI Desktop, Interactive Dashboards, What-If Parameters' },
+        { category: 'Data Modeling & Transformation', items: 'Star Schema, Power Query, Data Profiling, Anonymization' },
+        { category: 'Analytics & Calculations', items: 'DAX (CALCULATE, FILTER, SUMX, Time Intelligence)' }
+      ]
+    },
+    images: [
+      '/projects/power bi - multi restaurant/Home.png',
+      '/projects/power bi - multi restaurant/Pic 1.png',
+      '/projects/power bi - multi restaurant/Pic 2.png'
+    ]
+  },
+  {
     id: 'trukbk-web',
     title: 'TRUKBK',
     description: 'High-performance vehicle configurator and a hallucination-resistant AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini.',
