@@ -67,7 +67,7 @@ function renderProviderLogo(issuer: string) {
     case 'CIFA':
       return (
         <img
-          src="/cifa.png"
+          src="/CIFA.png"
           alt="CIFA"
           className="w-6 h-6 object-contain rounded"
         />
