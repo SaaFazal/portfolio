@@ -67,7 +67,7 @@ function renderProviderLogo(issuer: string) {
     case 'CIFA':
       return (
         <img
-          src="/CIFA.png"
+          src="/cifa.png"
           alt="CIFA"
           className="w-6 h-6 object-contain rounded"
         />
@@ -84,10 +84,10 @@ const certificationsList: Certification[] = [
     issuer: 'IBM',
     date: 'Jun 17, 2026',
     credentialId: 'GMUWS9IPDWOV',
-    skills: ['Mobile UI/UX', 'Cross-Platform Dev', 'Database Integration', 'React Native', 'Swift & Flutter'],
+    skills: ['Mobile UI/UX', 'Cross-Platform Dev', 'Database Integration', 'React Native'],
     description: 'Completed an intensive 14-course professional program covering native and cross-platform mobile architecture, state management, and production deployments.',
     logoColor: 'from-blue-600/20 to-blue-400/20 border-blue-500/30 text-blue-400',
-    image: '/projects/certificates/Certificate IBM.png',
+    image: '/projects/certificates/certificate-ibm.png',
     verificationUrl: 'https://coursera.org/verify/professional-cert/GMUWS9IPDWOV'
   },
   {
@@ -99,7 +99,7 @@ const certificationsList: Certification[] = [
     skills: ['Generative AI', 'Hyperparameter Tuning', 'Neural Networks', 'Google Cloud AI', 'Prompt Engineering'],
     description: 'Mastered foundational and advanced Generative AI architectures, neural network tuning, and implementing Google Cloud-based AI workflows.',
     logoColor: 'from-red-600/20 to-yellow-500/20 border-red-500/30 text-red-400',
-    image: '/projects/certificates/Certificate Google.png',
+    image: '/projects/certificates/certificate-google.png',
     verificationUrl: 'https://coursera.org/verify/professional-cert/DQR3CAHB447K'
   },
   {
@@ -135,7 +135,7 @@ const certificationsList: Certification[] = [
     skills: ['Supervised Learning', 'Linear Regression', 'Neural Networks', 'TensorFlow', 'Model Tuning'],
     description: 'Mastered key machine learning concepts including neural networks, loss functions, gradient descent, validation strategies, and multi-class classification.',
     logoColor: 'from-green-600/20 to-emerald-400/20 border-green-500/30 text-green-400',
-    image: '/projects/certificates/Machine Learning Crash Course.png',
+    image: '/projects/certificates/certificate-ml-crash-course.png',
     verificationUrl: 'https://developers.google.com/machine-learning/crash-course'
   },
   {
@@ -147,7 +147,7 @@ const certificationsList: Certification[] = [
     skills: ['Cloud Computing', 'Generative AI', 'AWS Storage & S3', 'Serverless Architecture'],
     description: 'Mastered global cloud infrastructure, serverless architectures, storage configuration, database optimization, and cloud security frameworks on AWS.',
     logoColor: 'from-orange-600/20 to-yellow-600/20 border-orange-500/30 text-orange-400',
-    image: '/projects/certificates/AWS Certificate.png',
+    image: '/projects/certificates/certificate-aws.png',
     verificationUrl: 'https://aws.amazon.com/education/aws-educate/'
   },
   {
@@ -159,7 +159,7 @@ const certificationsList: Certification[] = [
     skills: ['Pandas & NumPy', 'Matplotlib & Seaborn', 'Exploratory Data Analysis', 'Statistical Prediction'],
     description: 'Engineered complex data processing pipelines, cleaned tabular datasets, performed exploratory data analysis (EDA), and built statistical prediction models.',
     logoColor: 'from-purple-600/20 to-pink-500/20 border-purple-500/30 text-purple-400',
-    image: '/projects/certificates/Data Analysis with Python Certificate.png',
+    image: '/projects/certificates/certificate-python-data.png',
     verificationUrl: 'https://freecodecamp.org/certification/saadf/data-analysis-with-python-v7'
   },
   {

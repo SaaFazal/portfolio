@@ -36,7 +36,7 @@ export const projects: Project[] = [
     id: 'phat-ops',
     title: 'PhatOps',
     description: 'Comprehensive multi-tenant mobile application launched on the App Store, digitizing operations across 4 PHAT Buns branches with rollout to 16 additional locations. It unifies workforce management, inventory tracking, compliance logging, and internal communications into a single, high-performance cross-platform app.',
-    tags: ['React Native', 'Expo', 'Supabase', 'PostgreSQL RLS', 'TypeScript'],
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL'],
     link: '/privacy-policy',
     linkLabel: 'Privacy Policy',
     image: '/projects/restaurant-ops/restaurant-ops.png',
@@ -89,68 +89,55 @@ export const projects: Project[] = [
   {
     id: 'restaurant-analytics',
     title: 'Restaurant Analytics',
-    description: 'End-to-end Power BI business intelligence solution for a multi-branch restaurant, transforming 10 raw CSV exports into a star-schema model with interactive dashboards. It provides deep insights into sales, labour costs, and punctuality using advanced DAX measures and What-If parameters.',
+    description: 'End-to-end Power BI business intelligence solution for a multi-branch restaurant, transforming 10 raw CSV exports into a star-schema model with interactive dashboards. It features 18+ DAX measures, a custom punctuality KPI, and a What-If wage-cost model. Client data and visuals are confidential at the client\'s request.',
     tags: ['Power BI', 'DAX', 'Power Query', 'Data Modeling', 'Business Intelligence'],
-    image: '/projects/restaurant-analytics/Home.png',
+    image: '',
     details: {
-      vision: 'An end-to-end Power BI business-intelligence solution for a multi-branch restaurant. It takes 10 raw CSV exports from the operational app and turns them into a star-schema data model with ~18 DAX measures and a 3-page interactive dashboard covering Sales, Labour & Punctuality, and Procurement.',
+      vision: 'An end-to-end Power BI business-intelligence solution for a multi-branch restaurant. It takes 10 raw CSV exports from the operational app and turns them into a star-schema data model with 14 relationships and a 3-page interactive report covering Sales, Labour & Punctuality, and Procurement.',
       features: [
-        'The raw data (10 tables): stores (DimStores), profiles (DimProfiles), suppliers (DimSuppliers), daily_sales (FactDailySales), shifts (FactShifts), attendance (FactAttendance), receipts (FactReceipts), inventory_items (FactInventory).',
-        'Data Quality Audit: Profiled all 10 files for row counts, nulls, duplicate keys, referential integrity, and logic checks before building.',
-        'Power Query & Transformation: Removed irrelevant columns, standardized formats, and built columns (e.g., derived Late_Flag in attendance, extracted delivery platform name in daily_sales).',
+        'Data Quality Audit: Profiled all 10 files for row counts, duplicate keys, referential integrity, and logic checks before building.',
+        'Power Query & Transformation: Removed irrelevant columns, standardized formats, and built derived columns.',
         'Data Modeling: Built a strictly directional 1-to-Many Star Schema with a central DimDate and 14 single-direction relationships.',
-        'Data Privacy & Anonymization: Safely anonymized branches, staff, suppliers, and financial figures using a random scalar factor to protect client commercial sensitivity.',
-        'Dashboard UX/UI Design: Built a 3-page dark industrial theme dashboard with a custom bookmark-driven side-nav bar for seamless app-like page switching.'
+        'DAX Engineering (18+ Measures): Authored base measures, time intelligence, a punctuality KPI, and a dynamic What-If wage slider.',
+        'Data Privacy & Anonymization: Client data and visuals are confidential at the client\'s request.'
       ],
       deepDive: [
         {
-          title: 'Data Quality Audit (before building anything)',
-          content: 'Why: never build on data you haven\'t inspected. I profiled all 10 files for: Row counts, nulls, blanks. Duplicate keys (found issues in `attendance`). Referential integrity (did every `store_id` in sales exist in `stores`? Yes). Logic checks (were there shifts ending before they started? Yes, fixed in PQ).'
-        },
-        {
-          title: 'Power Query & Transformation',
-          content: 'All 10 CSVs imported. Heavy transformations included: Removing irrelevant columns to shrink model size. Promoting headers, standardizing date/time formats. Built columns: In `attendance`, derived a `Late_Flag` by comparing actual clock-in vs scheduled start (plus 10m grace period). In `daily_sales`, extracted the delivery platform name (Deliveroo, UberEats, JustEat) from a messy memo string. Appended historical files where needed to create contiguous fact tables.'
+          title: 'Data Quality Audit & Power Query',
+          content: 'Profiled all 10 files for row counts, duplicate keys, and referential integrity. Removed irrelevant columns to shrink model size, promoted headers, and standardized date/time formats.'
         },
         {
           title: 'Data Modeling (Star Schema)',
-          content: 'Built a strictly directional 1-to-Many Star Schema. Created a central `DimDate` table using DAX `CALENDARAUTO()` for time-intelligence. Connected dimensions (Store, Profile, Date, Supplier) to facts (Sales, Shifts, Attendance, Receipts, Inventory). Total of 14 relationships established, all single-direction filtering down to the facts to ensure performance and avoid ambiguity.'
+          content: 'Built a strictly directional 1-to-Many Star Schema. Created a central `DimDate` table using DAX `CALENDARAUTO()` for time-intelligence. Connected dimensions to facts with 14 established relationships, all single-direction filtering down to the facts to ensure performance and avoid ambiguity.'
         },
         {
-          title: 'DAX Engineering (~18 Measures)',
-          content: 'Base measures: `Total Sales`, `Total Labour Cost`, `Total Orders`, `Avg Order Value`. Time Intelligence: `Sales YTD`, `Sales MoM % Growth` using `CALCULATE`, `DATESYTD`, `PREVIOUSMONTH`. The tricky ones: Punctuality Rate: `DIVIDE(CALCULATE(COUNTROWS(FactAttendance), FactAttendance[Late_Flag] = "On Time"), COUNTROWS(FactAttendance))`. Labour % of Sales: `DIVIDE([Total Labour Cost], [Total Sales])`: crucial KPI for restaurants. What-If Parameter: Created a slider for "Target Wage Rate". Used `GENERATESERIES` and `SELECTEDVALUE` to dynamically multiply total hours worked by the slider value, letting managers see how pay-rises affect the bottom line.'
+          title: 'DAX Engineering & What-If Parameters',
+          content: 'Authored 18+ DAX measures, including a punctuality KPI engineered from scratch to compare scheduled shift starts against actual clock-in times. Built a What-If wage-cost model letting owners test the profit impact of pay-rate changes before committing to them.'
         },
         {
-          title: 'Data Privacy & Anonymization',
-          content: 'I cannot show real client data in a portfolio. Replaced real store names with "Branch Alpha", "Branch Beta", etc. Scrambled staff names and supplier names. Multiplied all financial figures (sales, costs) by a random scalar factor so the visual trend remained identical, but the absolute numbers were fictionalized to protect the client\'s commercial sensitivity.'
-        },
-        {
-          title: 'Dashboard UX/UI Design',
-          content: 'Built a 3-page canvas. Theme: Dark industrial (Black/Orange) matching the brand. Page 1: Sales Overview: High-level revenue, platform breakdown (pie chart showing heavy 80% reliance on UberEats), and a line chart of daily sales. Page 2: Labour & Punctuality: Matrix of staff performance, scatter plot of hours vs cost, and the dynamic What-If wage slider. Page 3: Procurement & Inventory: Treemap of supplier spend, table of low-stock alerts. Navigation: Custom bookmark-driven side-nav bar for seamless app-like page switching.'
+          title: 'Confidentiality',
+          content: 'Client data and visuals are confidential at the client\'s request.'
         }
       ],
-      recruiterWin: '"I built an end-to-end Power BI solution for a multi-branch restaurant, transforming 10 raw operational CSVs into a robust star-schema data model with 14 relationships and 18+ DAX measures. I developed a 3-page interactive dashboard featuring custom KPIs—like an built \'Punctuality Rate\' and a dynamic What-If wage cost model—all while strictly anonymizing the data to protect commercial sensitivity."',
+      recruiterWin: '"Built an end-to-end Power BI solution for a multi-branch restaurant, transforming 10 raw operational CSVs into a robust star-schema data model with 14 relationships and 18+ DAX measures. Client data and visuals are confidential at the client\'s request."',
       techStack: [
-        { category: 'Data Visualization & UI', items: 'Power BI Desktop, Interactive Bookmarks, What-If Parameters' },
+        { category: 'Data Visualization & UI', items: 'Power BI Desktop, What-If Parameters' },
         { category: 'Data Modeling & Transformation', items: 'Star Schema, Power Query (M), Data Profiling' },
         { category: 'Analytics & Calculations', items: 'DAX (CALCULATE, FILTER, Time Intelligence, Iterators)' },
         { category: 'Data Engineering', items: 'CSV parsing, Data Anonymization' }
       ]
     },
-    images: [
-      '/projects/restaurant-analytics/Home.png',
-      '/projects/restaurant-analytics/Pic 1.png',
-      '/projects/restaurant-analytics/Pic 2.png'
-    ]
+    images: []
   },
   {
     id: 'trukbk-web',
     title: 'TRUKBK',
-    description: 'High-performance vehicle configurator and a highly accurate AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini. It automates high-touch B2B sales queries with 100% factual accuracy, capturing hot leads 24/7 without the risk of AI hallucinations.',
+    description: 'High-performance vehicle configurator and a highly accurate AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini. It automates high-touch B2B sales queries with grounded, hallucination-resistant responses via retrieval-augmented generation, capturing hot leads 24/7 without the risk of AI hallucinations.',
     tags: ['RAG', 'Supabase pgvector', 'Google Gemini', 'React'],
     link: 'https://www.trukbk.co.uk/',
     image: '/projects/trukbk-web/main.png',
     details: {
-      vision: 'I built and launched the digital storefront for TRUKBK, a premium UK-based manufacturer of modular aluminium service bodies and truck trays. The goal was to create a high-end web experience that matched the rugged, premium nature of their physical products, while automating their sales pipeline using advanced AI.\n\nSelling custom, £10k+ physical truck builds is a high-touch process. Relying on a generic AI chatbot was dangerous—if an AI hallucinates a physical specification or price, it could lead to costly returns and broken trust. TRUKBK needed an automated way to answer customer queries with 100% factual accuracy and capture hot leads 24/7.',
+      vision: 'I built and launched the digital storefront for TRUKBK, a premium UK-based manufacturer of modular aluminium service bodies and truck trays. The goal was to create a high-end web experience that matched the rugged, premium nature of their physical products, while automating their sales pipeline using advanced AI.\n\nSelling custom, £10k+ physical truck builds is a high-touch process. Relying on a generic AI chatbot was dangerous—if an AI hallucinates a physical specification or price, it could lead to costly returns and broken trust. TRUKBK needed an automated way to answer customer queries with grounded, hallucination-resistant responses via retrieval-augmented generation and capture hot leads 24/7.',
       features: [
         'Industrial Noir Aesthetic: Implemented a dark, premium UI utilizing deep blacks, stark whites, and industrial orange accents with glassmorphism and micro-animations.',
         'Interactive Configurator: Developed a dynamic, 6-stage product builder that allows users to select their vehicle, cab type, body style, finish, and accessories.',
@@ -371,7 +358,7 @@ export const projects: Project[] = [
   {
     id: 'cyclenest-api',
     title: 'CycleNest API',
-    description: 'High-performance cloud-integrated REST API built for bike-sharing logistics, with low-latency route calculations, self-healing fallbacks, and Azure Cosmos DB storage. It guarantees 100% API uptime through an automated active failover pattern to local in-memory stores during cloud database timeouts.',
+    description: 'High-performance cloud-integrated REST API built for bike-sharing logistics, with low-latency route calculations, self-healing fallbacks, and Azure Cosmos DB storage. It maintains high availability through an automated active failover pattern to local in-memory stores during cloud database timeouts.',
     tags: ['Java', 'JAX-RS (Jersey)', 'Apache Tomcat', 'Azure Cosmos DB', 'OSRM Routing', 'System Design'],
     link: '#',
     image: '/projects/cyclenest/cyclenest.png',
@@ -380,7 +367,7 @@ export const projects: Project[] = [
       vision: 'CycleNest API is a high-performance, cloud-integrated RESTful backend built for bike-sharing and logistics tracking networks. Built using the JAX-RS (Jersey) framework and deployed inside high-concurrency Apache Tomcat servlet containers, the API orchestrates real-time asset discovery, location-based distance calculations, and transaction records across global cloud boundaries.',
       features: [
         'JAX-RS REST API Architecture: High-performance endpoint structures mapped under servlet containers handling concurrent HTTP methods (GET, POST, DELETE).',
-        'Self-Healing Storage Fallback: Automated active failover pattern redirecting traffic to local thread-safe ConcurrentHashMap stores in the event of database timeouts, ensuring 100% API uptime.',
+        'Self-Healing Storage Fallback: Automated active failover pattern redirecting traffic to local thread-safe ConcurrentHashMap stores in the event of database timeouts, maintaining high availability.',
         'Asynchronous OSRM Router: Non-blocking coordinate driving evaluation using modern Java HttpClient and CompletableFuture pipelines.',
         'Azure Cosmos DB Storage: Globally-distributed database persistence utilizing Azure\'s Java SDK with Session consistency levels for strong read-your-own-writes guarantees.',
         'Operational Health Probes: Custom diagnostic debug endpoints checking latency, ping states, and network connectivity parameters in real-time.'
@@ -559,7 +546,7 @@ export const projects: Project[] = [
   {
     id: 'ntu-timetable',
     title: 'NTU Academic Timetabling System',
-    description: 'High-performance scheduling engine built in C++ utilising recursive backtracking and heuristic constraints to optimise academic room allocation and student timetables. It parses relational structural files and processes NP-complete schedules in polynomial time by applying Maximum Constraints First heuristics.',
+    description: 'High-performance scheduling engine built in C++ utilising recursive backtracking and heuristic constraints to optimise academic room allocation and student timetables. It parses relational structural files and tackles an NP-complete scheduling problem efficiently using Maximum Constraints First heuristics.',
     tags: ['C++', 'Algorithms', 'Constraint Satisfaction', 'File System I/O', 'Optimization'],
     link: 'https://github.com/SaaFazal/Timetable-System',
     linkLabel: 'View on GitHub',
@@ -581,14 +568,14 @@ export const projects: Project[] = [
         },
         {
           title: 'Heuristic-Guided Search Pre-Sorting',
-          content: 'Implemented pre-sorting heuristics (Maximum Constraints First) that schedule high-enrollment modules and lecturers with limited availability first. This reduces backtracking steps significantly, allowing the C++ engine to resolve complex academic datasets in polynomial time instead of exponential time.'
+          content: 'Implemented pre-sorting heuristics (Maximum Constraints First) that schedule high-enrollment modules and lecturers with limited availability first. This reduces backtracking steps significantly, allowing the C++ engine to resolve complex academic datasets efficiently by prioritizing the most restrictive constraints.'
         },
         {
           title: 'Structured CSV Data Pipeline',
           content: 'Designed a thread-safe data parser utilizing standard C++ file stream operations to digest relational raw tables. The loader reads students, lecturers, classrooms, and module requirements, instantiating in-memory index mappings before feeding the compiled structures to the CSP optimization algorithm.'
         }
       ],
-      recruiterWin: '"Built a high-performance C++ timetabling solver utilizing recursive backtracking and pre-sorting CSP heuristics, resolving complex, conflict-free schedules for 5,000+ students in polynomial time."',
+      recruiterWin: '"Built a high-performance C++ timetabling solver utilizing recursive backtracking and pre-sorting CSP heuristics, resolving complex, conflict-free schedules for 5,000+ students efficiently."',
       techStack: [
         { category: 'Language & Framework', items: 'C++17, Native Execution' },
         { category: 'Optimization Core', items: 'Constraint Satisfaction Problem (CSP), Recursive Backtracking, Constraint Pruning' },

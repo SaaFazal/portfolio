@@ -38,7 +38,7 @@ export function Navigation() {
         </Magnetic>
         <Magnetic>
           <a href="/SFM_CV.pdf" target="_blank" rel="noopener noreferrer" className="w-24 py-3 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full text-white font-bold text-[9px] tracking-[0.2em] hover:bg-primary transition-all duration-300 uppercase flex items-center justify-center text-center shadow-xl">
-            Resume
+            CV
           </a>
         </Magnetic>
         <Magnetic>

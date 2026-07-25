@@ -73,7 +73,7 @@ export function About() {
                                 </div>
                                 <div className="flex-1 space-y-1">
                                     <h4 className="text-sm font-bold text-white group-hover/item:text-primary transition-colors">Mobile & Fullstack Dev</h4>
-                                    <p className="text-xs text-white/50 leading-relaxed">Crafting high-fidelity cross-platform apps (React Native, Swift, Flutter) and reactive web frontends.</p>
+                                    <p className="text-xs text-white/50 leading-relaxed">Crafting high-fidelity cross-platform apps (React Native, Expo) and reactive web frontends.</p>
                                 </div>
                             </div>
 

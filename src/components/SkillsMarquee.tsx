@@ -243,8 +243,8 @@ const skills: Skill[] = [
   }
 ];
 
-// Duplicate 4 times to guarantee it fills ultrawide monitors
-const duplicatedSkills = [...skills, ...skills, ...skills, ...skills];
+// Duplicate to guarantee it fills ultrawide monitors
+const extendedSkills = [...skills, ...skills];
 
 export function SkillsMarquee() {
   return (
@@ -254,19 +254,33 @@ export function SkillsMarquee() {
       <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
       
       <motion.div
-        className="flex gap-6 px-4 whitespace-nowrap items-center"
+        className="flex w-max"
         animate={{ x: ["0%", "-50%"] }}
         transition={{ ease: "linear", duration: 45, repeat: Infinity }}
+        style={{ willChange: 'transform' }}
       >
-        {duplicatedSkills.map((skill, i) => (
-          <div
-            key={i}
-            className={`flex-shrink-0 px-6 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white/90 font-bold tracking-widest text-xs hover:scale-105 hover:bg-white/[0.08] hover:text-white hover:border-white/30 transition-all duration-300 cursor-default shadow-lg flex items-center gap-2.5 ${skill.colorClass}`}
-          >
-            {skill.logo}
-            <span>{skill.name}</span>
-          </div>
-        ))}
+        <div className="flex gap-6 px-3">
+          {extendedSkills.map((skill, i) => (
+            <div
+              key={`visible-${i}`}
+              className={`flex-shrink-0 px-6 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white/90 font-bold tracking-widest text-xs hover:scale-105 hover:bg-white/[0.08] hover:text-white hover:border-white/30 transition-all duration-300 cursor-default shadow-lg flex items-center gap-2.5 ${skill.colorClass}`}
+            >
+              {skill.logo}
+              <span>{skill.name}</span>
+            </div>
+          ))}
+        </div>
+        <div className="flex gap-6 px-3" aria-hidden="true">
+          {extendedSkills.map((skill, i) => (
+            <div
+              key={`hidden-${i}`}
+              className={`flex-shrink-0 px-6 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white/90 font-bold tracking-widest text-xs hover:scale-105 hover:bg-white/[0.08] hover:text-white hover:border-white/30 transition-all duration-300 cursor-default shadow-lg flex items-center gap-2.5 ${skill.colorClass}`}
+            >
+              {skill.logo}
+              <span>{skill.name}</span>
+            </div>
+          ))}
+        </div>
       </motion.div>
     </div>
   );

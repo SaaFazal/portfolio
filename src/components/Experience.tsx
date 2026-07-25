@@ -4,25 +4,32 @@ import { motion } from 'framer-motion';
 
 const experience = [
     {
+        role: "Co-Founder & Lead Developer",
+        company: "Artim Labs",
+        period: "August 2025 – Present",
+        desc: "Co-founded an autonomous software agency specializing in AI-driven B2B solutions. Leading the engineering of custom retrieval-augmented generation (RAG) pipelines, high-availability data architectures, and end-to-end fullstack ecosystems for enterprise clients.",
+        logo: ""
+    },
+    {
         role: "Software Engineer (Freelance)",
         company: "TRUKBK",
         period: "January 2026 – June 2026",
         desc: "Architected and deployed an autonomous AI Sales Concierge powered by a custom RAG pipeline (Supabase pgvector, Google Gemini) to automate vehicle quoting. Engineered a high-performance interactive configurator, seamlessly integrating the AI reasoning layer with the frontend client platform.",
-        logo: "/TRUKBK.png"
+        logo: "/trukbk.png"
     },
     {
         role: "Software Engineer (Freelance)",
         company: "Arasan Travels",
         period: "August 2025 – Jan 2026",
         desc: "Architected a custom, full-stack travel booking platform utilising a serverless pnpm monorepo. Engineered a type-safe, end-to-end automated booking pipeline with integrated Stripe payment reconciliations, reducing administrative overhead by 15%.",
-        logo: "/Arasan Travels.png"
+        logo: "/arasan-travels.png"
     },
     {
         role: "Application Developer & Store Assistant",
         company: "PHAT Buns UK",
         period: "Apr 2024 – Dec 2025",
         desc: "Engineered 'PhatOps', a cross-platform mobile application launched on the App Store to digitise restaurant operations. Currently powering workforce and order-tracking operations across 4 active PHAT Buns branches, with scheduled rollouts for 16 additional branches. Reduced rendering latency by 20% through optimised Supabase real-time subscriptions.",
-        logo: "/Phatbuns.png"
+        logo: "/phatbuns.png"
     }
 ];
 
@@ -31,22 +38,22 @@ const education = [
         degree: "BSc (Hons) Computer Science",
         school: "Nottingham Trent University",
         period: "Sep 2023 – June 2026",
-        details: "Grade: Upper Second Class (2:1). Selected modules: Artificial Intelligence, Cloud Computing, Mobile Application Development, Agile Project Management, and Advanced Software Analysis & Design.",
-        logo: "/NTU.png"
+        details: "Grade: Upper Second Class (2:1). Selected modules: Information & Database Engineering, Foundations of AI & Machine Learning, Artificial Intelligence, Cloud Computing, Advanced Analysis & Design.",
+        logo: "/ntu.png"
     },
     {
         degree: "Introduction to UK Financial Regulation & Professional Integrity (In Progress)",
         school: "Certified Institute for Further Accreditation (CIFA)",
         period: "June 2026 – Present",
         details: "Currently undertaking this 160-hour certification course covering UK Capital Markets, FCA & PRA regulatory frameworks, Risk Management, Conduct of Business Sourcebook (COBS), and Financial Crime compliance.",
-        logo: "/CIFA.png"
+        logo: "/cifa.png"
     },
     {
         degree: "AISSCE - 12 CBSE (Mathematics & Computer Science)",
         school: "KVIS CBSE - Ramanathapuram",
         period: "2021 – 2023",
         details: "Grade: 92%. Leadership & Extracurriculars: House Captain (5 Years), School Football & Cricket Team Captain.",
-        logo: "/KVIS.png"
+        logo: "/kvis.png"
     }
 ];
 
