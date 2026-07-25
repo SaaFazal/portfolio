@@ -68,7 +68,7 @@ export default function ProjectDetail() {
     secondary: '#1a1a1a'
   };
 
-  const isMobileApp = project.tags.some(tag => 
+  const isMobileApp = project.id === 'phat-ops' || project.tags.some(tag => 
     ['React Native', 'Expo', 'Mobile Development', 'iOS', 'Mobile'].includes(tag)
   );
 
