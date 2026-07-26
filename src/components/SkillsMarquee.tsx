@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 interface Skill {
@@ -243,10 +243,25 @@ const skills: Skill[] = [
   }
 ];
 
-// Duplicate to guarantee it fills ultrawide monitors
-const extendedSkills = [...skills, ...skills];
-
 export function SkillsMarquee() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const original = containerRef.current.children[0] as HTMLElement;
+      if (original && containerRef.current.children.length === 1) {
+        // Clone twice for seamless infinite scroll across ultrawide displays
+        const clone1 = original.cloneNode(true) as HTMLElement;
+        clone1.setAttribute('aria-hidden', 'true');
+        containerRef.current.appendChild(clone1);
+        
+        const clone2 = original.cloneNode(true) as HTMLElement;
+        clone2.setAttribute('aria-hidden', 'true');
+        containerRef.current.appendChild(clone2);
+      }
+    }
+  }, []);
+
   return (
     <div className="relative w-full overflow-hidden flex py-8 bg-black/20 backdrop-blur-md border-y border-white/5 shadow-2xl">
       {/* Fade edges */}
@@ -254,26 +269,16 @@ export function SkillsMarquee() {
       <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
       
       <motion.div
+        ref={containerRef}
         className="flex w-max"
-        animate={{ x: ["0%", "-50%"] }}
+        animate={{ x: ["0%", "-33.333333%"] }}
         transition={{ ease: "linear", duration: 45, repeat: Infinity }}
         style={{ willChange: 'transform' }}
       >
         <div className="flex gap-6 px-3">
-          {extendedSkills.map((skill, i) => (
+          {skills.map((skill, i) => (
             <div
               key={`visible-${i}`}
-              className={`flex-shrink-0 px-6 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white/90 font-bold tracking-widest text-xs hover:scale-105 hover:bg-white/[0.08] hover:text-white hover:border-white/30 transition-all duration-300 cursor-default shadow-lg flex items-center gap-2.5 ${skill.colorClass}`}
-            >
-              {skill.logo}
-              <span>{skill.name}</span>
-            </div>
-          ))}
-        </div>
-        <div className="flex gap-6 px-3" aria-hidden="true">
-          {extendedSkills.map((skill, i) => (
-            <div
-              key={`hidden-${i}`}
               className={`flex-shrink-0 px-6 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white/90 font-bold tracking-widest text-xs hover:scale-105 hover:bg-white/[0.08] hover:text-white hover:border-white/30 transition-all duration-300 cursor-default shadow-lg flex items-center gap-2.5 ${skill.colorClass}`}
             >
               {skill.logo}

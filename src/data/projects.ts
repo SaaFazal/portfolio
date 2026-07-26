@@ -132,7 +132,7 @@ export const projects: Project[] = [
   {
     id: 'trukbk-web',
     title: 'TRUKBK',
-    description: 'High-performance vehicle configurator and a highly accurate AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini. It automates high-touch B2B sales queries with grounded, hallucination-resistant responses via retrieval-augmented generation, capturing hot leads 24/7 without the risk of AI hallucinations.',
+    description: 'High-performance vehicle configurator and a highly accurate AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini. It automates high-touch B2B sales queries with grounded, hallucination-resistant responses via retrieval-augmented generation, capturing hot leads 24/7.',
     tags: ['RAG', 'Supabase pgvector', 'Google Gemini', 'React'],
     link: 'https://www.trukbk.co.uk/',
     image: '/projects/trukbk-web/main.png',

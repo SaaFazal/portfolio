@@ -111,7 +111,7 @@ const certificationsList: Certification[] = [
     skills: ['Semantic Kernel', 'Autonomous Agents', 'Custom Plugins', 'Agentic Workflows'],
     description: 'Verified credentials in building autonomous AI agents, Copilots, custom tool calling, and multi-agent orchestration patterns using the Semantic Kernel SDK.',
     logoColor: 'from-cyan-600/20 to-teal-500/20 border-cyan-500/30 text-cyan-400',
-    image: '/projects/certificates/Microsoft.png',
+    image: '/projects/certificates/certificate-microsoft.png',
     verificationUrl: 'https://learn.microsoft.com/en-us/users/sahadhfazal/credentials/8af67e2318386fc4'
   },
   {
@@ -123,7 +123,7 @@ const certificationsList: Certification[] = [
     skills: ['Large Language Models', 'Claude LLM', 'Prompt Design', 'Workflow Automation', 'Text Processing'],
     description: 'Trained on utilizing Large Language Models (LLMs) like Claude to automate operational workflows, design smart prompt templates, and build simple text-processing pipelines to optimise business efficiency.',
     logoColor: 'from-orange-500/20 to-amber-600/20 border-amber-500/30 text-amber-400',
-    image: '/projects/certificates/Claude.png',
+    image: '/projects/certificates/certificate-anthropic.png',
     verificationUrl: 'https://www.anthropic.com/claude'
   },
   {

@@ -34,7 +34,7 @@ export function About() {
                                 I specialise in building high-performance <strong className="text-white">Mobile Applications</strong>, autonomous <strong className="text-white">AI Agents</strong>, scalable <strong className="text-white">Cloud Infrastructure</strong>, and turning raw business data into <strong className="text-white">Decision-Ready Insight</strong>.
                             </p>
                             <p>
-                                With deep expertise across Python, Java, and TypeScript, I focus on turning complex logical architectures into fluid, recruiter-ready interfaces that load fast, feel responsive, and solve concrete business problems.
+                                With deep expertise across Python, Java, and TypeScript, I focus on turning complex logical architectures into fluid, production-ready interfaces that load fast, feel responsive, and solve concrete business problems.
                             </p>
                             <p>
                                 From designing agentic workflows using Semantic Kernel to implementing real-time vector search pipelines (pgvector), time-series forecasting models, and mobile deployments — I build software and systems that deliver absolute performance.

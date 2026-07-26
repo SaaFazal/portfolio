@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 const experience = [
     {
-        role: "Co-Founder & Lead Developer",
+        role: "Co-Founder and Lead Developer",
         company: "Artim Labs",
-        period: "August 2025 – Present",
-        desc: "Co-founded an autonomous software agency specializing in AI-driven B2B solutions. Leading the engineering of custom retrieval-augmented generation (RAG) pipelines, high-availability data architectures, and end-to-end fullstack ecosystems for enterprise clients.",
+        period: "January 2026 – Present",
+        desc: "Co-founded a UK studio building websites, apps, bespoke software, and operations systems for growing businesses. Built and shipped a multi-site franchise operations platform covering sales, labour, expenses and compliance, and an HR app tracking right-to-work, visas and document expiries.",
         logo: "/ARTIMLabs-Logo.png"
     },
     {
