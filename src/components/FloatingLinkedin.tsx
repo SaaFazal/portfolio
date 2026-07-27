@@ -19,7 +19,7 @@ export function FloatingLinkedin() {
 
     return (
         <motion.a
-            href="https://www.linkedin.com/in/sahadh-fazal-mohamed-770267337/"
+            href="https://www.linkedin.com/in/sahadhfazal"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, scale: 0, x: 50 }}
