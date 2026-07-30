@@ -500,47 +500,45 @@ export const projects: Project[] = [
   },
   {
     id: 'ushop-inventory',
-    title: 'U-Shop ERP Ecosystem',
-    description: 'Dual-platform business command suite containing a Next.js 16 admin dashboard and an Expo React Native mobile app integrated with Supabase and Prisma SQLite/PostgreSQL. It unifies high-speed mobile barcode scanning for store staff with comprehensive ERP oversight for administrators.',
-    tags: ['Next.js', 'React Native', 'Expo', 'Supabase', 'Prisma ORM', 'SQLite', 'Mobile Development'],
-    github: 'https://github.com/SaaFazal/Ushop',
+    title: 'U-Shop HR Management',
+    description: 'Comprehensive Human Resources and staff management dashboard built with React, Vite, and Supabase. It features employee lifecycle tracking, document management (RTW/Contracts), leave management, and secure role-based access.',
+    tags: ['React', 'Vite', 'Supabase', 'Tailwind CSS', 'Shadcn UI', 'TypeScript'],
+    github: 'https://github.com/SaaFazal/U-ShopHR',
     image: '/projects/ushop-inventory/ushop-inventory.png',
     
     details: {
-      vision: 'U-Shop is an enterprise-grade ERP and operations ecosystem. It features an administrator web panel built in Next.js 16 using Prisma ORM to schedule rosters, compile reports, and track inventory audits, coupled with an Expo React Native mobile app for store staff to execute geofenced clock-ins, scan stock, and manage shifts with TanStack React Query and Supabase.',
+      vision: 'U-Shop HR is a modern, high-performance Human Resources dashboard built for retail operations. Designed to streamline staff management, it centralizes employee records, document storage, leave tracking, and audit logging into a single secure interface powered by Supabase and React.',
       features: [
-        'Dual-Platform Command Suite: Integrated desktop administration portal (Next.js) for shift roster compilation, paired with a high-speed mobile client (React Native) for on-the-floor store staff.',
-        'Expo Barcode Scanner: In-app Camera integration utilizing Expo Camera to scan product EAN/UPC labels and update quantities in under 200ms.',
-        'Intelligent HR Scheduler: Digital staff rosters, shifts checking logs, and profile leaf triggers matching user sessions in real-time.',
-        'Supabase & React Query Cache: Asynchronous query handlers and data syncing with TanStack React Query and Supabase database endpoints, enabling secure, offline-first mobile support.',
-        'Prisma ORM & SQLite: Locally persistent relational database schemas with custom seeds, migrations, and structural PDF/JSON data exporters.'
+        'Employee Lifecycle Management: Complete CRUD capabilities for staff records, including personal details, roles, and employment status.',
+        'Document Vault: Secure file uploads for Right-to-Work (RTW) documents, contracts, and IDs, utilizing Supabase Storage.',
+        'Leave & Absence Tracking: Dedicated modules for requesting, approving, and logging staff holidays and absences.',
+        'Real-Time Audit Logs: Comprehensive activity tracking for compliance, logging every administrative action taken within the system.',
+        'Modern UI/UX: Built with Shadcn UI and Tailwind CSS, featuring responsive dialogs, data tables, and a dark/light mode toggle.'
       ],
       deepDive: [
         {
-          title: 'Asynchronous State Caching & Supabase Sync',
-          content: 'Built the React Native application using TanStack React Query and @supabase/supabase-js client libraries. Queries implement structural caching and retry patterns so local operations are held in local state and compiled offline, syncing automatically with cloud databases upon restoration.'
+          title: 'Supabase Backend Integration',
+          content: 'The application leverages Supabase for its backend-as-a-service, utilizing PostgreSQL for relational employee data and Row Level Security (RLS) to ensure that sensitive HR documents and records are only accessible to authorized administrators.'
         },
         {
-          title: 'Expo Camera Vision & Barcode Parser',
-          content: 'Developed a high-speed scanner view utilizing expo-camera and expo-barcode-scanner. By piping active camera streams into lightweight structural filters, the mobile client reads grocery barcodes, queries matching SKUs, and updates inventory lists instantly without rendering lag.'
+          title: 'Secure Document Management',
+          content: 'Built a robust file upload pipeline handling sensitive HR documents. The system uses Supabase Storage buckets to securely store and retrieve employee contracts and compliance documents via signed URLs.'
         },
         {
-          title: 'Relational Database Schema & Prisma Migrations',
-          content: 'Architected the Next.js control center around Prisma ORM. Configured complex relational models (Checklists, Shifts, Leaves, Inventories) utilizing Prisma migrations and custom data seeds, ensuring complete data consistency across both web and mobile channels.'
+          title: 'Component-Driven UI with Shadcn',
+          content: 'Architected the frontend using Radix UI primitives and Shadcn UI to ensure accessibility and consistent design language. Complex interactions like uploading documents or editing employee schemas are handled via highly reusable modal dialogs and form validation with Zod.'
         }
       ],
-      recruiterWin: '"Architected a unified full-stack ERP ecosystem combining a Next.js 16 web control center and an Expo React Native mobile app with Supabase and Prisma, automating employee shifts and reducing inventory discrepancies by 40%."',
+      recruiterWin: '"Architected a secure, full-stack HR management dashboard using React, Vite, and Supabase, streamlining employee onboarding and compliance document storage."',
       techStack: [
-        { category: 'Web & Desktop Panel', items: 'Next.js 16, React 19, Tailwind CSS, Radix UI Components' },
-        { category: 'Mobile Client (Android & iOS)', items: 'React Native, Expo SDK 54, Expo Router, Lucide Native' },
-        { category: 'Data & Database Layers', items: 'Prisma ORM, PostgreSQL (Supabase), SQLite (Prisma), Expo SQLite' },
-        { category: 'Asynchronous Sync & State', items: 'TanStack React Query, Supabase Client, React Hook Form, Zod' }
+        { category: 'Frontend', items: 'React 18, Vite, TypeScript, Tailwind CSS, Shadcn UI (Radix)' },
+        { category: 'Backend & Database', items: 'Supabase (PostgreSQL), Row Level Security (RLS)' },
+        { category: 'Forms & Validation', items: 'React Hook Form, Zod' },
+        { category: 'Storage & State', items: 'Supabase Storage, TanStack React Query' }
       ]
     },
     images: [
       '/projects/ushop-inventory/Home.jpeg',
-      '/projects/ushop-inventory/Barcode Scanner.jpeg',
-      '/projects/ushop-inventory/Inventory Management.jpeg',
       '/projects/ushop-inventory/HR Management.jpeg',
       '/projects/ushop-inventory/Profile.jpeg'
     ]
