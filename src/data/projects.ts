@@ -78,7 +78,7 @@ export const projects: Project[] = [
     description: 'An automated, high-performance unit testing suite built in C++20 for a GPS journey analysis application. Utilizing the Boost Unit Test Framework, it rigorously validates edge cases and timing conditions to uncover hidden software defects.',
     tags: ['C++20', 'Software Testing', 'QA Engineering', 'Boost UTF', 'Qt', 'Systems Programming'],
     github: 'https://github.com/SaaFazal/JourneyTestSuite_CPP',
-    image: '/projects/journey-test/main.jpg',
+    image: '/projects/journey-test/main.png',
     
     details: {
       vision: 'The C++ GPS Journey Test Suite is designed to strictly validate the reliability of complex location-tracking algorithms. By employing rigorous test-driven development methodologies, this suite ensures flawless performance of GPS timing calculations in edge scenarios.',
@@ -107,7 +107,7 @@ export const projects: Project[] = [
       ]
     },
     images: [
-      '/projects/journey-test/main.jpg',
+      '/projects/journey-test/main.png',
       '/projects/journey-test/gps.jpg'
     ]
   },
