@@ -38,7 +38,7 @@ export const projects: Project[] = [
     description: 'A complete Data Science pipeline using the CRISP-DM framework to analyze the 2024 Stack Overflow Developer Survey. It leverages KMeans clustering and an ensemble Voting Classifier to predict high-income developers with 99% accuracy.',
     tags: ['Python', 'Machine Learning', 'Pandas', 'Scikit-learn', 'Clustering', 'Classification'],
     github: 'https://github.com/SaaFazal/dev-insights-ai',
-    image: '/projects/dev-insights/main.jpg',
+    image: '/projects/dev-insights/home.png',
     
     details: {
       vision: 'This project demonstrates an end-to-end Machine Learning and Data Analytics workflow to uncover deep demographic and income patterns across global developers. By processing massive datasets, the pipeline extracts actionable business intelligence through clustering and classification.',
@@ -67,8 +67,9 @@ export const projects: Project[] = [
       ]
     },
     images: [
-      '/projects/dev-insights/main.jpg',
-      '/projects/dev-insights/ml.jpg'
+      '/projects/dev-insights/home.png',
+      '/projects/dev-insights/page1.png',
+      '/projects/dev-insights/page2.png'
     ]
   },
   {
