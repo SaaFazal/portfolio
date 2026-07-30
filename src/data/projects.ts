@@ -91,6 +91,7 @@ export const projects: Project[] = [
     title: 'Restaurant Analytics',
     description: 'End-to-end Power BI business intelligence solution for a multi-branch restaurant, transforming 10 raw CSV exports into a star-schema model with interactive dashboards. It features 18+ DAX measures, a custom punctuality KPI, and a What-If wage-cost model. Client data and visuals are confidential at the client\'s request.',
     tags: ['Power BI', 'DAX', 'Power Query', 'Data Modeling', 'Business Intelligence'],
+    github: 'https://github.com/SaaFazal/Restaurant-Analytics',
     image: '/projects/restaurant-analytics/Home-Blurred.png',
     details: {
       vision: 'An end-to-end Power BI business-intelligence solution for a multi-branch restaurant. It takes 10 raw CSV exports from the operational app and turns them into a star-schema data model with 14 relationships and a 3-page interactive report covering Sales, Labour & Punctuality, and Procurement.',
