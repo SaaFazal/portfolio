@@ -33,6 +33,84 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'dev-insights',
+    title: 'AI Developer Insights Platform',
+    description: 'A complete Data Science pipeline using the CRISP-DM framework to analyze the 2024 Stack Overflow Developer Survey. It leverages KMeans clustering and an ensemble Voting Classifier to predict high-income developers with 99% accuracy.',
+    tags: ['Python', 'Machine Learning', 'Pandas', 'Scikit-learn', 'Clustering', 'Classification'],
+    github: 'https://github.com/SaaFazal/dev-insights-ai',
+    image: '/projects/dev-insights/main.jpg',
+    
+    details: {
+      vision: 'This project demonstrates an end-to-end Machine Learning and Data Analytics workflow to uncover deep demographic and income patterns across global developers. By processing massive datasets, the pipeline extracts actionable business intelligence through clustering and classification.',
+      features: [
+        'Advanced Data Preprocessing: Handling structural NaNs, categorical encoding, and feature standardization for massive datasets.',
+        'Exploratory Data Analysis: Comprehensive visualizations using Seaborn and Matplotlib (Choropleth maps, scatter plots, and boxplots).',
+        'K-Means Clustering & PCA: Grouping developers into optimized personas by evaluating Silhouette Scores and visualizing them via Principal Component Analysis.',
+        'Ensemble Classification Models: Predicting high-income developers using Logistic Regression, Decision Trees, k-NN, and a final Voting Classifier achieving 99% accuracy.'
+      ],
+      deepDive: [
+        {
+          title: 'Unsupervised Learning & Clustering',
+          content: 'Implemented K-Means clustering to discover hidden developer personas based on education, experience, and role. Evaluated the optimal K value using the Elbow Method and Silhouette Scores, and reduced dimensionality via PCA for clean visual interpretation.'
+        },
+        {
+          title: 'High-Accuracy Ensemble Classifiers',
+          content: 'Built a robust predictive pipeline utilizing multiple classification algorithms. By combining Logistic Regression, Decision Trees, and k-NN into an ensemble Voting Classifier, the system achieves an outstanding 99% accuracy rate on hold-out testing data.'
+        }
+      ],
+      recruiterWin: '"Engineered a complete CRISP-DM machine learning pipeline that clusters developers and predicts high-income earners with 99% accuracy using ensemble classification models."',
+      techStack: [
+        { category: 'Data Processing', items: 'Python 3, Pandas, NumPy' },
+        { category: 'Machine Learning', items: 'Scikit-learn (KMeans, PCA, Decision Trees, k-NN, Voting Classifier)' },
+        { category: 'Visualization', items: 'Matplotlib, Seaborn' },
+        { category: 'Environment', items: 'Jupyter Notebook' }
+      ]
+    },
+    images: [
+      '/projects/dev-insights/main.jpg',
+      '/projects/dev-insights/ml.jpg'
+    ]
+  },
+  {
+    id: 'journey-test-suite',
+    title: 'C++ GPS Journey Test Suite',
+    description: 'An automated, high-performance unit testing suite built in C++20 for a GPS journey analysis application. Utilizing the Boost Unit Test Framework, it rigorously validates edge cases and timing conditions to uncover hidden software defects.',
+    tags: ['C++20', 'Software Testing', 'QA Engineering', 'Boost UTF', 'Qt', 'Systems Programming'],
+    github: 'https://github.com/SaaFazal/JourneyTestSuite_CPP',
+    image: '/projects/journey-test/main.jpg',
+    
+    details: {
+      vision: 'The C++ GPS Journey Test Suite is designed to strictly validate the reliability of complex location-tracking algorithms. By employing rigorous test-driven development methodologies, this suite ensures flawless performance of GPS timing calculations in edge scenarios.',
+      features: [
+        'Boost Unit Test Framework: Comprehensive testing environment built using Boost UTF for high-performance test execution.',
+        'Edge Case Validation: Deep validation spanning normal inputs, boundary conditions, and invalid arguments.',
+        'Defect Discovery: Successfully uncovered 11 distinct bugs across different developer implementations of the GPS algorithm.',
+        'Automated Build System: Fully integrated qmake and Makefile compilation process for seamless execution on Linux.'
+      ],
+      deepDive: [
+        {
+          title: 'Rigorous Software QA',
+          content: 'The test suite acts as an uncompromising QA pipeline, simulating edge-case GPS inputs and tracking the correct time delays before journey commencement. It exposes logical flaws in low-level memory handling and exception throwing.'
+        },
+        {
+          title: 'C++20 Systems Programming',
+          content: 'Engineered using modern C++20 standards, ensuring memory-safe operations and high performance. The integration with Boost UTF demonstrates an enterprise-grade approach to C++ software validation.'
+        }
+      ],
+      recruiterWin: '"Developed a strict C++20 automated test suite using Boost UTF that successfully uncovered and isolated 11 bugs in a GPS tracking algorithm\'s edge-cases."',
+      techStack: [
+        { category: 'Language', items: 'C++20' },
+        { category: 'Testing Framework', items: 'Boost Unit Test Framework (UTF)' },
+        { category: 'Build Tools', items: 'qmake, Make, GCC' },
+        { category: 'Environment', items: 'Linux / Ubuntu' }
+      ]
+    },
+    images: [
+      '/projects/journey-test/main.jpg',
+      '/projects/journey-test/gps.jpg'
+    ]
+  },
+  {
     id: 'phat-ops',
     title: 'PhatOps',
     description: 'Comprehensive multi-tenant mobile application launched on the App Store, digitizing operations across 4 PHAT Buns branches with rollout to 16 additional locations. It unifies workforce management, inventory tracking, compliance logging, and internal communications into a single, high-performance cross-platform app.',
