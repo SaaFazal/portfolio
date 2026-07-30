@@ -35,7 +35,7 @@ export const projects: Project[] = [
   {
     id: 'dev-insights',
     title: 'AI Developer Insights Platform',
-    description: 'A complete Data Science pipeline using the CRISP-DM framework to analyze the 2024 Stack Overflow Developer Survey. It leverages KMeans clustering and an ensemble Voting Classifier to predict high-income developers with 99% accuracy.',
+    description: 'A complete data science pipeline using the CRISP-DM framework to analyse the 2024 Stack Overflow Developer Survey. Cleans and explores a large survey dataset, segments respondents into developer personas using K-Means clustering with PCA for dimensionality reduction, then compares supervised classifiers combined into an ensemble voting classifier.',
     tags: ['Python', 'Machine Learning', 'Pandas', 'Scikit-learn', 'Clustering', 'Classification'],
     github: 'https://github.com/SaaFazal/dev-insights-ai',
     image: '/projects/dev-insights/home.png',
@@ -46,7 +46,7 @@ export const projects: Project[] = [
         'Advanced Data Preprocessing: Handling structural NaNs, categorical encoding, and feature standardization for massive datasets.',
         'Exploratory Data Analysis: Comprehensive visualizations using Seaborn and Matplotlib (Choropleth maps, scatter plots, and boxplots).',
         'K-Means Clustering & PCA: Grouping developers into optimized personas by evaluating Silhouette Scores and visualizing them via Principal Component Analysis.',
-        'Ensemble Classification Models: Predicting high-income developers using Logistic Regression, Decision Trees, k-NN, and a final Voting Classifier achieving 99% accuracy.'
+        'Ensemble Classification Models: Predicting high-income developers using Logistic Regression, Decision Trees, k-NN, and a final Voting Classifier.'
       ],
       deepDive: [
         {
@@ -55,10 +55,10 @@ export const projects: Project[] = [
         },
         {
           title: 'High-Accuracy Ensemble Classifiers',
-          content: 'Built a robust predictive pipeline utilizing multiple classification algorithms. By combining Logistic Regression, Decision Trees, and k-NN into an ensemble Voting Classifier, the system achieves an outstanding 99% accuracy rate on hold-out testing data.'
+          content: 'Built a robust predictive pipeline utilizing multiple classification algorithms. By combining Logistic Regression, Decision Trees, and k-NN into an ensemble Voting Classifier, the system achieves robust performance on hold-out testing data.'
         }
       ],
-      recruiterWin: '"Engineered a complete CRISP-DM machine learning pipeline that clusters developers and predicts high-income earners with 99% accuracy using ensemble classification models."',
+      recruiterWin: '"Engineered a complete CRISP-DM machine learning pipeline that clusters developers and predicts high-income earners using ensemble classification models."',
       techStack: [
         { category: 'Data Processing', items: 'Python 3, Pandas, NumPy' },
         { category: 'Machine Learning', items: 'Scikit-learn (KMeans, PCA, Decision Trees, k-NN, Voting Classifier)' },
@@ -168,12 +168,12 @@ export const projects: Project[] = [
   {
     id: 'restaurant-analytics',
     title: 'Restaurant Analytics',
-    description: 'End-to-end Power BI business intelligence solution for a multi-branch restaurant, transforming 10 raw CSV exports into a star-schema model with interactive dashboards. It features 18+ DAX measures, a custom punctuality KPI, and a What-If wage-cost model. Client data and visuals are confidential at the client\'s request.',
+    description: 'End-to-end Power BI business intelligence solution for a multi-branch restaurant. Wrote SQL against the client\'s live sales database to extract per-shop data, exported to CSV for modelling, then audited and cleaned 10 raw tables into a star-schema model with 14 relationships. Features 18+ DAX measures, a custom punctuality KPI comparing rostered shift starts against clock-in times, and a What-If wage-cost model. Client data and visuals are confidential at the client\'s request.',
     tags: ['Power BI', 'DAX', 'Power Query', 'Data Modeling', 'Business Intelligence'],
     github: 'https://github.com/SaaFazal/Restaurant-Analytics',
     image: '/projects/restaurant-analytics/Home-Blurred.png',
     details: {
-      vision: 'An end-to-end Power BI business-intelligence solution for a multi-branch restaurant. It takes 10 raw CSV exports from the operational app and turns them into a star-schema data model with 14 relationships and a 3-page interactive report covering Sales, Labour & Punctuality, and Procurement.',
+      vision: 'End-to-end Power BI business intelligence solution for a multi-branch restaurant. Wrote SQL against the client\'s live sales database to extract per-shop data, exported to CSV for modelling, then audited and cleaned 10 raw tables into a star-schema model with 14 relationships. Features 18+ DAX measures, a custom punctuality KPI comparing rostered shift starts against clock-in times, and a What-If wage-cost model. Client data and visuals are confidential at the client\'s request.',
       features: [
         'Data Quality Audit: Profiled all 10 files for row counts, duplicate keys, referential integrity, and logic checks before building.',
         'Power Query & Transformation: Removed irrelevant columns, standardized formats, and built derived columns.',

@@ -83,12 +83,13 @@ const experience = [
             <div className="space-y-3">
                 <p>My first role in the UK, split between the shop floor and the back office of an international supermarket.</p>
                 <ul className="list-disc pl-4 space-y-1.5 opacity-90">
+                    <li>U-Shop later became an Artim Labs client, and I went on to build their ERP and HR system.</li>
                     <li>Processed 16-20 supplier invoices a week in Excel: data entry, validation and reconciliation against incoming deliveries.</li>
                     <li>Flagged discrepancies between what was ordered and what arrived before payment went out, protecting payment dates and preventing suppliers being paid incorrectly.</li>
                     <li>Produced routine stock and invoice summaries for management from the reconciled data.</li>
                     <li>Provided front-of-house customer support during trading hours alongside the admin work.</li>
                 </ul>
-                <p>This is where I first saw how much of a business runs on spreadsheets nobody has time to check properly, which is a straight line to the data and BI work I do now. U-Shop later became an Artim Labs client, and I built their ERP system.</p>
+                <p>This is where I first saw how much of a business runs on spreadsheets nobody has time to check properly, which is a straight line to the data and BI work I do now.</p>
             </div>
         ),
         logo: "/Ushop.png"
@@ -111,9 +112,9 @@ const education = [
         logo: "/CIFA.png"
     },
     {
-        degree: "All India Senior School Certificate Examination (AISSCE), Business/Office Automation/Technology/Data Entry",
+        degree: "All India Senior School Certificate Examination (AISSCE)",
         school: "Central Board of Secondary Education — KVIS, Ramanathapuram",
-        period: "Jun 2016 – Jul 2023",
+        period: "Jun 2021 – Jul 2023",
         details: "Grade: 391/500",
         logo: "/CBSE.png"
     }

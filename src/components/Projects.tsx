@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Zap, ExternalLink } from 'lucide-react';
+import { ArrowRight, Zap, ExternalLink, Github } from 'lucide-react';
 import { projects } from '@/data/projects';
 import Link from 'next/link';
 
@@ -138,6 +138,17 @@ export function Projects() {
                                             >
                                                 <span>Live Demo</span>
                                                 <ExternalLink size={12} />
+                                            </a>
+                                        )}
+                                        {project.github && (
+                                            <a
+                                                href={project.github}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-2 text-xs font-bold text-white/60 hover:text-white transition-colors py-2 px-3 rounded-lg border border-white/5 hover:bg-white/5"
+                                            >
+                                                <span>View Code</span>
+                                                <Github size={12} />
                                             </a>
                                         )}
                                     </div>

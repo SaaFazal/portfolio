@@ -3,7 +3,7 @@
 import { useParams, useRouter } from 'next/navigation';
 import { projects } from '@/data/projects';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, Zap, Target, Code, Cpu, Database, Globe } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Zap, Target, Code, Cpu, Database, Globe, Github } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import TimetableSimulator from '@/components/TimetableSimulator';
@@ -125,17 +125,30 @@ export default function ProjectDetail() {
           <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl font-light mb-8">
             {details.vision}
           </p>
-          {project.link && project.link !== '#' && (
-            <a 
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all hover:scale-105 hover:opacity-90"
-              style={{ backgroundColor: colors.accent, color: '#000' }}
-            >
-              {project.linkLabel || 'View Live Site'} <ExternalLink size={20} />
-            </a>
-          )}
+          <div className="flex flex-wrap gap-4 items-center">
+            {project.link && project.link !== '#' && (
+              <a 
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all hover:scale-105 hover:opacity-90"
+                style={{ backgroundColor: colors.accent, color: '#000' }}
+              >
+                {project.linkLabel || 'View Live Site'} <ExternalLink size={20} />
+              </a>
+            )}
+            {project.github && (
+              <a 
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all hover:scale-105 hover:bg-white/10 border border-white/20"
+                style={{ color: colors.accent }}
+              >
+                View Code <Github size={20} />
+              </a>
+            )}
+          </div>
         </motion.div>
 
         {/* Media Gallery (Video + Photos) */}
