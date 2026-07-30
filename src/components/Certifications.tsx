@@ -92,7 +92,7 @@ const certificationsList: Certification[] = [
   },
   {
     id: 'google-ai',
-    title: 'Google AI Professional Certificate',
+    title: 'Google AI Certification',
     issuer: 'Google',
     date: 'Jun 11, 2026',
     credentialId: 'DQR3CAHB447K',

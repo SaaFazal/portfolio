@@ -37,7 +37,7 @@ export function About() {
                                 With deep expertise across Python, Java, and TypeScript, I focus on turning complex logical architectures into fluid, production-ready interfaces that load fast, feel responsive, and solve concrete business problems.
                             </p>
                             <p>
-                                From designing agentic workflows using Semantic Kernel to implementing real-time vector search pipelines (pgvector), time-series forecasting models, and mobile deployments — I build software and systems that deliver absolute performance.
+                                From building production RAG pipelines with real-time vector search (pgvector), to time-series forecasting models and mobile deployments, I build software and systems that solve concrete problems — and I'm certified in Microsoft's agentic AI framework (Semantic Kernel), which I'm looking to apply hands-on next.
                             </p>
                         </div>
                     </motion.div>

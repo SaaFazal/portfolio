@@ -174,6 +174,7 @@ export const projects: Project[] = [
     description: 'Inventory Forecasting Platform combining Holt-Winters time-series forecasting with interactive Plotly dashboards for real-time stock insight, and AI Assistant to transform retail inventory decisions. It eliminates waste and maximizes volume by turning historical sales records into strategic foresight.',
     tags: ['Python', 'Flask', 'Google Gemini', 'RAG', 'Time-Series'],
     link: '/projects/ceptflow',
+    github: 'https://github.com/SaaFazal/CepTFlow',
     image: '/projects/supply-chain/supply-chain.png',
     video: 'https://github.com/SaaFazal/portfolio/releases/download/v1.0-assets/Main.Video.mp4',
     
@@ -216,7 +217,7 @@ export const projects: Project[] = [
   {
     id: 'arasan-travels',
     title: 'Arasan Travels',
-    description: 'A premium, full-stack travel booking and package showcase platform powered by a serverless monorepo architecture and automated booking pipeline. It features an interactive trip discovery carousel, custom Expedia search widgets, and secure Stripe integrations for a seamless luxury customer experience.',
+    description: 'A premium, full-stack travel booking and package showcase platform powered by a serverless monorepo architecture and automated booking pipeline. It features an interactive trip discovery carousel, custom Expedia search widgets, and secure Stripe integrations, with automated reconciliation so every transaction ties out.',
     tags: ['React 19', 'Vite 7', 'Express v5', 'PostgreSQL', 'Drizzle ORM', 'Tailwind CSS v4', 'Stripe API'],
     link: 'http://www.arasantravels.co.uk',
     image: '/projects/arasan-travels/arasan-travels.png',
@@ -262,9 +263,9 @@ export const projects: Project[] = [
   {
     id: 'uni-chatbot',
     title: 'Car Logo Classifier & Intelligent Assistant',
-    description: 'AI assistant combining computer vision (VGG19) for image recognition with logical reasoning and semantic search for accurate answers. It seamlessly handles conversational Q&A while maintaining strict logical consistency and providing high-confidence logo classifications.',
+    description: 'AI assistant combining computer vision (VGG19) for image recognition with logical reasoning and semantic search for accurate answers. It handles open conversational Q&A while maintaining strict logical consistency, and returns high-confidence logo classifications.',
     tags: ['Python', 'TensorFlow', 'VGG19 CNN', 'NLTK', 'First-Order Logic', 'TF-IDF Similarity'],
-    link: '#',
+    github: 'https://github.com/SaaFazal/Car_Chatbot',
     image: '/projects/chatbot/chat.png',
     
     details: {
@@ -309,7 +310,7 @@ export const projects: Project[] = [
     title: 'Distributed Cluster Administration Hub',
     description: 'Secure multi-tenant administration dashboard designed for containerized cluster management, orchestrating multiple decoupled SSH file servers, database servers, and a high-availability network load balancer. It features strict role-based access control and cryptographic PBKDF2 hashing for enterprise-grade security.',
     tags: ['Java', 'JavaFX', 'Docker', 'SQLite (PBKDF2)', 'SSH Networking', 'System Design'],
-    link: '#',
+    github: 'https://github.com/SaaFazal/JavaFX-Load-Balancer',
     image: '/projects/load-balancer/load-balancer.png',
     
     details: {
@@ -360,7 +361,7 @@ export const projects: Project[] = [
     title: 'CycleNest API',
     description: 'High-performance cloud-integrated REST API built for bike-sharing logistics, with low-latency route calculations, self-healing fallbacks, and Azure Cosmos DB storage. It maintains high availability through an automated active failover pattern to local in-memory stores during cloud database timeouts.',
     tags: ['Java', 'JAX-RS (Jersey)', 'Apache Tomcat', 'Azure Cosmos DB', 'OSRM Routing', 'System Design'],
-    link: '#',
+    github: 'https://github.com/SaaFazal/CycleNest',
     image: '/projects/cyclenest/cyclenest.png',
     
     details: {
@@ -405,9 +406,9 @@ export const projects: Project[] = [
   {
     id: 'slipstack',
     title: 'SlipStack',
-    description: 'Native Android expense tracker and receipt parser utilizing Google ML Kit OCR and Jetpack CameraX, with local Room databases and Firebase synchronization. It features a custom geometric bounding-box algorithm to accurately reconstruct lines and extract financial data from unstructured physical receipts.',
+    description: 'Native Android expense tracker and receipt parser utilising Google ML Kit OCR and Jetpack CameraX, with local Room databases and Firebase synchronization. It features a custom geometric bounding-box algorithm to accurately reconstruct lines and extract financial data from unstructured physical receipts.',
     tags: ['Java', 'Android SDK', 'CameraX', 'Google ML Kit', 'Firebase', 'Room DB', 'Mobile Development'],
-    link: '#',
+    github: 'https://github.com/SaaFazal/SlipStack-Android',
     image: '/projects/slipstack/slipstack.png',
     
     details: {
@@ -452,9 +453,9 @@ export const projects: Project[] = [
   {
     id: 'ffsmart',
     title: 'FF Smart Fridge',
-    description: 'Native Android IoT-connected grocery management and food safety tracking application utilizing CameraX barcode scanning, SQLite/Room persistence, and Firebase database synchronization. It automates HACCP compliance logging and generates predictive restocking lists to drastically reduce commercial food waste.',
+    description: 'Native Android IoT-connected grocery management and food safety tracking application utilising CameraX barcode scanning, SQLite/Room persistence, and Firebase database synchronization. It automates HACCP compliance logging and generates predictive restocking lists to reduce commercial food waste.',
     tags: ['Java', 'Android SDK', 'CameraX', 'Google ML Kit', 'Firebase', 'Room DB', 'Mobile Development'],
-    link: '#',
+    github: 'https://github.com/SaaFazal/FF-Smart-Fridge',
     image: '/projects/fridge-app/fridge-app.png',
     
     details: {
@@ -501,7 +502,7 @@ export const projects: Project[] = [
     title: 'U-Shop ERP Ecosystem',
     description: 'Dual-platform business command suite containing a Next.js 16 admin dashboard and an Expo React Native mobile app integrated with Supabase and Prisma SQLite/PostgreSQL. It unifies high-speed mobile barcode scanning for store staff with comprehensive ERP oversight for administrators.',
     tags: ['Next.js', 'React Native', 'Expo', 'Supabase', 'Prisma ORM', 'SQLite', 'Mobile Development'],
-    link: '#',
+    github: 'https://github.com/SaaFazal/Ushop',
     image: '/projects/ushop-inventory/ushop-inventory.png',
     
     details: {

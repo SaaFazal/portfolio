@@ -6,7 +6,7 @@ const experience = [
     {
         role: "Co-Founder and Lead Developer",
         company: "Artim Labs",
-        period: "January 2026 – Present",
+        period: "Jan 2026 – Present",
         desc: (
             <div className="space-y-3">
                 <p>Co-founded a UK studio building websites, apps, bespoke software, third-party integrations, HR and operations systems for growing businesses. I lead engineering; my co-founder leads design and brand.</p>
@@ -24,7 +24,7 @@ const experience = [
     {
         role: "Software Engineer (Freelance)",
         company: "Arasan Travels",
-        period: "August 2025 – Jan 2026",
+        period: "Aug 2025 – Jan 2026",
         desc: (
             <div className="space-y-3">
                 <p>Engaged as a freelance software engineer to build a booking platform from scratch for a UK community travel operator, replacing a manual booking and reconciliation process.</p>
