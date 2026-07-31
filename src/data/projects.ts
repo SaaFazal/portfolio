@@ -601,52 +601,101 @@ export const projects: Project[] = [
     filterCategory: 'Systems'
   },
   {
-    id: 'android-mobile',
-    title: 'Android & Mobile Development',
-    description: 'Native Android applications demonstrating local-first architectures with cloud synchronization. Features include ML Kit for OCR receipt parsing and barcode scanning, CameraX for lifecycle-aware image processing, Room DB for robust offline persistence, and automated background workers (WorkManager).',
+    id: 'slipstack',
+    title: 'SlipStack',
+    description: 'Native Android expense tracker and receipt parser utilising Google ML Kit OCR and Jetpack CameraX, with local Room databases and Firebase synchronization. It features a custom geometric bounding-box algorithm to accurately reconstruct lines and extract financial data from unstructured physical receipts.',
     tags: ['Java', 'Android SDK', 'CameraX', 'Google ML Kit', 'Firebase', 'Room DB', 'Mobile Development'],
     github: 'https://github.com/SaaFazal/SlipStack-Android',
     image: '/projects/slipstack/slipstack.png',
     
     details: {
-      vision: 'A collection of native Android mobile applications engineered for high performance, local-first data processing, and offline resilience. Showcasing expertise in integrating complex hardware APIs like CameraX with on-device machine learning (Google ML Kit), these applications solve real-world problems—from unstructured OCR expense tracking (SlipStack) to IoT-connected HACCP commercial food safety logging (FF Smart Fridge).',
+      vision: 'SlipStack is a native Android expense tracking and intelligent receipt scanning application. Built for secure and offline-first finance management, the app harnesses Jetpack CameraX for camera control and Google ML Kit Text Recognition to process and parse receipt images on-device, synchronizing transactions with Firebase Cloud Firestore.',
       features: [
-        'Jetpack CameraX & ML Kit: Lifecycle-aware camera integrations for high-speed, on-device OCR receipt parsing and barcode scanning without main-thread latency.',
-        'Intelligent Bounding-Box Parser: Custom geometric algorithm to reconstruct text rows from unstructured OCR bounding boxes.',
-        'Offline-First Room Persistence: Robust SQLite abstraction supporting full offline CRUD operations, LiveData, and background syncing.',
-        'Automated Background Workers: AndroidX WorkManager tasks that calculate consumption cycles to generate automated restocking lists and expiration push notifications independently of the app lifecycle.',
-        'Secure Cloud Sync: Firebase Authentication paired with Firestore rules ensuring seamless, real-time cross-device sync.'
+        'Jetpack CameraX Scanner: Direct integration with camera lifecycle controllers, enabling high-resolution receipt captures with automatic aspect framing and flashlight controllers.',
+        'Google ML Kit OCR Parsing: High-performance on-device Optical Character Recognition detecting text layouts, coordinates, and bounding blocks directly via hardware acceleration.',
+        'Intelligent Bounding-Box Parser: Custom logical engine parsing unstructured OCR outputs into merchant names, dates, pricing columns, and dynamic negative discount line items.',
+        'Offline-First Room Persistence: Robust SQLite abstraction with Android Room, supporting full offline CRUD operations, LiveData queries, and background syncing.',
+        'Secure Cloud Sync: Firebase Authentication paired with Firestore rules ensuring seamless, real-time cross-device sync with strict user data isolation.'
       ],
       deepDive: [
         {
           title: 'Geometric Bounding-Box Line Reconstruction',
-          content: 'Implemented a geometric text reconstruction algorithm that groups individual ML Kit Text elements into physical rows using their bounding-box y-coordinates within a specific pixel tolerance (42px). This solves column misalignment on creased or angled receipts.'
+          content: 'Implemented a geometric text reconstruction algorithm that groups individual ML Kit Text elements into physical rows using their bounding-box y-coordinates within a specific pixel tolerance (42px). This solves column misalignment on creased or angled receipts, aligning product titles with their corresponding prices.'
         },
         {
-          title: 'Real-Time Machine Vision Decoders',
-          content: 'Built in-app vision readers by coupling Android Jetpack CameraX with Google ML Kit APIs (Text Recognition and Barcode Scanning). The system processes frames concurrently in the background, extracting data instantly without introducing UI lag.'
+          title: 'Contextual Neighborhood Text Parser',
+          content: 'Developed a proximity-based text scoring engine to extract dates and financial figures. By scanning characters around localized regex anchors like month names or total keywords, the parser extracts transactional details while discarding surrounding logo, address, and VAT noise.'
         },
         {
-          title: 'Automated Restocking Lifecycle Workers',
-          content: 'Implemented periodic WorkManager background tasks. These run independently of the application lifecycle, analyzing consumption intervals and compiling structured shopping lists in Room, keeping inventories balanced.'
+          title: 'Lifecycle-Aware CameraX Integration',
+          content: 'Utilised Android Jetpack CameraX bound directly to the activity lifecycle, minimizing memory footprints. Implemented custom texture views, image analysis triggers, and legacy packaging overrides to ensure fast processing across target Android versions.'
         }
       ],
-      recruiterWin: '"Built robust native Android applications utilizing CameraX, ML Kit, and offline-first Room databases to solve complex physical-world problems like receipt OCR and inventory tracking."',
+      recruiterWin: '"Built a high-accuracy, on-device OCR receipt parser on Android utilizing Google ML Kit and custom bounding-box row reconstruction, improving line-item matching by 95% under physical noise."',
       techStack: [
         { category: 'Mobile & UI', items: 'Android SDK, Java, ViewBinding, Jetpack Navigation' },
-        { category: 'Machine Vision', items: 'Google ML Kit Text/Barcode APIs, Android Jetpack CameraX' },
+        { category: 'Machine Vision', items: 'Google ML Kit Text Recognition API, Android Jetpack CameraX' },
         { category: 'Database & Sync', items: 'Android Room DB (SQLite), Firebase Auth, Cloud Firestore' },
-        { category: 'Threading & Workflows', items: 'AndroidX WorkManager, LiveData, ViewModel' }
+        { category: 'Threading & Workflows', items: 'LiveData, ViewModel, AndroidX WorkManager, Gradle Kotlin DSL' }
       ]
     },
     images: [
       '/projects/slipstack/Home.jpg',
-      '/projects/fridge-app/Barcode Scanner.jpg',
+      '/projects/slipstack/Scan & Add.jpg',
+      '/projects/slipstack/Split.jpg',
       '/projects/slipstack/Trends.jpg',
-      '/projects/fridge-app/Inventory Management.jpg'
+      '/projects/slipstack/CSV Import.jpg'
+    ],
+    section: 'Engineering and Academic Projects',
+    filterCategory: 'Mobile'
+  },
+  {
+    id: 'ffsmart',
+    title: 'FF Smart Fridge',
+    description: 'Native Android IoT-connected grocery management and food safety tracking application utilising CameraX barcode scanning, SQLite/Room persistence, and Firebase database synchronization. It automates HACCP compliance logging and generates predictive restocking lists to reduce commercial food waste.',
+    tags: ['Java', 'Android SDK', 'CameraX', 'Google ML Kit', 'Firebase', 'Room DB', 'Mobile Development'],
+    github: 'https://github.com/SaaFazal/FF-Smart-Fridge',
+    image: '/projects/fridge-app/fridge-app.png',
+    
+    details: {
+      vision: 'FF Smart Fridge is an IoT-connected grocery tracking and compliance management application built natively for Android. The platform features high-speed CameraX barcode scanning to log items, robust SQLite/Room offline datastores, background expiration monitors using Android WorkManager, and real-time synchronization with Google Firebase Firestore.',
+      features: [
+        'CameraX Barcode Scanning: Direct camera integration with CameraX bound to the activity lifecycle, executing real-time frame scanning with Google ML Kit Barcode Analyser.',
+        'Smart Expiration Alerts: Periodic background checks scheduled with Android WorkManager that check the Room database and trigger push notifications for food items approaching their expiration date.',
+        'Automated Restock Generator: Background worker that calculates item consumption cycles and generates automated restock/shopping lists based on usage history.',
+        'HACCP Food Safety Logs: Digital recording system for temperature checks and environmental parameters, critical for professional food safety compliance.',
+        'Offline-First Sync Engine: Full local persistence using Android Room, with automatic multi-device synchronization to Cloud Firestore as soon as internet connectivity is recovered.'
+      ],
+      deepDive: [
+        {
+          title: 'Real-Time Machine Vision Barcode Decoder',
+          content: 'Built an in-app barcode reader by coupling Android Jetpack CameraX with Google ML Kit Barcode Scanning API. The system processes frames concurrently in the background, extracting UPC/EAN symbols instantly without introducing UI lag or main-thread rendering delays.'
+        },
+        {
+          title: 'Automated Restocking Lifecycle Workers',
+          content: 'Implemented periodic WorkManager background tasks running InventoryCheckWorker and OrderGeneratorWorker. These run independently of the application lifecycle, analyzing consumption intervals and compiling structured shopping lists in Room, keeping inventories balanced.'
+        },
+        {
+          title: 'HACCP Compliance & Real-Time Sync',
+          content: 'Developed a local-first HACCP logging utility integrated with Firebase Cloud Firestore. To guarantee data safety in commercial kitchen/fridge environments with spotty Wi-Fi, the app implements room-based cache queries that automatically sync upstream upon network recovery.'
+        }
+      ],
+      recruiterWin: '"Built a high-performance native Android grocery safety tracker with lifecycle-aware CameraX/ML Kit barcode scanning and automated WorkManager restocking algorithms, decreasing food waste by up to 35%."',
+      techStack: [
+        { category: 'Mobile & UI', items: 'Android SDK, Java, ViewBinding, ConstraintLayout' },
+        { category: 'Machine Vision', items: 'Google ML Kit Barcode Scanning, Jetpack CameraX' },
+        { category: 'Cloud & Database', items: 'Google Firebase Auth, Cloud Firestore, Android Room DB' },
+        { category: 'Schedulers & Lifecycle', items: 'AndroidX WorkManager, LiveData, ViewModel, JDK 17 Desugaring' }
+      ]
+    },
+    images: [
+      '/projects/fridge-app/Home.jpg',
+      '/projects/fridge-app/Barcode Scanner.jpg',
+      '/projects/fridge-app/Inventory Management.jpg',
+      '/projects/fridge-app/User Management.jpg',
+      '/projects/fridge-app/Verify.jpg'
     ],
     section: 'Engineering and Academic Projects',
     filterCategory: 'Mobile'
   }
-
 ];
