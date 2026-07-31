@@ -80,9 +80,9 @@ export function Projects() {
                                     className="relative"
                                 >
                                     {showSectionHeader && project.section && (
-                                        <div className="absolute -top-20 md:-top-32 left-0 w-full flex items-center gap-6">
+                                        <div className="relative w-full flex items-center gap-6 mb-16 md:mb-24 pt-4 md:pt-8">
                                             <div className="h-[1px] flex-1 bg-white/10" />
-                                            <h3 className="text-xl md:text-2xl font-black text-white/80 tracking-widest uppercase italic">
+                                            <h3 className="text-xl md:text-2xl font-black text-white/80 tracking-widest uppercase italic text-center">
                                                 {project.section}
                                             </h3>
                                             <div className="h-[1px] flex-1 bg-white/10" />

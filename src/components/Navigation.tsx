@@ -6,6 +6,7 @@ import { User, FolderGit2, FileText, Send, Award } from 'lucide-react';
 
 export function Navigation() {
   const [isHidden, setIsHidden] = useState(false);
+  const [isCvOpen, setIsCvOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -36,11 +37,16 @@ export function Navigation() {
             Certs
           </Link>
         </Magnetic>
-        <div className="relative group flex justify-center">
+        <div 
+          className="relative flex justify-center"
+          onMouseEnter={() => setIsCvOpen(true)}
+          onMouseLeave={() => setIsCvOpen(false)}
+          onClick={() => setIsCvOpen(!isCvOpen)}
+        >
           <div className="w-24 py-3 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full text-white font-bold text-[9px] tracking-[0.2em] hover:bg-primary transition-all duration-300 uppercase flex items-center justify-center text-center shadow-xl cursor-default">
             CV
           </div>
-          <div className="absolute right-full top-1/2 -translate-y-1/2 pr-4 flex flex-col gap-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+          <div className={`absolute right-full top-1/2 -translate-y-1/2 pr-4 flex flex-col gap-2 transition-all duration-300 ${isCvOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
             <a href="/SahadhCV.pdf" target="_blank" rel="noopener noreferrer" className="w-32 py-2 bg-black/80 backdrop-blur-xl border border-white/10 rounded-lg text-white font-bold text-[9px] tracking-widest hover:bg-primary transition-all duration-300 uppercase text-center shadow-xl whitespace-nowrap">
               Data Analyst
             </a>
@@ -70,12 +76,17 @@ export function Navigation() {
           <Award size={16} />
           <span className="text-[8px] font-bold tracking-widest uppercase">Certs</span>
         </Link>
-        <div className="relative group">
+        <div 
+          className="relative"
+          onMouseEnter={() => setIsCvOpen(true)}
+          onMouseLeave={() => setIsCvOpen(false)}
+          onClick={() => setIsCvOpen(!isCvOpen)}
+        >
           <div className="flex flex-col items-center gap-1 text-white/70 hover:text-white hover:scale-110 transition-all p-1.5 cursor-pointer">
             <FileText size={16} />
             <span className="text-[8px] font-bold tracking-widest uppercase">CV</span>
           </div>
-          <div className="absolute bottom-full left-1/2 -translate-x-1/2 pb-4 flex flex-col gap-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+          <div className={`absolute bottom-full left-1/2 -translate-x-1/2 pb-4 flex flex-col gap-2 transition-all duration-300 ${isCvOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
             <a href="/SahadhCV.pdf" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap px-4 py-2 bg-black/90 backdrop-blur-xl border border-white/10 rounded-lg text-white font-bold text-[9px] tracking-widest hover:bg-primary transition-all duration-300 uppercase text-center shadow-xl">
               Data Analyst
             </a>
