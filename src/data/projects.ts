@@ -28,90 +28,13 @@ export interface Project {
       items: string;
     }[];
   };
-  images?: string[];
+    section?: 'Client Work' | 'Engineering and Academic Projects';
+  filterCategory?: 'All' | 'Data & BI' | 'AI & ML' | 'Full Stack' | 'Systems' | 'Mobile';
+images?: string[];
 }
 
 export const projects: Project[] = [
-  {
-    id: 'dev-insights',
-    title: 'AI Developer Insights Platform',
-    description: 'A complete data science pipeline using the CRISP-DM framework to analyse the 2024 Stack Overflow Developer Survey. Cleans and explores a large survey dataset, segments respondents into developer personas using K-Means clustering with PCA for dimensionality reduction, then compares supervised classifiers combined into an ensemble voting classifier.',
-    tags: ['Python', 'Machine Learning', 'Pandas', 'Scikit-learn', 'Clustering', 'Classification'],
-    github: 'https://github.com/SaaFazal/dev-insights-ai',
-    image: '/projects/dev-insights/home.png',
-    
-    details: {
-      vision: 'This project demonstrates an end-to-end Machine Learning and Data Analytics workflow to uncover deep demographic and income patterns across global developers. By processing massive datasets, the pipeline extracts actionable business intelligence through clustering and classification.',
-      features: [
-        'Advanced Data Preprocessing: Handling structural NaNs, categorical encoding, and feature standardization for massive datasets.',
-        'Exploratory Data Analysis: Comprehensive visualizations using Seaborn and Matplotlib (Choropleth maps, scatter plots, and boxplots).',
-        'K-Means Clustering & PCA: Grouping developers into optimized personas by evaluating Silhouette Scores and visualizing them via Principal Component Analysis.',
-        'Ensemble Classification Models: Predicting high-income developers using Logistic Regression, Decision Trees, k-NN, and a final Voting Classifier.'
-      ],
-      deepDive: [
-        {
-          title: 'Unsupervised Learning & Clustering',
-          content: 'Implemented K-Means clustering to discover hidden developer personas based on education, experience, and role. Evaluated the optimal K value using the Elbow Method and Silhouette Scores, and reduced dimensionality via PCA for clean visual interpretation.'
-        },
-        {
-          title: 'High-Accuracy Ensemble Classifiers',
-          content: 'Built a robust predictive pipeline utilizing multiple classification algorithms. By combining Logistic Regression, Decision Trees, and k-NN into an ensemble Voting Classifier, the system achieves robust performance on hold-out testing data.'
-        }
-      ],
-      recruiterWin: '"Engineered a complete CRISP-DM machine learning pipeline that clusters developers and predicts high-income earners using ensemble classification models."',
-      techStack: [
-        { category: 'Data Processing', items: 'Python 3, Pandas, NumPy' },
-        { category: 'Machine Learning', items: 'Scikit-learn (KMeans, PCA, Decision Trees, k-NN, Voting Classifier)' },
-        { category: 'Visualization', items: 'Matplotlib, Seaborn' },
-        { category: 'Environment', items: 'Jupyter Notebook' }
-      ]
-    },
-    images: [
-      '/projects/dev-insights/home.png',
-      '/projects/dev-insights/page1.png',
-      '/projects/dev-insights/page2.png'
-    ]
-  },
-  {
-    id: 'journey-test-suite',
-    title: 'C++ GPS Journey Test Suite',
-    description: 'An automated, high-performance unit testing suite built in C++20 for a GPS journey analysis application. Utilizing the Boost Unit Test Framework, it rigorously validates edge cases and timing conditions to uncover hidden software defects.',
-    tags: ['C++20', 'Software Testing', 'QA Engineering', 'Boost UTF', 'Qt', 'Systems Programming'],
-    github: 'https://github.com/SaaFazal/JourneyTestSuite_CPP',
-    image: '/projects/journey-test/main.png',
-    
-    details: {
-      vision: 'The C++ GPS Journey Test Suite is designed to strictly validate the reliability of complex location-tracking algorithms. By employing rigorous test-driven development methodologies, this suite ensures flawless performance of GPS timing calculations in edge scenarios.',
-      features: [
-        'Boost Unit Test Framework: Comprehensive testing environment built using Boost UTF for high-performance test execution.',
-        'Edge Case Validation: Deep validation spanning normal inputs, boundary conditions, and invalid arguments.',
-        'Defect Discovery: Successfully uncovered 11 distinct bugs across different developer implementations of the GPS algorithm.',
-        'Automated Build System: Fully integrated qmake and Makefile compilation process for seamless execution on Linux.'
-      ],
-      deepDive: [
-        {
-          title: 'Rigorous Software QA',
-          content: 'The test suite acts as an uncompromising QA pipeline, simulating edge-case GPS inputs and tracking the correct time delays before journey commencement. It exposes logical flaws in low-level memory handling and exception throwing.'
-        },
-        {
-          title: 'C++20 Systems Programming',
-          content: 'Engineered using modern C++20 standards, ensuring memory-safe operations and high performance. The integration with Boost UTF demonstrates an enterprise-grade approach to C++ software validation.'
-        }
-      ],
-      recruiterWin: '"Developed a strict C++20 automated test suite using Boost UTF that successfully uncovered and isolated 11 bugs in a GPS tracking algorithm\'s edge-cases."',
-      techStack: [
-        { category: 'Language', items: 'C++20' },
-        { category: 'Testing Framework', items: 'Boost Unit Test Framework (UTF)' },
-        { category: 'Build Tools', items: 'qmake, Make, GCC' },
-        { category: 'Environment', items: 'Linux / Ubuntu' }
-      ]
-    },
-    images: [
-      '/projects/journey-test/main.png',
-      '/projects/journey-test/gps.jpg'
-    ]
-  },
-  {
+{
     id: 'phat-ops',
     title: 'PhatOps',
     description: 'Comprehensive multi-tenant mobile application launched on the App Store, digitizing operations across 4 PHAT Buns branches with rollout to 16 additional locations. It unifies workforce management, inventory tracking, compliance logging, and internal communications into a single, high-performance cross-platform app.',
@@ -163,9 +86,52 @@ export const projects: Project[] = [
       '/projects/restaurant-ops/Image 6.png',
       '/projects/restaurant-ops/Image 7.png',
       '/projects/restaurant-ops/Image 8.png'
-    ]
+    ],
+    section: 'Client Work',
+    filterCategory: 'Full Stack'
   },
-  {
+{
+    id: 'trukbk-web',
+    title: 'TRUKBK',
+    description: 'High-performance vehicle configurator and a highly accurate AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini. It automates high-touch B2B sales queries with grounded, hallucination-resistant responses via retrieval-augmented generation, capturing hot leads 24/7.',
+    tags: ['RAG', 'Supabase pgvector', 'Google Gemini', 'React'],
+    link: 'https://www.trukbk.co.uk/',
+    image: '/projects/trukbk-web/main.png',
+    details: {
+      vision: 'I built and launched the digital storefront for TRUKBK, a premium UK-based manufacturer of modular aluminium service bodies and truck trays. The goal was to create a high-end web experience that matched the rugged, premium nature of their physical products, while automating their sales pipeline using advanced AI.\n\nSelling custom, £10k+ physical truck builds is a high-touch process. Relying on a generic AI chatbot was dangerous—if an AI hallucinates a physical specification or price, it could lead to costly returns and broken trust. TRUKBK needed an automated way to answer customer queries with grounded, hallucination-resistant responses via retrieval-augmented generation and capture hot leads 24/7.',
+      features: [
+        'Industrial Noir Aesthetic: Implemented a dark, premium UI utilizing deep blacks, stark whites, and industrial orange accents with glassmorphism and micro-animations.',
+        'Interactive Configurator: Developed a dynamic, 6-stage product builder that allows users to select their vehicle, cab type, body style, finish, and accessories.',
+        'Zero-Hallucination AI: Custom Retrieval-Augmented Generation (RAG) pipeline using Google Gemini 1.5 Flash and Supabase (pgvector).',
+        'Lead Generation: Integrated Web3Forms for seamless, serverless contact form submissions.'
+      ],
+      deepDive: [
+        {
+          title: 'Retrieval-Augmented Generation (RAG) Architecture',
+          content: 'Knowledge Base Ingestion: All proprietary product specs, pricing tiers, and vehicle compatibility charts were chunked into precise logical segments and converted into high-dimensional vector embeddings stored in a Supabase PostgreSQL database using pgvector. During live semantic search, queries are embedded in real-time and matched via cosine similarity. The verified facts are then injected into the Gemini prompt to completely eliminate hallucinations.'
+        },
+        {
+          title: 'The 2-Layer Bulletproof Fallback System',
+          content: 'APIs fail, and quotas run out. To ensure the business never looks broken to a customer, I built a robust 2-layer fallback system. Layer 1 is the full Gemini AI RAG pipeline. Layer 2 is a custom Rule-Based Engine that silently takes over if the API times out. It uses keyword matching against a hardcoded knowledge base to return accurate prices and contact info without the user ever seeing an error message.'
+        }
+      ],
+      recruiterWin: '"Guaranteed 100% uptime for the chat experience via a custom fallback architecture, ensuring no leads are lost to technical errors while reducing the manual sales support load."',
+      techStack: [
+        { category: 'Frontend', items: 'React, TypeScript, Vite, Tailwind CSS' },
+        { category: 'AI & Machine Learning', items: 'Google Gemini 1.5 Flash, Gemini Embeddings' },
+        { category: 'Database & Vector Search', items: 'Supabase, PostgreSQL, pgvector' },
+        { category: 'Backend & Lead Capture', items: 'Vercel Serverless Functions, Web3Forms' }
+      ]
+    },
+    images: [
+      '/projects/trukbk-web/Screenshot 2026-05-21 011942.png',
+      '/projects/trukbk-web/Screenshot 2026-05-21 012045.png',
+      '/projects/trukbk-web/Screenshot 2026-05-21 013140.png'
+    ],
+    section: 'Client Work',
+    filterCategory: 'AI & ML'
+  },
+{
     id: 'restaurant-analytics',
     title: 'Restaurant Analytics',
     description: 'End-to-end Power BI business intelligence solution for a multi-branch restaurant. Wrote SQL against the client\'s live sales database to extract per-shop data, exported to CSV for modelling, then audited and cleaned 10 raw tables into a star-schema model with 14 relationships. Features 18+ DAX measures, a custom punctuality KPI comparing rostered shift starts against clock-in times, and a What-If wage-cost model. Client data and visuals are confidential at the client\'s request.',
@@ -207,94 +173,11 @@ export const projects: Project[] = [
         { category: 'Data Engineering', items: 'CSV parsing, Data Anonymization' }
       ]
     },
-    images: ['/projects/restaurant-analytics/Home-Blurred.png']
+    images: ['/projects/restaurant-analytics/Home-Blurred.png'],
+    section: 'Client Work',
+    filterCategory: 'Data & BI'
   },
-  {
-    id: 'trukbk-web',
-    title: 'TRUKBK',
-    description: 'High-performance vehicle configurator and a highly accurate AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini. It automates high-touch B2B sales queries with grounded, hallucination-resistant responses via retrieval-augmented generation, capturing hot leads 24/7.',
-    tags: ['RAG', 'Supabase pgvector', 'Google Gemini', 'React'],
-    link: 'https://www.trukbk.co.uk/',
-    image: '/projects/trukbk-web/main.png',
-    details: {
-      vision: 'I built and launched the digital storefront for TRUKBK, a premium UK-based manufacturer of modular aluminium service bodies and truck trays. The goal was to create a high-end web experience that matched the rugged, premium nature of their physical products, while automating their sales pipeline using advanced AI.\n\nSelling custom, £10k+ physical truck builds is a high-touch process. Relying on a generic AI chatbot was dangerous—if an AI hallucinates a physical specification or price, it could lead to costly returns and broken trust. TRUKBK needed an automated way to answer customer queries with grounded, hallucination-resistant responses via retrieval-augmented generation and capture hot leads 24/7.',
-      features: [
-        'Industrial Noir Aesthetic: Implemented a dark, premium UI utilizing deep blacks, stark whites, and industrial orange accents with glassmorphism and micro-animations.',
-        'Interactive Configurator: Developed a dynamic, 6-stage product builder that allows users to select their vehicle, cab type, body style, finish, and accessories.',
-        'Zero-Hallucination AI: Custom Retrieval-Augmented Generation (RAG) pipeline using Google Gemini 1.5 Flash and Supabase (pgvector).',
-        'Lead Generation: Integrated Web3Forms for seamless, serverless contact form submissions.'
-      ],
-      deepDive: [
-        {
-          title: 'Retrieval-Augmented Generation (RAG) Architecture',
-          content: 'Knowledge Base Ingestion: All proprietary product specs, pricing tiers, and vehicle compatibility charts were chunked into precise logical segments and converted into high-dimensional vector embeddings stored in a Supabase PostgreSQL database using pgvector. During live semantic search, queries are embedded in real-time and matched via cosine similarity. The verified facts are then injected into the Gemini prompt to completely eliminate hallucinations.'
-        },
-        {
-          title: 'The 2-Layer Bulletproof Fallback System',
-          content: 'APIs fail, and quotas run out. To ensure the business never looks broken to a customer, I built a robust 2-layer fallback system. Layer 1 is the full Gemini AI RAG pipeline. Layer 2 is a custom Rule-Based Engine that silently takes over if the API times out. It uses keyword matching against a hardcoded knowledge base to return accurate prices and contact info without the user ever seeing an error message.'
-        }
-      ],
-      recruiterWin: '"Guaranteed 100% uptime for the chat experience via a custom fallback architecture, ensuring no leads are lost to technical errors while reducing the manual sales support load."',
-      techStack: [
-        { category: 'Frontend', items: 'React, TypeScript, Vite, Tailwind CSS' },
-        { category: 'AI & Machine Learning', items: 'Google Gemini 1.5 Flash, Gemini Embeddings' },
-        { category: 'Database & Vector Search', items: 'Supabase, PostgreSQL, pgvector' },
-        { category: 'Backend & Lead Capture', items: 'Vercel Serverless Functions, Web3Forms' }
-      ]
-    },
-    images: [
-      '/projects/trukbk-web/Screenshot 2026-05-21 011942.png',
-      '/projects/trukbk-web/Screenshot 2026-05-21 012045.png',
-      '/projects/trukbk-web/Screenshot 2026-05-21 013140.png'
-    ]
-  },
-  {
-    id: 'ceptflow',
-    title: 'CePTFlow Intelligence Suite',
-    description: 'Inventory Forecasting Platform combining Holt-Winters time-series forecasting with interactive Plotly dashboards for real-time stock insight, and AI Assistant to transform retail inventory decisions. It eliminates waste and maximizes volume by turning historical sales records into strategic foresight.',
-    tags: ['Python', 'Flask', 'Google Gemini', 'RAG', 'Time-Series'],
-    link: '/projects/ceptflow',
-    github: 'https://github.com/SaaFazal/CepTFlow',
-    image: '/projects/supply-chain/supply-chain.png',
-    video: 'https://github.com/SaaFazal/portfolio/releases/download/v1.0-assets/Main.Video.mp4',
-    
-    details: {
-      vision: 'CePTFlow was built to transform how retailers interact with their inventory data. Most management tools are passive—they show you what happened in the past. CePTFlow is active—it uses a Neural Trajectory Engine to predict the future and an AI Assistant Strategist to help you plan for it.\n\nThe goal was simple: Eliminate waste and maximize volume by turning every sales record into a strategic advantage.',
-      features: [
-        'Neural Trajectory Engine: Real-time demand forecasting using Holt-Winters Triple Exponential Smoothing to account for trends and seasonality.',
-        'Intelligence Vault (RAG): A dedicated knowledge base that grounds the AI in actual sales documents, preventing hallucinations and ensuring factual accuracy.',
-        'Strategy Assistant: A conversational AI agent that analyses the "Vault" to provide instant answers on stock levels, peak periods, and inventory adjustments.',
-        'Multi-Modal Ingestion: Support for enterprise-grade CSV uploads, manual sales entry, and vision-based receipt scanning for "on-the-floor" data entry.',
-        'Cinematic UX: A premium "Charcoal & Gold" interface designed for high-end store environments, featuring smooth scroll-linked metrics and interactive Plotly visualizations.'
-      ],
-      deepDive: [
-        {
-          title: 'Retrieval-Augmented Generation (RAG) Architecture',
-          content: 'I architected a custom RAG pipeline that bridges the gap between structured SQL data and unstructured AI reasoning. When a query is initiated, the system performs a scoped retrieval of the most relevant sales history for that specific merchant. This context is then injected into the Google Gemini LLM, allowing the AI to cite specific dates and figures rather than providing generic business advice.'
-        },
-        {
-          title: 'Mathematical Forecasting & Time-Series Analysis',
-          content: 'Implemented Holt-Winters Triple Exponential Smoothing to handle three distinct components of business data: Level (baseline volume), Trend (growth/decline), and Seasonality (recurring patterns). This results in a forecast that adapts to the real-world complexity of retail cycles.'
-        },
-        {
-          title: 'System Resilience & Self-Healing API Layer',
-          content: 'Developed a Self-Healing Model Wrapper that monitors API health in real-time. If the primary AI model (e.g., Gemini 2.0) returns a 404 or 429 error, the system automatically discovers and rotates to the next most stable model available in the user’s specific region, ensuring a 99.9% success rate.'
-        }
-      ],
-      recruiterWin: '"Successfully resolved complex 429/404 API handshake issues through a custom self-healing model discovery algorithm, ensuring 99.9% uptime for the AI reasoning layer regardless of regional SDK versioning."',
-      techStack: [
-        { category: 'Languages & Frameworks', items: 'Python (Flask), JavaScript (ES6+), Tailwind CSS' },
-        { category: 'AI & ML', items: 'Google Gemini API (Agentic RAG), Statsmodels (Holt-Winters)' },
-        { category: 'Data & Database', items: 'PostgreSQL, SQLAlchemy, Plotly.js' },
-        { category: 'Cloud & Infrastructure', items: 'Render, Git, Lenis (Scroll Engine)' }
-      ]
-    },
-    images: [
-      '/projects/supply-chain/main 2.png',
-      '/projects/supply-chain/main 3.png'
-    ]
-  },
-  {
+{
     id: 'arasan-travels',
     title: 'Arasan Travels',
     description: 'A premium, full-stack travel booking and package showcase platform powered by a serverless monorepo architecture and automated booking pipeline. It features an interactive trip discovery carousel, custom Expedia search widgets, and secure Stripe integrations, with automated reconciliation so every transaction ties out.',
@@ -338,9 +221,149 @@ export const projects: Project[] = [
       '/projects/arasan-travels/About.png',
       '/projects/arasan-travels/London attractions.png',
       '/projects/arasan-travels/Travellers shared moments .png'
-    ]
+    ],
+    section: 'Client Work',
+    filterCategory: 'Full Stack'
   },
-  {
+{
+    id: 'ushop-inventory',
+    title: 'U-Shop HR Management',
+    description: 'Comprehensive Human Resources and staff management dashboard built with React, Vite, and Supabase. It features employee lifecycle tracking, document management (RTW/Contracts), leave management, and secure role-based access.',
+    tags: ['React', 'Vite', 'Supabase', 'Tailwind CSS', 'Shadcn UI', 'TypeScript'],
+    github: 'https://github.com/SaaFazal/U-ShopHR',
+    image: '/projects/ushop-inventory/ushop-inventory.png',
+    
+    details: {
+      vision: 'U-Shop HR is a modern, high-performance Human Resources dashboard built for retail operations. Designed to streamline staff management, it centralizes employee records, document storage, leave tracking, and audit logging into a single secure interface powered by Supabase and React.',
+      features: [
+        'Employee Lifecycle Management: Complete CRUD capabilities for staff records, including personal details, roles, and employment status.',
+        'Document Vault: Secure file uploads for Right-to-Work (RTW) documents, contracts, and IDs, utilizing Supabase Storage.',
+        'Leave & Absence Tracking: Dedicated modules for requesting, approving, and logging staff holidays and absences.',
+        'Real-Time Audit Logs: Comprehensive activity tracking for compliance, logging every administrative action taken within the system.',
+        'Modern UI/UX: Built with Shadcn UI and Tailwind CSS, featuring responsive dialogs, data tables, and a dark/light mode toggle.'
+      ],
+      deepDive: [
+        {
+          title: 'Supabase Backend Integration',
+          content: 'The application leverages Supabase for its backend-as-a-service, utilizing PostgreSQL for relational employee data and Row Level Security (RLS) to ensure that sensitive HR documents and records are only accessible to authorized administrators.'
+        },
+        {
+          title: 'Secure Document Management',
+          content: 'Built a robust file upload pipeline handling sensitive HR documents. The system uses Supabase Storage buckets to securely store and retrieve employee contracts and compliance documents via signed URLs.'
+        },
+        {
+          title: 'Component-Driven UI with Shadcn',
+          content: 'Architected the frontend using Radix UI primitives and Shadcn UI to ensure accessibility and consistent design language. Complex interactions like uploading documents or editing employee schemas are handled via highly reusable modal dialogs and form validation with Zod.'
+        }
+      ],
+      recruiterWin: '"Architected a secure, full-stack HR management dashboard using React, Vite, and Supabase, streamlining employee onboarding and compliance document storage."',
+      techStack: [
+        { category: 'Frontend', items: 'React 18, Vite, TypeScript, Tailwind CSS, Shadcn UI (Radix)' },
+        { category: 'Backend & Database', items: 'Supabase (PostgreSQL), Row Level Security (RLS)' },
+        { category: 'Forms & Validation', items: 'React Hook Form, Zod' },
+        { category: 'Storage & State', items: 'Supabase Storage, TanStack React Query' }
+      ]
+    },
+    images: [
+      '/projects/ushop-inventory/Home.jpeg',
+      '/projects/ushop-inventory/HR Management.jpeg',
+      '/projects/ushop-inventory/Profile.jpeg'
+    ],
+    section: 'Client Work',
+    filterCategory: 'Full Stack'
+  },
+{
+    id: 'dev-insights',
+    title: 'AI Developer Insights Platform',
+    description: 'A complete data science pipeline using the CRISP-DM framework to analyse the 2024 Stack Overflow Developer Survey. Cleans and explores a large survey dataset, segments respondents into developer personas using K-Means clustering with PCA for dimensionality reduction, then compares supervised classifiers combined into an ensemble voting classifier.',
+    tags: ['Python', 'Machine Learning', 'Pandas', 'Scikit-learn', 'Clustering', 'Classification'],
+    github: 'https://github.com/SaaFazal/dev-insights-ai',
+    image: '/projects/dev-insights/home.png',
+    
+    details: {
+      vision: 'This project demonstrates an end-to-end Machine Learning and Data Analytics workflow to uncover deep demographic and income patterns across global developers. By processing massive datasets, the pipeline extracts actionable business intelligence through clustering and classification.',
+      features: [
+        'Advanced Data Preprocessing: Handling structural NaNs, categorical encoding, and feature standardization for massive datasets.',
+        'Exploratory Data Analysis: Comprehensive visualizations using Seaborn and Matplotlib (Choropleth maps, scatter plots, and boxplots).',
+        'K-Means Clustering & PCA: Grouping developers into optimized personas by evaluating Silhouette Scores and visualizing them via Principal Component Analysis.',
+        'Ensemble Classification Models: Predicting high-income developers using Logistic Regression, Decision Trees, k-NN, and a final Voting Classifier.'
+      ],
+      deepDive: [
+        {
+          title: 'Unsupervised Learning & Clustering',
+          content: 'Implemented K-Means clustering to discover hidden developer personas based on education, experience, and role. Evaluated the optimal K value using the Elbow Method and Silhouette Scores, and reduced dimensionality via PCA for clean visual interpretation.'
+        },
+        {
+          title: 'High-Accuracy Ensemble Classifiers',
+          content: 'Built a robust predictive pipeline utilizing multiple classification algorithms. By combining Logistic Regression, Decision Trees, and k-NN into an ensemble Voting Classifier, the system achieves robust performance on hold-out testing data.'
+        }
+      ],
+      recruiterWin: '"Engineered a complete CRISP-DM machine learning pipeline that clusters developers and predicts high-income earners using ensemble classification models."',
+      techStack: [
+        { category: 'Data Processing', items: 'Python 3, Pandas, NumPy' },
+        { category: 'Machine Learning', items: 'Scikit-learn (KMeans, PCA, Decision Trees, k-NN, Voting Classifier)' },
+        { category: 'Visualization', items: 'Matplotlib, Seaborn' },
+        { category: 'Environment', items: 'Jupyter Notebook' }
+      ]
+    },
+    images: [
+      '/projects/dev-insights/home.png',
+      '/projects/dev-insights/page1.png',
+      '/projects/dev-insights/page2.png'
+    ],
+    section: 'Engineering and Academic Projects',
+    filterCategory: 'Data & BI'
+  },
+{
+    id: 'cyclenest-api',
+    title: 'CycleNest API',
+    description: 'High-performance cloud-integrated REST API built for bike-sharing logistics, with low-latency route calculations, self-healing fallbacks, and Azure Cosmos DB storage. It maintains high availability through an automated active failover pattern to local in-memory stores during cloud database timeouts.',
+    tags: ['Java', 'JAX-RS (Jersey)', 'Apache Tomcat', 'Azure Cosmos DB', 'OSRM Routing', 'System Design'],
+    github: 'https://github.com/SaaFazal/CycleNest',
+    image: '/projects/cyclenest/cyclenest.png',
+    
+    details: {
+      vision: 'CycleNest API is a high-performance, cloud-integrated RESTful backend built for bike-sharing and logistics tracking networks. Built using the JAX-RS (Jersey) framework and deployed inside high-concurrency Apache Tomcat servlet containers, the API orchestrates real-time asset discovery, location-based distance calculations, and transaction records across global cloud boundaries.',
+      features: [
+        'JAX-RS REST API Architecture: High-performance endpoint structures mapped under servlet containers handling concurrent HTTP methods (GET, POST, DELETE).',
+        'Self-Healing Storage Fallback: Automated active failover pattern redirecting traffic to local thread-safe ConcurrentHashMap stores in the event of database timeouts, maintaining high availability.',
+        'Asynchronous OSRM Router: Non-blocking coordinate driving evaluation using modern Java HttpClient and CompletableFuture pipelines.',
+        'Azure Cosmos DB Storage: Globally-distributed database persistence utilizing Azure\'s Java SDK with Session consistency levels for strong read-your-own-writes guarantees.',
+        'Operational Health Probes: Custom diagnostic debug endpoints checking latency, ping states, and network connectivity parameters in real-time.'
+      ],
+      deepDive: [
+        {
+          title: 'Asynchronous Spatial Routing',
+          content: 'Built a highly optimised routing client using Java\'s modern HttpClient API and CompletableFutures. Upon query activation, the backend dispatches non-blocking asynchronous calls to the Open Source Routing Machine (OSRM) service, resolving real road distances and durations on the fly. Calculated metrics are parsed efficiently using Jackson ObjectMapper and returned without locking primary execution threads.'
+        },
+        {
+          title: 'Active Data-Store Failover Wrapper',
+          content: 'To prevent API cold-starts or external database down-times from breaking the application lifecycle, I architected a robust Repository facade with automatic self-healing properties. If the Azure Cosmos DB connection fails during container initialization, the factory gracefully traps the error and binds the controller routes to an in-memory data store, keeping services live.'
+        },
+        {
+          title: 'Cosmos Client & TCP Tuning',
+          content: 'Configured CosmosRepository initialization blocks with performance tuning overrides, forcing Gateway connectivity modes and tuning reactor-netty thread-worker pools. Added low-level system properties like IPv4 stack prioritization and HTTP client timeout settings to prevent thread leaks and ensure fast API roundtrips.'
+        }
+      ],
+      recruiterWin: '"Architected a resilient JAX-RS backend with an automated Cosmos DB to in-memory self-healing failover mechanism, maintaining 100% application availability during database timeouts."',
+      techStack: [
+        { category: 'Frontend & APIs', items: 'JAX-RS (Jersey), Jackson JSON Parser, HTTP Client API' },
+        { category: 'Container & Server', items: 'Apache Tomcat Web Server, Ant Build Automation, NetBeans IDE' },
+        { category: 'Database & Cloud', items: 'Azure Cosmos DB SQL API, Cosmos Java SDK' },
+        { category: 'Systems & Integrations', items: 'OSRM Routing Engine, CompletableFuture, System Telemetry Probes' }
+      ]
+    },
+    images: [
+      '/projects/cyclenest/items-endpoint.png',
+      '/projects/cyclenest/Item Detail.png',
+      '/projects/cyclenest/Distance Router.png',
+      '/projects/cyclenest/Filtered Search.png',
+      '/projects/cyclenest/System Health Check.png'
+    ],
+    section: 'Engineering and Academic Projects',
+    filterCategory: 'Systems'
+  },
+{
     id: 'uni-chatbot',
     title: 'Car Logo Classifier & Intelligent Assistant',
     description: 'AI assistant combining computer vision (VGG19) for image recognition with logical reasoning and semantic search for accurate answers. It handles open conversational Q&A while maintaining strict logical consistency, and returns high-confidence logo classifications.',
@@ -383,9 +406,59 @@ export const projects: Project[] = [
       '/projects/chatbot/chat.png',
       '/projects/chatbot/vision.png',
       '/projects/chatbot/logic.png'
-    ]
+    ],
+    section: 'Engineering and Academic Projects',
+    filterCategory: 'AI & ML'
   },
-  {
+{
+    id: 'ceptflow',
+    title: 'CePTFlow Intelligence Suite',
+    description: 'Inventory Forecasting Platform combining Holt-Winters time-series forecasting with interactive Plotly dashboards for real-time stock insight, and AI Assistant to transform retail inventory decisions. It eliminates waste and maximizes volume by turning historical sales records into strategic foresight.',
+    tags: ['Python', 'Flask', 'Google Gemini', 'RAG', 'Time-Series'],
+    link: '/projects/ceptflow',
+    github: 'https://github.com/SaaFazal/CepTFlow',
+    image: '/projects/supply-chain/supply-chain.png',
+    video: 'https://github.com/SaaFazal/portfolio/releases/download/v1.0-assets/Main.Video.mp4',
+    
+    details: {
+      vision: 'CePTFlow was built to transform how retailers interact with their inventory data. Most management tools are passive—they show you what happened in the past. CePTFlow is active—it uses a Neural Trajectory Engine to predict the future and an AI Assistant Strategist to help you plan for it.\n\nThe goal was simple: Eliminate waste and maximize volume by turning every sales record into a strategic advantage.',
+      features: [
+        'Neural Trajectory Engine: Real-time demand forecasting using Holt-Winters Triple Exponential Smoothing to account for trends and seasonality.',
+        'Intelligence Vault (RAG): A dedicated knowledge base that grounds the AI in actual sales documents, preventing hallucinations and ensuring factual accuracy.',
+        'Strategy Assistant: A conversational AI agent that analyses the "Vault" to provide instant answers on stock levels, peak periods, and inventory adjustments.',
+        'Multi-Modal Ingestion: Support for enterprise-grade CSV uploads, manual sales entry, and vision-based receipt scanning for "on-the-floor" data entry.',
+        'Cinematic UX: A premium "Charcoal & Gold" interface designed for high-end store environments, featuring smooth scroll-linked metrics and interactive Plotly visualizations.'
+      ],
+      deepDive: [
+        {
+          title: 'Retrieval-Augmented Generation (RAG) Architecture',
+          content: 'I architected a custom RAG pipeline that bridges the gap between structured SQL data and unstructured AI reasoning. When a query is initiated, the system performs a scoped retrieval of the most relevant sales history for that specific merchant. This context is then injected into the Google Gemini LLM, allowing the AI to cite specific dates and figures rather than providing generic business advice.'
+        },
+        {
+          title: 'Mathematical Forecasting & Time-Series Analysis',
+          content: 'Implemented Holt-Winters Triple Exponential Smoothing to handle three distinct components of business data: Level (baseline volume), Trend (growth/decline), and Seasonality (recurring patterns). This results in a forecast that adapts to the real-world complexity of retail cycles.'
+        },
+        {
+          title: 'System Resilience & Self-Healing API Layer',
+          content: 'Developed a Self-Healing Model Wrapper that monitors API health in real-time. If the primary AI model (e.g., Gemini 2.0) returns a 404 or 429 error, the system automatically discovers and rotates to the next most stable model available in the user’s specific region, ensuring a 99.9% success rate.'
+        }
+      ],
+      recruiterWin: '"Successfully resolved complex 429/404 API handshake issues through a custom self-healing model discovery algorithm, ensuring 99.9% uptime for the AI reasoning layer regardless of regional SDK versioning."',
+      techStack: [
+        { category: 'Languages & Frameworks', items: 'Python (Flask), JavaScript (ES6+), Tailwind CSS' },
+        { category: 'AI & ML', items: 'Google Gemini API (Agentic RAG), Statsmodels (Holt-Winters)' },
+        { category: 'Data & Database', items: 'PostgreSQL, SQLAlchemy, Plotly.js' },
+        { category: 'Cloud & Infrastructure', items: 'Render, Git, Lenis (Scroll Engine)' }
+      ]
+    },
+    images: [
+      '/projects/supply-chain/main 2.png',
+      '/projects/supply-chain/main 3.png'
+    ],
+    section: 'Engineering and Academic Projects',
+    filterCategory: 'AI & ML'
+  },
+{
     id: 'load-balancer',
     title: 'Distributed Cluster Administration Hub',
     description: 'Secure multi-tenant administration dashboard designed for containerized cluster management, orchestrating multiple decoupled SSH file servers, database servers, and a high-availability network load balancer. It features strict role-based access control and cryptographic PBKDF2 hashing for enterprise-grade security.',
@@ -434,195 +507,52 @@ export const projects: Project[] = [
       '/projects/load-balancer/User Management.png',
       '/projects/load-balancer/File Management.png',
       '/projects/load-balancer/Terminal.png'
-    ]
+    ],
+    section: 'Engineering and Academic Projects',
+    filterCategory: 'Systems'
   },
-  {
-    id: 'cyclenest-api',
-    title: 'CycleNest API',
-    description: 'High-performance cloud-integrated REST API built for bike-sharing logistics, with low-latency route calculations, self-healing fallbacks, and Azure Cosmos DB storage. It maintains high availability through an automated active failover pattern to local in-memory stores during cloud database timeouts.',
-    tags: ['Java', 'JAX-RS (Jersey)', 'Apache Tomcat', 'Azure Cosmos DB', 'OSRM Routing', 'System Design'],
-    github: 'https://github.com/SaaFazal/CycleNest',
-    image: '/projects/cyclenest/cyclenest.png',
+{
+    id: 'journey-test-suite',
+    title: 'C++ GPS Journey Test Suite',
+    description: 'An automated, high-performance unit testing suite built in C++20 for a GPS journey analysis application. Utilizing the Boost Unit Test Framework, it rigorously validates edge cases and timing conditions to uncover hidden software defects.',
+    tags: ['C++20', 'Software Testing', 'QA Engineering', 'Boost UTF', 'Qt', 'Systems Programming'],
+    github: 'https://github.com/SaaFazal/JourneyTestSuite_CPP',
+    image: '/projects/journey-test/main.png',
     
     details: {
-      vision: 'CycleNest API is a high-performance, cloud-integrated RESTful backend built for bike-sharing and logistics tracking networks. Built using the JAX-RS (Jersey) framework and deployed inside high-concurrency Apache Tomcat servlet containers, the API orchestrates real-time asset discovery, location-based distance calculations, and transaction records across global cloud boundaries.',
+      vision: 'The C++ GPS Journey Test Suite is designed to strictly validate the reliability of complex location-tracking algorithms. By employing rigorous test-driven development methodologies, this suite ensures flawless performance of GPS timing calculations in edge scenarios.',
       features: [
-        'JAX-RS REST API Architecture: High-performance endpoint structures mapped under servlet containers handling concurrent HTTP methods (GET, POST, DELETE).',
-        'Self-Healing Storage Fallback: Automated active failover pattern redirecting traffic to local thread-safe ConcurrentHashMap stores in the event of database timeouts, maintaining high availability.',
-        'Asynchronous OSRM Router: Non-blocking coordinate driving evaluation using modern Java HttpClient and CompletableFuture pipelines.',
-        'Azure Cosmos DB Storage: Globally-distributed database persistence utilizing Azure\'s Java SDK with Session consistency levels for strong read-your-own-writes guarantees.',
-        'Operational Health Probes: Custom diagnostic debug endpoints checking latency, ping states, and network connectivity parameters in real-time.'
+        'Boost Unit Test Framework: Comprehensive testing environment built using Boost UTF for high-performance test execution.',
+        'Edge Case Validation: Deep validation spanning normal inputs, boundary conditions, and invalid arguments.',
+        'Defect Discovery: Successfully uncovered 11 distinct bugs across different developer implementations of the GPS algorithm.',
+        'Automated Build System: Fully integrated qmake and Makefile compilation process for seamless execution on Linux.'
       ],
       deepDive: [
         {
-          title: 'Asynchronous Spatial Routing',
-          content: 'Built a highly optimised routing client using Java\'s modern HttpClient API and CompletableFutures. Upon query activation, the backend dispatches non-blocking asynchronous calls to the Open Source Routing Machine (OSRM) service, resolving real road distances and durations on the fly. Calculated metrics are parsed efficiently using Jackson ObjectMapper and returned without locking primary execution threads.'
+          title: 'Rigorous Software QA',
+          content: 'The test suite acts as an uncompromising QA pipeline, simulating edge-case GPS inputs and tracking the correct time delays before journey commencement. It exposes logical flaws in low-level memory handling and exception throwing.'
         },
         {
-          title: 'Active Data-Store Failover Wrapper',
-          content: 'To prevent API cold-starts or external database down-times from breaking the application lifecycle, I architected a robust Repository facade with automatic self-healing properties. If the Azure Cosmos DB connection fails during container initialization, the factory gracefully traps the error and binds the controller routes to an in-memory data store, keeping services live.'
-        },
-        {
-          title: 'Cosmos Client & TCP Tuning',
-          content: 'Configured CosmosRepository initialization blocks with performance tuning overrides, forcing Gateway connectivity modes and tuning reactor-netty thread-worker pools. Added low-level system properties like IPv4 stack prioritization and HTTP client timeout settings to prevent thread leaks and ensure fast API roundtrips.'
+          title: 'C++20 Systems Programming',
+          content: 'Engineered using modern C++20 standards, ensuring memory-safe operations and high performance. The integration with Boost UTF demonstrates an enterprise-grade approach to C++ software validation.'
         }
       ],
-      recruiterWin: '"Architected a resilient JAX-RS backend with an automated Cosmos DB to in-memory self-healing failover mechanism, maintaining 100% application availability during database timeouts."',
+      recruiterWin: '"Developed a strict C++20 automated test suite using Boost UTF that successfully uncovered and isolated 11 bugs in a GPS tracking algorithm\'s edge-cases."',
       techStack: [
-        { category: 'Frontend & APIs', items: 'JAX-RS (Jersey), Jackson JSON Parser, HTTP Client API' },
-        { category: 'Container & Server', items: 'Apache Tomcat Web Server, Ant Build Automation, NetBeans IDE' },
-        { category: 'Database & Cloud', items: 'Azure Cosmos DB SQL API, Cosmos Java SDK' },
-        { category: 'Systems & Integrations', items: 'OSRM Routing Engine, CompletableFuture, System Telemetry Probes' }
+        { category: 'Language', items: 'C++20' },
+        { category: 'Testing Framework', items: 'Boost Unit Test Framework (UTF)' },
+        { category: 'Build Tools', items: 'qmake, Make, GCC' },
+        { category: 'Environment', items: 'Linux / Ubuntu' }
       ]
     },
     images: [
-      '/projects/cyclenest/items-endpoint.png',
-      '/projects/cyclenest/Item Detail.png',
-      '/projects/cyclenest/Distance Router.png',
-      '/projects/cyclenest/Filtered Search.png',
-      '/projects/cyclenest/System Health Check.png'
-    ]
+      '/projects/journey-test/main.png',
+      '/projects/journey-test/gps.jpg'
+    ],
+    section: 'Engineering and Academic Projects',
+    filterCategory: 'Systems'
   },
-  {
-    id: 'slipstack',
-    title: 'SlipStack',
-    description: 'Native Android expense tracker and receipt parser utilising Google ML Kit OCR and Jetpack CameraX, with local Room databases and Firebase synchronization. It features a custom geometric bounding-box algorithm to accurately reconstruct lines and extract financial data from unstructured physical receipts.',
-    tags: ['Java', 'Android SDK', 'CameraX', 'Google ML Kit', 'Firebase', 'Room DB', 'Mobile Development'],
-    github: 'https://github.com/SaaFazal/SlipStack-Android',
-    image: '/projects/slipstack/slipstack.png',
-    
-    details: {
-      vision: 'SlipStack is a native Android expense tracking and intelligent receipt scanning application. Built for secure and offline-first finance management, the app harnesses Jetpack CameraX for camera control and Google ML Kit Text Recognition to process and parse receipt images on-device, synchronizing transactions with Firebase Cloud Firestore.',
-      features: [
-        'Jetpack CameraX Scanner: Direct integration with camera lifecycle controllers, enabling high-resolution receipt captures with automatic aspect framing and flashlight controllers.',
-        'Google ML Kit OCR Parsing: High-performance on-device Optical Character Recognition detecting text layouts, coordinates, and bounding blocks directly via hardware acceleration.',
-        'Intelligent Bounding-Box Parser: Custom logical engine parsing unstructured OCR outputs into merchant names, dates, pricing columns, and dynamic negative discount line items.',
-        'Offline-First Room Persistence: Robust SQLite abstraction with Android Room, supporting full offline CRUD operations, LiveData queries, and background syncing.',
-        'Secure Cloud Sync: Firebase Authentication paired with Firestore rules ensuring seamless, real-time cross-device sync with strict user data isolation.'
-      ],
-      deepDive: [
-        {
-          title: 'Geometric Bounding-Box Line Reconstruction',
-          content: 'Implemented a geometric text reconstruction algorithm that groups individual ML Kit Text elements into physical rows using their bounding-box y-coordinates within a specific pixel tolerance (42px). This solves column misalignment on creased or angled receipts, aligning product titles with their corresponding prices.'
-        },
-        {
-          title: 'Contextual Neighborhood Text Parser',
-          content: 'Developed a proximity-based text scoring engine to extract dates and financial figures. By scanning characters around localized regex anchors like month names or total keywords, the parser extracts transactional details while discarding surrounding logo, address, and VAT noise.'
-        },
-        {
-          title: 'Lifecycle-Aware CameraX Integration',
-          content: 'Utilised Android Jetpack CameraX bound directly to the activity lifecycle, minimizing memory footprints. Implemented custom texture views, image analysis triggers, and legacy packaging overrides to ensure fast processing across target Android versions.'
-        }
-      ],
-      recruiterWin: '"Built a high-accuracy, on-device OCR receipt parser on Android utilizing Google ML Kit and custom bounding-box row reconstruction, improving line-item matching by 95% under physical noise."',
-      techStack: [
-        { category: 'Mobile & UI', items: 'Android SDK, Java, ViewBinding, Jetpack Navigation' },
-        { category: 'Machine Vision', items: 'Google ML Kit Text Recognition API, Android Jetpack CameraX' },
-        { category: 'Database & Sync', items: 'Android Room DB (SQLite), Firebase Auth, Cloud Firestore' },
-        { category: 'Threading & Workflows', items: 'LiveData, ViewModel, AndroidX WorkManager, Gradle Kotlin DSL' }
-      ]
-    },
-    images: [
-      '/projects/slipstack/Home.jpg',
-      '/projects/slipstack/Scan & Add.jpg',
-      '/projects/slipstack/Split.jpg',
-      '/projects/slipstack/Trends.jpg',
-      '/projects/slipstack/CSV Import.jpg'
-    ]
-  },
-  {
-    id: 'ffsmart',
-    title: 'FF Smart Fridge',
-    description: 'Native Android IoT-connected grocery management and food safety tracking application utilising CameraX barcode scanning, SQLite/Room persistence, and Firebase database synchronization. It automates HACCP compliance logging and generates predictive restocking lists to reduce commercial food waste.',
-    tags: ['Java', 'Android SDK', 'CameraX', 'Google ML Kit', 'Firebase', 'Room DB', 'Mobile Development'],
-    github: 'https://github.com/SaaFazal/FF-Smart-Fridge',
-    image: '/projects/fridge-app/fridge-app.png',
-    
-    details: {
-      vision: 'FF Smart Fridge is an IoT-connected grocery tracking and compliance management application built natively for Android. The platform features high-speed CameraX barcode scanning to log items, robust SQLite/Room offline datastores, background expiration monitors using Android WorkManager, and real-time synchronization with Google Firebase Firestore.',
-      features: [
-        'CameraX Barcode Scanning: Direct camera integration with CameraX bound to the activity lifecycle, executing real-time frame scanning with Google ML Kit Barcode Analyser.',
-        'Smart Expiration Alerts: Periodic background checks scheduled with Android WorkManager that check the Room database and trigger push notifications for food items approaching their expiration date.',
-        'Automated Restock Generator: Background worker that calculates item consumption cycles and generates automated restock/shopping lists based on usage history.',
-        'HACCP Food Safety Logs: Digital recording system for temperature checks and environmental parameters, critical for professional food safety compliance.',
-        'Offline-First Sync Engine: Full local persistence using Android Room, with automatic multi-device synchronization to Cloud Firestore as soon as internet connectivity is recovered.'
-      ],
-      deepDive: [
-        {
-          title: 'Real-Time Machine Vision Barcode Decoder',
-          content: 'Built an in-app barcode reader by coupling Android Jetpack CameraX with Google ML Kit Barcode Scanning API. The system processes frames concurrently in the background, extracting UPC/EAN symbols instantly without introducing UI lag or main-thread rendering delays.'
-        },
-        {
-          title: 'Automated Restocking Lifecycle Workers',
-          content: 'Implemented periodic WorkManager background tasks running InventoryCheckWorker and OrderGeneratorWorker. These run independently of the application lifecycle, analyzing consumption intervals and compiling structured shopping lists in Room, keeping inventories balanced.'
-        },
-        {
-          title: 'HACCP Compliance & Real-Time Sync',
-          content: 'Developed a local-first HACCP logging utility integrated with Firebase Cloud Firestore. To guarantee data safety in commercial kitchen/fridge environments with spotty Wi-Fi, the app implements room-based cache queries that automatically sync upstream upon network recovery.'
-        }
-      ],
-      recruiterWin: '"Built a high-performance native Android grocery safety tracker with lifecycle-aware CameraX/ML Kit barcode scanning and automated WorkManager restocking algorithms, decreasing food waste by up to 35%."',
-      techStack: [
-        { category: 'Mobile & UI', items: 'Android SDK, Java, ViewBinding, ConstraintLayout' },
-        { category: 'Machine Vision', items: 'Google ML Kit Barcode Scanning, Jetpack CameraX' },
-        { category: 'Cloud & Database', items: 'Google Firebase Auth, Cloud Firestore, Android Room DB' },
-        { category: 'Schedulers & Lifecycle', items: 'AndroidX WorkManager, LiveData, ViewModel, JDK 17 Desugaring' }
-      ]
-    },
-    images: [
-      '/projects/fridge-app/Home.jpg',
-      '/projects/fridge-app/Barcode Scanner.jpg',
-      '/projects/fridge-app/Inventory Management.jpg',
-      '/projects/fridge-app/User Management.jpg',
-      '/projects/fridge-app/Verify.jpg'
-    ]
-  },
-  {
-    id: 'ushop-inventory',
-    title: 'U-Shop HR Management',
-    description: 'Comprehensive Human Resources and staff management dashboard built with React, Vite, and Supabase. It features employee lifecycle tracking, document management (RTW/Contracts), leave management, and secure role-based access.',
-    tags: ['React', 'Vite', 'Supabase', 'Tailwind CSS', 'Shadcn UI', 'TypeScript'],
-    github: 'https://github.com/SaaFazal/U-ShopHR',
-    image: '/projects/ushop-inventory/ushop-inventory.png',
-    
-    details: {
-      vision: 'U-Shop HR is a modern, high-performance Human Resources dashboard built for retail operations. Designed to streamline staff management, it centralizes employee records, document storage, leave tracking, and audit logging into a single secure interface powered by Supabase and React.',
-      features: [
-        'Employee Lifecycle Management: Complete CRUD capabilities for staff records, including personal details, roles, and employment status.',
-        'Document Vault: Secure file uploads for Right-to-Work (RTW) documents, contracts, and IDs, utilizing Supabase Storage.',
-        'Leave & Absence Tracking: Dedicated modules for requesting, approving, and logging staff holidays and absences.',
-        'Real-Time Audit Logs: Comprehensive activity tracking for compliance, logging every administrative action taken within the system.',
-        'Modern UI/UX: Built with Shadcn UI and Tailwind CSS, featuring responsive dialogs, data tables, and a dark/light mode toggle.'
-      ],
-      deepDive: [
-        {
-          title: 'Supabase Backend Integration',
-          content: 'The application leverages Supabase for its backend-as-a-service, utilizing PostgreSQL for relational employee data and Row Level Security (RLS) to ensure that sensitive HR documents and records are only accessible to authorized administrators.'
-        },
-        {
-          title: 'Secure Document Management',
-          content: 'Built a robust file upload pipeline handling sensitive HR documents. The system uses Supabase Storage buckets to securely store and retrieve employee contracts and compliance documents via signed URLs.'
-        },
-        {
-          title: 'Component-Driven UI with Shadcn',
-          content: 'Architected the frontend using Radix UI primitives and Shadcn UI to ensure accessibility and consistent design language. Complex interactions like uploading documents or editing employee schemas are handled via highly reusable modal dialogs and form validation with Zod.'
-        }
-      ],
-      recruiterWin: '"Architected a secure, full-stack HR management dashboard using React, Vite, and Supabase, streamlining employee onboarding and compliance document storage."',
-      techStack: [
-        { category: 'Frontend', items: 'React 18, Vite, TypeScript, Tailwind CSS, Shadcn UI (Radix)' },
-        { category: 'Backend & Database', items: 'Supabase (PostgreSQL), Row Level Security (RLS)' },
-        { category: 'Forms & Validation', items: 'React Hook Form, Zod' },
-        { category: 'Storage & State', items: 'Supabase Storage, TanStack React Query' }
-      ]
-    },
-    images: [
-      '/projects/ushop-inventory/Home.jpeg',
-      '/projects/ushop-inventory/HR Management.jpeg',
-      '/projects/ushop-inventory/Profile.jpeg'
-    ]
-  },
-  {
+{
     id: 'ntu-timetable',
     title: 'NTU Academic Timetabling System',
     description: 'High-performance scheduling engine built in C++ utilising recursive backtracking and heuristic constraints to optimise academic room allocation and student timetables. It parses relational structural files and tackles an NP-complete scheduling problem efficiently using Maximum Constraints First heuristics.',
@@ -666,6 +596,57 @@ export const projects: Project[] = [
       '/projects/ntu-timetable/dashboard.png',
       '/projects/ntu-timetable/calendar.png',
       '/projects/ntu-timetable/solver.png'
-    ]
+    ],
+    section: 'Engineering and Academic Projects',
+    filterCategory: 'Systems'
+  },
+  {
+    id: 'android-mobile',
+    title: 'Android & Mobile Development',
+    description: 'Native Android applications demonstrating local-first architectures with cloud synchronization. Features include ML Kit for OCR receipt parsing and barcode scanning, CameraX for lifecycle-aware image processing, Room DB for robust offline persistence, and automated background workers (WorkManager).',
+    tags: ['Java', 'Android SDK', 'CameraX', 'Google ML Kit', 'Firebase', 'Room DB', 'Mobile Development'],
+    github: 'https://github.com/SaaFazal/SlipStack-Android',
+    image: '/projects/slipstack/slipstack.png',
+    
+    details: {
+      vision: 'A collection of native Android mobile applications engineered for high performance, local-first data processing, and offline resilience. Showcasing expertise in integrating complex hardware APIs like CameraX with on-device machine learning (Google ML Kit), these applications solve real-world problems—from unstructured OCR expense tracking (SlipStack) to IoT-connected HACCP commercial food safety logging (FF Smart Fridge).',
+      features: [
+        'Jetpack CameraX & ML Kit: Lifecycle-aware camera integrations for high-speed, on-device OCR receipt parsing and barcode scanning without main-thread latency.',
+        'Intelligent Bounding-Box Parser: Custom geometric algorithm to reconstruct text rows from unstructured OCR bounding boxes.',
+        'Offline-First Room Persistence: Robust SQLite abstraction supporting full offline CRUD operations, LiveData, and background syncing.',
+        'Automated Background Workers: AndroidX WorkManager tasks that calculate consumption cycles to generate automated restocking lists and expiration push notifications independently of the app lifecycle.',
+        'Secure Cloud Sync: Firebase Authentication paired with Firestore rules ensuring seamless, real-time cross-device sync.'
+      ],
+      deepDive: [
+        {
+          title: 'Geometric Bounding-Box Line Reconstruction',
+          content: 'Implemented a geometric text reconstruction algorithm that groups individual ML Kit Text elements into physical rows using their bounding-box y-coordinates within a specific pixel tolerance (42px). This solves column misalignment on creased or angled receipts.'
+        },
+        {
+          title: 'Real-Time Machine Vision Decoders',
+          content: 'Built in-app vision readers by coupling Android Jetpack CameraX with Google ML Kit APIs (Text Recognition and Barcode Scanning). The system processes frames concurrently in the background, extracting data instantly without introducing UI lag.'
+        },
+        {
+          title: 'Automated Restocking Lifecycle Workers',
+          content: 'Implemented periodic WorkManager background tasks. These run independently of the application lifecycle, analyzing consumption intervals and compiling structured shopping lists in Room, keeping inventories balanced.'
+        }
+      ],
+      recruiterWin: '"Built robust native Android applications utilizing CameraX, ML Kit, and offline-first Room databases to solve complex physical-world problems like receipt OCR and inventory tracking."',
+      techStack: [
+        { category: 'Mobile & UI', items: 'Android SDK, Java, ViewBinding, Jetpack Navigation' },
+        { category: 'Machine Vision', items: 'Google ML Kit Text/Barcode APIs, Android Jetpack CameraX' },
+        { category: 'Database & Sync', items: 'Android Room DB (SQLite), Firebase Auth, Cloud Firestore' },
+        { category: 'Threading & Workflows', items: 'AndroidX WorkManager, LiveData, ViewModel' }
+      ]
+    },
+    images: [
+      '/projects/slipstack/Home.jpg',
+      '/projects/fridge-app/Barcode Scanner.jpg',
+      '/projects/slipstack/Trends.jpg',
+      '/projects/fridge-app/Inventory Management.jpg'
+    ],
+    section: 'Engineering and Academic Projects',
+    filterCategory: 'Mobile'
   }
+
 ];

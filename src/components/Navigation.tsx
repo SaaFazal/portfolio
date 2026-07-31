@@ -40,7 +40,7 @@ export function Navigation() {
           <div className="w-24 py-3 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full text-white font-bold text-[9px] tracking-[0.2em] hover:bg-primary transition-all duration-300 uppercase flex items-center justify-center text-center shadow-xl cursor-default">
             CV
           </div>
-          <div className="absolute right-full top-1/2 -translate-y-1/2 mr-4 flex flex-col gap-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+          <div className="absolute right-full top-1/2 -translate-y-1/2 pr-4 flex flex-col gap-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
             <a href="/SahadhCV.pdf" target="_blank" rel="noopener noreferrer" className="w-32 py-2 bg-black/80 backdrop-blur-xl border border-white/10 rounded-lg text-white font-bold text-[9px] tracking-widest hover:bg-primary transition-all duration-300 uppercase text-center shadow-xl whitespace-nowrap">
               Data Analyst
             </a>
@@ -75,7 +75,7 @@ export function Navigation() {
             <FileText size={16} />
             <span className="text-[8px] font-bold tracking-widest uppercase">CV</span>
           </div>
-          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 flex flex-col gap-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+          <div className="absolute bottom-full left-1/2 -translate-x-1/2 pb-4 flex flex-col gap-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
             <a href="/SahadhCV.pdf" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap px-4 py-2 bg-black/90 backdrop-blur-xl border border-white/10 rounded-lg text-white font-bold text-[9px] tracking-widest hover:bg-primary transition-all duration-300 uppercase text-center shadow-xl">
               Data Analyst
             </a>
