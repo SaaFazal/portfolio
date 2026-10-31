@@ -37,13 +37,13 @@ export const projects: Project[] = [
 {
     id: 'phat-ops',
     title: 'PhatOps',
-    description: 'Comprehensive multi-tenant mobile application launched on the App Store, digitizing operations across 4 PHAT Buns branches with rollout to 16 additional locations. It unifies workforce management, inventory tracking, compliance logging, and internal communications into a single, high-performance cross-platform app.',
+    description: 'Comprehensive multi-tenant mobile application launched on the App Store, digitizing operations across 4 PHAT Buns branches with rollout to 16 additional locations. It unifies workforce management, inventory tracking, compliance logging, and internal communications into a single cross platform app, with rendering latency cut by 20% through optimised components and tuned real time subscriptions.',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL'],
     link: '/privacy-policy',
     linkLabel: 'Privacy Policy',
     image: '/projects/restaurant-ops/restaurant-ops.png',
     details: {
-      vision: 'PhatOps is a comprehensive, multi-tenant mobile application designed to digitize and streamline enterprise restaurant operations. Officially published on the App Store, the system currently orchestrates daily workforce and supply operations across 4 active PHAT Buns franchise branches, with rolling deployments scheduled for 16 additional locations nationwide. The platform unifies workforce management, inventory tracking, compliance logging, and internal communications into a single, high-performance cross-platform app.\n\nIt replaces fragmented systems (WhatsApp for shifts, paper for compliance, spreadsheets for inventory) with a centralized "Global Command Center" and localized store dashboards.',
+      vision: 'PhatOps is a comprehensive, multi-tenant mobile application designed to digitize and streamline enterprise restaurant operations. Officially published on the App Store, the system currently orchestrates daily workforce and supply operations across 4 active PHAT Buns franchise branches, with rolling deployments scheduled for 16 additional locations nationwide. The platform unifies workforce management, inventory tracking, compliance logging, and internal communications into a single cross platform app.\n\nIt replaces fragmented systems (WhatsApp for shifts, paper for compliance, spreadsheets for inventory) with a centralized "Global Command Center" and localized store dashboards.',
       features: [
         'Production Deployment: Live on the iOS App Store, successfully powering operations for 4 franchise locations with rolling rollout to 16 future branches.',
         'Advanced Workforce Management: Smart drag-and-drop scheduling, shift lifecycles with cover requests, and geofenced real-time clock-in/out tracking.',
@@ -93,7 +93,7 @@ export const projects: Project[] = [
 {
     id: 'trukbk-web',
     title: 'TRUKBK',
-    description: 'High-performance vehicle configurator and a highly accurate AI Sales Concierge powered by a custom RAG pipeline with Supabase pgvector and Google Gemini. It automates high-touch B2B sales queries with grounded, hallucination-resistant responses via retrieval-augmented generation, capturing hot leads 24/7.',
+    description: 'Vehicle configurator and an AI Sales Concierge grounded in real product data, powered by a custom RAG pipeline with Supabase pgvector and Google Gemini. It automates high-touch B2B sales queries with grounded, hallucination-resistant responses via retrieval-augmented generation, capturing hot leads 24/7.',
     tags: ['RAG', 'Supabase pgvector', 'Google Gemini', 'React'],
     link: 'https://www.trukbk.co.uk/',
     image: '/projects/trukbk-web/main.png',
@@ -186,7 +186,7 @@ export const projects: Project[] = [
     image: '/projects/arasan-travels/arasan-travels.png',
     
     details: {
-      vision: 'Arasan Travels is a highly interactive, high-performance web application designed for a luxury touring and coach travel agency. It provides customers with an immersive browsing experience for day trips and multi-day staycations across the UK and Europe. Built as a pnpm monorepo, the platform features a Vite-powered React 19 frontend, an Express API backend, a PostgreSQL database managed via Drizzle ORM, and automated lead capture with secure Stripe integrations.',
+      vision: 'Arasan Travels is an interactive web application designed for a luxury touring and coach travel agency. It provides customers with an immersive browsing experience for day trips and multi-day staycations across the UK and Europe. Built as a pnpm monorepo, the platform features a Vite-powered React 19 frontend, an Express API backend, a PostgreSQL database managed via Drizzle ORM, and automated lead capture with secure Stripe integrations.',
       features: [
         'Interactive Trip Discovery: A horizontal scroll carousel showcasing staycation packages and day trips with custom nights/days badges and price points.',
         'Custom Expedia Search Widget: Fully responsive widget integration that allows booking flights, hotels, and custom travel packages directly through the platform.',
@@ -208,7 +208,7 @@ export const projects: Project[] = [
           content: 'The entire application runs on a fully connected REST API layer. The React frontend interacts with the Express backend using a generated, type-safe API client package (@workspace/api-client-react). This guarantees that Drizzle database schemas and Zod validation rules propagate directly to React components, eliminating runtime API interface mismatches.'
         }
       ],
-      recruiterWin: '"Built a high-performance monorepo with an Express serverless backend, lazy database proxying, and custom ESM bundling, reducing serverless cold starts to near-zero and ensuring 100% type safety from database to UI."',
+      recruiterWin: '"Built a monorepo with an Express serverless backend, lazy database proxying, and custom ESM bundling, reducing serverless cold starts to near-zero and ensuring 100% type safety from database to UI."',
       techStack: [
         { category: 'Frontend', items: 'React 19, Vite 7, Tailwind CSS v4, Framer Motion, Wouter, TanStack Query v5, Lucide React' },
         { category: 'Backend & API', items: 'Node.js, Express v5, esbuild (ESM Bundler), @workspace/api-client-react' },
@@ -234,7 +234,7 @@ export const projects: Project[] = [
     image: '/projects/ushop-inventory/ushop-inventory.png',
     
     details: {
-      vision: 'U-Shop HR is a modern, high-performance Human Resources dashboard built for retail operations. Designed to streamline staff management, it centralizes employee records, document storage, leave tracking, and audit logging into a single secure interface powered by Supabase and React.',
+      vision: 'U-Shop HR is a Human Resources dashboard built for retail operations. Designed to streamline staff management, it centralizes employee records, document storage, leave tracking, and audit logging into a single secure interface powered by Supabase and React.',
       features: [
         'Employee Lifecycle Management: Complete CRUD capabilities for staff records, including personal details, roles, and employment status.',
         'Document Vault: Secure file uploads for Right-to-Work (RTW) documents, contracts, and IDs, utilizing Supabase Storage.',
@@ -317,15 +317,15 @@ export const projects: Project[] = [
 {
     id: 'cyclenest-api',
     title: 'CycleNest API',
-    description: 'High-performance cloud-integrated REST API built for bike-sharing logistics, with low-latency route calculations, self-healing fallbacks, and Azure Cosmos DB storage. It maintains high availability through an automated active failover pattern to local in-memory stores during cloud database timeouts.',
+    description: 'Cloud integrated REST API built for bike-sharing logistics, with low-latency route calculations, self-healing fallbacks, and Azure Cosmos DB storage. It maintains high availability through an automated active failover pattern to local in-memory stores during cloud database timeouts.',
     tags: ['Java', 'JAX-RS (Jersey)', 'Apache Tomcat', 'Azure Cosmos DB', 'OSRM Routing', 'System Design'],
     github: 'https://github.com/SaaFazal/CycleNest',
     image: '/projects/cyclenest/cyclenest.png',
     
     details: {
-      vision: 'CycleNest API is a high-performance, cloud-integrated RESTful backend built for bike-sharing and logistics tracking networks. Built using the JAX-RS (Jersey) framework and deployed inside high-concurrency Apache Tomcat servlet containers, the API orchestrates real-time asset discovery, location-based distance calculations, and transaction records across global cloud boundaries.',
+      vision: 'CycleNest API is a cloud integrated RESTful backend built for bike-sharing and logistics tracking networks. Built using the JAX-RS (Jersey) framework and deployed inside high-concurrency Apache Tomcat servlet containers, the API orchestrates real-time asset discovery, location-based distance calculations, and transaction records across global cloud boundaries.',
       features: [
-        'JAX-RS REST API Architecture: High-performance endpoint structures mapped under servlet containers handling concurrent HTTP methods (GET, POST, DELETE).',
+        'JAX-RS REST API Architecture: Endpoint structures mapped under servlet containers handling concurrent HTTP methods (GET, POST, DELETE).',
         'Self-Healing Storage Fallback: Automated active failover pattern redirecting traffic to local thread-safe ConcurrentHashMap stores in the event of database timeouts, maintaining high availability.',
         'Asynchronous OSRM Router: Non-blocking coordinate driving evaluation using modern Java HttpClient and CompletableFuture pipelines.',
         'Azure Cosmos DB Storage: Globally-distributed database persistence utilizing Azure\'s Java SDK with Session consistency levels for strong read-your-own-writes guarantees.',
@@ -383,7 +383,7 @@ export const projects: Project[] = [
       deepDive: [
         {
           title: 'Convolutional Neural Network Transfer Learning (VGG19)',
-          content: 'To achieve highly accurate brand logo classification, I leveraged transfer learning by fine-tuning a pre-trained VGG19 neural network on a curated dataset of automotive emblems. Input images are dynamically loaded, converted to RGB, resized to 128x128 pixels, normalized, and propagated through the convolutional layers. The final dense layer outputs a multi-class probability distribution across the 8 target brands, returning the identified brand along with a precise confidence percentage.'
+          content: 'For brand logo classification, I used transfer learning by fine-tuning a pre-trained VGG19 neural network on a curated dataset of automotive emblems. Input images are dynamically loaded, converted to RGB, resized to 128x128 pixels, normalized, and propagated through the convolutional layers. The final dense layer outputs a multi-class probability distribution across the 8 target brands, returning the identified brand along with a precise confidence percentage.'
         },
         {
           title: 'Symbolic Knowledge Consistency Checking',
@@ -413,7 +413,7 @@ export const projects: Project[] = [
 {
     id: 'ceptflow',
     title: 'CePTFlow Intelligence Suite',
-    description: 'Inventory Forecasting Platform combining Holt-Winters time-series forecasting with interactive Plotly dashboards for real-time stock insight, and AI Assistant to transform retail inventory decisions. It eliminates waste and maximizes volume by turning historical sales records into strategic foresight.',
+    description: 'Inventory Forecasting Platform combining Holt-Winters time-series forecasting with interactive Plotly dashboards for real-time stock insight, and AI Assistant to transform retail inventory decisions. It runs Holt Winters forecasting on historical sales, with a structured SQL layer underneath and Plotly dashboards on top.',
     tags: ['Python', 'Flask', 'Google Gemini', 'RAG', 'Time-Series'],
     link: '/projects/ceptflow',
     github: 'https://github.com/SaaFazal/CepTFlow',
@@ -421,9 +421,9 @@ export const projects: Project[] = [
     video: 'https://github.com/SaaFazal/portfolio/releases/download/v1.0-assets/Main.Video.mp4',
     
     details: {
-      vision: 'CePTFlow was built to transform how retailers interact with their inventory data. Most management tools are passive—they show you what happened in the past. CePTFlow is active—it uses a Neural Trajectory Engine to predict the future and an AI Assistant Strategist to help you plan for it.\n\nThe goal was simple: Eliminate waste and maximize volume by turning every sales record into a strategic advantage.',
+      vision: 'CePTFlow was built to help retailers make stock decisions from their own sales history. It runs Holt Winters time series forecasting on historical sales, keeps the data in a structured SQL layer, and presents the forecasts through Plotly dashboards, with an AI assistant to help plan around them.',
       features: [
-        'Neural Trajectory Engine: Real-time demand forecasting using Holt-Winters Triple Exponential Smoothing to account for trends and seasonality.',
+        'Demand Forecasting Engine: Demand forecasting using Holt-Winters Triple Exponential Smoothing to account for trends and seasonality.',
         'Intelligence Vault (RAG): A dedicated knowledge base that grounds the AI in actual sales documents, preventing hallucinations and ensuring factual accuracy.',
         'Strategy Assistant: A conversational AI agent that analyses the "Vault" to provide instant answers on stock levels, peak periods, and inventory adjustments.',
         'Multi-Modal Ingestion: Support for enterprise-grade CSV uploads, manual sales entry, and vision-based receipt scanning for "on-the-floor" data entry.',
@@ -470,7 +470,7 @@ export const projects: Project[] = [
       vision: 'The Distributed Cluster Administration Hub is a premium multi-tenant desktop management system designed to orchestrate containerized cloud environments. Built using JavaFX and integrated with a highly decoupled Docker network cluster, the dashboard enables system administrators to manage and monitor a distributed host cluster composed of load balancers, database storage instances, and multi-tenant SSH-enabled file servers.\n\nBy leveraging advanced cryptographic standard verification and custom OS subprocess spawning, the solution models enterprise-grade security and role-based file access on low-footprint systems.',
       features: [
         'Containerized Cluster Orchestration: Multi-container Docker environment clustering a desktop client instance, an SSH-based load balancer, a SQL database node, and four separate secure file server hosts.',
-        'Interactive Cluster Command Center: Modern, state-of-the-art administrative HUD featuring real-time cluster health tracking, SQL connection diagnostics, and high-performance layout styling designed for enterprise recruiters.',
+        'Interactive Cluster Command Center: Administrative dashboard featuring real time cluster health tracking and SQL connection diagnostics.',
         'Cryptographic Multi-Tenancy: Secure SQLite user accounts with PBKDF2-based password hashing using dynamic salt loading from an external secure file.',
         'Role-Based File Access Control (RBAC): Fine-grained permissions allowing standard users to manage their own isolated files prefixed by their username, while granting administrators absolute file reading, writing, and directory scanning authority.',
         'Integrated Administration Terminal: Interactive bash terminal interface using ProcessBuilder to run shell actions and nano editor sessions within gnome-terminal wrappers.'
@@ -482,7 +482,7 @@ export const projects: Project[] = [
         },
         {
           title: 'Secure Hashing & Local Persistence',
-          content: 'Built a SQLite-based authentication layer securing user records with high-performance cryptographic hashing via PBKDF2WithHmacSHA1. To mitigate dictionary and rainbow-table compromises, the system automatically binds passwords to a dynamic 30-character cryptographic salt generated dynamically and persisted within a secure external .salt keyfile at the system\'s root directory.'
+          content: 'Built a SQLite-based authentication layer securing user records with cryptographic hashing via PBKDF2WithHmacSHA1. To mitigate dictionary and rainbow-table compromises, the system automatically binds passwords to a dynamic 30-character cryptographic salt generated dynamically and persisted within a secure external .salt keyfile at the system\'s root directory.'
         },
         {
           title: 'Multi-Tenant Directory Isolation',
@@ -514,7 +514,7 @@ export const projects: Project[] = [
 {
     id: 'journey-test-suite',
     title: 'C++ GPS Journey Test Suite',
-    description: 'An automated, high-performance unit testing suite built in C++20 for a GPS journey analysis application. Utilizing the Boost Unit Test Framework, it rigorously validates edge cases and timing conditions to uncover hidden software defects.',
+    description: 'An automated unit testing suite built in C++20 for a GPS journey analysis application. Utilizing the Boost Unit Test Framework, it rigorously validates edge cases and timing conditions to uncover hidden software defects.',
     tags: ['C++20', 'Software Testing', 'QA Engineering', 'Boost UTF', 'Qt', 'Systems Programming'],
     github: 'https://github.com/SaaFazal/JourneyTestSuite_CPP',
     image: '/projects/journey-test/main.png',
@@ -522,7 +522,7 @@ export const projects: Project[] = [
     details: {
       vision: 'The C++ GPS Journey Test Suite is designed to strictly validate the reliability of complex location-tracking algorithms. By employing rigorous test-driven development methodologies, this suite ensures flawless performance of GPS timing calculations in edge scenarios.',
       features: [
-        'Boost Unit Test Framework: Comprehensive testing environment built using Boost UTF for high-performance test execution.',
+        'Boost Unit Test Framework: Comprehensive testing environment built using Boost UTF for automated test execution.',
         'Edge Case Validation: Deep validation spanning normal inputs, boundary conditions, and invalid arguments.',
         'Defect Discovery: Successfully uncovered 11 distinct bugs across different developer implementations of the GPS algorithm.',
         'Automated Build System: Fully integrated qmake and Makefile compilation process for seamless execution on Linux.'
@@ -534,7 +534,7 @@ export const projects: Project[] = [
         },
         {
           title: 'C++20 Systems Programming',
-          content: 'Engineered using modern C++20 standards, ensuring memory-safe operations and high performance. The integration with Boost UTF demonstrates an enterprise-grade approach to C++ software validation.'
+          content: 'Engineered using modern C++20 standards, with attention to memory safety. The integration with Boost UTF demonstrates an enterprise-grade approach to C++ software validation.'
         }
       ],
       recruiterWin: '"Developed a strict C++20 automated test suite using Boost UTF that successfully uncovered and isolated 11 bugs in a GPS tracking algorithm\'s edge-cases."',
@@ -555,19 +555,19 @@ export const projects: Project[] = [
 {
     id: 'ntu-timetable',
     title: 'NTU Academic Timetabling System',
-    description: 'High-performance scheduling engine built in C++ utilising recursive backtracking and heuristic constraints to optimise academic room allocation and student timetables. It parses relational structural files and tackles an NP-complete scheduling problem efficiently using Maximum Constraints First heuristics.',
+    description: 'Scheduling engine built in C++ utilising recursive backtracking and heuristic constraints to optimise academic room allocation and student timetables. It parses relational structural files and tackles an NP-complete scheduling problem efficiently using Maximum Constraints First heuristics.',
     tags: ['C++', 'Algorithms', 'Constraint Satisfaction', 'File System I/O', 'Optimization'],
     link: 'https://github.com/SaaFazal/Timetable-System',
     linkLabel: 'View on GitHub',
     image: '/projects/ntu-timetable/calendar.png',
     
     details: {
-      vision: 'The NTU Academic Timetabling System is a sophisticated scheduling engine designed to solve the NP-complete Course Timetabling Problem. Built in high-performance C++, the application utilises recursive backtracking optimisation with smart heuristic constraint-satisfaction filters to generate conflict-free schedules for lecturers, classrooms, modules, and thousands of students concurrently.',
+      vision: 'The NTU Academic Timetabling System is a sophisticated scheduling engine designed to solve the NP-complete Course Timetabling Problem. Built in C++, the application utilises recursive backtracking optimisation with smart heuristic constraint-satisfaction filters to generate conflict-free schedules for lecturers, classrooms, modules, and thousands of students concurrently.',
       features: [
         'Dynamic Constraint Solver: Custom backtracking scheduling engine that enforces hard constraints (e.g., no lecturer or room double-bookings) and soft constraints (e.g., uniform time-slot distribution).',
         'Relational CSV Data Loader: High-speed file parser loading relational schemas dynamically from structural flat files (students, lecturers, modules, and rooms).',
         'Classroom Capacity Allocator: Room assignments mapped strictly to module registration sizes, maximizing campus facility usage and minimizing energy waste.',
-        'Conflict-Free Timetable Exporter: High-performance CSV reporting engine exporting optimised schedules (e.g. timetable_export.csv, timetable_GRP04.csv) ready for administrative integration.',
+        'Conflict-Free Timetable Exporter: CSV reporting engine exporting optimised schedules (e.g. timetable_export.csv, timetable_GRP04.csv) ready for administrative integration.',
         'Heuristic Resource Optimiser: Pre-sorting optimisation heuristics that evaluate high-friction modules first, reducing recursion depth and improving solver speeds.'
       ],
       deepDive: [
@@ -584,7 +584,7 @@ export const projects: Project[] = [
           content: 'Designed a thread-safe data parser utilizing standard C++ file stream operations to digest relational raw tables. The loader reads students, lecturers, classrooms, and module requirements, instantiating in-memory index mappings before feeding the compiled structures to the CSP optimization algorithm.'
         }
       ],
-      recruiterWin: '"Built a high-performance C++ timetabling solver utilizing recursive backtracking and pre-sorting CSP heuristics, resolving complex, conflict-free schedules for 5,000+ students efficiently."',
+      recruiterWin: '"Built a C++ timetabling solver utilizing recursive backtracking and pre-sorting CSP heuristics, resolving complex, conflict-free schedules for 5,000+ students efficiently."',
       techStack: [
         { category: 'Language & Framework', items: 'C++17, Native Execution' },
         { category: 'Optimization Core', items: 'Constraint Satisfaction Problem (CSP), Recursive Backtracking, Constraint Pruning' },
@@ -612,7 +612,7 @@ export const projects: Project[] = [
       vision: 'SlipStack is a native Android expense tracking and intelligent receipt scanning application. Built for secure and offline-first finance management, the app harnesses Jetpack CameraX for camera control and Google ML Kit Text Recognition to process and parse receipt images on-device, synchronizing transactions with Firebase Cloud Firestore.',
       features: [
         'Jetpack CameraX Scanner: Direct integration with camera lifecycle controllers, enabling high-resolution receipt captures with automatic aspect framing and flashlight controllers.',
-        'Google ML Kit OCR Parsing: High-performance on-device Optical Character Recognition detecting text layouts, coordinates, and bounding blocks directly via hardware acceleration.',
+        'Google ML Kit OCR Parsing: On device Optical Character Recognition detecting text layouts, coordinates, and bounding blocks directly via hardware acceleration.',
         'Intelligent Bounding-Box Parser: Custom logical engine parsing unstructured OCR outputs into merchant names, dates, pricing columns, and dynamic negative discount line items.',
         'Offline-First Room Persistence: Robust SQLite abstraction with Android Room, supporting full offline CRUD operations, LiveData queries, and background syncing.',
         'Secure Cloud Sync: Firebase Authentication paired with Firestore rules ensuring seamless, real-time cross-device sync with strict user data isolation.'
@@ -680,7 +680,7 @@ export const projects: Project[] = [
           content: 'Developed a local-first HACCP logging utility integrated with Firebase Cloud Firestore. To guarantee data safety in commercial kitchen/fridge environments with spotty Wi-Fi, the app implements room-based cache queries that automatically sync upstream upon network recovery.'
         }
       ],
-      recruiterWin: '"Built a high-performance native Android grocery safety tracker with lifecycle-aware CameraX/ML Kit barcode scanning and automated WorkManager restocking algorithms, decreasing food waste by up to 35%."',
+      recruiterWin: '"Built a native Android grocery safety tracker with lifecycle-aware CameraX/ML Kit barcode scanning and automated WorkManager restocking algorithms."',
       techStack: [
         { category: 'Mobile & UI', items: 'Android SDK, Java, ViewBinding, ConstraintLayout' },
         { category: 'Machine Vision', items: 'Google ML Kit Barcode Scanning, Jetpack CameraX' },

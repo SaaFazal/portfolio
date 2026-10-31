@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 
 const experience = [
     {
-        role: "Co-Founder and Lead Developer",
+        role: "Cofounder and Lead Developer",
         company: "Artim Labs",
-        period: "Jan 2026 – Present",
+        period: "Jan 2026 to Sep 2026",
         desc: (
             <div className="space-y-3">
-                <p>Co-founded a UK studio building websites, apps, bespoke software, third-party integrations, HR and operations systems for growing businesses. I lead engineering; my co-founder leads design and brand.</p>
+                <p>Cofounded a UK studio building websites, apps, bespoke software, third party integrations, HR and operations systems for growing businesses. I led engineering; my cofounder led design and brand.</p>
                 <ul className="list-disc pl-4 space-y-1.5 opacity-90">
                     <li>Built and shipped a multi-site franchise operations platform covering sales, labour, expenses and compliance.</li>
                     <li>Delivered an HR mobile application with one structured record per employee, tracking right-to-work, visas and document expiries.</li>
@@ -24,7 +24,7 @@ const experience = [
     {
         role: "Software Engineer (Freelance)",
         company: "Arasan Travels",
-        period: "Aug 2025 – Jan 2026",
+        period: "Aug 2025 to Jan 2026",
         desc: (
             <div className="space-y-3">
                 <p>Engaged as a freelance software engineer to build a booking platform from scratch for a UK community travel operator, replacing a manual booking and reconciliation process.</p>
@@ -40,20 +40,17 @@ const experience = [
         logo: "/arasan-travels.png"
     },
     {
-        role: "Application Developer & Store Assistant",
+        role: "Software Developer (Contract)",
         company: "PHAT Buns UK",
-        period: "Apr 2024 – Dec 2025",
+        period: "Apr 2024 to Dec 2025",
         desc: (
             <div className="space-y-3">
-                <p>Started on the shop floor managing daily store operations and high-volume customer service, which is where I first noticed the gap this role was built to close.</p>
                 <ul className="list-disc pl-4 space-y-1.5 opacity-90">
-                    <li>Worked the kitchen-to-counter workflow directly and identified where orders were getting lost, delayed or mismatched between kitchen and till, rather than assuming what the problem was from outside.</li>
-                    <li>Engineered PhatOps, a custom operations app handling real-time order tracking and staff authentication, built to solve those specific bottlenecks rather than as a generic dashboard.</li>
-                    <li>Architected the full-stack solution in React, TypeScript, Tailwind CSS and Supabase, with real-time sync so a change made at one station is reflected everywhere immediately.</li>
-                    <li>Reduced rendering latency by 20% through optimised reusable components and tuned Supabase real-time subscriptions, which mattered directly on the shop floor: a slow screen at the counter during a rush is a queue forming behind it.</li>
-                    <li>Now used daily by 20 staff across 4 branches, with rollout planned for 16 further sites.</li>
+                    <li>Built PhatOps, an operations app covering rostering, inventory and expense tracking, used daily by 20 staff across 4 branches, with rollout planned for 16 further sites.</li>
+                    <li>Worked directly alongside the staff to source requirements, identifying where orders were lost, delayed or mismatched between kitchen and till instead of assuming the problem from outside.</li>
+                    <li>Architected the full stack solution in React, TypeScript, Tailwind CSS and Supabase, with real time sync so a change made at one station is reflected everywhere immediately.</li>
+                    <li>Reduced rendering latency by 20% through optimised reusable components and tuned Supabase real time subscriptions.</li>
                 </ul>
-                <p>Being on the floor first was the useful part. I wasn't guessing at requirements from a spec document; I was watching the actual failure happen and building the fix for it.</p>
             </div>
         ),
         logo: "/Phatbuns.png"
@@ -61,7 +58,7 @@ const experience = [
     {
         role: "Student Representative",
         company: "Nottingham Trent University",
-        period: "Sep 2023 – Sep 2024",
+        period: "Sep 2023 to Sep 2024",
         desc: (
             <div className="space-y-3">
                 <p>Elected by my cohort to represent their interests to course leaders and academic staff, gathering feedback on teaching, module content and course delivery and raising it through formal university channels.</p>
@@ -76,20 +73,18 @@ const experience = [
         logo: "/NTU.png"
     },
     {
-        role: "Retail Assistant and Administrative Support",
+        role: "Data Analyst",
         company: "U-Shop International Store",
-        period: "Sep 2023 – Mar 2024",
+        period: "Sep 2023 to Mar 2024",
         desc: (
             <div className="space-y-3">
-                <p>My first role in the UK, split between the shop floor and the back office of an international supermarket.</p>
+                <p>My first role in the UK, working directly alongside the staff of an international supermarket on its supplier, invoice and stock data.</p>
                 <ul className="list-disc pl-4 space-y-1.5 opacity-90">
+                    <li>Processed 16 to 20 supplier invoices a week in Excel, covering data entry, validation and reconciliation against incoming deliveries.</li>
+                    <li>Flagged discrepancies between ordered and delivered quantities before payment went out, protecting payment dates and correct supplier routing.</li>
+                    <li>Produced routine stock and invoice summaries and weekly reconciliation reporting for management.</li>
                     <li>U-Shop later became an Artim Labs client, and I went on to build their ERP and HR system.</li>
-                    <li>Processed 16-20 supplier invoices a week in Excel: data entry, validation and reconciliation against incoming deliveries.</li>
-                    <li>Flagged discrepancies between what was ordered and what arrived before payment went out, protecting payment dates and preventing suppliers being paid incorrectly.</li>
-                    <li>Produced routine stock and invoice summaries for management from the reconciled data.</li>
-                    <li>Provided front-of-house customer support during trading hours alongside the admin work.</li>
                 </ul>
-                <p>This is where I first saw how much of a business runs on spreadsheets nobody has time to check properly, which is a straight line to the data and BI work I do now.</p>
             </div>
         ),
         logo: "/Ushop.png"
@@ -100,21 +95,21 @@ const education = [
     {
         degree: "BSc (Hons) Computer Science",
         school: "Nottingham Trent University",
-        period: "Sep 2023 – June 2026",
+        period: "Sep 2023 to June 2026",
         details: "Grade: Upper Second Class (2:1). Selected modules: Information & Database Engineering, Foundations of AI & Machine Learning, Artificial Intelligence, Cloud Computing, Advanced Analysis & Design.",
         logo: "/NTU.png"
     },
     {
         degree: "Introduction to UK Financial Regulation & Professional Integrity (In Progress)",
         school: "Certified Institute for Further Accreditation (CIFA)",
-        period: "June 2026 – Present",
+        period: "June 2026 to Present",
         details: "Currently undertaking this 160-hour certification course covering UK Capital Markets, FCA & PRA regulatory frameworks, Risk Management, Conduct of Business Sourcebook (COBS), and Financial Crime compliance.",
         logo: "/CIFA.png"
     },
     {
         degree: "All India Senior School Certificate Examination (AISSCE)",
-        school: "Central Board of Secondary Education — KVIS, Ramanathapuram",
-        period: "Jun 2021 – Jul 2023",
+        school: "Central Board of Secondary Education, KVIS, Ramanathapuram",
+        period: "Jun 2021 to Jul 2023",
         details: "Grade: 391/500",
         logo: "/CBSE.png"
     }
@@ -162,7 +157,7 @@ export function Experience() {
                                         )}
                                         <div className="flex-1 min-w-0">
                                             <h4 className="text-lg font-bold text-white group-hover:text-primary transition-colors duration-300 leading-snug">{job.role}</h4>
-                                            <p className="text-xs font-black uppercase tracking-widest text-primary/80 mt-1 mb-3">{job.company} — <span className="text-white/40 font-mono">{job.period}</span></p>
+                                            <p className="text-xs font-black uppercase tracking-widest text-primary/80 mt-1 mb-3">{job.company} | <span className="text-white/40 font-mono">{job.period}</span></p>
                                             <div className="text-xs md:text-sm text-white/60 leading-relaxed">{job.desc}</div>
                                         </div>
                                     </div>
@@ -205,7 +200,7 @@ export function Experience() {
                                         )}
                                         <div className="flex-1 min-w-0">
                                             <h4 className="text-lg font-bold text-white group-hover:text-primary transition-colors duration-300 leading-snug">{edu.degree}</h4>
-                                            <p className="text-xs font-black uppercase tracking-widest text-primary/80 mt-1 mb-3">{edu.school} — <span className="text-white/40 font-mono">{edu.period}</span></p>
+                                            <p className="text-xs font-black uppercase tracking-widest text-primary/80 mt-1 mb-3">{edu.school} | <span className="text-white/40 font-mono">{edu.period}</span></p>
                                             <p className="text-xs md:text-sm text-white/60 leading-relaxed">{edu.details}</p>
                                         </div>
                                     </div>

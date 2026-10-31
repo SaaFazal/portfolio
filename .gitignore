@@ -45,3 +45,9 @@ public/projects/**/Main Video.mp4
 public/projects/**/*.mp4
 public/hand.mp4
 public/hand_pointing.mp4
+
+# local only, never publish
+/public/_cv_backup_*/
+/public/CVSahadh.pdf
+/n8n-workflow-template.json
+/.claude/launch.json

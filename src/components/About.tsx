@@ -31,7 +31,7 @@ export function About() {
                         <div className="space-y-4 text-white/70 leading-relaxed text-sm md:text-base">
                             <p>
                                 I am a Software Engineer, AI Developer, and Data Analyst — and a BSc (Hons) Computer Science graduate (2:1) from Nottingham Trent University.
-                                I specialise in building high-performance <strong className="text-white">Mobile Applications</strong>, autonomous <strong className="text-white">AI Agents</strong>, scalable <strong className="text-white">Cloud Infrastructure</strong>, and turning raw business data into <strong className="text-white">Decision-Ready Insight</strong>.
+                                I specialise in building <strong className="text-white">Mobile Applications</strong>, autonomous <strong className="text-white">AI Agents</strong>, scalable <strong className="text-white">Cloud Infrastructure</strong>, and turning raw business data into <strong className="text-white">Decision-Ready Insight</strong>.
                             </p>
                             <p>
                                 With deep expertise across Python, Java, and TypeScript, I focus on turning complex logical architectures into fluid, production-ready interfaces that load fast, feel responsive, and solve concrete business problems.

@@ -267,7 +267,7 @@ export default function ProjectDetail() {
               <Cpu size={24} /> Live Interactive Desktop GUI
             </h2>
             <p className="text-white/60 mb-8 max-w-3xl leading-relaxed">
-              Experience the power of the high-performance C++ timetabling solver. Switch between tabs to see the Engine analytics, the dynamic weekly calendar grid, the relational databases parsed from CSVs, and trigger simulated scheduling conflicts to see the backtracking CSP solver in action!
+              Try the C++ timetabling solver. Switch between tabs to see the Engine analytics, the dynamic weekly calendar grid, the relational databases parsed from CSVs, and trigger simulated scheduling conflicts to see the backtracking CSP solver in action!
             </p>
             <TimetableSimulator />
           </motion.section>

@@ -97,7 +97,7 @@ const certificationsList: Certification[] = [
     date: 'Jun 11, 2026',
     credentialId: 'DQR3CAHB447K',
     skills: ['Generative AI', 'Hyperparameter Tuning', 'Neural Networks', 'Google Cloud AI', 'Prompt Engineering'],
-    description: 'Mastered foundational and advanced Generative AI architectures, neural network tuning, and implementing Google Cloud-based AI workflows.',
+    description: 'Covered foundational and advanced Generative AI architectures, neural network tuning, and implementing Google Cloud-based AI workflows.',
     logoColor: 'from-red-600/20 to-yellow-500/20 border-red-500/30 text-red-400',
     image: '/projects/certificates/certificate-google.png',
     verificationUrl: 'https://coursera.org/verify/professional-cert/DQR3CAHB447K'
@@ -133,7 +133,7 @@ const certificationsList: Certification[] = [
     date: 'Feb 9, 2026',
     credentialId: 'Google-MLCC-2026',
     skills: ['Supervised Learning', 'Linear Regression', 'Neural Networks', 'TensorFlow', 'Model Tuning'],
-    description: 'Mastered key machine learning concepts including neural networks, loss functions, gradient descent, validation strategies, and multi-class classification.',
+    description: 'Covered key machine learning concepts including neural networks, loss functions, gradient descent, validation strategies, and multi-class classification.',
     logoColor: 'from-green-600/20 to-emerald-400/20 border-green-500/30 text-green-400',
     image: '/projects/certificates/certificate-ml-crash-course.png',
     verificationUrl: 'https://developers.google.com/machine-learning/crash-course'
@@ -145,7 +145,7 @@ const certificationsList: Certification[] = [
     date: 'June 2026',
     credentialId: 'AWS-ED-FOUNDATIONS-2026',
     skills: ['Cloud Computing', 'Generative AI', 'AWS Storage & S3', 'Serverless Architecture'],
-    description: 'Mastered global cloud infrastructure, serverless architectures, storage configuration, database optimization, and cloud security frameworks on AWS.',
+    description: 'Covered global cloud infrastructure, serverless architectures, storage configuration, database optimization, and cloud security frameworks on AWS.',
     logoColor: 'from-orange-600/20 to-yellow-600/20 border-orange-500/30 text-orange-400',
     image: '/projects/certificates/certificate-aws.png',
     verificationUrl: 'https://aws.amazon.com/education/aws-educate/'
