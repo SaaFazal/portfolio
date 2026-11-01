@@ -42,8 +42,7 @@ export const projects: Project[] = [
     result: 'September 2026 at 74.4%, 7.6 points below the 82% target, with 7 of 120 trusts on target',
     description: 'A monthly MI pack on 24 months of NHS England A&E data, with KPIs against the 82% four hour target, a RAG table of 120 trusts, written monthly commentary and a one click monthly refresh.',
     tags: ['Python (pandas)', 'SQL', 'Power BI', 'Power Query', 'DAX'],
-    // Repo not public yet; restore this line to show View Code
-    // github: 'https://github.com/SaaFazal/nhs-ae-service-performance',
+    github: 'https://github.com/SaaFazal/nhs-ae-service-performance',
     image: '/projects/nhs-ae/dashboard.webp',
     details: {
       vision: 'A one page Power BI MI pack built the way a service reporting analyst works every month. It takes 24 months of NHS England A&E provider data (4,721 provider rows), tracks 4 hour performance against the 82% national target, 12 hour waits and month on month change, and ranks 120 major A&E trusts in a RAG table.',
@@ -90,8 +89,7 @@ export const projects: Project[] = [
     result: 'Best method weighted MAPE 48.2%, bias minus 7.5%, 15 of 25 products to reorder at 3 weeks of cover',
     description: 'Weekly forecasts for the top 25 products of a UK online retailer (1.07 million sales lines), using 3 methods on an 8 week holdout, plus safety stock, reorder points and a reorder list.',
     tags: ['Python (pandas, statsmodels)', 'SQL', 'Power BI', 'DAX'],
-    // Repo not public yet; restore this line to show View Code
-    // github: 'https://github.com/SaaFazal/demand-forecasting-inventory',
+    github: 'https://github.com/SaaFazal/demand-forecasting-inventory',
     image: '/projects/demand-forecasting/dashboard.webp',
     details: {
       vision: 'A demand planner\'s job done on real data: two years of sales from a UK online retailer, 1.07 million sales lines. Weekly demand for the top 25 products is forecast three ways, scored on an 8 week holdout, and turned into safety stock, reorder points and a live reorder list in Power BI.',
