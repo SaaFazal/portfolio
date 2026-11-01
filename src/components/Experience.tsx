@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { RevealHeading, REVEAL_DURATION, EASE_OUT } from './Reveal';
 
 const experience = [
     {
@@ -127,11 +128,13 @@ export function Experience() {
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ type: 'spring', damping: 20 }}
+                    transition={{ duration: REVEAL_DURATION, ease: EASE_OUT }}
                 >
-                    <h2 className="text-3xl md:text-4xl font-black mb-12 flex items-center gap-2 uppercase italic tracking-tight text-white">
-                        Work <span className="text-gradient-primary">History</span>
-                    </h2>
+                    <RevealHeading>
+                        <h2 className="text-3xl md:text-4xl font-black mb-12 flex items-center gap-2 uppercase italic tracking-tight text-white">
+                            Work <span className="text-gradient-primary">History</span>
+                        </h2>
+                    </RevealHeading>
                     <div className="space-y-8">
                         {experience.map((job, index) => (
                             <div key={index} className="relative pl-8 group">
@@ -170,11 +173,13 @@ export function Experience() {
                     initial={{ opacity: 0, x: 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ type: 'spring', damping: 20 }}
+                    transition={{ duration: REVEAL_DURATION, ease: EASE_OUT }}
                 >
-                    <h2 className="text-3xl md:text-4xl font-black mb-12 flex items-center gap-2 uppercase italic tracking-tight text-white">
-                        Education <span className="text-gradient-primary">History</span>
-                    </h2>
+                    <RevealHeading>
+                        <h2 className="text-3xl md:text-4xl font-black mb-12 flex items-center gap-2 uppercase italic tracking-tight text-white">
+                            Education <span className="text-gradient-primary">History</span>
+                        </h2>
+                    </RevealHeading>
                     <div className="space-y-8">
                         {education.map((edu, index) => (
                             <div key={index} className="relative pl-8 group">

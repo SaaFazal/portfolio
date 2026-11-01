@@ -8,6 +8,7 @@ export interface Project {
   linkLabel?: string;
   github?: string;
   image?: string;
+  preview?: string; // 5 to 8 second muted webm loop for the card, under 1 MB
   video?: string; // Main video for the case study
   youtubeId?: string; // YouTube video ID for embed
   theme?: {

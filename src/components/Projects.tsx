@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ExternalLink, Github, ChevronDown, TrendingUp } from 'lucide-react';
 import { projects, featuredOrder, moreOrder, Project } from '@/data/projects';
 import Link from 'next/link';
+import { ProjectMedia } from './ProjectMedia';
+import { REVEAL_DURATION, EASE_OUT } from './Reveal';
 
 const filters = ['All', 'Data & BI', 'AI & ML', 'Full Stack', 'Systems', 'Mobile'];
 
@@ -49,7 +51,7 @@ export function Projects() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: REVEAL_DURATION, ease: EASE_OUT }}
                     >
                         <h2 className="text-4xl md:text-6xl font-black tracking-tight text-white uppercase italic mb-4">
                             Featured <span className="text-gradient-primary">Projects</span>
@@ -93,7 +95,7 @@ export function Projects() {
                                     initial={{ opacity: 0, scale: 0.95, y: 20 }}
                                     animate={{ opacity: 1, scale: 1, y: 0 }}
                                     exit={{ opacity: 0, scale: 0.95, y: -20 }}
-                                    transition={{ duration: 0.5 }}
+                                    transition={{ duration: REVEAL_DURATION, ease: EASE_OUT }}
                                     className="relative"
                                 >
                                     {showMoreHeader && (
@@ -118,15 +120,9 @@ export function Projects() {
                                             />
 
                                             <div className="relative aspect-[16/10] w-full rounded-2xl border border-white/10 overflow-hidden bg-black/40 shadow-2xl">
-                                                {project.image ? (
+                                                {project.image || project.preview ? (
                                                     <>
-                                                        <img
-                                                            src={project.image}
-                                                            alt={project.title}
-                                                            loading="lazy"
-                                                            decoding="async"
-                                                            className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-700"
-                                                        />
+                                                        <ProjectMedia title={project.title} image={project.image} preview={project.preview} />
                                                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
                                                     </>
                                                 ) : (

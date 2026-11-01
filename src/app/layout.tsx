@@ -7,6 +7,7 @@ import { FloatingGithub } from "@/components/FloatingGithub";
 import { FloatingLinkedin } from "@/components/FloatingLinkedin";
 
 import { MouseGlow } from "@/components/MouseGlow";
+import { MotionProvider } from "@/components/Reveal";
 
 const caveat = Caveat({ subsets: ["latin"], weight: ["400", "700"], variable: '--font-caveat' });
 
@@ -81,9 +82,11 @@ export default function RootLayout({
         <Navigation />
         <FloatingLinkedin />
         <FloatingGithub />
-        <main className="relative z-10 w-full">
-          {children}
-        </main>
+        <MotionProvider>
+          <main className="relative z-10 w-full">
+            {children}
+          </main>
+        </MotionProvider>
       </body>
     </html>
   );

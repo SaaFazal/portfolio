@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { RevealHeading } from './Reveal';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Award, X, ExternalLink, ShieldCheck, Calendar, BookOpen, Maximize2 } from 'lucide-react';
 
@@ -202,12 +203,12 @@ export function Certifications() {
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Section Heading */}
-        <div className="mb-16 flex flex-col gap-2">
+        <RevealHeading className="mb-16 flex flex-col gap-2">
           <span className="text-xs font-black tracking-[0.4em] text-primary/60 uppercase">CREDENTIALS</span>
           <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white uppercase italic">
             Verified <span className="text-gradient-primary">Expertise</span>
           </h2>
-        </div>
+        </RevealHeading>
 
         {/* Credentials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { SkillsMarquee } from './SkillsMarquee';
+import { DrawnLineChart } from './DrawnLineChart';
+import { RevealHeading, REVEAL_DURATION, EASE_OUT } from './Reveal';
 import { Brain, Smartphone, Cloud, BarChart2 } from 'lucide-react';
 
 export function About() {
@@ -20,13 +22,15 @@ export function About() {
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ type: 'spring', damping: 20 }}
+                        transition={{ duration: REVEAL_DURATION, ease: EASE_OUT }}
                         className="space-y-6"
                     >
-                        <span className="text-xs font-black tracking-[0.4em] text-primary uppercase">GET TO KNOW ME</span>
-                        <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white uppercase italic">
-                            Bridging Engineering <span className="text-gradient-primary">& Intuitive AI</span>
-                        </h2>
+                        <RevealHeading className="space-y-6">
+                            <span className="text-xs font-black tracking-[0.4em] text-primary uppercase">GET TO KNOW ME</span>
+                            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white uppercase italic">
+                                Bridging Engineering <span className="text-gradient-primary">& Intuitive AI</span>
+                            </h2>
+                        </RevealHeading>
                         
                         <div className="space-y-4 text-white/70 leading-relaxed text-sm md:text-base">
                             <p>
@@ -50,7 +54,7 @@ export function About() {
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ type: 'spring', damping: 20 }}
+                        transition={{ duration: REVEAL_DURATION, ease: EASE_OUT }}
                         className="glass-panel p-8 rounded-2xl border border-white/10 bg-black/40 shadow-2xl relative group overflow-hidden"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-50 pointer-events-none" />
@@ -98,7 +102,8 @@ export function About() {
                                 </div>
                                 <div className="flex-1 space-y-1">
                                     <h3 className="text-sm font-bold text-white group-hover/item:text-primary transition-colors">Data &amp; Analytics</h3>
-                                    <p className="text-xs text-white/50 leading-relaxed">SQL analysis, Power BI dashboards, time-series forecasting, and turning raw business data into decision-ready insight.</p>
+                                    <p className="text-xs text-white/50 leading-relaxed">SQL analysis, Power BI dashboards, time series forecasting, and turning raw business data into decision ready insight.</p>
+                                    <DrawnLineChart />
                                 </div>
                             </div>
                         </div>

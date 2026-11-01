@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle2 } from 'lucide-react';
+import { REVEAL_DURATION, EASE_OUT } from './Reveal';
 
 export function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,6 +46,7 @@ export function Contact() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
+                    transition={{ duration: REVEAL_DURATION, ease: EASE_OUT }}
                     className="mb-12 text-center"
                 >
                     <div className="inline-flex items-center gap-4 mb-4">
