@@ -7,10 +7,12 @@ import { Send, CheckCircle2 } from 'lucide-react';
 export function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [hasError, setHasError] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setHasError(false);
         
         try {
             const form = e.target as HTMLFormElement;
@@ -25,9 +27,12 @@ export function Contact() {
             if (response.ok) {
                 setIsSubmitted(true);
                 form.reset();
+            } else {
+                setHasError(true);
             }
         } catch (error) {
             console.error(error);
+            setHasError(true);
         } finally {
             setIsSubmitting(false);
         }
@@ -44,7 +49,7 @@ export function Contact() {
                 >
                     <div className="inline-flex items-center gap-4 mb-4">
                         <div className="h-[1px] w-8 bg-white/20" />
-                        <span className="text-white/40 font-bold tracking-[0.4em] uppercase text-[10px]">INQUIRY</span>
+                        <span className="text-white/60 font-bold tracking-[0.4em] uppercase text-[10px]">INQUIRY</span>
                         <div className="h-[1px] w-8 bg-white/20" />
                     </div>
                     <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter text-white uppercase leading-none italic">Let&apos;s Build</h2>
@@ -65,41 +70,41 @@ export function Contact() {
                             >
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                      <div className="flex flex-col gap-3">
-                                         <label htmlFor="name" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] ml-1">Name</label>
+                                         <label htmlFor="name" className="text-[10px] font-bold text-white/60 uppercase tracking-[0.3em] ml-1">Name</label>
                                          <input 
                                              required
                                              suppressHydrationWarning
                                              type="text" 
                                              id="name" 
                                              name="name"
-                                             className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-all font-sans"
+                                             className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/50 focus:outline-none focus:border-white/30 transition-all font-sans"
                                              placeholder="Your Name"
                                          />
                                      </div>
                                      <div className="flex flex-col gap-3">
-                                         <label htmlFor="email" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] ml-1">Email</label>
+                                         <label htmlFor="email" className="text-[10px] font-bold text-white/60 uppercase tracking-[0.3em] ml-1">Email</label>
                                          <input 
                                              required
                                              suppressHydrationWarning
                                              type="email" 
                                              id="email" 
                                              name="email"
-                                             className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-all font-sans"
+                                             className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/50 focus:outline-none focus:border-white/30 transition-all font-sans"
                                              placeholder="Your Email"
                                          />
                                      </div>
                                  </div>
                                  
                                  <div className="flex flex-col gap-3">
-                                     <label htmlFor="message" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] ml-1">Message</label>
+                                     <label htmlFor="message" className="text-[10px] font-bold text-white/60 uppercase tracking-[0.3em] ml-1">Message</label>
                                      <textarea 
                                          required
                                          suppressHydrationWarning
                                          id="message" 
                                          name="message"
                                          rows={4}
-                                         className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-all resize-none font-sans"
-                                         placeholder="What are we building?"
+                                         className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/50 focus:outline-none focus:border-white/30 transition-all resize-none font-sans"
+                                         placeholder="What role or project is this about?"
                                      />
                                  </div>
 
@@ -118,6 +123,13 @@ export function Contact() {
                                          </>
                                      )}
                                  </button>
+
+                                 {hasError && (
+                                     <p role="alert" className="text-sm text-center text-red-300">
+                                         Sorry, that didn&apos;t send. Please email me at{' '}
+                                         <a href="mailto:work.sahadh@gmail.com" className="underline underline-offset-4 text-white">work.sahadh@gmail.com</a>.
+                                     </p>
+                                 )}
                             </motion.form>
                         ) : (
                             <motion.div

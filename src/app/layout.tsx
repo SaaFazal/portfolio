@@ -18,10 +18,30 @@ export const metadata: Metadata = {
   title: "Sahadh Fazal Mohamed | Data Analyst, AI Engineer, Software Engineer",
   description: "Data Analyst and AI Engineer. I turn messy business data into reports people actually use, and build AI tools that don't make things up. Power BI, SQL, Python and RAG. UK based, open to graduate data and BI roles.",
   icons: {
-    icon: '/profile.jpeg',
-    shortcut: '/profile.jpeg',
+    icon: [{ url: '/favicon.ico', sizes: 'any' }, { url: '/profile.jpeg' }],
+    shortcut: '/favicon.ico',
     apple: '/profile.jpeg',
-  }
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://sahadhfazal.com',
+    siteName: 'Sahadh Fazal Mohamed',
+    title: 'Sahadh Fazal Mohamed | Data Analyst, AI Engineer, Software Engineer',
+    description: "I turn messy business data into reports people actually use, and build AI tools that don't make things up.",
+    locale: 'en_GB',
+    images: [{
+      url: '/og-image.jpg',
+      width: 1200,
+      height: 630,
+      alt: "Sahadh Fazal Mohamed. I turn messy business data into reports people actually use, and build AI tools that don't make things up.",
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sahadh Fazal Mohamed | Data Analyst, AI Engineer, Software Engineer',
+    description: "I turn messy business data into reports people actually use, and build AI tools that don't make things up.",
+    images: ['/og-image.jpg'],
+  },
 };
 
 export default function RootLayout({

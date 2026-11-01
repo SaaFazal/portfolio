@@ -1,17 +1,20 @@
 'use client';
-import { useRef, useEffect, useState } from 'react';
-import { useScroll, useMotionValueEvent, useSpring } from 'framer-motion';
+import { useRef, useEffect, useState, useCallback } from 'react';
+import { useScroll, useMotionValueEvent, useSpring, useReducedMotion } from 'framer-motion';
 import { Overlay } from './Overlay';
 
-const FRAME_COUNT = 121; // Number of frames extracted by ffmpeg
+// Every other frame of the original 121, in two sizes: /sequence/d (1440px) and /sequence/m (960px, phones)
+const FRAME_COUNT = 61;
+const LOAD_CONCURRENCY = 6;
 
 export function ScrollyCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const framesRef = useRef<(HTMLImageElement | null)[]>(new Array(FRAME_COUNT).fill(null));
   const [isLoaded, setIsLoaded] = useState(false);
   const rafRef = useRef<number | null>(null);
-  
+  const reduceMotion = useReducedMotion();
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
@@ -24,71 +27,22 @@ export function ScrollyCanvas() {
     restDelta: 0.001
   });
 
-  // Preload sequence
-  useEffect(() => {
-    const loadedImages: HTMLImageElement[] = [];
-    let loadedCount = 0;
-    
-    for (let i = 1; i <= FRAME_COUNT; i++) {
-        const img = new Image();
-        const frameNumber = i.toString().padStart(3, '0');
-        img.src = `/sequence/frame_${frameNumber}.webp`;
-        
-        img.onload = async () => {
-           try {
-             // Force asynchronous decoding in the background before setting loaded status
-             await img.decode();
-           } catch (e) {
-             // Fallback for older browsers
-           }
-           loadedCount++;
-           if (loadedCount === FRAME_COUNT) {
-             setImages(loadedImages);
-             setIsLoaded(true);
-             requestAnimationFrame(() => drawFrame(loadedImages[0]));
-           }
-        };
-        img.onerror = () => {
-           loadedCount++;
-           if (loadedCount === FRAME_COUNT) {
-             setImages(loadedImages);
-             setIsLoaded(true);
-             requestAnimationFrame(() => drawFrame(loadedImages[0]));
-           }
-        };
-        loadedImages.push(img);
-    }
-  }, []);
+  const frameIndexFor = (progress: number) =>
+    Math.min(FRAME_COUNT - 1, Math.max(0, Math.floor(progress * FRAME_COUNT)));
 
-  // Update canvas size only on resize to prevent expensive layout thrashing
-  const updateCanvasSize = () => {
-    if (!canvasRef.current) return;
-    const canvas = canvasRef.current;
-    // Cap DPR to 1.5 to dramatically reduce fill-rate rendering overhead on 4K/Retina displays
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    const canvasWidth = window.innerWidth;
-    const canvasHeight = window.innerHeight;
-    
-    canvas.width = canvasWidth * dpr;
-    canvas.height = canvasHeight * dpr;
-    
-    // Redraw current frame if images are loaded
-    if (images.length > 0) {
-      const frameIndex = Math.min(
-          FRAME_COUNT - 1,
-          Math.floor(smoothProgress.get() * FRAME_COUNT)
-      );
-      drawFrame(images[frameIndex]);
+  // Frames stream in after the first one, so fall back to the closest frame already loaded
+  const nearestLoaded = (index: number) => {
+    const frames = framesRef.current;
+    for (let offset = 0; offset < FRAME_COUNT; offset++) {
+      const before = frames[index - offset];
+      if (before) return before;
+      const after = frames[index + offset];
+      if (after) return after;
     }
+    return undefined;
   };
 
-  useEffect(() => {
-    updateCanvasSize();
-    window.addEventListener('resize', updateCanvasSize);
-    return () => window.removeEventListener('resize', updateCanvasSize);
-  }, [images]);
-
-  const drawFrame = (img: HTMLImageElement | undefined) => {
+  const drawFrame = useCallback((img: HTMLImageElement | undefined) => {
     if (!canvasRef.current || !img) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -98,9 +52,9 @@ export function ScrollyCanvas() {
     const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     const canvasWidth = canvas.width / dpr;
     const canvasHeight = canvas.height / dpr;
-    
+
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    
+
     // Crop bottom 10% to remove 'veo' watermark
     const sourceWidth = img.width;
     const sourceHeight = img.height * 0.90;
@@ -134,18 +88,18 @@ export function ScrollyCanvas() {
     }
 
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-    
+
     // Background base
-    ctx.fillStyle = '#050505'; 
+    ctx.fillStyle = '#050505';
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-    
+
     // Draw the image
     ctx.drawImage(
-      img, 
+      img,
       sourceX, sourceY, sourceWidth, sourceHeight,
       offsetX, offsetY, drawWidth, drawHeight
     );
-    
+
     if (isMobile) {
       const topGrad = ctx.createLinearGradient(0, offsetY, 0, offsetY + 60);
       topGrad.addColorStop(0, '#050505');
@@ -163,35 +117,88 @@ export function ScrollyCanvas() {
     // Overlay
     ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-  };
+  }, []);
+
+  const redraw = useCallback(() => {
+    drawFrame(nearestLoaded(frameIndexFor(smoothProgress.get())));
+  }, [drawFrame, smoothProgress]);
+
+  // Load frame 1 first so the hero shows straight away, then stream the rest in the background.
+  // With reduced motion the portrait stays on frame 1, so the other frames are never downloaded.
+  useEffect(() => {
+    if (reduceMotion === null) return;
+    let cancelled = false;
+    const dir = window.innerWidth < 768 ? 'm' : 'd';
+    const src = (i: number) => `/sequence/${dir}/frame_${String(i + 1).padStart(3, '0')}.webp`;
+
+    const load = (i: number) => new Promise<void>(resolve => {
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = src(i);
+      img.onload = async () => {
+        try { await img.decode(); } catch { /* older browsers */ }
+        if (!cancelled) framesRef.current[i] = img;
+        resolve();
+      };
+      img.onerror = () => resolve();
+    });
+
+    load(0).then(() => {
+      if (cancelled) return;
+      setIsLoaded(true);
+      requestAnimationFrame(redraw);
+      if (reduceMotion) return;
+
+      let next = 1;
+      const worker = async () => {
+        while (!cancelled && next < FRAME_COUNT) {
+          await load(next++);
+        }
+      };
+      for (let w = 0; w < LOAD_CONCURRENCY; w++) worker();
+    });
+
+    return () => { cancelled = true; };
+  }, [reduceMotion, redraw]);
+
+  // Update canvas size only on resize to prevent expensive layout thrashing
+  useEffect(() => {
+    const updateCanvasSize = () => {
+      if (!canvasRef.current) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvasRef.current.width = window.innerWidth * dpr;
+      canvasRef.current.height = window.innerHeight * dpr;
+      redraw();
+    };
+    updateCanvasSize();
+    window.addEventListener('resize', updateCanvasSize);
+    return () => window.removeEventListener('resize', updateCanvasSize);
+  }, [redraw]);
 
   // Core smooth animation loop
   useMotionValueEvent(smoothProgress, "change", (latest: number) => {
-    if (images.length === 0) return;
-    const frameIndex = Math.min(
-        FRAME_COUNT - 1,
-        Math.floor(latest * FRAME_COUNT)
-    );
+    if (!isLoaded || reduceMotion) return;
     if (rafRef.current) {
       cancelAnimationFrame(rafRef.current);
     }
     rafRef.current = requestAnimationFrame(() => {
-      drawFrame(images[frameIndex]);
+      drawFrame(nearestLoaded(frameIndexFor(latest)));
       rafRef.current = null;
     });
   });
 
   return (
-    <div ref={containerRef} className="relative h-[250vh] w-full bg-background">
+    <div ref={containerRef} className="relative h-[350vh] w-full bg-background">
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-background">
-        
+
         {/* The Sequence Canvas */}
         <canvas
           ref={canvasRef}
           className="absolute inset-0 w-full h-full object-cover"
+          aria-hidden="true"
         />
-        
-        {/* Loading state while frames download */}
+
+        {/* Loading state while the first frame downloads */}
         {!isLoaded && (
           // Sits under the text layer so the name, line and buttons are readable while frames download
           <div className="absolute inset-0 flex items-end justify-center pb-10 bg-background z-[5]" aria-hidden="true">
@@ -199,7 +206,7 @@ export function ScrollyCanvas() {
           </div>
         )}
 
-        {/* Text parralax layer */}
+        {/* Text parallax layer */}
         <Overlay progress={scrollYProgress} />
       </div>
     </div>

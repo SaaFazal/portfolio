@@ -155,7 +155,7 @@ export function Experience() {
                                         )}
                                         <div className="flex-1 min-w-0">
                                             <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors duration-300 leading-snug">{job.role}</h3>
-                                            <p className="text-xs font-black uppercase tracking-widest text-primary/80 mt-1 mb-3">{job.company} | <span className="text-white/40 font-mono">{job.period}</span></p>
+                                            <p className="text-xs font-black uppercase tracking-widest text-primary/80 mt-1 mb-3">{job.company} | <span className="text-white/60 font-mono">{job.period}</span></p>
                                             <div className="text-xs md:text-sm text-white/60 leading-relaxed">{job.desc}</div>
                                         </div>
                                     </div>
@@ -198,7 +198,7 @@ export function Experience() {
                                         )}
                                         <div className="flex-1 min-w-0">
                                             <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors duration-300 leading-snug">{edu.degree}</h3>
-                                            <p className="text-xs font-black uppercase tracking-widest text-primary/80 mt-1 mb-3">{edu.school} | <span className="text-white/40 font-mono">{edu.period}</span></p>
+                                            <p className="text-xs font-black uppercase tracking-widest text-primary/80 mt-1 mb-3">{edu.school} | <span className="text-white/60 font-mono">{edu.period}</span></p>
                                             <p className="text-xs md:text-sm text-white/60 leading-relaxed">{edu.details}</p>
                                         </div>
                                     </div>

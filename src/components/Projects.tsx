@@ -232,7 +232,7 @@ export function Projects() {
 
                     {filteredProjects.length === 0 && (
                         <div className="text-center py-24">
-                            <p className="text-white/40 tracking-widest font-bold uppercase text-sm">No projects found for this category.</p>
+                            <p className="text-white/60 tracking-widest font-bold uppercase text-sm">No projects found for this category.</p>
                         </div>
                     )}
                 </div>

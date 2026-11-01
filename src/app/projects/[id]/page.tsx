@@ -51,7 +51,7 @@ export default function ProjectDetail() {
           <h1 className="text-4xl font-bold mb-4 text-white uppercase tracking-tighter">Module Not Found</h1>
           <button
             onClick={() => router.push('/')}
-            className="flex items-center gap-4 text-white/40 hover:text-white transition-all font-bold uppercase text-[10px] tracking-widest"
+            className="flex items-center gap-4 text-white/60 hover:text-white transition-all font-bold uppercase text-[10px] tracking-widest"
           >
             <ArrowLeft size={20} /> Back to Registry
           </button>

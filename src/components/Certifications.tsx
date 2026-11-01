@@ -224,7 +224,7 @@ export function Certifications() {
                   </div>
                   <div className="min-w-0">
                     <h3 className="font-bold text-xs md:text-sm text-white line-clamp-1 group-hover:text-primary transition-colors">{cert.title}</h3>
-                    <p className="text-[9px] font-black uppercase tracking-widest text-white/40 mt-0.5">{cert.issuer}</p>
+                    <p className="text-[9px] font-black uppercase tracking-widest text-white/60 mt-0.5">{cert.issuer}</p>
                   </div>
                 </div>
 
@@ -250,7 +250,7 @@ export function Certifications() {
                 <p className="text-[11px] text-white/60 leading-relaxed line-clamp-2">{cert.description}</p>
               </div>
 
-              <div className="flex items-center justify-between text-[10px] text-white/40 font-bold border-t border-white/5 pt-2.5 mt-2.5">
+              <div className="flex items-center justify-between text-[10px] text-white/60 font-bold border-t border-white/5 pt-2.5 mt-2.5">
                 <span className="flex items-center gap-1"><Calendar className="w-3 h-3 text-primary/60" /> {cert.date}</span>
                 {!cert.inProgress && (
                   <span className="group-hover:text-primary transition-colors flex items-center gap-1">Verify <ExternalLink className="w-2.5 h-2.5" /></span>
@@ -290,7 +290,7 @@ export function Certifications() {
                     setSelectedCert(null);
                     setIsLightboxOpen(false);
                   }}
-                  className="absolute top-4 right-4 p-1.5 rounded-full bg-white/5 border border-white/10 text-white/40 hover:text-white hover:bg-white/10 transition-all active:scale-90 z-20"
+                  className="absolute top-4 right-4 p-1.5 rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 transition-all active:scale-90 z-20"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -327,7 +327,7 @@ export function Certifications() {
                 {/* Modal Body Info */}
                 <div className="space-y-4">
                   <div className="space-y-1.5">
-                    <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 flex items-center gap-1.5">
+                    <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60 flex items-center gap-1.5">
                       <BookOpen className="w-3.5 h-3.5 text-primary" /> Certificate Overview
                     </h4>
                     <p className="text-xs text-white/70 leading-relaxed text-justify">{selectedCert.description}</p>
@@ -335,7 +335,7 @@ export function Certifications() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3 border-t border-white/5">
                     <div className="space-y-2">
-                      <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 flex items-center gap-1.5">
+                      <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60 flex items-center gap-1.5">
                         <ShieldCheck className="w-3.5 h-3.5 text-primary" /> Verified Core Skills
                       </h4>
                       <div className="flex flex-wrap gap-1">
@@ -349,7 +349,7 @@ export function Certifications() {
 
                     {!selectedCert.inProgress && (
                       <div className="space-y-2">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 flex items-center gap-1.5">
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60 flex items-center gap-1.5">
                           <Calendar className="w-3.5 h-3.5 text-primary" /> Verification Details
                         </h4>
                         <p className="text-[11px] text-white/60">Credential ID: <span className="font-mono text-white/80">{selectedCert.credentialId}</span></p>
@@ -358,7 +358,7 @@ export function Certifications() {
                     )}
                     {selectedCert.inProgress && (
                       <div className="space-y-2">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 flex items-center gap-1.5">
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60 flex items-center gap-1.5">
                           <Calendar className="w-3.5 h-3.5 text-primary" /> Status
                         </h4>
                         <span className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest">In Progress</span>
@@ -427,7 +427,7 @@ export function Certifications() {
                   decoding="async"
                   className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl border border-white/10"
                 />
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 mt-4 text-center">
+                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60 mt-4 text-center">
                   {selectedCert.title} | {selectedCert.issuer}
                 </p>
               </motion.div>

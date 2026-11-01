@@ -55,7 +55,7 @@ export function About() {
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-50 pointer-events-none" />
                         
-                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 block mb-6">CORE CAPABILITIES</span>
+                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60 block mb-6">CORE CAPABILITIES</span>
                         
                         <div className="space-y-6 relative z-10">
                             {/* Cap 1 */}
@@ -64,7 +64,7 @@ export function About() {
                                     <Brain className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1 space-y-1">
-                                    <h4 className="text-sm font-bold text-white group-hover/item:text-primary transition-colors">Agentic AI & LLMs</h4>
+                                    <h3 className="text-sm font-bold text-white group-hover/item:text-primary transition-colors">Agentic AI & LLMs</h3>
                                     <p className="text-xs text-white/50 leading-relaxed">Designing RAG pipelines (pgvector/Gemini), prompt templates, and custom autonomous agents.</p>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@ export function About() {
                                     <Smartphone className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1 space-y-1">
-                                    <h4 className="text-sm font-bold text-white group-hover/item:text-primary transition-colors">Mobile & Fullstack Dev</h4>
+                                    <h3 className="text-sm font-bold text-white group-hover/item:text-primary transition-colors">Mobile & Fullstack Dev</h3>
                                     <p className="text-xs text-white/50 leading-relaxed">Crafting high-fidelity cross-platform apps (React Native, Expo) and reactive web frontends.</p>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@ export function About() {
                                     <Cloud className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1 space-y-1">
-                                    <h4 className="text-sm font-bold text-white group-hover/item:text-primary transition-colors">Cloud &amp; Infrastructure</h4>
+                                    <h3 className="text-sm font-bold text-white group-hover/item:text-primary transition-colors">Cloud &amp; Infrastructure</h3>
                                     <p className="text-xs text-white/50 leading-relaxed">AWS serverless architecture, Docker containerization, database optimizations, and secure API backends.</p>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@ export function About() {
                                     <BarChart2 className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1 space-y-1">
-                                    <h4 className="text-sm font-bold text-white group-hover/item:text-primary transition-colors">Data &amp; Analytics</h4>
+                                    <h3 className="text-sm font-bold text-white group-hover/item:text-primary transition-colors">Data &amp; Analytics</h3>
                                     <p className="text-xs text-white/50 leading-relaxed">SQL analysis, Power BI dashboards, time-series forecasting, and turning raw business data into decision-ready insight.</p>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@ export function About() {
                     viewport={{ once: true }}
                     className="relative border-t border-white/5 pt-12 overflow-hidden w-full"
                 >
-                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/30 block mb-6 text-center">TECHNICAL TOOLKIT</span>
+                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/60 block mb-6 text-center">TECHNICAL TOOLKIT</span>
                     <SkillsMarquee />
                 </motion.div>
 
