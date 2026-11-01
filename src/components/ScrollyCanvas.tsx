@@ -122,11 +122,14 @@ export function ScrollyCanvas() {
   const redraw = useCallback(() => {
     drawFrame(nearestLoaded(frameIndexFor(smoothProgress.get())));
   }, [drawFrame, smoothProgress]);
+  const redrawRef = useRef(redraw);
+  redrawRef.current = redraw;
 
   // Load frame 1 first so the hero shows straight away, then stream the rest in the background.
   // With reduced motion the portrait stays on frame 1, so the other frames are never downloaded.
+  // Runs once on mount and reads the media query directly, so no re-render can cancel the stream.
   useEffect(() => {
-    if (reduceMotion === null) return;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let cancelled = false;
     const dir = window.innerWidth < 768 ? 'm' : 'd';
     const src = (i: number) => `/sequence/${dir}/frame_${String(i + 1).padStart(3, '0')}.webp`;
@@ -146,8 +149,8 @@ export function ScrollyCanvas() {
     load(0).then(() => {
       if (cancelled) return;
       setIsLoaded(true);
-      requestAnimationFrame(redraw);
-      if (reduceMotion) return;
+      requestAnimationFrame(() => redrawRef.current());
+      if (prefersReduced) return;
 
       let next = 1;
       const worker = async () => {
@@ -159,7 +162,7 @@ export function ScrollyCanvas() {
     });
 
     return () => { cancelled = true; };
-  }, [reduceMotion, redraw]);
+  }, []);
 
   // Update canvas size only on resize to prevent expensive layout thrashing
   useEffect(() => {
