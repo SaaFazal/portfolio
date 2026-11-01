@@ -166,7 +166,7 @@ const certificationsList: Certification[] = [
     id: 'ms-pl300',
     title: 'PL-300: Power BI Data Analyst Associate (In Progress)',
     issuer: 'Microsoft',
-    date: 'In Progress — 2026',
+    date: 'In Progress, 2026',
     credentialId: '',
     skills: ['Power BI Desktop', 'DAX', 'Data Modelling', 'Report Design', 'Power Query'],
     description: 'Currently preparing for the Microsoft PL-300 certification, covering data preparation, modelling, DAX measures, and designing interactive Power BI reports and dashboards for business intelligence use cases.',
@@ -174,19 +174,6 @@ const certificationsList: Certification[] = [
     image: '',
     inProgress: true,
     verificationUrl: 'https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/'
-  },
-  {
-    id: 'cifa-finreg',
-    title: 'UK Financial Regulation & Professional Integrity (In Progress)',
-    issuer: 'CIFA',
-    date: 'In Progress — June 2026',
-    credentialId: '',
-    skills: ['FCA & PRA Frameworks', 'UK Capital Markets', 'Risk Management', 'COBS', 'Financial Crime'],
-    description: 'Currently undertaking this 160-hour professional certification covering UK financial regulation, FCA & PRA regulatory frameworks, conduct standards (COBS), risk management, and financial crime compliance.',
-    logoColor: 'from-amber-700/20 to-yellow-600/20 border-amber-600/30 text-amber-400',
-    image: '',
-    inProgress: true,
-    verificationUrl: 'https://www.cifa.ac.uk'
   }
 ];
 
@@ -441,7 +428,7 @@ export function Certifications() {
                   className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl border border-white/10"
                 />
                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 mt-4 text-center">
-                  {selectedCert.title} — {selectedCert.issuer}
+                  {selectedCert.title} | {selectedCert.issuer}
                 </p>
               </motion.div>
             </div>

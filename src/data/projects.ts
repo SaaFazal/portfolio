@@ -2,6 +2,7 @@ export interface Project {
   id: string;
   title: string;
   description: string;
+  result?: string; // One line outcome shown on the card, facts from the CV only
   tags: string[];
   link?: string;
   linkLabel?: string;
@@ -17,6 +18,7 @@ export interface Project {
   };
   details?: {
     vision: string;
+    problem?: string;
     features: string[];
     deepDive: {
       title: string;
@@ -28,15 +30,112 @@ export interface Project {
       items: string;
     }[];
   };
-    section?: 'Client Work' | 'Engineering and Academic Projects';
+    section?: 'Client Work' | 'Personal Projects' | 'Engineering and Academic Projects';
   filterCategory?: 'All' | 'Data & BI' | 'AI & ML' | 'Full Stack' | 'Systems' | 'Mobile';
 images?: string[];
 }
 
 export const projects: Project[] = [
 {
+    id: 'nhs-ae-performance',
+    title: 'NHS A&E Service Performance Reporting Pack',
+    result: 'September 2026 at 74.4%, 7.6 points below the 82% target, with 7 of 120 trusts on target',
+    description: 'A monthly MI pack on 24 months of NHS England A&E data, with KPIs against the 82% four hour target, a RAG table of 120 trusts, written monthly commentary and a one click monthly refresh.',
+    tags: ['Python (pandas)', 'SQL', 'Power BI', 'Power Query', 'DAX'],
+    // Repo not public yet; restore this line to show View Code
+    // github: 'https://github.com/SaaFazal/nhs-ae-service-performance',
+    image: '/projects/nhs-ae/dashboard.webp',
+    details: {
+      vision: 'A one page Power BI MI pack built the way a service reporting analyst works every month. It takes 24 months of NHS England A&E provider data (4,721 provider rows), tracks 4 hour performance against the 82% national target, 12 hour waits and month on month change, and ranks 120 major A&E trusts in a RAG table.',
+      problem: 'Monthly service reporting has to be accurate, comparable month to month and quick to refresh when the next file lands.',
+      features: [
+        'KPI cards: 4 hour performance against the 82% target, attendances, 12 hour waits and month on month change.',
+        'RAG table: a DAX driven RAG status and worst 10 ranking across 120 major A&E trusts, with conditional formatting.',
+        'One click refresh: a Power Query folder append, so dropping in the new month and pressing Refresh moves the whole pack forward.',
+        'Reconciliation: every monthly file is checked in Python against NHS England\'s published totals.',
+        'Monthly commentary: a written summary of the September 2026 position.'
+      ],
+      deepDive: [
+        {
+          title: 'Cleaning and reconciliation in Python',
+          content: 'Combined and cleaned 24 months of provider level CSVs in pandas, then checked that every month adds up exactly to NHS England\'s own total row. That check caught a file where the total row was written differently, which would have doubled February.'
+        },
+        {
+          title: 'KPIs in SQL',
+          content: 'Wrote the KPIs in SQL (SQLite): 4 hour performance, attendances, 12 hour waits, and month on month change using window functions (LAG).'
+        },
+        {
+          title: 'Power BI pack and refresh',
+          content: 'The page shows KPI cards against the 82% target, trend lines, a RAG table of the 120 major A&E trusts and a worst 10 list using a DAX rank. Power Query reads the whole folder, so holding back September and then adding it showed that one Refresh moves the pack to the new month.'
+        },
+        {
+          title: 'September 2026 commentary',
+          content: 'Performance fell to 74.4%, 7.6 points below target. Only 7 of 120 trusts were on target, 12 hour waits rose by 5,631 to 50,582, and the North West had 4 of the 10 worst trusts.'
+        }
+      ],
+      recruiterWin: '"Built a monthly A&E MI pack from 24 months of NHS England data, reconciled every file to published totals, and reported September 2026 at 74.4% against the 82% target, with 12 hour waits up 5,631 to 50,582."',
+      techStack: [
+        { category: 'Data preparation', items: 'Python (pandas)' },
+        { category: 'KPIs', items: 'SQL (SQLite, window functions)' },
+        { category: 'Reporting', items: 'Power BI, Power Query (folder append), DAX, conditional formatting' }
+      ]
+    },
+    images: ['/projects/nhs-ae/dashboard.webp'],
+    section: 'Personal Projects',
+    filterCategory: 'Data & BI'
+  },
+{
+    id: 'demand-forecasting',
+    title: 'Demand Forecasting and Inventory Planning',
+    result: 'Best method weighted MAPE 48.2%, bias minus 7.5%, 15 of 25 products to reorder at 3 weeks of cover',
+    description: 'Weekly forecasts for the top 25 products of a UK online retailer (1.07 million sales lines), using 3 methods on an 8 week holdout, plus safety stock, reorder points and a reorder list.',
+    tags: ['Python (pandas, statsmodels)', 'SQL', 'Power BI', 'DAX'],
+    // Repo not public yet; restore this line to show View Code
+    // github: 'https://github.com/SaaFazal/demand-forecasting-inventory',
+    image: '/projects/demand-forecasting/dashboard.webp',
+    details: {
+      vision: 'A demand planner\'s job done on real data: two years of sales from a UK online retailer, 1.07 million sales lines. Weekly demand for the top 25 products is forecast three ways, scored on an 8 week holdout, and turned into safety stock, reorder points and a live reorder list in Power BI.',
+      problem: 'Weekly wholesale demand is lumpy, so the planner needs to know which forecasting method to trust for each product and when to reorder.',
+      features: [
+        'Three forecasting methods: seasonal naive, an 8 week moving average and Holt Winters (statsmodels).',
+        'Holdout scoring: each method scored on the last 8 weeks with MAPE, weighted MAPE and bias.',
+        'Best method per product: the moving average won on 14 of 25 products, and best method selection gave a weighted MAPE of 48.2% with minus 7.5% bias.',
+        'Inventory plan: safety stock and reorder points at a 95% service level and 2 week lead time.',
+        'Planning page: a weeks of cover slider showing 15 of 25 products needing an order at 3 weeks of cover, falling to 6 at 4 weeks.'
+      ],
+      deepDive: [
+        {
+          title: 'Cleaning the sales lines',
+          content: 'The two yearly sheets overlapped, so 22,000 duplicate rows were removed. Cancellations were kept as negative quantities, so an order cancelled the same day does not look like demand.'
+        },
+        {
+          title: 'Weekly demand in SQL',
+          content: 'Built weekly demand for the top 25 products in SQL (SQLite), using a recursive CTE and window functions.'
+        },
+        {
+          title: 'Forecasting and scoring',
+          content: 'The last 8 weeks were held out and forecast three ways: same week last year, an 8 week moving average and Holt Winters. The simple moving average won on 14 of 25 products, because weekly wholesale demand is lumpy. Picking the best method per product gave a weighted MAPE of 48.2% and a slight under forecast of 7.5%.'
+        },
+        {
+          title: 'From forecast to reorder list',
+          content: 'Safety stock comes from the forecast error at a 95% service level and a 2 week lead time, then a reorder point per product. In Power BI a DAX what if parameter drives a weeks of cover slider: at 3 weeks of cover 15 products need ordering, and at 4 weeks only 6.'
+        }
+      ],
+      recruiterWin: '"Forecast weekly demand for 25 products from 1.07 million sales lines, compared 3 methods on an 8 week holdout (weighted MAPE 48.2%, bias minus 7.5%), and turned the result into safety stock, reorder points and a reorder list."',
+      techStack: [
+        { category: 'Data preparation and forecasting', items: 'Python (pandas, statsmodels Holt Winters)' },
+        { category: 'Weekly demand', items: 'SQL (SQLite, recursive CTE, window functions)' },
+        { category: 'Planning page', items: 'Power BI, DAX, what if parameter' }
+      ]
+    },
+    images: ['/projects/demand-forecasting/dashboard.webp'],
+    section: 'Personal Projects',
+    filterCategory: 'Data & BI'
+  },
+{
     id: 'phat-ops',
     title: 'PhatOps',
+    result: 'Used daily by 20 staff across 4 branches',
     description: 'Comprehensive multi-tenant mobile application launched on the App Store, digitizing operations across 4 PHAT Buns branches with rollout to 16 additional locations. It unifies workforce management, inventory tracking, compliance logging, and internal communications into a single cross platform app, with rendering latency cut by 20% through optimised components and tuned real time subscriptions.',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL'],
     link: '/privacy-policy',
@@ -44,6 +143,7 @@ export const projects: Project[] = [
     image: '/projects/restaurant-ops/restaurant-ops.png',
     details: {
       vision: 'PhatOps is a comprehensive, multi-tenant mobile application designed to digitize and streamline enterprise restaurant operations. Officially published on the App Store, the system currently orchestrates daily workforce and supply operations across 4 active PHAT Buns franchise branches, with rolling deployments scheduled for 16 additional locations nationwide. The platform unifies workforce management, inventory tracking, compliance logging, and internal communications into a single cross platform app.\n\nIt replaces fragmented systems (WhatsApp for shifts, paper for compliance, spreadsheets for inventory) with a centralized "Global Command Center" and localized store dashboards.',
+      problem: 'Shifts ran on WhatsApp, compliance on paper and inventory in spreadsheets, across 4 branches.',
       features: [
         'Production Deployment: Live on the iOS App Store, successfully powering operations for 4 franchise locations with rolling rollout to 16 future branches.',
         'Advanced Workforce Management: Smart drag-and-drop scheduling, shift lifecycles with cover requests, and geofenced real-time clock-in/out tracking.',
@@ -93,12 +193,14 @@ export const projects: Project[] = [
 {
     id: 'trukbk-web',
     title: 'TRUKBK',
+    result: 'Answers grounded in real product data, with a 2 layer fallback through API outages',
     description: 'Vehicle configurator and an AI Sales Concierge grounded in real product data, powered by a custom RAG pipeline with Supabase pgvector and Google Gemini. It automates high-touch B2B sales queries with grounded, hallucination-resistant responses via retrieval-augmented generation, capturing hot leads 24/7.',
     tags: ['RAG', 'Supabase pgvector', 'Google Gemini', 'React'],
     link: 'https://www.trukbk.co.uk/',
     image: '/projects/trukbk-web/main.png',
     details: {
-      vision: 'I built and launched the digital storefront for TRUKBK, a premium UK-based manufacturer of modular aluminium service bodies and truck trays. The goal was to create a high-end web experience that matched the rugged, premium nature of their physical products, while automating their sales pipeline using advanced AI.\n\nSelling custom, £10k+ physical truck builds is a high-touch process. Relying on a generic AI chatbot was dangerous—if an AI hallucinates a physical specification or price, it could lead to costly returns and broken trust. TRUKBK needed an automated way to answer customer queries with grounded, hallucination-resistant responses via retrieval-augmented generation and capture hot leads 24/7.',
+      vision: 'I built and launched the digital storefront for TRUKBK, a premium UK-based manufacturer of modular aluminium service bodies and truck trays. The goal was to create a high-end web experience that matched the rugged, premium nature of their physical products, while automating their sales pipeline using advanced AI.\n\nSelling custom, £10k+ physical truck builds is a high-touch process. Relying on a generic AI chatbot was dangerous: if an AI hallucinates a physical specification or price, it could lead to costly returns and broken trust. TRUKBK needed an automated way to answer customer queries with grounded, hallucination-resistant responses via retrieval-augmented generation and capture hot leads 24/7.',
+      problem: 'Custom truck builds sell for £10k+, so a chatbot that invents a spec or a price risks costly returns and lost trust.',
       features: [
         'Industrial Noir Aesthetic: Implemented a dark, premium UI utilizing deep blacks, stark whites, and industrial orange accents with glassmorphism and micro-animations.',
         'Interactive Configurator: Developed a dynamic, 6-stage product builder that allows users to select their vehicle, cab type, body style, finish, and accessories.',
@@ -134,6 +236,7 @@ export const projects: Project[] = [
 {
     id: 'restaurant-analytics',
     title: 'Restaurant Analytics',
+    result: '10 raw tables modelled into a 14 relationship star schema with 18+ DAX measures',
     description: 'End-to-end Power BI business intelligence solution for a multi-branch restaurant. Wrote SQL against the client\'s live sales database to extract per-shop data, exported to CSV for modelling, then audited and cleaned 10 raw tables into a star-schema model with 14 relationships. Features 18+ DAX measures, a custom punctuality KPI comparing rostered shift starts against clock-in times, and a What-If wage-cost model. Client data and visuals are confidential at the client\'s request.',
     tags: ['Power BI', 'DAX', 'Power Query', 'Data Modeling', 'Business Intelligence'],
     github: 'https://github.com/SaaFazal/Restaurant-Analytics',
@@ -180,6 +283,7 @@ export const projects: Project[] = [
 {
     id: 'arasan-travels',
     title: 'Arasan Travels',
+    result: 'Stripe reconciliation cut admin overhead by 15%',
     description: 'A premium, full-stack travel booking and package showcase platform powered by a serverless monorepo architecture and automated booking pipeline. It features an interactive trip discovery carousel, custom Expedia search widgets, and secure Stripe integrations, with automated reconciliation so every transaction ties out.',
     tags: ['React 19', 'Vite 7', 'Express v5', 'PostgreSQL', 'Drizzle ORM', 'Tailwind CSS v4', 'Stripe API'],
     link: 'http://www.arasantravels.co.uk',
@@ -187,6 +291,7 @@ export const projects: Project[] = [
     
     details: {
       vision: 'Arasan Travels is an interactive web application designed for a luxury touring and coach travel agency. It provides customers with an immersive browsing experience for day trips and multi-day staycations across the UK and Europe. Built as a pnpm monorepo, the platform features a Vite-powered React 19 frontend, an Express API backend, a PostgreSQL database managed via Drizzle ORM, and automated lead capture with secure Stripe integrations.',
+      problem: 'Bookings and payment reconciliation were handled by hand, taking admin time at the end of every period.',
       features: [
         'Interactive Trip Discovery: A horizontal scroll carousel showcasing staycation packages and day trips with custom nights/days badges and price points.',
         'Custom Expedia Search Widget: Fully responsive widget integration that allows booking flights, hotels, and custom travel packages directly through the platform.',
@@ -275,6 +380,7 @@ export const projects: Project[] = [
 {
     id: 'dev-insights',
     title: 'AI Developer Insights Platform',
+    result: 'Developer personas from KMeans and PCA, plus an ensemble voting classifier',
     description: 'A complete data science pipeline using the CRISP-DM framework to analyse the 2024 Stack Overflow Developer Survey. Cleans and explores a large survey dataset, segments respondents into developer personas using K-Means clustering with PCA for dimensionality reduction, then compares supervised classifiers combined into an ensemble voting classifier.',
     tags: ['Python', 'Machine Learning', 'Pandas', 'Scikit-learn', 'Clustering', 'Classification'],
     github: 'https://github.com/SaaFazal/dev-insights-ai',
@@ -317,6 +423,7 @@ export const projects: Project[] = [
 {
     id: 'cyclenest-api',
     title: 'CycleNest API',
+    result: 'Keeps serving requests through cloud database outages via automated failover',
     description: 'Cloud integrated REST API built for bike-sharing logistics, with low-latency route calculations, self-healing fallbacks, and Azure Cosmos DB storage. It maintains high availability through an automated active failover pattern to local in-memory stores during cloud database timeouts.',
     tags: ['Java', 'JAX-RS (Jersey)', 'Apache Tomcat', 'Azure Cosmos DB', 'OSRM Routing', 'System Design'],
     github: 'https://github.com/SaaFazal/CycleNest',
@@ -366,6 +473,7 @@ export const projects: Project[] = [
 {
     id: 'uni-chatbot',
     title: 'Car Logo Classifier & Intelligent Assistant',
+    result: 'Facts that contradict the knowledge base are proven false and rejected',
     description: 'AI assistant combining computer vision (VGG19) for image recognition with logical reasoning and semantic search for accurate answers. It handles open conversational Q&A while maintaining strict logical consistency, and returns high-confidence logo classifications.',
     tags: ['Python', 'TensorFlow', 'VGG19 CNN', 'NLTK', 'First-Order Logic', 'TF-IDF Similarity'],
     github: 'https://github.com/SaaFazal/Car_Chatbot',
@@ -413,6 +521,7 @@ export const projects: Project[] = [
 {
     id: 'ceptflow',
     title: 'CePTFlow Intelligence Suite',
+    result: 'Holt Winters forecasts fed by 3 ingestion modes: CSV, manual entry and receipt scanning',
     description: 'Inventory Forecasting Platform combining Holt-Winters time-series forecasting with interactive Plotly dashboards for real-time stock insight, and AI Assistant to transform retail inventory decisions. It runs Holt Winters forecasting on historical sales, with a structured SQL layer underneath and Plotly dashboards on top.',
     tags: ['Python', 'Flask', 'Google Gemini', 'RAG', 'Time-Series'],
     link: '/projects/ceptflow',
@@ -514,6 +623,7 @@ export const projects: Project[] = [
 {
     id: 'journey-test-suite',
     title: 'C++ GPS Journey Test Suite',
+    result: 'Uncovered 11 defects across 2 independent developer implementations',
     description: 'An automated unit testing suite built in C++20 for a GPS journey analysis application. Utilizing the Boost Unit Test Framework, it rigorously validates edge cases and timing conditions to uncover hidden software defects.',
     tags: ['C++20', 'Software Testing', 'QA Engineering', 'Boost UTF', 'Qt', 'Systems Programming'],
     github: 'https://github.com/SaaFazal/JourneyTestSuite_CPP',
@@ -698,4 +808,28 @@ export const projects: Project[] = [
     section: 'Engineering and Academic Projects',
     filterCategory: 'Mobile'
   }
+];
+
+// Shown first, in this order. Add new data projects to the top of this list.
+export const featuredOrder = [
+  'nhs-ae-performance',
+  'demand-forecasting',
+  'restaurant-analytics',
+  'trukbk-web',
+  'phat-ops',
+  'arasan-travels',
+  'ushop-inventory',
+];
+
+// Shown behind the "More projects" button.
+export const moreOrder = [
+  'ceptflow',
+  'dev-insights',
+  'ntu-timetable',
+  'load-balancer',
+  'slipstack',
+  'ffsmart',
+  'journey-test-suite',
+  'uni-chatbot',
+  'cyclenest-api',
 ];

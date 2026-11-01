@@ -1,73 +1,118 @@
 'use client';
-import { motion, MotionValue, useTransform } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { motion, MotionValue, useMotionValueEvent, useReducedMotion, useTransform } from 'framer-motion';
+import { ArrowDown, ChevronDown, FileText } from 'lucide-react';
 
 interface OverlayProps {
   progress: MotionValue<number>;
 }
 
-export function Overlay({ progress }: OverlayProps) {
-  // Section 1: 0% to 20%
-  const opacity1 = useTransform(progress, [0, 0.1, 0.2], [1, 1, 0]);
-  const y1 = useTransform(progress, [0, 0.2], [0, -100]);
+// Tailwind v4 does not read tailwind.config.ts here, so the script accent is set directly
+const accentStyle = { fontFamily: 'var(--font-caveat), cursive', color: '#ff3d00', fontWeight: 700 };
 
-  // Section 2: 30% to 50%
-  const opacity2 = useTransform(progress, [0.2, 0.3, 0.4, 0.5], [0, 1, 1, 0]);
-  const y2 = useTransform(progress, [0.2, 0.5], [100, -100]);
+const cvOptions = [
+  { label: 'Data Analyst CV', href: '/SahadhCV.pdf' },
+  { label: 'Software & AI CV', href: '/SFM_CV.pdf' },
+];
 
-  // Section 3: 60% to 80%
-  const opacity3 = useTransform(progress, [0.5, 0.6, 0.7, 0.8], [0, 1, 1, 0]);
-  const y3 = useTransform(progress, [0.5, 0.8], [100, -100]);
+function CvMenu() {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-  // Section 4: 85% to 100%
-  const opacity4 = useTransform(progress, [0.8, 0.9, 1], [0, 1, 0]);
-  const y4 = useTransform(progress, [0.8, 1], [100, -100]);
+  useEffect(() => {
+    if (!open) return;
+    const onClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    document.addEventListener('mousedown', onClick);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onClick);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
 
   return (
-    <div className="absolute inset-0 z-10 pointer-events-none flex flex-col items-center justify-center p-8">
-      
-      {/* Section 1 */}
-      <motion.div 
-        style={{ opacity: opacity1, y: y1 }}
-        className="absolute inset-0 flex flex-col items-center justify-center text-center"
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen(v => !v)}
+        aria-expanded={open}
+        aria-haspopup="menu"
+        className="flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/30 bg-black/40 backdrop-blur-md text-white text-xs font-bold tracking-widest uppercase hover:bg-white/10 transition-colors"
       >
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight text-white drop-shadow-xl shadow-black">
+        <FileText size={14} aria-hidden="true" />
+        Download CV
+        <ChevronDown size={14} aria-hidden="true" className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <div role="menu" className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-56 rounded-xl border border-white/15 bg-black/90 backdrop-blur-xl p-1.5 shadow-2xl z-20">
+          {cvOptions.map(option => (
+            <a
+              key={option.href}
+              role="menuitem"
+              href={option.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="block px-4 py-3 rounded-lg text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+            >
+              {option.label}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export function Overlay({ progress }: OverlayProps) {
+  const reduceMotion = useReducedMotion();
+
+  // The intro stays readable for most of the sequence, then clears so the portrait finishes on its own
+  const opacity = useTransform(progress, [0, 0.55, 0.8], [1, 1, 0]);
+  const y = useTransform(progress, [0, 0.8], [0, reduceMotion ? 0 : -80]);
+
+  // Buttons stop catching clicks once the intro has faded
+  const [interactive, setInteractive] = useState(true);
+  useMotionValueEvent(progress, 'change', v => setInteractive(v < 0.75));
+
+  return (
+    <div className="absolute inset-0 z-10 pointer-events-none flex flex-col items-center justify-center p-6">
+      <motion.div
+        style={{ opacity, y }}
+        className="absolute inset-0 flex flex-col items-center justify-center text-center px-5"
+      >
+        <h1 className="text-4xl md:text-7xl font-bold mb-3 tracking-tight text-white drop-shadow-xl">
           Sahadh Fazal Mohamed
         </h1>
-          <p className="text-sm md:text-xl font-medium text-white/70 tracking-widest uppercase">
-            Software Engineer | AI Engineer | Data Analyst
-          </p>
-      </motion.div>
-
-      {/* Section 2 */}
-      <motion.div 
-        style={{ opacity: opacity2, y: y2 }}
-        className="absolute inset-0 flex flex-col items-start justify-center max-w-5xl mx-auto px-4"
-      >
-        <h2 className="text-4xl md:text-6xl font-bold text-white drop-shadow-xl shadow-black w-full text-left">
-          I build <br/><span className="text-primary font-caveat text-6xl md:text-8xl">digital experiences.</span>
-        </h2>
-      </motion.div>
-
-      {/* Section 3 */}
-      <motion.div 
-        style={{ opacity: opacity3, y: y3 }}
-        className="absolute inset-0 flex flex-col items-end justify-center max-w-5xl mx-auto px-4"
-      >
-        <h2 className="text-4xl md:text-6xl font-bold text-white drop-shadow-xl shadow-black w-full text-right">
-          Bridging <br/><span className="text-primary font-caveat text-6xl md:text-8xl">design & engineering.</span>
-        </h2>
-      </motion.div>
-      
-      {/* Section 4 */}
-      <motion.div 
-        style={{ opacity: opacity4, y: y4 }}
-        className="absolute pb-20 bottom-0 inset-0 flex flex-col items-center justify-end max-w-5xl mx-auto px-4"
-      >
-        <p className="text-white/60 uppercase tracking-[0.3em] text-sm animate-pulse mb-8 drop-shadow-xl shadow-black">
-          Scroll to explore projects ↓
+        <p className="text-[11px] md:text-lg font-semibold text-white/85 tracking-[0.08em] md:tracking-[0.2em] uppercase mb-8 md:mb-10">
+          Data Analyst | AI Engineer | Software Engineer
         </p>
-      </motion.div>
 
+        <p className="max-w-3xl text-xl md:text-4xl font-bold text-white leading-snug drop-shadow-xl">
+          I turn messy business data into{' '}
+          <span style={accentStyle} className="text-3xl md:text-6xl leading-none">reports people actually use</span>,
+          {' '}and build AI tools that{' '}
+          <span style={accentStyle} className="text-3xl md:text-6xl leading-none">don&apos;t make things up.</span>
+        </p>
+
+        <p className="mt-6 md:mt-8 text-xs md:text-sm text-white/80 tracking-wider">
+          Currently open to graduate data and BI roles · London or Nottingham
+        </p>
+
+        <div className={`mt-8 flex flex-wrap items-center justify-center gap-3 ${interactive ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+          <a
+            href="#projects"
+            className="flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-black text-xs font-bold tracking-widest uppercase hover:scale-[1.03] active:scale-[0.98] transition-transform"
+          >
+            View projects
+            <ArrowDown size={14} aria-hidden="true" />
+          </a>
+          <CvMenu />
+        </div>
+      </motion.div>
     </div>
   );
 }

@@ -182,7 +182,7 @@ export function ScrollyCanvas() {
   });
 
   return (
-    <div ref={containerRef} className="relative h-[500vh] w-full bg-background">
+    <div ref={containerRef} className="relative h-[250vh] w-full bg-background">
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-background">
         
         {/* The Sequence Canvas */}
@@ -193,13 +193,9 @@ export function ScrollyCanvas() {
         
         {/* Loading state while frames download */}
         {!isLoaded && (
-          <div className="absolute inset-0 flex items-center justify-center bg-background z-20">
-            <div className="flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full border-4 border-primary border-t-transparent animate-spin mb-4" />
-              <p className="text-sm font-medium text-white/60 tracking-widest uppercase">
-                LOADING...
-              </p>
-            </div>
+          // Sits under the text layer so the name, line and buttons are readable while frames download
+          <div className="absolute inset-0 flex items-end justify-center pb-10 bg-background z-[5]" aria-hidden="true">
+            <div className="w-6 h-6 rounded-full border-2 border-primary border-t-transparent animate-spin" />
           </div>
         )}
 

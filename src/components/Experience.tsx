@@ -34,7 +34,6 @@ const experience = [
                     <li>Integrated Stripe with automated payment reconciliation, cutting administrative overhead by 15% by removing manual end-of-period checking.</li>
                     <li>Built an interactive trip discovery carousel and custom search widgets, and modelled the data layer in PostgreSQL with Drizzle ORM.</li>
                 </ul>
-                <p>The reconciliation work mattered most commercially: a booking system nobody trusts financially doesn't get used, however good the front end looks.</p>
             </div>
         ),
         logo: "/arasan-travels.png"
@@ -48,8 +47,8 @@ const experience = [
                 <ul className="list-disc pl-4 space-y-1.5 opacity-90">
                     <li>Built PhatOps, an operations app covering rostering, inventory and expense tracking, used daily by 20 staff across 4 branches, with rollout planned for 16 further sites.</li>
                     <li>Worked directly alongside the staff to source requirements, identifying where orders were lost, delayed or mismatched between kitchen and till instead of assuming the problem from outside.</li>
-                    <li>Architected the full stack solution in React, TypeScript, Tailwind CSS and Supabase, with real time sync so a change made at one station is reflected everywhere immediately.</li>
-                    <li>Reduced rendering latency by 20% through optimised reusable components and tuned Supabase real time subscriptions.</li>
+                    <li>Architected it in React, TypeScript, Tailwind CSS and Supabase with real time sync, and cut rendering latency by 20% through optimised reusable components and tuned subscriptions.</li>
+                    <li>Designed the PhatOps screens in Figma and carried out market research and brand reputation work for PHAT Buns.</li>
                 </ul>
             </div>
         ),
@@ -67,7 +66,6 @@ const experience = [
                     <li>Acted as the first point of contact for coursemates settling into university life, helping new students navigate deadlines, module choices and where to get support.</li>
                     <li>Followed up on raised issues to confirm they were actually addressed, rather than treating the meeting itself as the outcome.</li>
                 </ul>
-                <p>This was the first role where I had to turn what a group of people vaguely wanted into something specific a decision-maker could act on, which turned out to be most of what requirements gathering actually is.</p>
             </div>
         ),
         logo: "/NTU.png"
@@ -131,9 +129,9 @@ export function Experience() {
                     viewport={{ once: true }}
                     transition={{ type: 'spring', damping: 20 }}
                 >
-                    <h3 className="text-3xl md:text-4xl font-black mb-12 flex items-center gap-2 uppercase italic tracking-tight text-white">
+                    <h2 className="text-3xl md:text-4xl font-black mb-12 flex items-center gap-2 uppercase italic tracking-tight text-white">
                         Work <span className="text-gradient-primary">History</span>
-                    </h3>
+                    </h2>
                     <div className="space-y-8">
                         {experience.map((job, index) => (
                             <div key={index} className="relative pl-8 group">
@@ -156,7 +154,7 @@ export function Experience() {
                                             </div>
                                         )}
                                         <div className="flex-1 min-w-0">
-                                            <h4 className="text-lg font-bold text-white group-hover:text-primary transition-colors duration-300 leading-snug">{job.role}</h4>
+                                            <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors duration-300 leading-snug">{job.role}</h3>
                                             <p className="text-xs font-black uppercase tracking-widest text-primary/80 mt-1 mb-3">{job.company} | <span className="text-white/40 font-mono">{job.period}</span></p>
                                             <div className="text-xs md:text-sm text-white/60 leading-relaxed">{job.desc}</div>
                                         </div>
@@ -174,9 +172,9 @@ export function Experience() {
                     viewport={{ once: true }}
                     transition={{ type: 'spring', damping: 20 }}
                 >
-                    <h3 className="text-3xl md:text-4xl font-black mb-12 flex items-center gap-2 uppercase italic tracking-tight text-white">
+                    <h2 className="text-3xl md:text-4xl font-black mb-12 flex items-center gap-2 uppercase italic tracking-tight text-white">
                         Education <span className="text-gradient-primary">History</span>
-                    </h3>
+                    </h2>
                     <div className="space-y-8">
                         {education.map((edu, index) => (
                             <div key={index} className="relative pl-8 group">
@@ -199,7 +197,7 @@ export function Experience() {
                                             </div>
                                         )}
                                         <div className="flex-1 min-w-0">
-                                            <h4 className="text-lg font-bold text-white group-hover:text-primary transition-colors duration-300 leading-snug">{edu.degree}</h4>
+                                            <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors duration-300 leading-snug">{edu.degree}</h3>
                                             <p className="text-xs font-black uppercase tracking-widest text-primary/80 mt-1 mb-3">{edu.school} | <span className="text-white/40 font-mono">{edu.period}</span></p>
                                             <p className="text-xs md:text-sm text-white/60 leading-relaxed">{edu.details}</p>
                                         </div>

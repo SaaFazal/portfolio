@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  title: "Sahadh Fazal Mohamed — Software Engineer, AI Engineer & Data Analyst",
-  description: "Software & AI Engineer and Data Analyst — full-stack applications, RAG pipelines, Power BI, SQL, and data analytics. UK-based, open to work.",
+  title: "Sahadh Fazal Mohamed | Data Analyst, AI Engineer, Software Engineer",
+  description: "Data Analyst and AI Engineer. I turn messy business data into reports people actually use, and build AI tools that don't make things up. Power BI, SQL, Python and RAG. UK based, open to graduate data and BI roles.",
   icons: {
     icon: '/profile.jpeg',
     shortcut: '/profile.jpeg',
@@ -44,7 +44,7 @@ export default function RootLayout({
                 "https://www.linkedin.com/in/sahadhfazal",
                 "https://github.com/SaaFazal"
               ],
-              "jobTitle": "Software Engineer, AI Engineer & Data Analyst",
+              "jobTitle": "Data Analyst, AI Engineer, Software Engineer",
               "alumniOf": {
                 "@type": "CollegeOrUniversity",
                 "name": "Nottingham Trent University"

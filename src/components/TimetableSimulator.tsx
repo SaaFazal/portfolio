@@ -228,7 +228,7 @@ export default function TimetableSimulator() {
             <span className="w-3 h-3 rounded-full bg-green-500/80 block" />
           </div>
           <span className="text-xs uppercase tracking-widest text-white/50 font-bold flex items-center gap-2">
-            <Layers className="w-3.5 h-3.5 text-[#ff3d00]" /> NTU_Timetable_Solver.exe — C++ Native GUI
+            <Layers className="w-3.5 h-3.5 text-[#ff3d00]" /> NTU_Timetable_Solver.exe | C++ Native GUI
           </span>
         </div>
         <div className="flex items-center gap-4">
@@ -483,7 +483,7 @@ export default function TimetableSimulator() {
                         {selectedCard.sessionType}
                       </span>
                       <h4 className="text-lg font-black text-white mt-1.5">{selectedCard.module}</h4>
-                      <p className="text-xs text-white/60">{selectedCard.lecturer} — {selectedCard.room}</p>
+                      <p className="text-xs text-white/60">{selectedCard.lecturer} | {selectedCard.room}</p>
                     </div>
                     <button 
                       onClick={() => setSelectedCard(null)}

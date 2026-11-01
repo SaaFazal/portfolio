@@ -30,14 +30,17 @@ export function About() {
                         
                         <div className="space-y-4 text-white/70 leading-relaxed text-sm md:text-base">
                             <p>
-                                I am a Software Engineer, AI Developer, and Data Analyst — and a BSc (Hons) Computer Science graduate (2:1) from Nottingham Trent University.
-                                I specialise in building <strong className="text-white">Mobile Applications</strong>, autonomous <strong className="text-white">AI Agents</strong>, scalable <strong className="text-white">Cloud Infrastructure</strong>, and turning raw business data into <strong className="text-white">Decision-Ready Insight</strong>.
+                                I am a Data Analyst, AI Engineer and Software Engineer, and a BSc (Hons) Computer Science graduate (2:1) from Nottingham Trent University.
+                                I specialise in turning raw business data into <strong className="text-white">Decision Ready Insight</strong>, and in building <strong className="text-white">AI Agents</strong>, <strong className="text-white">Mobile Applications</strong> and <strong className="text-white">Cloud Infrastructure</strong>.
+                            </p>
+                            <p>
+                                At PHAT Buns I designed the PhatOps screens in <strong className="text-white">Figma</strong> before building them, owning both the design and the engineering, and carried out market research and brand reputation work for the business.
                             </p>
                             <p>
                                 With deep expertise across Python, Java, and TypeScript, I focus on turning complex logical architectures into fluid, production-ready interfaces that load fast, feel responsive, and solve concrete business problems.
                             </p>
                             <p>
-                                From building production RAG pipelines with real-time vector search (pgvector), to time-series forecasting models and mobile deployments, I build software and systems that solve concrete problems — and I'm certified in Microsoft's agentic AI framework (Semantic Kernel), which I'm looking to apply hands-on next.
+                                From building production RAG pipelines with real-time vector search (pgvector), to time-series forecasting models and mobile deployments, I build software and systems that solve concrete problems. I'm also certified in Microsoft's agentic AI framework (Semantic Kernel), which I'm looking to apply hands-on next.
                             </p>
                         </div>
                     </motion.div>
